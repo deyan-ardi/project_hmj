@@ -2630,4 +2630,13 @@ class Ion_auth_model extends CI_Model
 	{
 		return $this->db->select('first_name, last_name')->from('users')->where('users.id =' . $id)->get()->result_array();
 	}
+	public function getAdmin($id)
+	{
+		$this->db->select('users.first_name, group_id, users.company,users.phone,users.last_name, users.email');
+		$this->db->from('users');
+		$this->db->join('users_groups', 'users_groups.user_id = users.id', 'inner');
+		$this->db->where('users_groups.user_id =' . $id);
+		$this->db->where('users_groups.group_id = 1');
+		return $this->db->get()->num_rows();
+	}
 }

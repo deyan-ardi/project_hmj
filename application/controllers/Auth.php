@@ -416,14 +416,19 @@ class Auth extends CI_Controller
 		} else {
 			// do we really want to deactivate?
 			if ($this->input->post('confirm') == 'yes') {
-				// do we have a valid request?
-				if ($this->_valid_csrf_nonce() === FALSE || $id != $this->input->post('id')) {
-					show_error($this->lang->line('error_csrf'));
-				}
+				if ($this->ion_auth_model->getAdmin($id) > 0) {
+					$this->session->set_flashdata('gagal', 'Dihapus, Anda tidak dapat mendeaktivasi level user Admin');
+					return redirect('admin', 'refresh');
+				} else {
+					// do we have a valid request?
+					if ($this->_valid_csrf_nonce() === FALSE || $id != $this->input->post('id')) {
+						show_error($this->lang->line('error_csrf'));
+					}
 
-				// do we have the right userlevel?
-				if ($this->ion_auth->logged_in() && $this->ion_auth->is_admin()) {
-					$this->ion_auth->deactivate($id);
+					// do we have the right userlevel?
+					if ($this->ion_auth->logged_in() && $this->ion_auth->is_admin()) {
+						$this->ion_auth->deactivate($id);
+					}
 				}
 			}
 

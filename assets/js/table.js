@@ -28,3 +28,25 @@ $(document).ready(function () {
 		"order": [[5, "desc"]]
 	});
 });
+$(document).ready(function () {
+	$('#tableLomba').DataTable();
+});
+$(document).ready(function () {
+	$('#tableKategori').DataTable();
+});
+$(document).ready(function () {
+	$('#tableJadwalHari').DataTable();
+});
+$(document).ready(function () {
+	$('#tableHari').DataTable();
+});
+$(document).ready(function () {
+	$('#tableSponsor').DataTable();
+});
+$(document).ready(function () {
+	$('#tableKegiatan').DataTable();
+});
+
+
+
+

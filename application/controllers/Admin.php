@@ -38,10 +38,17 @@ class Admin extends CI_Controller
 			redirect('login', 'refresh');
 		} else {
 			if ($this->ion_auth->is_admin()) {
-				if ($this->ion_auth_model->hapusUser($id)) {
+				if ($this->ion_auth_model->getAdmin($id) > 0) {
+					$this->session->set_flashdata('gagal', 'Dihapus, Anda tidak dapat menghapus level user Admin');
 					return redirect('admin', 'refresh');
 				} else {
-					return redirect('admin', 'refresh');
+					if ($this->ion_auth_model->hapusUser($id)) {
+						$this->session->set_flashdata('berhasil', 'Dihapus');
+						return redirect('admin', 'refresh');
+					} else {
+						$this->session->set_flashdata('gagal', 'Dihapus');
+						return redirect('admin', 'refresh');
+					}
 				}
 			} else {
 				show_404();
