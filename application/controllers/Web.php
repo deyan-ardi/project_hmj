@@ -803,8 +803,8 @@ class Web extends CI_Controller
 			$this->data['flip'] = "false";
 			// All Validations
 			$this->form_validation->set_rules('kategori', 'Kategori', 'required');
-			$this->form_validation->set_rules('judul_informasi', 'Judul Informasi', 'required|max_length[40]');
-			$this->form_validation->set_rules('konten', 'Deskripsi Repositori', 'required');
+			$this->form_validation->set_rules('judul_informasi', 'Judul Informasi', 'required|max_length[100]');
+			$this->form_validation->set_rules('konten', 'Konten', 'required');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/master/header', $this->data);
@@ -919,23 +919,6 @@ class Web extends CI_Controller
 					redirect("web/tambah_data_informasi");
 				}
 			}
-		}
-	}
-	public function lihat_informasi($id_informasi = '')
-	{
-		if (!$this->ion_auth->logged_in() || !$this->ion_auth->in_group(group)) {
-			redirect('web/home', 'refresh');
-		} else {
-			$id = $_SESSION['user_id'];
-			$this->data['group'] = $this->ion_auth_model->getGroup($id);
-			$this->data['informasi'] = $this->All_model->getInformasiWhere($id_informasi);
-			$this->data['title'] = "Web HMJ - Manajemen Informasi HMJ";
-			$this->data['active'] = "4";
-			$this->data['ckeditor'] = "false";
-			$this->data['flip'] = "false";
-			$this->load->view('admin/master/header', $this->data);
-			$this->load->view('admin/page/web/lihat_informasi', $this->data);
-			$this->load->view('admin/master/footer', $this->data);
 		}
 	}
 	public function hapus_data_informasi($id = '')

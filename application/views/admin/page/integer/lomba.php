@@ -11,13 +11,15 @@
              <!-- Card Header - Accordion -->
              <a href="#jadwal" class="d-block card-header py-3" data-toggle="collapse" role="button"
                  aria-expanded="true" aria-controls="jadwal">
-                 <h6 class="m-0 font-weight-bold text-primary">Data Lomba Integer</h6>
+                 <h6 class="m-0 font-weight-bold text-primary">Lomba Integer</h6>
              </a>
              <!-- Card Content - Collapse -->
              <div class="collapse" id="jadwal" data-parent="#ManajemenLomba">
                  <div class="card-body">
-                     <!-- Hari -->
-                     <a href="#" class="btn btn-primary btn-sm btn-icon-split mb-4">
+                     <!-- Kategori Lomba -->
+                     <h6 class="m-0 font-weight-bold text-primary mb-4">Data Kategori Lomba</h6>
+                     <a href="<?= base_url() ?>integer/tambah_kategori_lomba"
+                         class="btn btn-primary btn-sm btn-icon-split mb-4">
                          <span class="icon text-white-50">
                              <i class="fas fa-flag"></i>
                          </span>
@@ -29,7 +31,7 @@
                                  <tr>
                                      <th>Icon Kategori</th>
                                      <th>Nama Kategori Lomba</th>
-                                     <th>Deskripsi Lomba</th>
+                                     <th>Deskripsi Kategori</th>
                                      <th>Dibuat Oleh</th>
                                      <th>Dibuat Tanggal</th>
                                      <?php if ($group[0]['group_id'] == "1") { ?>
@@ -59,8 +61,11 @@
                              </tbody>
                          </table>
                      </div>
-                     <!-- Kegiatan Perhari -->
-                     <a href="#" class="btn btn-primary btn-sm btn-icon-split mb-4 mt-4">
+                     <!-- Lomba -->
+                     <hr>
+                     <h6 class="m-0 font-weight-bold text-primary">Data Lomba</h6>
+                     <a href="<?= base_url() ?>integer/tambah_lomba"
+                         class="btn btn-primary btn-sm btn-icon-split mb-4 mt-4">
                          <span class="icon text-white-50">
                              <i class="fas fa-flag"></i>
                          </span>
@@ -73,7 +78,7 @@
                                      <th>Nama Kategori Lomba</th>
                                      <th>Icon Lomba</th>
                                      <th>Nama Lomba</th>
-                                     <th>Deskripsi</th>
+                                     <th>Deskripsi Lomba</th>
                                      <th>Link Pendaftaran</th>
                                      <th>Dibuat Oleh</th>
                                      <th>Dibuat Tanggal</th>
@@ -116,7 +121,8 @@
              <div class="collapse" id="peserta" data-parent="#ManajemenLomba">
                  <div class="card-body">
                      <!-- Hari -->
-                     <a href="#" class="btn btn-primary btn-sm btn-icon-split mb-4 mt-4">
+                     <a href="<?= base_url() ?>integer/tambah_informasi"
+                         class="btn btn-primary btn-sm btn-icon-split mb-4 mt-4">
                          <span class="icon text-white-50">
                              <i class="fas fa-flag"></i>
                          </span>
@@ -139,7 +145,7 @@
                                      <td>Jam Wita</td>
                                      <td>Kategori Informasinya Apa</td>
                                      <td>
-                                         <a href="<?= base_url() ?>web/lihat_informasi/"
+                                         <a href="<?= base_url() ?>integer/detail_informasi/"
                                              class="btn btn-primary btn-sm btn-icon-split">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-eye"></i>

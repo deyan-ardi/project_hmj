@@ -9,6 +9,7 @@
 	    <link rel="stylesheet" href="<?= base_url() ?>assets/css/viewer.css" />
 	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.2/pdf.min.js"></script>
 	    <link rel="shortcut icon" href="<?= base_url() ?>assets/img/sso-logo.png" type="image/x-icon">
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 
 	<body>

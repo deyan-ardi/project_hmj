@@ -640,10 +640,6 @@ class All_model extends CI_Model
 	{
 		return $this->db->order_by('create_at', 'DESC')->get('s1_informasi')->result_array();
 	}
-	public function getInformasiWhere($id)
-	{
-		return $this->db->where('id_informasi=' . $id)->get('s1_informasi')->result_array();
-	}
 	public function tambahDataInformasi($foto_1, $foto_2, $foto_3, $file_doc, $namaKepengurusan)
 	{
 		$query = array(
