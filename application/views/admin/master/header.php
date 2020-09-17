@@ -161,7 +161,7 @@
 	                    data-parent="#accordionSidebar">
 	                    <div class="bg-white py-2 collapse-inner rounded">
 	                        <h6 class="collapse-header">Lainnya:</h6>
-	                        <a class="collapse-item" href="<?= base_url() ?>web/berkas">E-ORS</a>
+	                        <a class="collapse-item" href="<?= base_url() ?>eors">E-ORS</a>
 	                        <a class="collapse-item" href="<?= base_url() ?>web/tentang_hmj">E-VOTING</a>
 	                    </div>
 	                </div>

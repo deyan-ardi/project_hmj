@@ -31,6 +31,7 @@ defined('FILE_WRITE_MODE') or define('FILE_WRITE_MODE', 0666);
 defined('DIR_READ_MODE')   or define('DIR_READ_MODE', 0755);
 defined('DIR_WRITE_MODE')  or define('DIR_WRITE_MODE', 0755);
 const group = array(1, 2);
+const eors = array(1, 4);
 const evoting =  array(3);
 
 /*
