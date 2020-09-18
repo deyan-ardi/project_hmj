@@ -21,38 +21,38 @@
          </button>
      </div>
      <?php endif; ?>
-     <div class="modal fade" id="modalInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-         <div class="modal-dialog modal-lg">
-             <div class="modal-content ">
-                 <div class="modal-header">
-                     <h5 class="modal-title" id="exampleModalLabel">Petunjuk Penggunaan</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                         <span aria-hidden="true">&times;</span>
-                     </button>
-                 </div>
-                 <div class="modal-body">
-                     <ul>
-                         <li>Untuk menambah User Baru, silahkan pilih tombol Tambah User. Untuk menambah Level User,
-                             silahkan pilih tombol Tambah Level</li>
-                         <li>Untuk mengubah Deskripsi Level, silahkan pilih pada bagian Level User. Untuk mengaktifkan
-                             dan menonaktifkan user, silahkan pilih pada bagian Aktivasi</li>
-                         <li>Untuk mengubah dan menghapus user, silahkan pilih pada bagian Fitur</li>
-                         <li>Username yang harus identik adalah Email, pastikan Email user adalah Email yang aktif</li>
-                         <li>Untuk mengatur Link yang tampil di halaman Awal Landing Page, silahkan perhatikan pada
-                             bagian Data Pengaturan Landing</li>
-                         <li>Anda hanya dapat mengatur 4 Links Utama,selain 4 Link itu akan diarahkan pada bagian menu
-                             di Landing Page</li>
+     <div class="accordion" id="ManajemenWebsite">
+         <div class="card shadow mb-4">
+             <!-- Card Header - Accordion -->
+             <a href="#jabatan" class="d-block card-header py-3" data-toggle="collapse" role="button"
+                 aria-expanded="true" aria-controls="jabatan">
+                 <h6 class="m-0 font-weight-bold text-primary">Data Jabatan</h6>
+             </a>
+             <!-- Card Content - Collapse -->
+             <div class="collapse" id="jabatan" data-parent="#ManajemenWebsite">
+                 <div class="card-body">
+                     <p>
+                         <?php echo anchor('admin/tambah_landing', '<button class="btn btn-primary btn-sm btn-icon-split"><span class="icon text-white-50"><i class="fas fa-flag"></i>
+				</span><span class="text">Tambah Landing</span></button> ') ?>
+                     </p>
+                     <div class="table-responsive">
+                         <table class="table table-bordered" id="tableKepengurusan" width="100%" cellspacing="0">
+                             <thead>
+                                 <tr>
+                                     <th>No</th>
+                                     <th>Nama Jabatan</th>
+                                     <th>Dibuat Pada</th>
+                                     <th>Fitur</th>
+                                 </tr>
+                             </thead>
+                             <tbody>
 
-
-                     </ul>
-                 </div>
-                 <div class="modal-footer">
-                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                             </tbody>
+                         </table>
+                     </div>
                  </div>
              </div>
          </div>
-     </div>
-     <div class="accordion" id="ManajemenWebsite">
          <div class="card shadow mb-4">
              <!-- Card Header - Accordion -->
              <a href="#kepengurusan" class="d-block card-header py-3" data-toggle="collapse" role="button"
@@ -60,7 +60,7 @@
                  <h6 class="m-0 font-weight-bold text-primary">Data User Website</h6>
              </a>
              <!-- Card Content - Collapse -->
-             <div class="collapse show" id="kepengurusan" data-parent="#ManajemenWebsite">
+             <div class="collapse" id="kepengurusan" data-parent="#ManajemenWebsite">
                  <div class="card-body col-12 row">
                      <p class="pr-3">
                          <?php echo anchor('admin/tambah_user', '<button class="btn btn-primary btn-sm btn-icon-split"><span class="icon text-white-50"><i class="fas fa-flag"></i>
@@ -87,8 +87,8 @@
                              </thead>
                              <tbody>
                                  <?php
-									$i = 1;
-									foreach ($users as $user) : ?>
+                                    $i = 1;
+                                    foreach ($users as $user) : ?>
                                  <tr>
                                      <td><?= $i++; ?></td>
                                      <td><?php echo htmlspecialchars($user->ip_address, ENT_QUOTES, 'UTF-8'); ?></td>
@@ -170,8 +170,8 @@
                              </thead>
                              <tbody>
                                  <?php
-									$i = 1;
-									foreach ($landing as $data) : ?>
+                                    $i = 1;
+                                    foreach ($landing as $data) : ?>
                                  <tr>
                                      <td><?= $i++ ?></td>
                                      <td><?= $data['title'] ?></td>
