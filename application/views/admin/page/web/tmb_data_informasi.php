@@ -179,7 +179,7 @@
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Konten</div>
                                                 <textarea type="text" id="bidang" rows="5" name="konten"
-                                                    required>value="<?= set_value('konten') ?>"</textarea>
+                                                    required><?= set_value('konten') ?></textarea>
                                             </div>
                                         </div>
                                     </div>

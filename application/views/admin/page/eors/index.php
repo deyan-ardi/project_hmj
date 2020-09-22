@@ -5,70 +5,6 @@
      <p class="mb-4">Silahkan atur informasi terkait open recruitment pada halaman ini</p>
      <!-- Kepengurusan -->
      <div class="accordion" id="ManajemenEors">
-         <div class="card shadow mb-4">
-             <!-- Card Header - Accordion -->
-             <a href="#kegiatan" class="d-block card-header py-3" data-toggle="collapse" role="button"
-                 aria-expanded="true" aria-controls="kegiatan">
-                 <h6 class="m-0 font-weight-bold text-primary">Data Kegiatan Open Recruitment</h6>
-             </a>
-             <!-- Card Content - Collapse -->
-             <div class="collapse" id="kegiatan" data-parent="#ManajemenEors">
-                 <div class="card-body">
-                     <a href="<?= base_url() ?>integer/tambah_kegiatan"
-                         class="btn btn-primary btn-sm btn-icon-split mb-4">
-                         <span class="icon text-white-50">
-                             <i class="fas fa-flag"></i>
-                         </span>
-                         <span class="text">Tambah Data</span>
-                     </a>
-                     <div class="table-responsive">
-                         <table class="table table-bordered" id="tableKegiatan" width="100%" cellspacing="0">
-                             <thead>
-                                 <tr>
-                                     <th>No</th>
-                                     <th>Nama Kegiatan</th>
-                                     <th>Deskripsi</th>
-                                     <th>Persyaratan</th>
-                                     <th>Tgl Mulai</th>
-                                     <th>Tgl Akhir</th>
-                                     <th>Target Pendaftar</th>
-                                     <th>Jumlah Pendaftar</th>
-                                     <th>Manajemen Kegiatan</th>
-                                     <th>Dibuat Oleh</th>
-                                     <th>Dibuat Tanggal</th>
-                                 </tr>
-                             </thead>
-                             <tbody>
-                                 <tr>
-                                     <td>1</td>
-                                     <td>Panitia OKJ</td>
-                                     <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus commodi,
-                                         voluptate quaerat iure quidem expedita eos a blanditiis sint modi est error
-                                         veniam facere eum at doloribus amet, nobis ut.</td>
-                                     <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus commodi,
-                                         voluptate quaerat iure quidem expedita eos a blanditiis sint modi est error
-                                         veniam facere eum at doloribus amet, nobis ut.</td>
-                                     <td>12 September 2020</td>
-                                     <td>14 September 2020</td>
-                                     <td>100 Orang</td>
-                                     <td>90 Orang</td>
-                                     <td> <a href="<?= base_url() ?>eors/administrator/nama_kegiatan"
-                                             class="btn btn-primary btn-sm btn-icon-split mb-4">
-                                             <span class="icon text-white-50">
-                                                 <i class="fas fa-globe"></i>
-                                             </span>
-                                             <span class="text">Administrator</span>
-                                         </a>
-                                     </td>
-                                     <td>Deyan</td>
-                                     <td>2011/04/25</td>
-                                 </tr>
-                             </tbody>
-                         </table>
-                     </div>
-                 </div>
-             </div>
-         </div>
          <?php if ($group[0]['group_id'] == "1") { ?>
          <div class="card shadow mb-4">
              <!-- Card Header - Accordion -->
@@ -96,67 +32,148 @@
                                  </tr>
                              </thead>
                              <tbody>
+                                 <?php
+                                        $x = 1;
+                                        foreach ($kegiatan as $data) : ?>
                                  <tr>
-                                     <td>1</td>
+                                     <td><?= $x++ ?></td>
                                      <td>
-                                         <a href="#" class="btn btn-success btn-sm btn-icon-split mb-4">
+                                         <?php if ($data['aktivasi'] == 1) { ?>
+                                         <a href="<?= base_url() ?>eors/nonaktivasi/<?= $data['id_kegiatan'] ?>"
+                                             class="btn btn-success btn-sm btn-icon-split mb-4">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-check"></i>
                                              </span>
                                              <span class="text">Aktif</span>
                                          </a>
+                                         <?php } else { ?>
+                                         <a href="<?= base_url() ?>eors/aktivasi/<?= $data['id_kegiatan'] ?>"
+                                             class="btn btn-secondary btn-sm btn-icon-split mb-4">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-check"></i>
+                                             </span>
+                                             <span class="text">Nonaktif</span>
+                                         </a>
+                                         <?php } ?>
                                      </td>
-                                     <td>Panitia OKJ</td>
+                                     <td><?= $data['nama_kegiatan'] ?></td>
                                      <td>
+                                         <?php if ($data['informasi_pribadi'] == 1) { ?>
                                          <a href="#" class="btn btn-success btn-sm btn-icon-split mb-4">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-cog"></i>
                                              </span>
                                              <span class="text">Sertakan</span>
                                          </a>
+                                         <?php } else { ?>
+                                         <a href="#" class="btn btn-secondary btn-sm btn-icon-split mb-4">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-cog"></i>
+                                             </span>
+                                             <span class="text">Tidak</span>
+                                         </a>
+                                         <?php } ?>
                                      </td>
                                      <td>
+                                         <?php if ($data['informasi_pendidikan'] == 1) { ?>
                                          <a href="#" class="btn btn-success btn-sm btn-icon-split mb-4">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-cog"></i>
                                              </span>
                                              <span class="text">Sertakan</span>
                                          </a>
+                                         <?php } else { ?>
+                                         <a href="#" class="btn btn-secondary btn-sm btn-icon-split mb-4">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-cog"></i>
+                                             </span>
+                                             <span class="text">Tidak</span>
+                                         </a>
+                                         <?php } ?>
                                      </td>
                                      <td>
+                                         <?php if ($data['wawancara'] == 1) { ?>
                                          <a href="#" class="btn btn-success btn-sm btn-icon-split mb-4">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-cog"></i>
                                              </span>
                                              <span class="text">Sertakan</span>
                                          </a>
+                                         <?php } else { ?>
+                                         <a href="#" class="btn btn-secondary btn-sm btn-icon-split mb-4">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-cog"></i>
+                                             </span>
+                                             <span class="text">Tidak</span>
+                                         </a>
+                                         <?php } ?>
                                      </td>
                                      <td>
+                                         <?php if ($data['upload_file'] == 1) { ?>
                                          <a href="#" class="btn btn-success btn-sm btn-icon-split mb-4">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-cog"></i>
                                              </span>
                                              <span class="text">Sertakan</span>
                                          </a>
+                                         <?php } else { ?>
+                                         <a href="#" class="btn btn-secondary btn-sm btn-icon-split mb-4">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-cog"></i>
+                                             </span>
+                                             <span class="text">Tidak</span>
+                                         </a>
+                                         <?php } ?>
                                      </td>
                                      <td>
-                                         <a href="#" class="btn btn-success btn-sm btn-icon-split mb-4">
+                                         <?php if ($data['penilaian'] == 1) { ?>
+                                         <a href="<?= base_url() ?>eors/nonaktif_penilaian/<?= $data['id_kegiatan'] ?>"
+                                             class="btn btn-success btn-sm btn-icon-split mb-4">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-check"></i>
                                              </span>
                                              <span class="text">Aktif</span>
                                          </a>
+                                         <?php } else { ?>
+                                         <a href="<?= base_url() ?>eors/aktif_penilaian/<?= $data['id_kegiatan'] ?>"
+                                             class="btn btn-secondary btn-sm btn-icon-split mb-4">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-check"></i>
+                                             </span>
+                                             <span class="text">Nonaktif</span>
+                                         </a>
+                                         <?php } ?>
                                      </td>
                                      <td>
-                                         <a href="#" class="btn btn-success btn-sm btn-icon-split mb-4">
+                                         <?php if ($data['penilaian'] == 0) { ?>
+                                         <?php if ($data['hasil_akhir'] == 1) { ?>
+                                         <a href="<?= base_url() ?>eors/nonaktif_hasil/<?= $data['id_kegiatan'] ?>"
+                                             class="btn btn-success btn-sm btn-icon-split mb-4">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-check"></i>
                                              </span>
                                              <span class="text">Aktif</span>
                                          </a>
+                                         <?php } else { ?>
+                                         <a href="<?= base_url() ?>eors/aktif_hasil/<?= $data['id_kegiatan'] ?>"
+                                             class="btn btn-secondary btn-sm btn-icon-split mb-4">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-check"></i>
+                                             </span>
+                                             <span class="text">Nonaktif</span>
+                                         </a>
+                                         <?php } ?>
+                                         <?php } else { ?>
+                                         <a href="#" class="btn btn-secondary btn-sm btn-icon-split mb-4">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-check"></i>
+                                             </span>
+                                             <span class="text">Nonaktif</span>
+                                             <?php } ?>
                                      </td>
                                      <td>
-                                         <a href="#" class="btn btn-danger btn-sm btn-icon-split">
+                                         <a href="<?= base_url() ?>eors/hapus_kegiatan/<?= $data['id_kegiatan'] ?>"
+                                             class="btn btn-danger btn-sm btn-icon-split">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-trash"></i>
                                              </span>
@@ -164,6 +181,7 @@
                                          </a>
                                      </td>
                                  </tr>
+                                 <?php endforeach ?>
                              </tbody>
                          </table>
                      </div>
@@ -171,5 +189,72 @@
              </div>
          </div>
          <?php } ?>
+         <div class="card shadow mb-4">
+             <!-- Card Header - Accordion -->
+             <a href="#kegiatan" class="d-block card-header py-3" data-toggle="collapse" role="button"
+                 aria-expanded="true" aria-controls="kegiatan">
+                 <h6 class="m-0 font-weight-bold text-primary">Data Kegiatan Open Recruitment</h6>
+             </a>
+             <!-- Card Content - Collapse -->
+             <div class="collapse" id="kegiatan" data-parent="#ManajemenEors">
+                 <div class="card-body">
+                     <a href="<?= base_url() ?>eors/tambah_kegiatan" class="btn btn-primary btn-sm btn-icon-split mb-4">
+                         <span class="icon text-white-50">
+                             <i class="fas fa-flag"></i>
+                         </span>
+                         <span class="text">Tambah Data</span>
+                     </a>
+                     <div class="table-responsive">
+                         <table class="table table-bordered" id="tableKegiatan" width="100%" cellspacing="0">
+                             <thead>
+                                 <tr>
+                                     <th>No</th>
+                                     <th>Icon Kegiatan</th>
+                                     <th>Nama Kegiatan</th>
+                                     <th>Deskripsi</th>
+                                     <th>Persyaratan</th>
+                                     <th>Tgl Mulai</th>
+                                     <th>Tgl Akhir</th>
+                                     <th>Target Pendaftar</th>
+                                     <th>Jumlah Pendaftar</th>
+                                     <th>Manajemen Kegiatan</th>
+                                     <th>Dibuat Oleh</th>
+                                     <th>Dibuat Tanggal</th>
+                                 </tr>
+                             </thead>
+                             <tbody>
+                                 <?php
+                                    $i = 1;
+                                    foreach ($kegiatan as $data) :
+                                    ?>
+                                 <tr>
+                                     <td><?= $i++ ?></td>
+                                     <td><img src="<?= base_url() ?>assets/upload/Folder_<?= $data['nama_kegiatan'] ?>/<?= $data['icon_kegiatan'] ?>"
+                                             alt="" width="50px"></td>
+                                     <td><?= $data['nama_kegiatan'] ?></td>
+                                     <td><?= $data['deskripsi']  ?></td>
+                                     <td><?= $data['persyaratan']  ?></td>
+                                     <td><?= $data['tgl_mulai']  ?></td>
+                                     <td><?= $data['tgl_akhir']  ?></td>
+                                     <td><?= $data['target_pendaftar']  ?></td>
+                                     <td><?= $data['jumlah_pendaftar']  ?></td>
+                                     <td> <a href="<?= base_url() ?>eors/administrator/<?= $data['nama_kegiatan'] ?>"
+                                             class="btn btn-primary btn-sm btn-icon-split mb-4">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-globe"></i>
+                                             </span>
+                                             <span class="text">Administrator</span>
+                                         </a>
+                                     </td>
+                                     <td><?= $data['create_by']  ?></td>
+                                     <td><?= $data['create_at']  ?></td>
+                                 </tr>
+                                 <?php endforeach ?>
+                             </tbody>
+                         </table>
+                     </div>
+                 </div>
+             </div>
+         </div>
      </div>
  </div>

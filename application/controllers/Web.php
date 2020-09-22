@@ -758,6 +758,11 @@ class Web extends CI_Controller
 			$folder = $this->All_model->getActiveKepengurusan();
 			$this->data['kepengurusan'] = $folder[0]['nama_hmj'];
 			$this->data['kode'] = $kode;
+		} else if ($kode == "eors") {
+			$data_kegiatan = $this->All_model->getKegiatanEorsWhereChar(urldecode($tujuan));
+			$this->data['folder_eors'] = $data_kegiatan[0]['nama_kegiatan'];
+			$this->data['kode'] = $kode;
+			$this->data['nama_file'] = $nama;
 		}
 		$this->load->view('admin/master/header', $this->data);
 		$this->load->view('admin/page/web/flip_me', $this->data);

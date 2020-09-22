@@ -481,12 +481,12 @@ class Auth extends CI_Controller
 		if ($this->form_validation->run() === TRUE && $this->ion_auth->register($identity, $password, $email, $additional_data)) {
 			// check to see if we are creating the user
 			// redirect them back to the admin page
-			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("admin", 'refresh');
+			$this->session->set_flashdata('berhasil', $this->ion_auth->messages());
+			redirect("admin");
 		} else {
 			// display the create user form
 			// set the flash data error message if there is one
-			$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+			$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('gagal')));
 
 			$this->data['first_name'] = [
 				'name' => 'first_name',
@@ -541,6 +541,7 @@ class Auth extends CI_Controller
 			$this->data['active'] = "6";
 			$this->data['flip'] = "false";
 			$this->data['group'] = $this->ion_auth_model->getGroup($id);
+			$this->data['jabatan'] = $this->All_model->getAllJabatan();
 			$this->load->view('admin/master/header', $this->data);
 			$this->load->view('auth/create_user', $this->data);
 			$this->load->view('admin/master/footer', $this->data);
@@ -625,12 +626,12 @@ class Auth extends CI_Controller
 				// check to see if we are updating the user
 				if ($this->ion_auth->update($user->id, $data)) {
 					// redirect them back to the admin page if admin, or to the base url if non admin
-					$this->session->set_flashdata('message', $this->ion_auth->messages());
-					redirect('admin', 'refresh');
+					$this->session->set_flashdata('berhasil', $this->ion_auth->messages());
+					redirect('admin');
 				} else {
 					// redirect them back to the admin page if admin, or to the base url if non admin
-					$this->session->set_flashdata('message', $this->ion_auth->errors());
-					redirect('admin', 'refresh');
+					$this->session->set_flashdata('gagal', $this->ion_auth->errors());
+					redirect('admin');
 				}
 			}
 		}
@@ -687,9 +688,14 @@ class Auth extends CI_Controller
 		$this->data['active'] = "6";
 		$this->data['flip'] = "false";
 		$this->data['group'] = $this->ion_auth_model->getGroup($id);
-		$this->load->view('admin/master/header', $this->data);
-		$this->load->view('auth/edit_user', $this->data);
-		$this->load->view('admin/master/footer', $this->data);
+		$this->data['jabatan'] = $this->All_model->getAllJabatan();
+		if (!empty($user)) {
+			$this->load->view('admin/master/header', $this->data);
+			$this->load->view('auth/edit_user', $this->data);
+			$this->load->view('admin/master/footer', $this->data);
+		} else {
+			show_404();
+		}
 	}
 
 	/**

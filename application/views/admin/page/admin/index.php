@@ -32,8 +32,8 @@
              <div class="collapse" id="jabatan" data-parent="#ManajemenWebsite">
                  <div class="card-body">
                      <p>
-                         <?php echo anchor('admin/tambah_landing', '<button class="btn btn-primary btn-sm btn-icon-split"><span class="icon text-white-50"><i class="fas fa-flag"></i>
-				</span><span class="text">Tambah Landing</span></button> ') ?>
+                         <?= anchor('admin/tambah_jabatan', '<button class="btn btn-primary btn-sm btn-icon-split"><span class="icon text-white-50"><i class="fas fa-flag"></i>
+				</span><span class="text">Tambah Jabatan</span></button> ') ?>
                      </p>
                      <div class="table-responsive">
                          <table class="table table-bordered" id="tableKepengurusan" width="100%" cellspacing="0">
@@ -46,7 +46,19 @@
                                  </tr>
                              </thead>
                              <tbody>
-
+                                 <?php
+                                    $i = 1;
+                                    foreach ($jabatan as $data) : ?>
+                                 <tr>
+                                     <td><?= $i++ ?></td>
+                                     <td><?= htmlspecialchars($data['nama_pilihan'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                     <td><?= htmlspecialchars($data['create_at'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                     <td>
+                                         <?= anchor("admin/edit_jabatan/" . $data['id_pilihan'], ' <button class="btn btn-warning btn-circle btn-sm"><i class="fas fa-edit"></i></button>'); ?>
+                                         <?= anchor("admin/hapus_jabatan/" . $data['id_pilihan'], ' <button class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>', array('class' => 'tombol-hapus')); ?>
+                                     </td>
+                                 </tr>
+                                 <?php endforeach ?>
                              </tbody>
                          </table>
                      </div>
@@ -63,10 +75,10 @@
              <div class="collapse" id="kepengurusan" data-parent="#ManajemenWebsite">
                  <div class="card-body col-12 row">
                      <p class="pr-3">
-                         <?php echo anchor('admin/tambah_user', '<button class="btn btn-primary btn-sm btn-icon-split"><span class="icon text-white-50"><i class="fas fa-flag"></i>
+                         <?= anchor('admin/tambah_user', '<button class="btn btn-primary btn-sm btn-icon-split"><span class="icon text-white-50"><i class="fas fa-flag"></i>
 				</span><span class="text">Tambah User</span></button> ') ?> </p>
                      <p>
-                         <?php echo anchor('admin/tambah_group', '<button class="btn btn-success btn-sm btn-icon-split"><span class="icon text-white-50"><i class="fas fa-plus"></i>
+                         <?= anchor('admin/tambah_group', '<button class="btn btn-success btn-sm btn-icon-split"><span class="icon text-white-50"><i class="fas fa-plus"></i>
                 </span><span class="text">Tambah Level</span></button>') ?></p>
                      <div class="table-responsive">
                          <table class="table table-bordered" id="tableUser" width="100%" cellspacing="0">
@@ -91,15 +103,15 @@
                                     foreach ($users as $user) : ?>
                                  <tr>
                                      <td><?= $i++; ?></td>
-                                     <td><?php echo htmlspecialchars($user->ip_address, ENT_QUOTES, 'UTF-8'); ?></td>
-                                     <td><?php echo htmlspecialchars($user->email, ENT_QUOTES, 'UTF-8'); ?></td>
-                                     <td><?php echo htmlspecialchars($user->last_name, ENT_QUOTES, 'UTF-8'); ?></td>
-                                     <td><?php echo htmlspecialchars($user->first_name, ENT_QUOTES, 'UTF-8'); ?></td>
-                                     <td><?php echo htmlspecialchars($user->company, ENT_QUOTES, 'UTF-8'); ?></td>
-                                     <td><?php echo htmlspecialchars($user->phone, ENT_QUOTES, 'UTF-8'); ?></td>
+                                     <td><?= htmlspecialchars($user->ip_address, ENT_QUOTES, 'UTF-8'); ?></td>
+                                     <td><?= htmlspecialchars($user->email, ENT_QUOTES, 'UTF-8'); ?></td>
+                                     <td><?= htmlspecialchars($user->last_name, ENT_QUOTES, 'UTF-8'); ?></td>
+                                     <td><?= htmlspecialchars($user->first_name, ENT_QUOTES, 'UTF-8'); ?></td>
+                                     <td><?= htmlspecialchars($user->nama_pilihan, ENT_QUOTES, 'UTF-8'); ?></td>
+                                     <td><?= htmlspecialchars($user->phone, ENT_QUOTES, 'UTF-8'); ?></td>
                                      <td>
                                          <?php foreach ($user->groups as $group) : ?>
-                                         <?php echo anchor("admin/edit_group/" . $group->id, '<button class="btn btn-warning btn-sm btn-icon-split">
+                                         <?= anchor("admin/edit_group/" . $group->id, '<button class="btn btn-warning btn-sm btn-icon-split">
                     						<span class="icon text-white-50">
                       						<i class="fas fa-edit"></i>
                     						</span>
@@ -107,9 +119,9 @@
                   					</button>', ENT_QUOTES, 'UTF-8'); ?><br />
                                          <?php endforeach ?>
                                      </td>
-                                     <td><?php echo htmlspecialchars(date("H:i:s d-m-Y", $user->last_login), ENT_QUOTES, 'UTF-8'); ?>
+                                     <td><?= htmlspecialchars(date("H:i:s d-m-Y", $user->last_login), ENT_QUOTES, 'UTF-8'); ?>
                                      </td>
-                                     <td><?php echo ($user->active) ? anchor("auth/deactivate/" . $user->id, '<button class="btn btn-success btn-sm btn-icon-split">
+                                     <td><?= ($user->active) ? anchor("auth/deactivate/" . $user->id, '<button class="btn btn-success btn-sm btn-icon-split">
                     				<span class="icon text-white-50">
                       				<i class="fas fa-check"></i>
                     				</span>
@@ -121,8 +133,8 @@
                     				<span class="text">Non-Aktif</span>
                   					</button>'); ?></td>
                                      <td>
-                                         <?php echo anchor("admin/edit_user/" . $user->id, ' <button class="btn btn-warning btn-circle btn-sm"><i class="fas fa-edit"></i></button>'); ?>
-                                         <?php echo anchor("admin/hapus_user/" . $user->id, ' <button class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>', array('class' => 'tombol-hapus')); ?>
+                                         <?= anchor("admin/edit_user/" . $user->id, ' <button class="btn btn-warning btn-circle btn-sm"><i class="fas fa-edit"></i></button>'); ?>
+                                         <?= anchor("admin/hapus_user/" . $user->id, ' <button class="btn btn-danger btn-circle btn-sm mt-2"><i class="fas fa-trash"></i></button>', array('class' => 'tombol-hapus')); ?>
                                      </td>
                                  </tr>
                                  <?php endforeach; ?>
@@ -153,7 +165,7 @@
                  </div>
                  <div class="card-body">
                      <p>
-                         <?php echo anchor('admin/tambah_landing', '<button class="btn btn-primary btn-sm btn-icon-split"><span class="icon text-white-50"><i class="fas fa-flag"></i>
+                         <?= anchor('admin/tambah_landing', '<button class="btn btn-primary btn-sm btn-icon-split"><span class="icon text-white-50"><i class="fas fa-flag"></i>
 				</span><span class="text">Tambah Landing</span></button> ') ?>
                      </p>
                      <div class="table-responsive">
@@ -186,16 +198,16 @@
                                      </td>
                                      <td>
                                          <?php if ($data['type'] == "main") { ?>
-                                         <?php echo anchor('admin/set_off/' . $data['id_links'], '<button class="btn btn-success btn-sm btn-icon-split"><span class="icon text-white-50"><i class="fas fa-check"></i>
+                                         <?= anchor('admin/set_off/' . $data['id_links'], '<button class="btn btn-success btn-sm btn-icon-split"><span class="icon text-white-50"><i class="fas fa-check"></i>
 				</span><span class="text">' . $data['type'] . '</span></button> ') ?>
                                          <?php } else { ?>
-                                         <?php echo anchor('admin/set_main/' . $data['id_links'], '<button class="btn btn-danger btn-sm btn-icon-split"><span class="icon text-white-50"><i class="fas fa-edit"></i>
+                                         <?= anchor('admin/set_main/' . $data['id_links'], '<button class="btn btn-danger btn-sm btn-icon-split"><span class="icon text-white-50"><i class="fas fa-edit"></i>
 				</span><span class="text">' . $data['type'] . '</span></button> ') ?>
                                          <?php } ?>
                                      </td>
                                      <td>
-                                         <?php echo anchor("admin/edit_landing/" . $data['id_links'], ' <button class="btn btn-warning btn-circle btn-sm"><i class="fas fa-edit"></i></button>'); ?>
-                                         <?php echo anchor("admin/hapus_landing/" . $data['id_links'], ' <button class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>', array('class' => 'tombol-hapus')); ?>
+                                         <?= anchor("admin/edit_landing/" . $data['id_links'], ' <button class="btn btn-warning btn-circle btn-sm"><i class="fas fa-edit"></i></button>'); ?>
+                                         <?= anchor("admin/hapus_landing/" . $data['id_links'], ' <button class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>', array('class' => 'tombol-hapus')); ?>
                                      </td>
                                  </tr>
                                  <?php endforeach; ?>
