@@ -24,8 +24,8 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Ikon Maskot Kategori (*.jpg,*.png maks 1Mb)</div>
-                                                <input type="file" class="form-control form-control-user" id="file_foto"
-                                                    name="file_foto" required>
+                                                <input type="file" class="form-control form-control-user" id="icon_lomba"
+                                                    name="icon_lomba" required>
                                             </div>
                                         </div>
                                     </div>
@@ -40,9 +40,13 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Kategori Lomba</div>
-                                                <select name="kategori_lomba" id="kategori_lomba"
+                                                <select name="id_kategori_lomba_integer" id="id_kategori_lomba_integer"
                                                     class="form-control form-control-select" required>
                                                     <option value="">Pilih Kategori Lomba</option>
+                                                    <?php foreach ($kategori as $data) : ?>
+                                                    <option value="<?= $data['id_kategori_lomba_integer'] ?>"><?= $data['nama_kategori_lomba_integer'] ?>
+                                                    </option>
+                                                    <?php endforeach ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -59,9 +63,9 @@
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Nama Lomba</div>
                                                 <input type="text" class="form-control form-control-user"
-                                                    id="nama_lomba" aria-describedby="nama_lomba"
-                                                    placeholder="Masukkan Nama Lomba" name="nama_lomba"
-                                                    value="<?= set_value('nama_lomba') ?>" required>
+                                                    id="nama_lomba_integer" aria-describedby="nama_lomba_integer"
+                                                    placeholder="Masukkan Nama Lomba" name="nama_lomba_integer"
+                                                    value="<?= set_value('nama_lomba_integer') ?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -76,8 +80,8 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Deskripsi Lomba</div>
-                                                <textarea type="text" id="deskripsi" rows="5" name="deskripsi"
-                                                    required><?= set_value('deskripsi') ?></textarea>
+                                                <textarea type="text" id="	deskripsi_lomba_integer" rows="5" name="deskripsi_lomba_integer"
+                                                    required><?= set_value('deskripsi_lomba_integer') ?></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -92,10 +96,10 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Link Pendaftaran</div>
-                                                <input type="text" class="form-control form-control-user" id="link"
-                                                    aria-describedby="link"
-                                                    placeholder="Masukkan Link Pendaftaran Lomba" name="link"
-                                                    value="<?= set_value('link') ?>" required>
+                                                <input type="text" class="form-control form-control-user" id="pendaftaran_lomba_integer"
+                                                    aria-describedby="pendaftaran_lomba_integer"
+                                                    placeholder="Masukkan Link Pendaftaran Lomba" name="pendaftaran_lomba_integer"
+                                                    value="<?= set_value('pendaftaran_lomba_integer') ?>" required>
                                             </div>
                                         </div>
                                     </div>

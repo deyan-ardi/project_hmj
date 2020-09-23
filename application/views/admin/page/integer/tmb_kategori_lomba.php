@@ -24,8 +24,8 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Ikon Maskot Kategori (*.jpg,*.png maks 1Mb)</div>
-                                                <input type="file" class="form-control form-control-user" id="file_foto"
-                                                    name="file_foto" required>
+                                                <input type="file" class="form-control form-control-user" id="icon_kategori"
+                                                    name="icon_kategori" required>
                                             </div>
                                         </div>
                                     </div>
@@ -41,9 +41,9 @@
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Nama Kategori Lomba</div>
                                                 <input type="text" class="form-control form-control-user"
-                                                    id="kategori_lomba" aria-describedby="kategori_lomba"
-                                                    placeholder="Masukkan Nama Kategori Lomba" name="kategori_lomba"
-                                                    value="<?= set_value('kategori_lomba') ?>" required>
+                                                    id="nama_kategori_lomba_integer" aria-describedby="nama_kategori_lomba_integer"
+                                                    placeholder="Masukkan Nama Kategori Lomba" name="nama_kategori_lomba_integer"
+                                                    value="<?= set_value('nama_kategori_lomba_integer') ?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -58,8 +58,8 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Deskripsi Kategori</div>
-                                                <textarea type="text" id="bidang" rows="5" name="deskripsi"
-                                                    required><?= set_value('deskripsi') ?></textarea>
+                                                <textarea type="text" id="deskripsi_kategori_lomba_integer" rows="5" name="deskripsi_kategori_lomba_integer"
+                                                    required><?= set_value('deskripsi_kategori_lomba_integer') ?></textarea>
                                             </div>
                                         </div>
                                     </div>
