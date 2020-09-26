@@ -15,13 +15,14 @@
              <!-- Card Content - Collapse -->
              <div class="collapse" id="kegiatan" data-parent="#ManajemenInteger">
                  <div class="card-body">
-                     <a href="#" class="btn btn-primary btn-sm btn-icon-split mb-4">
+                     <a href="<?= base_url() ?>integer/tambah_kegiatan"
+                         class="btn btn-primary btn-sm btn-icon-split mb-4">
                          <span class="icon text-white-50">
                              <i class="fas fa-flag"></i>
                          </span>
                          <span class="text">Tambah Data</span>
                      </a>
-                     <a href="#" class="btn btn-warning btn-sm btn-icon-split mb-4">
+                     <a href="<?= base_url() ?>integer/set_kegiatan" class="btn btn-warning btn-sm btn-icon-split mb-4">
                          <span class="icon text-white-50">
                              <i class="fas fa-check"></i>
                          </span>
@@ -90,7 +91,8 @@
              <!-- Card Content - Collapse -->
              <div class="collapse" id="sponsor" data-parent="#ManajemenInteger">
                  <div class="card-body">
-                     <a href="#" class="btn btn-primary btn-sm btn-icon-split mb-4">
+                     <a href="<?= base_url() ?>integer/tambah_sponsor"
+                         class="btn btn-primary btn-sm btn-icon-split mb-4">
                          <span class="icon text-white-50">
                              <i class="fas fa-flag"></i>
                          </span>
@@ -138,13 +140,15 @@
              <!-- Card Header - Accordion -->
              <a href="#jadwal" class="d-block card-header py-3" data-toggle="collapse" role="button"
                  aria-expanded="true" aria-controls="jadwal">
-                 <h6 class="m-0 font-weight-bold text-primary">Data Jadwal Acara</h6>
+                 <h6 class="m-0 font-weight-bold text-primary">Jadwal Acara</h6>
              </a>
              <!-- Card Content - Collapse -->
              <div class="collapse" id="jadwal" data-parent="#ManajemenInteger">
                  <div class="card-body">
                      <!-- Hari -->
-                     <a href="#" class="btn btn-primary btn-sm btn-icon-split mb-4">
+                     <h6 class="m-0 font-weight-bold text-primary mb-4">Data Hari Pelaksanaan</h6>
+                     <a href="<?= base_url() ?>integer/tambah_tanggal"
+                         class="btn btn-primary btn-sm btn-icon-split mb-4">
                          <span class="icon text-white-50">
                              <i class="fas fa-flag"></i>
                          </span>
@@ -182,8 +186,11 @@
                              </tbody>
                          </table>
                      </div>
+                     <hr>
+                     <h6 class="m-0 font-weight-bold text-primary">Data Kegiatan Perhari</h6>
                      <!-- Kegiatan Perhari -->
-                     <a href="#" class="btn btn-primary btn-sm btn-icon-split mb-4 mt-4">
+                     <a href="<?= base_url() ?>integer/tambah_kegiatan_perhari"
+                         class="btn btn-primary btn-sm btn-icon-split mb-4 mt-4">
                          <span class="icon text-white-50">
                              <i class="fas fa-flag"></i>
                          </span>

@@ -260,161 +260,6 @@ class All_model extends CI_Model
 	// **************************************************************
 
 
-
-
-	// **************************************************************
-	// Main Upload File
-	// **************************************************************
-	public function uploadFile($nama, $id_file, $hmj)
-	{
-
-		// Variabel
-		$folder = 'assets/upload/Folder_' . $hmj;
-		// $folder = 'assets/upload/Folder_' . $hmj . '/' . date('dmY');
-		// var_dump($folder);
-		if (!file_exists($folder) && !is_dir($folder)) {
-			$umask = umask(0);
-			mkdir($folder, 0777, true);
-			umask($umask);
-		}
-
-		if ($id_file == "kepengurusan") {
-			$config['upload_path'] = $folder;
-			$config['allowed_types'] = 'jpg|png';
-			$config['max_size']  = '1048';
-			$config['encrypt_name'] = TRUE;
-			$config['remove_space'] = TRUE;
-			$config['overwrite'] = TRUE;
-			$this->load->library('upload', $config);
-			$this->upload->initialize($config);
-			if ($nama == "ketua") {
-				if ($this->upload->do_upload('foto_ketua')) {
-					$return = array('result' => 'success', 'file_ketua' => $this->upload->data(), 'error' => '');
-					return $return;
-				} else {
-					// Jika gagal :      
-					$return = array('result' => 'failed', 'file_ketua' => '', 'error' => $this->upload->display_errors());
-					return $return;
-				}
-			} else if ($nama == "wakil") {
-				if ($this->upload->do_upload('foto_wakil')) {
-					$return = array('result' => 'success', 'file_wakil' => $this->upload->data(), 'error' => '');
-					return $return;
-				} else {
-					// Jika gagal :      
-					$return = array('result' => 'failed', 'file_wakil' => '', 'error' => $this->upload->display_errors());
-					return $return;
-				}
-			} else if ($nama == "vertikal") {
-				if ($this->upload->do_upload('foto_vertikal')) {
-					$return = array('result' => 'success', 'file_vertikal' => $this->upload->data(), 'error' => '');
-					return $return;
-				} else {
-					// Jika gagal :      
-					$return = array('result' => 'failed', 'file_vertikal' => '', 'error' => $this->upload->display_errors());
-					return $return;
-				}
-			} else if ($nama == "landscape") {
-				if ($this->upload->do_upload('foto_landscape')) {
-					$return = array('result' => 'success', 'file_landscape' => $this->upload->data(), 'error' => '');
-					return $return;
-				} else {
-					// Jika gagal :      
-					$return = array('result' => 'failed', 'file_landscape' => '', 'error' => $this->upload->display_errors());
-					return $return;
-				}
-			}
-		} else if ($id_file == "berkas") {
-			$config['upload_path'] = $folder;
-			$config['allowed_types'] = 'pdf';
-			$config['max_size']  = '10048';
-			$config['file_name'] = $nama;
-			$config['remove_space'] = TRUE;
-			$config['overwrite'] = TRUE;
-			$this->load->library('upload', $config);
-			$this->upload->initialize($config);
-			// Load konfigurasi uploadnya    
-			if ($this->upload->do_upload('file')) {
-				// Lakukan upload dan Cek jika proses upload berhasil      
-				// Jika berhasil :      
-				$return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
-				return $return;
-			} else {
-				// Jika gagal :      
-				$return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
-				return $return;
-			}
-		} else if ($id_file == "bidang") {
-			$config['upload_path'] = $folder;
-			$config['allowed_types'] = 'jpg|png';
-			$config['max_size']  = '1045';
-			$config['file_name'] = $nama;
-			$config['remove_space'] = TRUE;
-			$config['overwrite'] = TRUE;
-			$this->load->library('upload', $config);
-			$this->upload->initialize($config);
-			// Load konfigurasi uploadnya    
-			if ($this->upload->do_upload('file')) {
-				// Lakukan upload dan Cek jika proses upload berhasil      
-				// Jika berhasil :      
-				$return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
-				return $return;
-			} else {
-				// Jika gagal :      
-				$return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
-				return $return;
-			}
-		} else if ($id_file == "informasi") {
-			$config['upload_path'] = $folder;
-			$config['allowed_types'] = 'jpg|png';
-			$config['max_size']  = '1048';
-			$config['encrypt_name'] = TRUE;
-			$config['remove_space'] = TRUE;
-			$config['overwrite'] = TRUE;
-			$this->load->library('upload', $config);
-			$this->upload->initialize($config);
-			if ($nama == "foto_1") {
-				if ($this->upload->do_upload('foto_1')) {
-					// Lakukan upload dan Cek jika proses upload berhasil      
-					// Jika berhasil :      
-					$return = array('result' => 'success', 'foto_1' => $this->upload->data(), 'error' => '');
-					return $return;
-				} else {
-					// Jika gagal :      
-					$return = array('result' => 'failed', 'foto_1' => '', 'error' => $this->upload->display_errors());
-					return $return;
-				}
-			} else if ($nama == "foto_2") {
-				if ($this->upload->do_upload('foto_2')) {
-					// Lakukan upload dan Cek jika proses upload berhasil      
-					// Jika berhasil :      
-					$return = array('result' => 'success', 'foto_2' => $this->upload->data(), 'error' => '');
-					return $return;
-				} else {
-					// Jika gagal :      
-					$return = array('result' => 'failed', 'foto_2' => '', 'error' => $this->upload->display_errors());
-					return $return;
-				}
-			} else if ($nama == "foto_3") {
-				if ($this->upload->do_upload('foto_3')) {
-					// Lakukan upload dan Cek jika proses upload berhasil      
-					// Jika berhasil :      
-					$return = array('result' => 'success', 'foto_3' => $this->upload->data(), 'error' => '');
-					return $return;
-				} else {
-					// Jika gagal :      
-					$return = array('result' => 'failed', 'foto_3' => '', 'error' => $this->upload->display_errors());
-					return $return;
-				}
-			}
-		}
-	}
-	// **************************************************************
-	// End Upload File
-	// **************************************************************
-
-
-
 	// **************************************************************
 	// Start Kategori Berkas
 	// **************************************************************
@@ -640,10 +485,6 @@ class All_model extends CI_Model
 	{
 		return $this->db->order_by('create_at', 'DESC')->get('s1_informasi')->result_array();
 	}
-	public function getInformasiWhere($id)
-	{
-		return $this->db->where('id_informasi=' . $id)->get('s1_informasi')->result_array();
-	}
 	public function tambahDataInformasi($foto_1, $foto_2, $foto_3, $file_doc, $namaKepengurusan)
 	{
 		$query = array(
@@ -679,8 +520,329 @@ class All_model extends CI_Model
 
 
 	// **************************************************************
+	// Start EORS
+	// **************************************************************
+	public function getAllJabatan()
+	{
+		return $this->db->get('jabatan')->result_array();
+	}
+	public function getJabatanWhere($id)
+	{
+		return $this->db->where('id_pilihan=' . $id)->get('jabatan')->result_array();
+	}
+	public function tambahJabatan()
+	{
+		$query = array(
+			'nama_pilihan' => $this->input->post('nama_jabatan', true),
+			'create_at' => date("Y-m-d H:i:s"),
+
+		);
+		return $this->db->insert('jabatan', $query);
+	}
+	public function editJabatan($id)
+	{
+		$query = array(
+			'nama_pilihan' => $this->input->post('nama_jabatan', true),
+			'create_at' => date("Y-m-d H:i:s"),
+
+		);
+		return $this->db->where('id_pilihan =' . $id)->update('jabatan', $query);
+	}
+	public function cekNamaKegiatan($data)
+	{
+		return $this->db->where('nama_kegiatan=' . "'$data'")->get('s4_kegiatan')->num_rows();
+	}
+	public function insertKegiatanEors($file_berkas)
+	{
+		$query = array(
+			'icon_kegiatan' => $file_berkas['icon_kegiatan']['file_name'],
+			'nama_kegiatan' => $this->input->post('nama_kegiatan', true),
+			'deskripsi' => $this->input->post('deskripsi', false),
+			'persyaratan' => $this->input->post('persyaratan', false),
+			'tgl_mulai' => $this->input->post('tanggal_mulai', true),
+			'tgl_akhir' => $this->input->post('tanggal_selesai', true),
+			'aktivasi' => 0,
+			'target_pendaftar' => $this->input->post('target_pendaftar', true),
+			'jumlah_pendaftar' => 0,
+			'upload_file' => $this->input->post('file', true),
+			'informasi_pribadi' => $this->input->post('data_pribadi', true),
+			'informasi_pendidikan' => $this->input->post('data_pendidikan', true),
+			'wawancara' => $this->input->post('wawancara', true),
+			'penilaian' => 0,
+			'hasil_akhir' => 0,
+			'pengumuman' => 0,
+			'create_at' => date("Y-m-d H:i:s"),
+			'create_by' => $this->input->post('create_by', true),
+
+		);
+		return $this->db->insert('s4_kegiatan', $query);
+	}
+	public function getAllKegiatanEors()
+	{
+		return $this->db->get('s4_kegiatan')->result_array();
+	}
+	public function getKegiatanEorsWhereNum($id_user)
+	{
+		return $this->db->where('id_kegiatan=' . $id_user)->get('s4_kegiatan')->num_rows();
+	}
+	public function getKegiatanEorsWhere($id_user)
+	{
+		return $this->db->where('id_kegiatan=' . $id_user)->get('s4_kegiatan')->result_array();
+	}
+	public function getKegiatanEorsWhereChar($kegiatan)
+	{
+		return $this->db->where('nama_kegiatan=' . "'$kegiatan'")->get('s4_kegiatan')->result_array();
+	}
+	public function editAktivasi($id_user)
+	{
+		$query = array(
+			'aktivasi' => 1,
+			'penilaian' => 0,
+			'hasil_akhir' => 0,
+			'pengumuman' => 0,
+		);
+		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
+	}
+	public function editNonaktivasi($id_user)
+	{
+		$query = array(
+			'aktivasi' => 0,
+			'penilaian' => 0,
+			'hasil_akhir' => 0,
+			'pengumuman' => 0,
+		);
+		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
+	}
+	public function editNonaktifPenilaian($id_user)
+	{
+		$query = array(
+			'aktivasi' => 1,
+			'penilaian' => 0,
+			'hasil_akhir' => 1,
+			'pengumuman' => 0,
+		);
+		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
+	}
+	public function editAktifPenilaian($id_user)
+	{
+		$query = array(
+			'aktivasi' => 1,
+			'penilaian' => 1,
+			'hasil_akhir' => 0,
+			'pengumuman' => 0,
+		);
+		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
+	}
+	public function editAktifPengumuman($id_user)
+	{
+		$query = array(
+			'aktivasi' => 1,
+			'penilaian' => 0,
+			'hasil_akhir' => 0,
+			'pengumuman' => 1,
+		);
+		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
+	}
+	public function editNonaktifPengumuman($id_user)
+	{
+		$query = array(
+			'aktivasi' => 0,
+			'penilaian' => 0,
+			'hasil_akhir' => 0,
+			'pengumuman' => 0,
+		);
+		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
+	}
+	public function editNonaktifHasil($id_user)
+	{
+		$query = array(
+			'aktivasi' => 1,
+			'penilaian' => 0,
+			'hasil_akhir' => 0,
+			'pengumuman' => 1,
+		);
+		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
+	}
+	public function editAktifHasil($id_user)
+	{
+		$query = array(
+			'aktivasi' => 1,
+			'penilaian' => 0,
+			'hasil_akhir' => 1,
+			'pengumuman' => 0,
+		);
+		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
+	}
+	public function hapusKegiatanEors($id)
+	{
+		return $this->db->delete('s4_kegiatan', array('id_kegiatan' => $id));
+	}
+	public function getPilihanWhere($kegiatan, $jabatan)
+	{
+		return $this->db->where("id_kegiatan=" . $kegiatan)->where("id_jabatan=" . $jabatan)->get('s4_pilihan')->num_rows();
+	}
+	public function getAllPilihanWhere($kegiatan)
+	{
+		$this->db->select('s4_pilihan.*,jabatan.nama_pilihan');
+		$this->db->from('s4_pilihan');
+		$this->db->where('id_kegiatan=' . $kegiatan);
+		$this->db->join('jabatan', 'jabatan.id_pilihan = s4_pilihan.id_jabatan');
+		return $this->db->get()->result_array();
+	}
+	public function inputDataPeserta($dokumen, $foto, $id_kegiatan)
+	{
+		$query = array(
+			'id_kegiatan' => $id_kegiatan,
+			'nim' => $this->input->post('nim', true),
+			'nama_lengkap' => $this->input->post('nama_lengkap', true),
+			'angkatan' => $this->input->post('angkatan', true),
+			'jenis_kelamin' => $this->input->post('jenis_kelamin', true),
+			'agama' => $this->input->post('agama', true),
+			'alamat_asal' => $this->input->post('alamat_asal', true),
+			'alamat_sekarang' => $this->input->post('alamat_sekarang', true),
+			'email' => $this->input->post('email', true),
+			'wa' => $this->input->post('wa', true),
+			'prodi' => $this->input->post('prodi', true),
+			'pilihan_wajib' => $this->input->post('pil_wajib', true),
+			'pilihan_opsional' => $this->input->post('pil_ops', true),
+			'riwayat_kesehatan' => $this->input->post('riwayat_kesehatan', false),
+			'hobi' => $this->input->post('hobi', false),
+			'motto' => $this->input->post('motto_hidup', false),
+			'ipk' => $this->input->post('ipk', true),
+			'sd' => $this->input->post('nama_sd', true),
+			'thn_sd' => $this->input->post('tahun_sd', true),
+			'smp' => $this->input->post('nama_smp', true),
+			'thn_smp' => $this->input->post('tahun_smp', true),
+			'sma' => $this->input->post('nama_sma', true),
+			'thn_sma' => $this->input->post('tahun_sma', true),
+			'file_foto' => $foto,
+			'file_dokumen' => $dokumen,
+			'ket_wawancara' => 0,
+			'diterima_di' => "Belum Ada",
+			'ket_lulus' => 0,
+			'create_at' => date("Y-m-d H:i:s"),
+		);
+		return $this->db->insert('s4_informasi_umum', $query);
+	}
+	public function hapusPendaftarEors($id_kegiatan, $id_user, $folder_name)
+	{
+		$row = $this->db->where('id_kegiatan', $id_kegiatan)->where('id_informasi', $id_user)->get('s4_informasi_umum')->row();
+		if ($this->db->where('id_kegiatan', $id_kegiatan)->delete('s4_informasi_umum', array('id_informasi' => $id_user))) {
+			unlink('assets/upload/Folder_' . $folder_name . '/' . $row->file_foto);
+			unlink('assets/upload/Folder_' . $folder_name . '/' . $row->file_dokumen);
+			return true;
+		}
+	}
+	public function countPesertaEors($id_kegiatan)
+	{
+		return $this->db->where('id_kegiatan', $id_kegiatan)->get('s4_informasi_umum')->num_rows();
+	}
+	public function updateJumlahPeserta($jumlah, $id_kegiatan)
+	{
+		$query = array(
+			'jumlah_pendaftar' => $jumlah,
+		);
+		return $this->db->where('id_kegiatan =' . $id_kegiatan)->update('s4_kegiatan', $query);
+	}
+	public function getAllPendaftarProdi($prodi, $id_kegiatan)
+	{
+		return $this->db->where('id_kegiatan =' . $id_kegiatan)->where('prodi =' . "'$prodi'")->get('s4_informasi_umum')->num_rows();
+	}
+	public function getAllPendaftarTahun($angkatan, $id_kegiatan)
+	{
+		return $this->db->where('id_kegiatan =' . $id_kegiatan)->where('angkatan =' . "'$angkatan'")->get('s4_informasi_umum')->num_rows();
+	}
+	public function getAllPendaftarEors($id_kegiatan)
+	{
+		return $this->db->where("id_kegiatan=" . $id_kegiatan)->order_by('nim', 'ASC')->get('s4_informasi_umum')->result_array();
+	}
+	public function getAllPendaftarEorsWhere($id_kegiatan, $id_pendaftar)
+	{
+		return $this->db->where("id_kegiatan=" . $id_kegiatan)->where("id_informasi=" . $id_pendaftar)->get('s4_informasi_umum')->result_array();
+	}
+	public function getAllPendaftarEorsWhereKoor($id_kegiatan, $id_jabatan)
+	{
+		return $this->db->where("id_kegiatan=" . $id_kegiatan)->where("pilihan_wajib=" . "'$id_jabatan'")->or_where("pilihan_opsional=" . "'$id_jabatan'")->order_by('nim', 'ASC')->get('s4_informasi_umum')->result_array();
+	}
+	public function cekUserBeforeDetailPendaftar($id_pilihan, $id_pendaftar)
+	{
+		return $this->db->where("id_informasi=" . $id_pendaftar)->where("pilihan_wajib=" . "'$id_pilihan'")->or_where("pilihan_opsional=" . "'$id_pilihan'")->get('s4_informasi_umum')->num_rows();
+	}
+	public function cekUserBeforeInputNilai($user, $penilai)
+	{
+		return $this->db->where("id_informasi=" . $user)->where("create_by=" . "'$penilai'")->get("s4_wawancara")->num_rows();
+	}
+	public function inputSieEors($id_kegiatan)
+	{
+		$query = array(
+			'id_kegiatan' => $id_kegiatan,
+			'id_jabatan' => $this->input->post('nama_sie', true)
+		);
+		return $this->db->insert('s4_pilihan', $query);
+	}
+	public function hapusSie($kegiatan, $pilihan)
+	{
+		return $this->db->where("id_kegiatan=" . $kegiatan)->delete('s4_pilihan', array('id_pilihan' => $pilihan));
+	}
+	public function cekNimPeserta($nim, $id_kegiatan)
+	{
+		return $this->db->where("id_kegiatan=" . $id_kegiatan)->where("nim=" . $nim)->get('s4_informasi_umum')->num_rows();
+	}
+	public function inputNilaiPesertaEors($nilai_akhir, $keterangan)
+	{
+		$query = array(
+			'id_informasi' => $this->input->post('user', true),
+			'nilai_1' => $this->input->post('penilaian_1', true),
+			'nilai_2' => $this->input->post('penilaian_2', true),
+			'nilai_3' => $this->input->post('penilaian_3', true),
+			'nilai_4' => $this->input->post('penilaian_4', true),
+			'total' => $nilai_akhir,
+			'keterangan' => $keterangan,
+			'create_by' => $this->input->post('create_by', true),
+			'create_at' => date("Y-m-d H:i:s"),
+
+		);
+		return $this->db->insert('s4_wawancara', $query);
+	}
+	public function setWawancara($id_user)
+	{
+		$query = array(
+			'ket_wawancara' => 1,
+		);
+		return $this->db->where('id_informasi=' . $id_user)->update('s4_informasi_umum', $query);
+	}
+	public function inputNilaiAkhirEors($id_user)
+	{
+		$query = array(
+			'diterima_di' => $this->input->post('keputusan', true),
+			'ket_lulus' => 1.
+		);
+		return $this->db->where('id_informasi=' . $id_user)->update('s4_informasi_umum', $query);
+	}
+	public function getNilaiWawancara($id_pendaftar)
+	{
+		return $this->db->where("id_informasi=" . $id_pendaftar)->get("s4_wawancara")->result_array();
+	}
+	public function cekKepanitiaanEors($id_jabatan, $id_kegiatan)
+	{
+		return $this->db->where("id_kegiatan=" . $id_kegiatan)->where("id_jabatan=" . $id_jabatan)->get("s4_pilihan")->num_rows();
+	}
+	public function getAllPendaftarLulus($id_kegiatan)
+	{
+		return $this->db->where('id_kegiatan=' . $id_kegiatan)->where('ket_lulus=' . '1')->get('s4_informasi_umum')->result_array();
+	}
+
+	// **************************************************************
+	// End EORS
+	// **************************************************************
+
+
+	// **************************************************************
 	// Start Halaman Guest Website
 	// **************************************************************
+
+
+	// WEBSITE HMJ
 	public function getTotalPengurus($id)
 	{
 		$this->db->select('*');
@@ -767,8 +929,222 @@ class All_model extends CI_Model
 	{
 		return $this->db->where('id_informasi=' . $id)->get('s1_informasi')->result_array();
 	}
+	// END WEBSITE HMJ
+
+	// START EORS
+	// END EORS
+
+	// START INTEGER
+	// END INTEGER
 	// **************************************************************
 	// End Halaman Guest Website
 	// **************************************************************
 
+
+	// **************************************************************
+	// Main Upload File
+	// **************************************************************
+	public function uploadFile($nama, $id_file, $hmj)
+	{
+
+		// Variabel
+		$folder = 'assets/upload/Folder_' . $hmj;
+		// $folder = 'assets/upload/Folder_' . $hmj . '/' . date('dmY');
+		// var_dump($folder);
+		if (!file_exists($folder) && !is_dir($folder)) {
+			$umask = umask(0);
+			mkdir($folder, 0777, true);
+			umask($umask);
+		}
+
+		if ($id_file == "kepengurusan") {
+			$config['upload_path'] = $folder;
+			$config['allowed_types'] = 'jpg|png';
+			$config['max_size']  = '1048';
+			$config['encrypt_name'] = TRUE;
+			$config['remove_space'] = TRUE;
+			$config['overwrite'] = TRUE;
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			if ($nama == "ketua") {
+				if ($this->upload->do_upload('foto_ketua')) {
+					$return = array('result' => 'success', 'file_ketua' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					// Jika gagal :      
+					$return = array('result' => 'failed', 'file_ketua' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "wakil") {
+				if ($this->upload->do_upload('foto_wakil')) {
+					$return = array('result' => 'success', 'file_wakil' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					// Jika gagal :      
+					$return = array('result' => 'failed', 'file_wakil' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "vertikal") {
+				if ($this->upload->do_upload('foto_vertikal')) {
+					$return = array('result' => 'success', 'file_vertikal' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					// Jika gagal :      
+					$return = array('result' => 'failed', 'file_vertikal' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "landscape") {
+				if ($this->upload->do_upload('foto_landscape')) {
+					$return = array('result' => 'success', 'file_landscape' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					// Jika gagal :      
+					$return = array('result' => 'failed', 'file_landscape' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			}
+		} else if ($id_file == "berkas") {
+			$config['upload_path'] = $folder;
+			$config['allowed_types'] = 'pdf';
+			$config['max_size']  = '10048';
+			$config['file_name'] = $nama;
+			$config['remove_space'] = TRUE;
+			$config['overwrite'] = TRUE;
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			// Load konfigurasi uploadnya    
+			if ($this->upload->do_upload('file')) {
+				// Lakukan upload dan Cek jika proses upload berhasil      
+				// Jika berhasil :      
+				$return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
+				return $return;
+			} else {
+				// Jika gagal :      
+				$return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
+				return $return;
+			}
+		} else if ($id_file == "bidang") {
+			$config['upload_path'] = $folder;
+			$config['allowed_types'] = 'jpg|png';
+			$config['max_size']  = '1045';
+			$config['file_name'] = $nama;
+			$config['remove_space'] = TRUE;
+			$config['overwrite'] = TRUE;
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			// Load konfigurasi uploadnya    
+			if ($this->upload->do_upload('file')) {
+				// Lakukan upload dan Cek jika proses upload berhasil      
+				// Jika berhasil :      
+				$return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
+				return $return;
+			} else {
+				// Jika gagal :      
+				$return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
+				return $return;
+			}
+		} else if ($id_file == "informasi") {
+			$config['upload_path'] = $folder;
+			$config['allowed_types'] = 'jpg|png';
+			$config['max_size']  = '1048';
+			$config['encrypt_name'] = TRUE;
+			$config['remove_space'] = TRUE;
+			$config['overwrite'] = TRUE;
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			if ($nama == "foto_1") {
+				if ($this->upload->do_upload('foto_1')) {
+					// Lakukan upload dan Cek jika proses upload berhasil      
+					// Jika berhasil :      
+					$return = array('result' => 'success', 'foto_1' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					// Jika gagal :      
+					$return = array('result' => 'failed', 'foto_1' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "foto_2") {
+				if ($this->upload->do_upload('foto_2')) {
+					// Lakukan upload dan Cek jika proses upload berhasil      
+					// Jika berhasil :      
+					$return = array('result' => 'success', 'foto_2' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					// Jika gagal :      
+					$return = array('result' => 'failed', 'foto_2' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "foto_3") {
+				if ($this->upload->do_upload('foto_3')) {
+					// Lakukan upload dan Cek jika proses upload berhasil      
+					// Jika berhasil :      
+					$return = array('result' => 'success', 'foto_3' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					// Jika gagal :      
+					$return = array('result' => 'failed', 'foto_3' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			}
+		} else if ($id_file == "eors") {
+			if ($nama == "kegiatan") {
+				$config['upload_path'] = $folder;
+				$config['allowed_types'] = 'jpg|png';
+				$config['max_size']  = '1045';
+			} else if ($nama == "foto") {
+				$config['upload_path'] = $folder;
+				$config['allowed_types'] = 'jpg|png';
+				$config['max_size']  = '1045';
+			} else {
+				$config['upload_path'] = $folder;
+				$config['allowed_types'] = 'pdf';
+				$config['max_size']  = '1045';
+			}
+			$config['encrypt_name'] = TRUE;
+			$config['remove_space'] = TRUE;
+			$config['overwrite'] = TRUE;
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			// Load konfigurasi uploadnya    
+			if ($nama == "kegiatan") {
+				if ($this->upload->do_upload('icon_kegiatan')) {
+					// Lakukan upload dan Cek jika proses upload berhasil      
+					// Jika berhasil :      
+					$return = array('result' => 'success', 'icon_kegiatan' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					// Jika gagal :      
+					$return = array('result' => 'failed', 'icon_kegiatan' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			}
+			if ($nama == "foto") {
+				if ($this->upload->do_upload('file_foto')) {
+					// Lakukan upload dan Cek jika proses upload berhasil      
+					// Jika berhasil :      
+					$return = array('result' => 'success', 'file_foto' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					// Jika gagal :      
+					$return = array('result' => 'failed', 'file_foto' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			}
+			if ($nama == "dokumen") {
+				if ($this->upload->do_upload('file_dokumen')) {
+					// Lakukan upload dan Cek jika proses upload berhasil      
+					// Jika berhasil :      
+					$return = array('result' => 'success', 'file_dokumen' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					// Jika gagal :      
+					$return = array('result' => 'failed', 'file_dokumen' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			}
+		}
+	}
+	// **************************************************************
+	// End Upload File
+	// **************************************************************
 }

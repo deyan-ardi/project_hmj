@@ -1311,8 +1311,14 @@ class Ion_auth_model extends CI_Model
 			$this->db->select([
 				$this->tables['users'] . '.*',
 				$this->tables['users'] . '.id as id',
-				$this->tables['users'] . '.id as user_id'
+				$this->tables['users'] . '.id as user_id',
+				$this->tables['jabatan'] . '.nama_pilihan'
 			]);
+			$this->db->join(
+				$this->tables['jabatan'],
+				$this->tables['jabatan'] . '.id_pilihan' .  '=' . $this->tables['users'] . '.company',
+				'inner'
+			);
 		}
 
 		// filter by group id(s) if passed
@@ -1328,6 +1334,11 @@ class Ion_auth_model extends CI_Model
 				$this->db->join(
 					$this->tables['users_groups'],
 					$this->tables['users_groups'] . '.' . $this->join['users'] . '=' . $this->tables['users'] . '.id',
+					'inner'
+				);
+				$this->db->join(
+					$this->tables['jabatan'],
+					$this->tables['jabatan'] . '.id_pilihan' .  '=' . $this->tables['users'] . '.company',
 					'inner'
 				);
 			}
@@ -1639,7 +1650,6 @@ class Ion_auth_model extends CI_Model
 		if (isset($id)) {
 			$this->where($this->tables['groups'] . '.id', $id);
 		}
-
 		$this->limit(1);
 		$this->order_by('id', 'desc');
 
@@ -2615,9 +2625,10 @@ class Ion_auth_model extends CI_Model
 	}
 	public function getGroup($id)
 	{
-		$this->db->select('users.first_name, group_id, users.company,users.phone,users.last_name, users.email');
+		$this->db->select('users.first_name, group_id, users.company,users.phone,users.last_name, users.email,jabatan.nama_pilihan');
 		$this->db->from('users');
 		$this->db->join('users_groups', 'users_groups.user_id = users.id', 'inner');
+		$this->db->join('jabatan', 'jabatan.id_pilihan = users.company', 'inner');
 		$this->db->where('users_groups.user_id =' . $id);
 		return $this->db->get()->result_array();
 	}

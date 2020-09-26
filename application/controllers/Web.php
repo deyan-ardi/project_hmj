@@ -141,7 +141,7 @@ class Web extends CI_Controller
 			$this->data['title'] = "Web HMJ - Tambah Informasi Bidang HMJ TI";
 			$this->data['active'] = "4";
 			$this->data['kepengurusan'] = $this->All_model->getActiveKepengurusan();
-			$this->data['ckeditor'] = "bidang";
+			$this->data['ckeditor'] = "web";
 			$this->data['flip'] = "false";
 			$this->form_validation->set_rules("nama_bidang", "Nama Bidang", "required");
 			$this->form_validation->set_rules("deskripsi_bidang", "Deskripsi Bidang", "required|max_length[1000]");
@@ -194,7 +194,7 @@ class Web extends CI_Controller
 			$this->data['bidang'] = $this->All_model->getBidangSelectWhere($id_bidang);
 			$this->data['title'] = "Web HMJ - Edit Informasi Bidang HMJ TI";
 			$this->data['active'] = "4";
-			$this->data['ckeditor'] = "bidang";
+			$this->data['ckeditor'] = "web";
 			$this->data['flip'] = "false";
 			// Validation
 			$this->form_validation->set_rules("nama_bidang", "Nama Bidang", "required");
@@ -309,7 +309,7 @@ class Web extends CI_Controller
 			$this->data['group'] = $this->ion_auth_model->getGroup($id);
 			$this->data['title'] = "Web HMJ - Tambah Data Kepengurusan HMJ TI";
 			$this->data['active'] = "4";
-			$this->data['ckeditor'] = "info";
+			$this->data['ckeditor'] = "web";
 			$this->data['flip'] = "false";
 			// Validation Form
 			$this->form_validation->set_rules("kepengurusan", "Kepengurusan", "required");
@@ -484,7 +484,7 @@ class Web extends CI_Controller
 			// Taken from models repository
 			$this->data['title'] = "Web HMJ - Tambah Data Kategori Berkas HMJ TI";
 			$this->data['active'] = "4";
-			$this->data['ckeditor'] = "bidang";
+			$this->data['ckeditor'] = "web";
 			$this->data['flip'] = "false";
 			// All Validations
 			$this->form_validation->set_rules('id_kepengurusan', 'Nama Kepengurusan', 'required');
@@ -527,7 +527,7 @@ class Web extends CI_Controller
 			// Taken from models repository
 			$this->data['title'] = "Web HMJ - Tambah Data Kategori Berkas HMJ TI";
 			$this->data['active'] = "4";
-			$this->data['ckeditor'] = "bidang";
+			$this->data['ckeditor'] = "web";
 			$this->data['flip'] = "false";
 
 			// All Validations
@@ -610,7 +610,7 @@ class Web extends CI_Controller
 			// Taken from models repository
 			$this->data['title'] = "Web HMJ - Tambah Data Berkas HMJ TI";
 			$this->data['active'] = "4";
-			$this->data['ckeditor'] = "bidang";
+			$this->data['ckeditor'] = "web";
 			$this->data['flip'] = "false";
 			// All Validations
 			$this->form_validation->set_rules('id_kategori_berkas', 'Nama Kategori Berkas', 'required');
@@ -686,7 +686,7 @@ class Web extends CI_Controller
 			// Taken from models repository
 			$this->data['title'] = "Web HMJ - Edit Data Berkas HMJ TI";
 			$this->data['active'] = "4";
-			$this->data['ckeditor'] = "bidang";
+			$this->data['ckeditor'] = "web";
 			$this->data['flip'] = "false";
 			// All Validations
 			$this->form_validation->set_rules('id_kategori_berkas', 'Nama Kategori', 'required');
@@ -758,6 +758,11 @@ class Web extends CI_Controller
 			$folder = $this->All_model->getActiveKepengurusan();
 			$this->data['kepengurusan'] = $folder[0]['nama_hmj'];
 			$this->data['kode'] = $kode;
+		} else if ($kode == "eors") {
+			$data_kegiatan = $this->All_model->getKegiatanEorsWhereChar(urldecode($tujuan));
+			$this->data['folder_eors'] = $data_kegiatan[0]['nama_kegiatan'];
+			$this->data['kode'] = $kode;
+			$this->data['nama_file'] = $nama;
 		}
 		$this->load->view('admin/master/header', $this->data);
 		$this->load->view('admin/page/web/flip_me', $this->data);
@@ -799,12 +804,12 @@ class Web extends CI_Controller
 			// Taken from models repository
 			$this->data['title'] = "Web HMJ - Tambah Data Informasi";
 			$this->data['active'] = "4";
-			$this->data['ckeditor'] = "bidang";
+			$this->data['ckeditor'] = "web";
 			$this->data['flip'] = "false";
 			// All Validations
 			$this->form_validation->set_rules('kategori', 'Kategori', 'required');
-			$this->form_validation->set_rules('judul_informasi', 'Judul Informasi', 'required|max_length[40]');
-			$this->form_validation->set_rules('konten', 'Deskripsi Repositori', 'required');
+			$this->form_validation->set_rules('judul_informasi', 'Judul Informasi', 'required|max_length[100]');
+			$this->form_validation->set_rules('konten', 'Konten', 'required');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/master/header', $this->data);
@@ -919,23 +924,6 @@ class Web extends CI_Controller
 					redirect("web/tambah_data_informasi");
 				}
 			}
-		}
-	}
-	public function lihat_informasi($id_informasi = '')
-	{
-		if (!$this->ion_auth->logged_in() || !$this->ion_auth->in_group(group)) {
-			redirect('web/home', 'refresh');
-		} else {
-			$id = $_SESSION['user_id'];
-			$this->data['group'] = $this->ion_auth_model->getGroup($id);
-			$this->data['informasi'] = $this->All_model->getInformasiWhere($id_informasi);
-			$this->data['title'] = "Web HMJ - Manajemen Informasi HMJ";
-			$this->data['active'] = "4";
-			$this->data['ckeditor'] = "false";
-			$this->data['flip'] = "false";
-			$this->load->view('admin/master/header', $this->data);
-			$this->load->view('admin/page/web/lihat_informasi', $this->data);
-			$this->load->view('admin/master/footer', $this->data);
 		}
 	}
 	public function hapus_data_informasi($id = '')

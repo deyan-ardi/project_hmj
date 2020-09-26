@@ -9,6 +9,7 @@
 	    <link rel="stylesheet" href="<?= base_url() ?>assets/css/viewer.css" />
 	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.2/pdf.min.js"></script>
 	    <link rel="shortcut icon" href="<?= base_url() ?>assets/img/sso-logo.png" type="image/x-icon">
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 
 	<body>
@@ -72,7 +73,7 @@
 
 	                <!-- Divider -->
 	                <hr class="sidebar-divider">
-
+	                <?php if ($group[0]['group_id'] == "1" || $group[0]['group_id'] == "2") { ?>
 	                <!-- Heading -->
 	                <div class="sidebar-heading">
 	                    Layanan HMJ TI
@@ -80,12 +81,12 @@
 
 	                <!-- Nav Item - Pages Collapse Menu -->
 	                <?php
-						if ($active == "2") {
-							echo '<li class="nav-item active">';
-						} else {
-							echo '<li class="nav-item">';
-						}
-						?>
+							if ($active == "2") {
+								echo '<li class="nav-item active">';
+							} else {
+								echo '<li class="nav-item">';
+							}
+							?>
 	                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
 	                    aria-expanded="true" aria-controls="collapseTwo">
 	                    <i class="fas fa-hotel"></i>
@@ -101,12 +102,12 @@
 	                </li>
 	                <!-- Nav Item - Utilities Collapse Menu -->
 	                <?php
-						if ($active == "4") {
-							echo '<li class="nav-item active">';
-						} else {
-							echo '<li class="nav-item">';
-						}
-						?>
+							if ($active == "4") {
+								echo '<li class="nav-item active">';
+							} else {
+								echo '<li class="nav-item">';
+							}
+							?>
 	                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
 	                    aria-expanded="true" aria-controls="collapseUtilities">
 	                    <i class="fas fa-globe"></i>
@@ -124,12 +125,12 @@
 	                </li>
 	                <!-- Nav Item - Utilities Collapse Menu -->
 	                <?php
-						if ($active == "5") {
-							echo '<li class="nav-item active">';
-						} else {
-							echo '<li class="nav-item">';
-						}
-						?>
+							if ($active == "5") {
+								echo '<li class="nav-item active">';
+							} else {
+								echo '<li class="nav-item">';
+							}
+							?>
 	                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
 	                    aria-expanded="true" aria-controls="collapseUtilities">
 	                    <i class="fas fa-calendar-day"></i>
@@ -144,6 +145,7 @@
 	                    </div>
 	                </div>
 	                </li>
+	                <?php } ?>
 	                <?php
 						if ($active == "10") {
 							echo '<li class="nav-item active">';
@@ -156,11 +158,14 @@
 	                    <i class="fas fa-vote-yea"></i>
 	                    <span>Layanan Lain</span>
 	                </a>
+
 	                <div id="collapseSix" class="collapse" aria-labelledby="headingUtilities"
 	                    data-parent="#accordionSidebar">
 	                    <div class="bg-white py-2 collapse-inner rounded">
 	                        <h6 class="collapse-header">Lainnya:</h6>
-	                        <a class="collapse-item" href="<?= base_url() ?>web/berkas">E-ORS</a>
+	                        <?php if ($group[0]['group_id'] == "1" || $group[0]['group_id'] == "4" || $group[0]['group_id'] == "5") { ?>
+	                        <a class="collapse-item" href="<?= base_url() ?>eors">E-ORS</a>
+	                        <?php } ?>
 	                        <a class="collapse-item" href="<?= base_url() ?>web/tentang_hmj">E-VOTING</a>
 	                    </div>
 	                </div>
@@ -272,3 +277,6 @@
 	                    <!-- End of Topbar -->
 
 	                    <?php } ?>
+	                    <div class="berhasil" data-berhasil="<?= $this->session->flashdata('berhasil') ?>"></div>
+	                    <div class="gagal" data-gagal="<?= $this->session->flashdata('gagal') ?>"></div>
+	                    <div class="gagal" data-gagal="<?= validation_errors() ?>"></div>

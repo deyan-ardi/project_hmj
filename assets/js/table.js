@@ -46,6 +46,9 @@ $(document).ready(function () {
 $(document).ready(function () {
 	$('#tableKegiatan').DataTable();
 });
+$(document).ready(function () {
+	$('#tableUser').DataTable();
+});
 
 
 
