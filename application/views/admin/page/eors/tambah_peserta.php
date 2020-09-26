@@ -245,7 +245,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-lg-12 mb-3">
+                            <div class=" col-lg-12 mb-3">
                                 <div class="card border-left-primary shadow h-100 py-2">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
@@ -256,7 +256,7 @@
                                                     class="form-control form-control-select" required>
                                                     <option value="">Masukkan Sie Pertama Yang Diminati</option>
                                                     <?php foreach ($jabatan as $data) : ?>
-                                                    <option value="<?= $data['nama_pilihan'] ?>">
+                                                    <option value=" <?= $data['nama_pilihan'] ?>">
                                                         <?= $data['nama_pilihan'] ?></option>
                                                     <?php endforeach ?>
                                                 </select>

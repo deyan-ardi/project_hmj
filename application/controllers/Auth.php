@@ -373,12 +373,12 @@ class Auth extends CI_Controller
 
 		if ($activation) {
 			// redirect them to the auth page
-			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("admin", 'refresh');
+			$this->session->set_flashdata('berhasil', $this->ion_auth->messages());
+			redirect("admin");
 		} else {
 			// redirect them to the forgot password page
-			$this->session->set_flashdata('message', $this->ion_auth->errors());
-			redirect("forgot_password", 'refresh');
+			$this->session->set_flashdata('gagal', $this->ion_auth->errors());
+			redirect("forgot_password");
 		}
 	}
 
@@ -717,10 +717,10 @@ class Auth extends CI_Controller
 			if ($new_group_id) {
 				// check to see if we are creating the group
 				// redirect them back to the admin page
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect("admin", 'refresh');
+				$this->session->set_flashdata('berhasil', $this->ion_auth->messages());
+				redirect("admin");
 			} else {
-				$this->session->set_flashdata('message', $this->ion_auth->errors());
+				$this->session->set_flashdata('gagal', $this->ion_auth->errors());
 			}
 		}
 
@@ -756,10 +756,10 @@ class Auth extends CI_Controller
 	 *
 	 * @param int|string $id
 	 */
-	public function edit_group($id)
+	public function edit_group($id_group)
 	{
 		// bail if no group id given
-		if (!$id || empty($id) || !isset($id) || $id = '') {
+		if (!$id_group || empty($id_group) || !isset($id_group)) {
 			redirect('auth', 'refresh');
 		}
 
@@ -768,23 +768,21 @@ class Auth extends CI_Controller
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin()) {
 			redirect('auth', 'refresh');
 		}
-
-		$group = $this->ion_auth->group($id)->row();
-
+		$group = $this->ion_auth->group($id_group)->row();
 		// validate form input
 		$this->form_validation->set_rules('group_name', $this->lang->line('edit_group_validation_name_label'), 'trim|required|alpha_dash');
 
 		if (isset($_POST) && !empty($_POST)) {
 			if ($this->form_validation->run() === TRUE) {
-				$group_update = $this->ion_auth->update_group($id, $_POST['group_name'], array(
+				$group_update = $this->ion_auth->update_group($id_group, $_POST['group_name'], array(
 					'description' => $_POST['group_description']
 				));
 
 				if ($group_update) {
-					$this->session->set_flashdata('message', $this->lang->line('edit_group_saved'));
+					$this->session->set_flashdata('berhasil', $this->lang->line('edit_group_saved'));
 					redirect("admin", 'refresh');
 				} else {
-					$this->session->set_flashdata('message', $this->ion_auth->errors());
+					$this->session->set_flashdata('gagal', $this->ion_auth->errors());
 				}
 			}
 		}
@@ -793,7 +791,7 @@ class Auth extends CI_Controller
 		$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
 		// pass the user to the view
-		$this->data['group'] = $group;
+		$this->data['group_data'] = $group;
 
 		$this->data['group_name'] = [
 			'name'    => 'group_name',
@@ -813,11 +811,11 @@ class Auth extends CI_Controller
 		];
 
 
-		$id = $_SESSION['user_id'];
+		$id_user = $_SESSION['user_id'];
 		$this->data['title'] = "Admin - Edit Level User";
 		$this->data['active'] = "6";
 		$this->data['flip'] = "false";
-		$this->data['group'] = $this->ion_auth_model->getGroup($id);
+		$this->data['group'] = $this->ion_auth_model->getGroup($id_user);
 		$this->load->view('admin/master/header', $this->data);
 		$this->load->view('auth/edit_group', $this->data);
 		$this->load->view('admin/master/footer', $this->data);

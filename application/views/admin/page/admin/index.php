@@ -5,22 +5,6 @@
      <p class="mb-4">Berikut merupakan beberapa pengaturan yang dapat dilakukan di Website E-Informatics</p>
      <!-- Kepengurusan -->
      <!-- This is the insert flash message -->
-     <?php if ($this->session->flashdata('berhasil')) : ?>
-     <div class="alert alert-success alert-dismissible fade show" role="alert">
-         Data <strong>Berhasil</strong> <?= $this->session->flashdata('berhasil'); ?>
-         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-         </button>
-     </div>
-     <?php endif; ?>
-     <?php if ($this->session->flashdata('gagal')) : ?>
-     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-         Data <strong>Gagal</strong> <?= $this->session->flashdata('gagal'); ?>
-         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-         </button>
-     </div>
-     <?php endif; ?>
      <div class="accordion" id="ManajemenWebsite">
          <div class="card shadow mb-4">
              <!-- Card Header - Accordion -->
@@ -89,7 +73,7 @@
                                      <th>ID Email</th>
                                      <th>NIM</th>
                                      <th>Nama Lengkap</th>
-                                     <th>Bidang HMJ</th>
+                                     <th>Jabatan</th>
                                      <th>No Telp</th>
                                      <th>Level User</th>
                                      <th>Login Terakhir</th>
@@ -116,7 +100,7 @@
                       						<i class="fas fa-edit"></i>
                     						</span>
                     						<span class="text">' . $group->name . '</span>
-                  					</button>', ENT_QUOTES, 'UTF-8'); ?><br />
+                  					</button>', ENT_QUOTES, 'UTF-8'); ?><br>
                                          <?php endforeach ?>
                                      </td>
                                      <td><?= htmlspecialchars(date("H:i:s d-m-Y", $user->last_login), ENT_QUOTES, 'UTF-8'); ?>

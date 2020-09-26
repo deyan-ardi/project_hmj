@@ -561,7 +561,7 @@ class All_model extends CI_Model
 			'persyaratan' => $this->input->post('persyaratan', false),
 			'tgl_mulai' => $this->input->post('tanggal_mulai', true),
 			'tgl_akhir' => $this->input->post('tanggal_selesai', true),
-			'aktivasi' => $this->input->post('aktivasi', true),
+			'aktivasi' => 0,
 			'target_pendaftar' => $this->input->post('target_pendaftar', true),
 			'jumlah_pendaftar' => 0,
 			'upload_file' => $this->input->post('file', true),
@@ -570,6 +570,7 @@ class All_model extends CI_Model
 			'wawancara' => $this->input->post('wawancara', true),
 			'penilaian' => 0,
 			'hasil_akhir' => 0,
+			'pengumuman' => 0,
 			'create_at' => date("Y-m-d H:i:s"),
 			'create_by' => $this->input->post('create_by', true),
 
@@ -596,6 +597,9 @@ class All_model extends CI_Model
 	{
 		$query = array(
 			'aktivasi' => 1,
+			'penilaian' => 0,
+			'hasil_akhir' => 0,
+			'pengumuman' => 0,
 		);
 		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
 	}
@@ -603,34 +607,69 @@ class All_model extends CI_Model
 	{
 		$query = array(
 			'aktivasi' => 0,
+			'penilaian' => 0,
+			'hasil_akhir' => 0,
+			'pengumuman' => 0,
 		);
 		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
 	}
 	public function editNonaktifPenilaian($id_user)
 	{
 		$query = array(
+			'aktivasi' => 1,
 			'penilaian' => 0,
+			'hasil_akhir' => 1,
+			'pengumuman' => 0,
 		);
 		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
 	}
 	public function editAktifPenilaian($id_user)
 	{
 		$query = array(
+			'aktivasi' => 1,
 			'penilaian' => 1,
+			'hasil_akhir' => 0,
+			'pengumuman' => 0,
+		);
+		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
+	}
+	public function editAktifPengumuman($id_user)
+	{
+		$query = array(
+			'aktivasi' => 1,
+			'penilaian' => 0,
+			'hasil_akhir' => 0,
+			'pengumuman' => 1,
+		);
+		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
+	}
+	public function editNonaktifPengumuman($id_user)
+	{
+		$query = array(
+			'aktivasi' => 0,
+			'penilaian' => 0,
+			'hasil_akhir' => 0,
+			'pengumuman' => 0,
 		);
 		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
 	}
 	public function editNonaktifHasil($id_user)
 	{
 		$query = array(
+			'aktivasi' => 1,
+			'penilaian' => 0,
 			'hasil_akhir' => 0,
+			'pengumuman' => 1,
 		);
 		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
 	}
 	public function editAktifHasil($id_user)
 	{
 		$query = array(
+			'aktivasi' => 1,
+			'penilaian' => 0,
 			'hasil_akhir' => 1,
+			'pengumuman' => 0,
 		);
 		return $this->db->where('id_kegiatan =' . $id_user)->update('s4_kegiatan', $query);
 	}
@@ -705,13 +744,33 @@ class All_model extends CI_Model
 		);
 		return $this->db->where('id_kegiatan =' . $id_kegiatan)->update('s4_kegiatan', $query);
 	}
+	public function getAllPendaftarProdi($prodi, $id_kegiatan)
+	{
+		return $this->db->where('id_kegiatan =' . $id_kegiatan)->where('prodi =' . "'$prodi'")->get('s4_informasi_umum')->num_rows();
+	}
+	public function getAllPendaftarTahun($angkatan, $id_kegiatan)
+	{
+		return $this->db->where('id_kegiatan =' . $id_kegiatan)->where('angkatan =' . "'$angkatan'")->get('s4_informasi_umum')->num_rows();
+	}
 	public function getAllPendaftarEors($id_kegiatan)
 	{
-		return $this->db->where("id_kegiatan=" . $id_kegiatan)->get('s4_informasi_umum')->result_array();
+		return $this->db->where("id_kegiatan=" . $id_kegiatan)->order_by('nim', 'ASC')->get('s4_informasi_umum')->result_array();
 	}
 	public function getAllPendaftarEorsWhere($id_kegiatan, $id_pendaftar)
 	{
 		return $this->db->where("id_kegiatan=" . $id_kegiatan)->where("id_informasi=" . $id_pendaftar)->get('s4_informasi_umum')->result_array();
+	}
+	public function getAllPendaftarEorsWhereKoor($id_kegiatan, $id_jabatan)
+	{
+		return $this->db->where("id_kegiatan=" . $id_kegiatan)->where("pilihan_wajib=" . "'$id_jabatan'")->or_where("pilihan_opsional=" . "'$id_jabatan'")->order_by('nim', 'ASC')->get('s4_informasi_umum')->result_array();
+	}
+	public function cekUserBeforeDetailPendaftar($id_pilihan, $id_pendaftar)
+	{
+		return $this->db->where("id_informasi=" . $id_pendaftar)->where("pilihan_wajib=" . "'$id_pilihan'")->or_where("pilihan_opsional=" . "'$id_pilihan'")->get('s4_informasi_umum')->num_rows();
+	}
+	public function cekUserBeforeInputNilai($user, $penilai)
+	{
+		return $this->db->where("id_informasi=" . $user)->where("create_by=" . "'$penilai'")->get("s4_wawancara")->num_rows();
 	}
 	public function inputSieEors($id_kegiatan)
 	{
@@ -764,6 +823,15 @@ class All_model extends CI_Model
 	{
 		return $this->db->where("id_informasi=" . $id_pendaftar)->get("s4_wawancara")->result_array();
 	}
+	public function cekKepanitiaanEors($id_jabatan, $id_kegiatan)
+	{
+		return $this->db->where("id_kegiatan=" . $id_kegiatan)->where("id_jabatan=" . $id_jabatan)->get("s4_pilihan")->num_rows();
+	}
+	public function getAllPendaftarLulus($id_kegiatan)
+	{
+		return $this->db->where('id_kegiatan=' . $id_kegiatan)->where('ket_lulus=' . '1')->get('s4_informasi_umum')->result_array();
+	}
+
 	// **************************************************************
 	// End EORS
 	// **************************************************************

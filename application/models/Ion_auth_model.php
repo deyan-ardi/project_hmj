@@ -1650,7 +1650,6 @@ class Ion_auth_model extends CI_Model
 		if (isset($id)) {
 			$this->where($this->tables['groups'] . '.id', $id);
 		}
-
 		$this->limit(1);
 		$this->order_by('id', 'desc');
 

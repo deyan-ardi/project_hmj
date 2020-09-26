@@ -57,7 +57,7 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Deskripsi Singkat Kegiatan</div>
-                                                <textarea type="text" id="bidang" rows="5" name="deskripsi"
+                                                <textarea type="text" id="deskripsi_singkat" rows="5" name="deskripsi"
                                                     required><?= set_value('deskripsi') ?></textarea>
                                             </div>
                                         </div>
@@ -73,7 +73,7 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Persyaratan</div>
-                                                <textarea type="text" id="bidang" rows="5" name="persyaratan"
+                                                <textarea type="text" id="persyaratan" rows="5" name="persyaratan"
                                                     required><?= set_value('persyaratan') ?></textarea>
                                             </div>
                                         </div>
@@ -129,26 +129,6 @@
                                                     id="ketua" aria-describedby="target_pendaftar"
                                                     placeholder="Masukkan Target Pendaftar" name="target_pendaftar"
                                                     required value="<?= set_value('target_pendaftar') ?>">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-lg-12 mb-3">
-                                <div class="card border-left-primary shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Setting Aktivasi</div>
-                                                <select name="aktivasi" id="aktivasi"
-                                                    class="form-control form-control-select">
-                                                    <option value="">Pilih Pengaturan</option>
-                                                    <option value="1">Aktifkan</option>
-                                                    <option value="0">Non-Aktifkan</option>
-                                                </select>
                                             </div>
                                         </div>
                                     </div>

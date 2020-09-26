@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 17, 2020 at 05:24 PM
+-- Generation Time: Sep 26, 2020 at 06:24 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `project_hmj`
+-- Database: `project_hmj_fixed`
 --
 
 -- --------------------------------------------------------
@@ -39,7 +39,10 @@ CREATE TABLE `groups` (
 
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 (1, 'admin', 'Administrator'),
-(2, 'members', 'General User');
+(2, 'members', 'General User'),
+(3, 'pemilih', 'pemilih digunakan untuk di sistem evoting'),
+(4, 'koordinator_sie', 'koordinator sie digunakan untuk di sistem eors'),
+(5, 'inti_kepanitiaan', 'inti kepanitiaan digunakan untuk sistem eors');
 
 -- --------------------------------------------------------
 
@@ -66,7 +69,11 @@ INSERT INTO `jabatan` (`id_pilihan`, `nama_pilihan`, `create_at`) VALUES
 (43, 'Bidang 4', '2020-09-17 23:15:32'),
 (44, 'Bidang 5', '2020-09-17 23:15:32'),
 (45, 'Panitia Inti Lainnya', '2020-09-17 23:16:09'),
-(46, 'Administrator', '2020-09-17 23:18:02');
+(46, 'Administrator', '2020-09-17 23:18:02'),
+(47, 'Sie Acara', '2020-09-26 23:58:42'),
+(48, 'Sie Humas', '2020-09-26 23:58:49'),
+(49, 'Sie Expo', '2020-09-26 23:58:58'),
+(50, 'Sie Pengda', '2020-09-26 23:59:46');
 
 -- --------------------------------------------------------
 
@@ -101,6 +108,13 @@ CREATE TABLE `login_attempts` (
   `login` varchar(100) NOT NULL,
   `time` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `login_attempts`
+--
+
+INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
+(32, '127.0.0.1', 'riyan.clsg11@gmail.com', 1601135473);
 
 -- --------------------------------------------------------
 
@@ -141,7 +155,7 @@ CREATE TABLE `s1_detail_hmj` (
 --
 
 INSERT INTO `s1_detail_hmj` (`id_detail_hmj`, `id_hmj`, `nama_bidang`, `deskripsi_bidang`, `ketua_nama`, `ketua_foto`) VALUES
-(7, 16, 'Pendidikan dan Penalaran ', '<p style=\"text-align:justify;\">Bidang yang menaungi dan memfasilitasi mahasiswa Jurusan Teknik Informatika dalam bidang pendidikan dan penalaran, seperti PKM, PMW dan Jurnalistik. Bidang 1 HMJ Teknik Informatika terdiri atas dua sub-bidang yaitu Sub-Bidang Karya Ilmiah dan Sub-Bidang Jurnalistik</p>', ' Gede Budi Setiawan', '20200824140454.png'),
+(7, 16, 'Pendidikan dan Penalaran ', '<p style=\"text-align:justify\">Bidang yang menaungi dan memfasilitasi mahasiswa Jurusan Teknik Informatika dalam bidang pendidikan dan penalaran, seperti PKM, PMW dan Jurnalistik. Bidang 1 HMJ Teknik Informatika terdiri atas dua sub-bidang yaitu Sub-Bidang Karya Ilmiah dan Sub-Bidang Jurnalistik</p>\r\n', ' Gede Budi Setiawan', '20200824140454.png'),
 (8, 16, 'Minat dan Bakat ', '<p style=\"text-align:justify;\">Bidang yang menaungi dan memfasilitasi Minat dan Bakat mahasiswa Teknik Informatika baik dibidang Akademik maupun non Akademik. Didalam bidang 2 terdapat beberapa sub bidang yang diantaranya adalah Sub Bidang Olaharaga dan Sub Bidang Seni yang didalamnya dibagi menjadi sub-sub bidang lainnya.</p>', 'Putu Erik Hendrawan', '20200824140548.png'),
 (9, 16, 'Kesejahteraan Mahasiswa', '<p style=\"text-align:justify;\">Bidang yang bertugas menaungi bagian kerumah tanggaan pada intern HMJ TI. Pada bidang 3 terdapat beberapa Sub bidang yakni Sub Bidang Kewirausahaan, Sub Bidang Inventaris, Sub Bidang Kesejahteraan Mahasiswa, dan Sub Bidang Suka Duka</p>', 'Rifki Nur Fauzi', '20200824140629.png'),
 (10, 16, 'Pengabdian Masyarakat', '<p style=\"text-align:justify;\">Bidang yang bertugas menaungi pengabdian kepada masyarakat. Pada Bidang 4 HMJ TI memiliki beberapa sub bidang didalamnya, diantaranya adalah Sub Bidang Humas, Sub Bidang Intern Kampus, dan Sub Bidang Masyarakat.</p>', 'Willy Yogantara Sidhi', '20200824140750.png'),
@@ -397,6 +411,127 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `s3_berita_integer`
+--
+
+CREATE TABLE `s3_berita_integer` (
+  `id_berita_integer` int(11) NOT NULL,
+  `id_integer` int(11) NOT NULL,
+  `nama_berita_integer` varchar(200) NOT NULL,
+  `kategori_berita_integer` varchar(1) NOT NULL,
+  `konten_berita_integer` text NOT NULL,
+  `youtube_berita_integer` text NOT NULL,
+  `file_berita_integer` text NOT NULL,
+  `foto1_berita_integer` text NOT NULL,
+  `foto2_berita_integer` text NOT NULL,
+  `foto3_berita_integer` text NOT NULL,
+  `create_at` datetime NOT NULL,
+  `create_by` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `s3_detail_hari_integer`
+--
+
+CREATE TABLE `s3_detail_hari_integer` (
+  `id_detail_hari_integer` int(11) NOT NULL,
+  `id_hari_integer` int(11) NOT NULL,
+  `nama_detail_hari_integer` varchar(200) NOT NULL,
+  `waktu_mulai_jam` varchar(2) NOT NULL,
+  `waktu_mulai_menit` varchar(2) NOT NULL,
+  `waktu_akhir_jam` varchar(2) NOT NULL,
+  `waktu_akhir_menit` varchar(2) NOT NULL,
+  `tempat_detail_hari_integer` text NOT NULL,
+  `create_at` datetime NOT NULL,
+  `create_by` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `s3_hari_integer`
+--
+
+CREATE TABLE `s3_hari_integer` (
+  `id_hari_integer` int(11) NOT NULL,
+  `id_integer` int(11) NOT NULL,
+  `nama_hari_integer` varchar(30) NOT NULL,
+  `create_at` datetime NOT NULL,
+  `create_by` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `s3_integer`
+--
+
+CREATE TABLE `s3_integer` (
+  `id_integer` int(11) NOT NULL,
+  `nama_integer` varchar(100) NOT NULL,
+  `logo_integer` text NOT NULL,
+  `video_integer` text NOT NULL,
+  `tema_integer` varchar(200) NOT NULL,
+  `deskripsi_integer` text NOT NULL,
+  `status_integer` int(1) NOT NULL,
+  `create_at` datetime NOT NULL,
+  `create_by` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `s3_kategori_lomba_integer`
+--
+
+CREATE TABLE `s3_kategori_lomba_integer` (
+  `id_kategori_lomba_integer` int(11) NOT NULL,
+  `id_integer` int(11) NOT NULL,
+  `nama_kategori_lomba_integer` varchar(30) NOT NULL,
+  `icon_kategori_lomba_integer` text NOT NULL,
+  `deskripsi_kategori_lomba_integer` text NOT NULL,
+  `create_at` datetime NOT NULL,
+  `create_by` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `s3_lomba_integer`
+--
+
+CREATE TABLE `s3_lomba_integer` (
+  `id_lomba_integer` int(11) NOT NULL,
+  `id_kategori_lomba_integer` int(11) NOT NULL,
+  `nama_lomba_integer` varchar(60) NOT NULL,
+  `deskripsi_lomba_integer` text NOT NULL,
+  `icon_lomba_integer` text NOT NULL,
+  `pendaftaran_lomba_integer` text NOT NULL,
+  `create_at` datetime NOT NULL,
+  `create_by` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `s3_sponsor_integer`
+--
+
+CREATE TABLE `s3_sponsor_integer` (
+  `id_sponsor_integer` int(11) NOT NULL,
+  `id_integer` int(11) NOT NULL,
+  `nama_sponsor_integer` varchar(200) NOT NULL,
+  `deskripsi_sponsor_integer` text NOT NULL,
+  `foto_sponsor_integer` text NOT NULL,
+  `create_at` datetime NOT NULL,
+  `create_by` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `s4_informasi_umum`
 --
 
@@ -405,15 +540,16 @@ CREATE TABLE `s4_informasi_umum` (
   `id_kegiatan` int(11) NOT NULL,
   `nim` varchar(11) NOT NULL,
   `nama_lengkap` varchar(100) NOT NULL,
-  `semester` int(11) NOT NULL,
+  `angkatan` int(11) NOT NULL,
   `jenis_kelamin` varchar(50) NOT NULL,
   `agama` varchar(50) NOT NULL,
   `alamat_asal` text NOT NULL,
   `alamat_sekarang` text NOT NULL,
   `email` varchar(100) NOT NULL,
   `wa` varchar(15) NOT NULL,
-  `pilihan_wajib` int(11) NOT NULL,
-  `pilihan_opsional` int(11) DEFAULT NULL,
+  `prodi` varchar(100) NOT NULL,
+  `pilihan_wajib` varchar(100) NOT NULL,
+  `pilihan_opsional` varchar(100) DEFAULT NULL,
   `riwayat_kesehatan` text DEFAULT NULL,
   `hobi` text DEFAULT NULL,
   `motto` text DEFAULT NULL,
@@ -427,8 +563,18 @@ CREATE TABLE `s4_informasi_umum` (
   `file_foto` text DEFAULT NULL,
   `file_dokumen` text DEFAULT NULL,
   `ket_wawancara` int(11) NOT NULL DEFAULT 0,
+  `diterima_di` varchar(100) NOT NULL DEFAULT 'Belum Ada',
+  `ket_lulus` int(11) NOT NULL DEFAULT 0,
   `create_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `s4_informasi_umum`
+--
+
+INSERT INTO `s4_informasi_umum` (`id_informasi`, `id_kegiatan`, `nim`, `nama_lengkap`, `angkatan`, `jenis_kelamin`, `agama`, `alamat_asal`, `alamat_sekarang`, `email`, `wa`, `prodi`, `pilihan_wajib`, `pilihan_opsional`, `riwayat_kesehatan`, `hobi`, `motto`, `ipk`, `sd`, `thn_sd`, `smp`, `thn_smp`, `sma`, `thn_sma`, `file_foto`, `file_dokumen`, `ket_wawancara`, `diterima_di`, `ket_lulus`, `create_at`) VALUES
+(1, 1, '1815091037', 'I Gede Riyan Ardi Darmawan', 2018, 'Laki-Laki', 'Hindu', '<p>Lovina</p>\r\n', '<p>Lovina</p>\r\n', 'riyan.clsg11@gmail.com', '081915656865', 'SI', ' Sie Acara', 'Sie Expo', NULL, NULL, NULL, 4, 'SD N 2 Kalibukbuk', '2012', 'SMP N 2 Singaraja', '2015', 'SMA N 1 Singaraja', '2018', NULL, NULL, 0, 'Belum Ada', 0, '2020-09-27 00:20:08'),
+(2, 1, '1815091038', 'Kadek Bagus Genjing', 2020, 'Laki-Laki', 'Konghucu', '<p>Ada</p>\r\n', '<p>Ada</p>\r\n', 'riyan.clsg@yahoo.com', '081915656865', 'ILKOM', ' Sie Acara', 'Sie Pengda', NULL, NULL, NULL, 3, 'sd', '2020', 'sd', '2020', 'sd', '2020', NULL, NULL, 0, 'Belum Ada', 0, '2020-09-27 00:22:36');
 
 -- --------------------------------------------------------
 
@@ -438,6 +584,7 @@ CREATE TABLE `s4_informasi_umum` (
 
 CREATE TABLE `s4_kegiatan` (
   `id_kegiatan` int(11) NOT NULL,
+  `icon_kegiatan` text NOT NULL,
   `nama_kegiatan` varchar(100) NOT NULL,
   `deskripsi` text NOT NULL,
   `persyaratan` text NOT NULL,
@@ -445,12 +592,24 @@ CREATE TABLE `s4_kegiatan` (
   `tgl_akhir` date NOT NULL,
   `aktivasi` int(1) NOT NULL DEFAULT 0,
   `target_pendaftar` int(11) NOT NULL,
-  `jumlah_pendaftar` int(11) NOT NULL,
+  `jumlah_pendaftar` int(11) NOT NULL DEFAULT 0,
   `upload_file` int(11) NOT NULL DEFAULT 0,
   `informasi_pribadi` int(11) NOT NULL DEFAULT 0,
+  `informasi_pendidikan` int(11) NOT NULL DEFAULT 0,
+  `wawancara` int(11) NOT NULL DEFAULT 0,
+  `penilaian` int(11) NOT NULL DEFAULT 0,
+  `hasil_akhir` int(11) NOT NULL DEFAULT 0,
+  `pengumuman` int(11) NOT NULL DEFAULT 0,
   `create_at` datetime NOT NULL,
   `create_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `s4_kegiatan`
+--
+
+INSERT INTO `s4_kegiatan` (`id_kegiatan`, `icon_kegiatan`, `nama_kegiatan`, `deskripsi`, `persyaratan`, `tgl_mulai`, `tgl_akhir`, `aktivasi`, `target_pendaftar`, `jumlah_pendaftar`, `upload_file`, `informasi_pribadi`, `informasi_pendidikan`, `wawancara`, `penilaian`, `hasil_akhir`, `pengumuman`, `create_at`, `create_by`) VALUES
+(1, 'b5e51c9ab7a64064a8e1aa4ee97c6b2b.png', 'Kepanitiaan Integer', '<p>Kepanitian Integer #2</p>\r\n', '<p>Mahasiswa Undiksha</p>\r\n', '2020-09-27', '2020-09-29', 0, 2, 2, 0, 0, 1, 0, 0, 0, 0, '2020-09-26 23:56:50', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -463,6 +622,16 @@ CREATE TABLE `s4_pilihan` (
   `id_kegiatan` int(11) NOT NULL,
   `id_jabatan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `s4_pilihan`
+--
+
+INSERT INTO `s4_pilihan` (`id_pilihan`, `id_kegiatan`, `id_jabatan`) VALUES
+(1, 1, 47),
+(2, 1, 48),
+(3, 1, 49),
+(4, 1, 50);
 
 -- --------------------------------------------------------
 
@@ -479,7 +648,8 @@ CREATE TABLE `s4_wawancara` (
   `nilai_4` float NOT NULL,
   `total` float NOT NULL,
   `keterangan` varchar(100) NOT NULL,
-  `create_by` varchar(100) NOT NULL
+  `create_by` varchar(100) NOT NULL,
+  `create_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -515,7 +685,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$zotV59v60G..Z2mko/zs0uGOQ6gAs9FyMaPckq5OvwfdtLGi6eNQ2', 'hmjtiundiksha@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1268889823, 1600334558, 1, 'Admin', '1815091037', 46, '081915656865');
+(1, '127.0.0.1', 'administrator', '$2y$12$BEzghKoXZdRN9TvTBKG/gO2Fmd5nARtU6QAFEj9pjl9sH3Y3VmFp.', 'hmjtiundiksha@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1268889823, 1601137256, 1, 'Admin', '1815091037', 46, '081915656865'),
+(21, '127.0.0.1', NULL, '$2y$10$uaGnGP/qqL6DwDGpF7Uyke7g0Az3R7pKoSC0Vu5sL5nHkHxg30oU6', 'riyan.clsg11@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601135894, 1601137099, 1, 'I Gede Riyan Ardi Darmawan', '1815091037', 38, '081915656865');
 
 -- --------------------------------------------------------
 
@@ -534,7 +705,8 @@ CREATE TABLE `users_groups` (
 --
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
-(24, 1, 1);
+(24, 1, 1),
+(27, 21, 5);
 
 --
 -- Indexes for dumped tables
@@ -632,6 +804,54 @@ ALTER TABLE `s2_peminjaman`
   ADD KEY `id_peminjam` (`id_peminjam`);
 
 --
+-- Indexes for table `s3_berita_integer`
+--
+ALTER TABLE `s3_berita_integer`
+  ADD PRIMARY KEY (`id_berita_integer`),
+  ADD KEY `id_integer` (`id_integer`);
+
+--
+-- Indexes for table `s3_detail_hari_integer`
+--
+ALTER TABLE `s3_detail_hari_integer`
+  ADD PRIMARY KEY (`id_detail_hari_integer`),
+  ADD KEY `id_hari_integer` (`id_hari_integer`);
+
+--
+-- Indexes for table `s3_hari_integer`
+--
+ALTER TABLE `s3_hari_integer`
+  ADD PRIMARY KEY (`id_hari_integer`),
+  ADD KEY `id_integer` (`id_integer`);
+
+--
+-- Indexes for table `s3_integer`
+--
+ALTER TABLE `s3_integer`
+  ADD PRIMARY KEY (`id_integer`);
+
+--
+-- Indexes for table `s3_kategori_lomba_integer`
+--
+ALTER TABLE `s3_kategori_lomba_integer`
+  ADD PRIMARY KEY (`id_kategori_lomba_integer`),
+  ADD KEY `id_integer` (`id_integer`);
+
+--
+-- Indexes for table `s3_lomba_integer`
+--
+ALTER TABLE `s3_lomba_integer`
+  ADD PRIMARY KEY (`id_lomba_integer`),
+  ADD KEY `id_kategori_lomba_integer` (`id_kategori_lomba_integer`);
+
+--
+-- Indexes for table `s3_sponsor_integer`
+--
+ALTER TABLE `s3_sponsor_integer`
+  ADD PRIMARY KEY (`id_sponsor_integer`),
+  ADD KEY `id_integer` (`id_integer`);
+
+--
 -- Indexes for table `s4_informasi_umum`
 --
 ALTER TABLE `s4_informasi_umum`
@@ -656,6 +876,7 @@ ALTER TABLE `s4_pilihan`
 -- Indexes for table `s4_wawancara`
 --
 ALTER TABLE `s4_wawancara`
+  ADD PRIMARY KEY (`id_wawancara`),
   ADD KEY `fk_wawancara_info` (`id_informasi`);
 
 --
@@ -686,13 +907,13 @@ ALTER TABLE `users_groups`
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
-  MODIFY `id_pilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_pilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `links`
@@ -704,7 +925,7 @@ ALTER TABLE `links`
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `s1_detail_hmj`
@@ -767,34 +988,82 @@ ALTER TABLE `s2_peminjaman`
   MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `s3_berita_integer`
+--
+ALTER TABLE `s3_berita_integer`
+  MODIFY `id_berita_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `s3_detail_hari_integer`
+--
+ALTER TABLE `s3_detail_hari_integer`
+  MODIFY `id_detail_hari_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `s3_hari_integer`
+--
+ALTER TABLE `s3_hari_integer`
+  MODIFY `id_hari_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `s3_integer`
+--
+ALTER TABLE `s3_integer`
+  MODIFY `id_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `s3_kategori_lomba_integer`
+--
+ALTER TABLE `s3_kategori_lomba_integer`
+  MODIFY `id_kategori_lomba_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `s3_lomba_integer`
+--
+ALTER TABLE `s3_lomba_integer`
+  MODIFY `id_lomba_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `s3_sponsor_integer`
+--
+ALTER TABLE `s3_sponsor_integer`
+  MODIFY `id_sponsor_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `s4_informasi_umum`
 --
 ALTER TABLE `s4_informasi_umum`
-  MODIFY `id_informasi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `s4_kegiatan`
 --
 ALTER TABLE `s4_kegiatan`
-  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `s4_pilihan`
 --
 ALTER TABLE `s4_pilihan`
-  MODIFY `id_pilihan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `s4_wawancara`
+--
+ALTER TABLE `s4_wawancara`
+  MODIFY `id_wawancara` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables
@@ -836,6 +1105,42 @@ ALTER TABLE `s2_peminjam`
 --
 ALTER TABLE `s2_peminjaman`
   ADD CONSTRAINT `s2_peminjaman_ibfk_1` FOREIGN KEY (`id_peminjam`) REFERENCES `s2_peminjam` (`id_peminjam`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `s3_berita_integer`
+--
+ALTER TABLE `s3_berita_integer`
+  ADD CONSTRAINT `s3_berita_integer_ibfk_1` FOREIGN KEY (`id_integer`) REFERENCES `s3_integer` (`id_integer`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `s3_detail_hari_integer`
+--
+ALTER TABLE `s3_detail_hari_integer`
+  ADD CONSTRAINT `s3_detail_hari_integer_ibfk_1` FOREIGN KEY (`id_hari_integer`) REFERENCES `s3_hari_integer` (`id_hari_integer`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `s3_hari_integer`
+--
+ALTER TABLE `s3_hari_integer`
+  ADD CONSTRAINT `s3_hari_integer_ibfk_1` FOREIGN KEY (`id_integer`) REFERENCES `s3_integer` (`id_integer`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `s3_kategori_lomba_integer`
+--
+ALTER TABLE `s3_kategori_lomba_integer`
+  ADD CONSTRAINT `s3_kategori_lomba_integer_ibfk_1` FOREIGN KEY (`id_integer`) REFERENCES `s3_integer` (`id_integer`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `s3_lomba_integer`
+--
+ALTER TABLE `s3_lomba_integer`
+  ADD CONSTRAINT `s3_lomba_integer_ibfk_1` FOREIGN KEY (`id_kategori_lomba_integer`) REFERENCES `s3_kategori_lomba_integer` (`id_kategori_lomba_integer`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `s3_sponsor_integer`
+--
+ALTER TABLE `s3_sponsor_integer`
+  ADD CONSTRAINT `s3_sponsor_integer_ibfk_1` FOREIGN KEY (`id_integer`) REFERENCES `s3_integer` (`id_integer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `s4_informasi_umum`

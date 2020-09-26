@@ -442,6 +442,7 @@
                 </button>
             </div>
             <div class="modal-body">
+                <?php if ($penilaian == 0) { ?>
                 <form class="user" action="<?= base_url() ?>eors/proses_penilaian" method="POST"
                     enctype="multipart/form-data">
                     <div class="form-group">
@@ -500,6 +501,12 @@
                         </div>
                     </div>
                 </form>
+                <?php } else { ?>
+                <div class="p mb-0 text-gray-500 text-center">
+                    <i>Oopss ... Anda Sudah Memberikan Penilaian Pada User Ini <br>
+                        Jika Bukan Anda Silahkan Hubungi Administrator Website</i>
+                </div>
+                <?php } ?>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
