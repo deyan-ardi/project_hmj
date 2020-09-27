@@ -23,10 +23,93 @@ class Admin extends CI_Controller
 				foreach ($this->data['users'] as $k => $user) {
 					$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
 				}
+				$this->data['jabatan'] = $this->All_model->getAllJabatan();
 				$this->data['landing'] = $this->All_model->getAllLanding();
 				$this->load->view('admin/master/header', $this->data);
 				$this->load->view('admin/page/admin/index', $this->data);
 				$this->load->view('admin/master/footer', $this->data);
+			} else {
+				show_404();
+			}
+		}
+	}
+	public function edit_jabatan($id_jabatan = '')
+	{
+		if (!$this->ion_auth->logged_in()) {
+			redirect('login', 'refresh');
+		} else {
+			if ($this->ion_auth->is_admin()) {
+				$id = $_SESSION['user_id'];
+				$this->data['group'] = $this->ion_auth_model->getGroup($id);
+				$this->data['jabatan'] = $this->All_model->getJabatanWhere($id_jabatan);
+				$this->data['title'] = "Admin - Edit Jabatan";
+				$this->data['active'] = "6";
+				$this->data['flip'] = "false";
+				$this->form_validation->set_rules("nama_jabatan", "Nama Jabatan", "required");
+				if ($this->form_validation->run() == FALSE) {
+					$this->load->view('admin/master/header', $this->data);
+					$this->load->view('admin/page/admin/edit_jabatan', $this->data);
+					$this->load->view('admin/master/footer', $this->data);
+				} else {
+					if ($this->All_model->editJabatan($id_jabatan)) {
+						$this->session->set_flashdata('berhasil', 'Diubah');
+						redirect('admin/');
+					} else {
+						$this->session->set_flashdata('gagal', 'Diubah, Silahkan Cek Kembali Form Anda');
+						redirect('admin/tambah_jabatan');
+					}
+				}
+			} else {
+				show_404();
+			}
+		}
+	}
+	public function tambah_jabatan()
+	{
+		if (!$this->ion_auth->logged_in()) {
+			redirect('login', 'refresh');
+		} else {
+			if ($this->ion_auth->is_admin()) {
+				$id = $_SESSION['user_id'];
+				$this->data['group'] = $this->ion_auth_model->getGroup($id);
+				$this->data['title'] = "Admin - Tambah Jabatan";
+				$this->data['active'] = "6";
+				$this->data['flip'] = "false";
+				$this->form_validation->set_rules("nama_jabatan", "Nama Jabatan", "required");
+				if ($this->form_validation->run() == FALSE) {
+					$this->load->view('admin/master/header', $this->data);
+					$this->load->view('admin/page/admin/tambah_jabatan', $this->data);
+					$this->load->view('admin/master/footer', $this->data);
+				} else {
+					if ($this->All_model->tambahJabatan()) {
+						$this->session->set_flashdata('berhasil', 'Ditambahkan');
+						redirect('admin/');
+					} else {
+						$this->session->set_flashdata('gagal', 'Ditambahkan, Silahkan Cek Kembali Form Anda');
+						redirect('admin/tambah_jabatan');
+					}
+				}
+			} else {
+				show_404();
+			}
+		}
+	}
+	public function hapus_jabatan($id = '')
+	{
+		if (!$this->ion_auth->logged_in()) {
+			redirect('login', 'refresh');
+		} else {
+			if ($this->ion_auth->is_admin()) {
+				$hmj = $this->All_model->getBidangSelectWhere($id);
+				$hmj = $hmj[0]['nama_hmj'];
+				if (!empty($hmj)) {
+					$this->All_model->deleteBidang($id, $hmj);
+					$this->session->set_flashdata('berhasil', 'Dihapus');
+					redirect('web/tentang_hmj');
+				} else {
+					$this->session->set_flashdata('gagal', 'Dihapus, Nilai Parameter Tidak Ditemukan');
+					redirect('web/tentang_hmj');
+				}
 			} else {
 				show_404();
 			}

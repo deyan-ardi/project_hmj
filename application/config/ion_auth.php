@@ -40,6 +40,7 @@ $config['database_group_name'] = '';
 | Database table names.
 */
 $config['tables']['users']           = 'users';
+$config['tables']['jabatan']         = 'jabatan';
 $config['tables']['groups']          = 'groups';
 $config['tables']['users_groups']    = 'users_groups';
 $config['tables']['login_attempts']  = 'login_attempts';

@@ -1,14 +1,14 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tambah Data Kepengurusan HMJ TI</h1>
-    <p class="mb-4">Untuk menambah informasi kepengurusan HMJ TI, silahkan tambahkan pada form berikut</p>
-    <!-- Kepengurusan -->
+    <h1 class="h3 mb-2 text-gray-800">Tambah Data Kegiatan</h1>
+    <p class="mb-4">Untuk menambah data kegiatan open recruitment, silahkan isi form
+        dibawah ini</p>
     <div class="card shadow mb-4">
         <!-- Card Header - Accordion -->
         <a href="#kepengurusan" class="d-block card-header py-3" data-toggle="collapse" role="button"
             aria-expanded="true" aria-controls="kepengurusan">
-            <h6 class="m-0 font-weight-bold text-primary">Form Tambah Informasi Kepengurusan</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Form Tambah Kegiatan</h6>
         </a>
         <!-- Card Content - Collapse -->
         <div class="collapse show" id="kepengurusan">
@@ -22,11 +22,27 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Nama Kepengurusan</div>
+                                                    Icon Kegiatan</div>
+                                                <input type="file" class="form-control form-control-user"
+                                                    id="icon_kegiatan" name="icon_kegiatan" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12 mb-3">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Nama Kegiatan</div>
                                                 <input type="text" class="form-control form-control-user" id="ketua"
-                                                    aria-describedby="kepengurusan"
-                                                    placeholder="Example : HMJ TI Undiksha 2020-2021"
-                                                    name="kepengurusan">
+                                                    aria-describedby="nama_kegiatan"
+                                                    placeholder="Masukkan Nama Kegiatan" name="nama_kegiatan" required
+                                                    value="<?= set_value('nama_kegiatan') ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -40,9 +56,9 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Deskripsi Repositori HMJ</div>
-                                                <textarea type="text" id="deskripsi_singkat" rows="5"
-                                                    name="deskripsi_singkat"></textarea>
+                                                    Deskripsi Singkat Kegiatan</div>
+                                                <textarea type="text" id="deskripsi_singkat" rows="5" name="deskripsi"
+                                                    required><?= set_value('deskripsi') ?></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -56,9 +72,9 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Foto Ketua HMJ (*.jpg, *.png maks 1Mb)</div>
-                                                <input type="file" class="form-control form-control-user"
-                                                    id="foto_ketua" name="foto_ketua">
+                                                    Persyaratan</div>
+                                                <textarea type="text" id="persyaratan" rows="5" name="persyaratan"
+                                                    required><?= set_value('persyaratan') ?></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -72,10 +88,11 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Nama Ketua HMJ</div>
-                                                <input type="text" class="form-control form-control-user" id="ketua"
-                                                    aria-describedby="emailHelp" placeholder="Masukkan Nama Ketua HMJ"
-                                                    name="ketua">
+                                                    Tanggal Mulai</div>
+                                                <input type="date" class="form-control form-control-select" id="ketua"
+                                                    aria-describedby="tanggal_mulai" name="tanggal_mulai" required
+                                                    value="<?= set_value('tanggal_mulai') ?>"
+                                                    min="<?= date('Y-m-d') ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -89,9 +106,11 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Foto Wakil Ketua HMJ(*.jpg *.png maks 1Mb)</div>
-                                                <input type="file" class="form-control form-control-user"
-                                                    id="foto_wakil" name="foto_wakil">
+                                                    Tanggal Selesai</div>
+                                                <input type="date" class="form-control form-control-select" id="ketua"
+                                                    aria-describedby="tanggal_selesai" name="tanggal_selesai" required
+                                                    value="<?= set_value('tanggal_selesai') ?>"
+                                                    min="<?= date('Y-m-d') ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -105,10 +124,11 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Nama Wakil Ketua HMJ</div>
-                                                <input type="text" class="form-control form-control-user" id="wakil"
-                                                    aria-describedby="emailHelp" placeholder="Masukkan Nama Wakil HMJ"
-                                                    name="wakil">
+                                                    Target Pendaftar</div>
+                                                <input type="number" min="0" class="form-control form-control-user"
+                                                    id="ketua" aria-describedby="target_pendaftar"
+                                                    placeholder="Masukkan Target Pendaftar" name="target_pendaftar"
+                                                    required value="<?= set_value('target_pendaftar') ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -122,8 +142,13 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Visi HMJ TI</div>
-                                                <textarea type="text" id="visi" rows="5" name="visi"></textarea>
+                                                    Setting Data Pribadi</div>
+                                                <select name="data_pribadi" id="data_pribadi"
+                                                    class="form-control form-control-select">
+                                                    <option value="">Pilih Pengaturan</option>
+                                                    <option value="1">Sertakan</option>
+                                                    <option value="0">Tidak Perlu</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -137,8 +162,13 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Misi HMJ TI</div>
-                                                <textarea type="text" id="misi" rows="5" name="misi"></textarea>
+                                                    Setting Data Pendidikan</div>
+                                                <select name="data_pendidikan" id="data_pendidikan"
+                                                    class="form-control form-control-select">
+                                                    <option value="">Pilih Pengaturan</option>
+                                                    <option value="1">Sertakan</option>
+                                                    <option value="0">Tidak Perlu</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -152,9 +182,13 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Struktur Organisasi Landscape (Desktop)(*.jpg, *.png maks 1Mb)</div>
-                                                <input type="file" class="form-control form-control-user"
-                                                    id="foto_landscape" name="foto_landscape">
+                                                    Setting Wawancara</div>
+                                                <select name="wawancara" id="wawancara"
+                                                    class="form-control form-control-select">
+                                                    <option value="">Pilih Pengaturan</option>
+                                                    <option value="1">Sertakan</option>
+                                                    <option value="0">Tidak Perlu</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -168,9 +202,12 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Struktur Organisasi Vertikal (Mobile)(*.jpg, *.png maks 1Mb)</div>
-                                                <input type="file" class="form-control form-control-user"
-                                                    id="foto_vertikal" name="foto_vertikal">
+                                                    Setting Upload File</div>
+                                                <select name="file" id="file" class="form-control form-control-select">
+                                                    <option value="">Pilih Pengaturan</option>
+                                                    <option value="1">Sertakan</option>
+                                                    <option value="0">Tidak Perlu</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

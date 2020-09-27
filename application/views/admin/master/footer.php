@@ -26,16 +26,22 @@
 
 <!-- Bootstrap core JavaScript-->
 <script src="<?= base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
+
 <script src="<?= base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
 <script src="<?= base_url() ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Time -->
-
+<!-- Sweetalert -->
+<script src="<?= base_url() ?>assets/js/sweetalert2.all.min.js"></script>
 <script src="<?= base_url() ?>assets/js/sb-admin-2.min.js"></script>
 
-
+<?php if ($active == "10" && $flip == "administrator") { ?>
+<script src="<?= base_url() ?>assets/vendor/chart.js/Chart.min.js"></script>
+<!-- Page level custom scripts -->
+<script src="<?= base_url() ?>assets/js/chart.js"></script>
+<?php } ?>
 
 <!-- Data Table-->
 <script src="<?= base_url() ?>assets/vendor/datatables/jquery.dataTables.min.js"></script>
@@ -43,18 +49,17 @@
 <script src="<?= base_url() ?>assets/js/demo/datatables-demo.js"></script>
 <script src="<?= base_url() ?>assets/js/table.js"></script>
 <!-- Ckeditor -->
-<?php if ($active == "4") { ?>
-<?php if ($ckeditor == "info") { ?>
+<?php if ($active == "4" || $active == "10") { ?>
 <script src="<?= base_url() ?>assets/ckeditor/ckeditor.js"></script>
-<script src="<?= base_url() ?>assets/js/ckeditor/info.js"></script>
+<?php if ($ckeditor == "web") { ?>
+<script src="<?= base_url() ?>assets/js/ckeditor/web.js"></script>
 <?php } ?>
-<?php if ($ckeditor == "bidang") { ?>
-<script src="<?= base_url() ?>assets/ckeditor/ckeditor.js"></script>
-<script src="<?= base_url() ?>assets/js/ckeditor/bidang.js"></script>
+<?php if ($ckeditor == "eors") { ?>
+<script src="<?= base_url() ?>assets/js/ckeditor/eors.js"></script>
 <?php } ?>
 <?php } ?>
-<!-- Sweetalert -->
-<script src="<?= base_url() ?>assets/js/sweetalert2.all.min.js"></script>
+
+
 <?php } ?>
 </body>
 

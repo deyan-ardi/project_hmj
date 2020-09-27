@@ -4,56 +4,6 @@
     <h1 class="h3 mb-2 text-gray-800">Tambah Data Informasi</h1>
     <p class="mb-4">Untuk menambah informasi pengumuman, berita, ataupun karya tulis, silahkan isi form dibawah ini</p>
     <!-- Kepengurusan -->
-    <?php if ($this->session->flashdata('gagal')) : ?>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        Data <strong>Gagal</strong> <?= $this->session->flashdata('gagal'); ?>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <?php endif; ?>
-    <?php if (validation_errors()) : ?>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <?= validation_errors(); ?>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <?php endif; ?>
-    <div class="modal fade" id="modalInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content ">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Petunjuk Penggunaan</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <ul>
-                        <li>Foto Slide 1,Nama Kepengurusan,Kategori Informasi, Judul Informasi, dan Konten Bersifat
-                            Wajib Diisi</li>
-                        <li>Foto Slide 2,Slide 3,Embed Video Youtube, dan File tidak wajib diisi. Silahkan sesuaikan
-                            dengan kebutuhan</li>
-                        <li>Anda dapat menambahkan maksimal 3 foto pada slide (Foto Slide 1, Slide 2, Slide 3)</li>
-                        <li>Jika ingin menambahkan lebih dari 1 foto Slide, silahkan isi terurut dimulai terlebih dahulu
-                            dari Slide 1, kemudian Slide 2, lalu Slide 3</li>
-                        <li>Untuk menambahkan Embed Video, silahkan pelajari cara membagikan video dengan teknik embed
-                            pada youtube</li>
-                        <li>Silahkan pilih kategori pengumuman jika informasi yang akan anda bagikan adalah Pengumuman,
-                            pilih kategori karya tulis jika informasi yang akan anda bagikan adalah Karya Tulis, pilih
-                            kategori Berita jika informasi yang akan anda bagikan adalah Berita</li>
-                        <li>Ukuran rasio foto yang diperbolehkan agar tampilan menjadi lebih baik adalah 16:9, silahkan
-                            sesuaikan rasio foto yang akan diupload</li>
-
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="card shadow mb-4">
         <!-- Card Header - Accordion -->
         <a href="#kepengurusan" class="d-block card-header py-3" data-toggle="collapse" role="button"
@@ -179,7 +129,7 @@
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Konten</div>
                                                 <textarea type="text" id="bidang" rows="5" name="konten"
-                                                    required>value="<?= set_value('konten') ?>"</textarea>
+                                                    required><?= set_value('konten') ?></textarea>
                                             </div>
                                         </div>
                                     </div>
