@@ -24,7 +24,7 @@
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Tanggal Kegiatan</div>
                                                 <input type="date" min="<?= date('Y-m-d') ?>"
-                                                    class="form-control form-control-user" id="tanggal" name="tanggal"
+                                                    class="form-control form-control-user" id="nama_hari_integer" name="nama_hari_integer"
                                                     required>
                                             </div>
                                         </div>

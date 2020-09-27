@@ -5,6 +5,22 @@
     <p class="mb-4">Untuk menambah informasi kegiatan yang akan ditampilkan pada website, silahkan isi form dibawah ini
     </p>
     <!-- Kepengurusan -->
+    <?php if ($this->session->flashdata('gagal')) : ?>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Data <strong>Gagal</strong> <?= $this->session->flashdata('gagal'); ?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <?php endif; ?>
+    <?php if (validation_errors()) : ?>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <?= validation_errors(); ?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <?php endif; ?>
     <div class="card shadow mb-4">
         <!-- Card Header - Accordion -->
         <a href="#kepengurusan" class="d-block card-header py-3" data-toggle="collapse" role="button"
@@ -24,8 +40,8 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Logo Kegiatan (*.jpg,*.png maks 1Mb)</div>
-                                                <input type="file" class="form-control form-control-user" id="file_foto"
-                                                    name="file_foto" required>
+                                                <input type="file" class="form-control form-control-user" id="foto"
+                                                    name="foto" required>
                                             </div>
                                         </div>
                                     </div>
@@ -41,7 +57,7 @@
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Video Throwback (durasi maks 1 menit, *.mp4, maks 10 Mb)</div>
                                                 <input type="file" class="form-control form-control-user"
-                                                    id="file_video" name="file_video" required>
+                                                    id="video" name="video" required>
                                             </div>
                                         </div>
                                     </div>
@@ -57,9 +73,9 @@
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Tema Kegiatan</div>
                                                 <input type="text" class="form-control form-control-user"
-                                                    id="tema_kegiatan" aria-describedby="tema_kegiatan"
-                                                    placeholder="Masukkan Tema Kegiatan" name="tema_kegiatan"
-                                                    value="<?= set_value('tema_kegiatan') ?>" required>
+                                                    id="tema_integer" aria-describedby="tema_integer"
+                                                    placeholder="Masukkan Tema integer" name="tema_integer"
+                                                    value="<?= set_value('tema_integer') ?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -75,9 +91,9 @@
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Nama Kegiatan</div>
                                                 <input type="text" class="form-control form-control-user"
-                                                    id="nama_kegiatan" aria-describedby="nama_kegiatan"
+                                                    id="nama_integer" aria-describedby="nama_integer"
                                                     placeholder="Masukkan Nama Kepengurusan HMJ"
-                                                    value="<?= set_value('nama_kegiatan') ?>" name="nama_kegiatan"
+                                                    value="<?= set_value('nama_integer') ?>" name="nama_integer"
                                                     required>
                                             </div>
                                         </div>
@@ -93,8 +109,8 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Deskripsi Kegiatan</div>
-                                                <textarea type="text" id="bidang" rows="5" name="deskripsi"
-                                                    required><?= set_value('deskripsi') ?></textarea>
+                                                <textarea type="text" id="bidang" rows="5" name="deskripsi_integer"
+                                                    required><?= set_value('deskripsi_integer') ?></textarea>
                                             </div>
                                         </div>
                                     </div>

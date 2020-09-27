@@ -23,8 +23,8 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Logo Sponsor (*.jpg,*.png maks 1Mb)</div>
-                                                <input type="file" class="form-control form-control-user" id="file_foto"
-                                                    name="file_foto" required>
+                                                <input type="file" class="form-control form-control-user" id="sponsor"
+                                                    name="sponsor" required>
                                             </div>
                                         </div>
                                     </div>
@@ -40,9 +40,9 @@
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Nama Sponsor</div>
                                                 <input type="text" class="form-control form-control-user"
-                                                    id="nama_sponsor" aria-describedby="nama_sponsor"
-                                                    placeholder="Masukkan Nama Sponsor" name="nama_sponsor"
-                                                    value="<?= set_value('nama_sponsor') ?>" required>
+                                                    id="nama_sponsor_integer" aria-describedby="nama_sponsor_integer"
+                                                    placeholder="Masukkan Nama Sponsor" name="nama_sponsor_integer"
+                                                    value="<?= set_value('nama_sponsor_integer') ?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -57,8 +57,8 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Deskripsi Sponsor</div>
-                                                <textarea type="text" id="deskripsi" rows="5" name="deskripsi"
-                                                    required><?= set_value('deskripsi') ?></textarea>
+                                                <textarea type="text" id="deskripsi_sponsor_integer" rows="5" name="deskripsi_sponsor_integer"
+                                                    required><?= set_value('deskripsi_sponsor_integer') ?></textarea>
                                             </div>
                                         </div>
                                     </div>
