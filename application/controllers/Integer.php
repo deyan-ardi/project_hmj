@@ -16,6 +16,8 @@ class Integer extends CI_Controller
 			$this->data['active'] = "5";
 			$id = $_SESSION['user_id'];
 			$this->data['flip'] = "false";
+			// For Detail Aktif Kegiatan
+			$this->data['active_integer'] = $this->All_model->getActiveKegiatanInteger();
 			// For Integer Data Table
 			$this->data['integer'] = $this->All_model->getAllInteger();
 			// For Sponsor Data Table
@@ -39,6 +41,8 @@ class Integer extends CI_Controller
 			$this->data['active'] = "5";
 			$id = $_SESSION['user_id'];
 			$this->data['flip'] = "false";
+			// For Detail Aktif Kegiatan
+			$this->data['active_integer'] = $this->All_model->getActiveKegiatanInteger();
 			// For Integer Data Table
 			$this->data['integer'] = $this->All_model->getAllInteger();
 			// For Sponsor Data Table
@@ -62,6 +66,7 @@ class Integer extends CI_Controller
 			$this->data['active'] = "5";
 			$id = $_SESSION['user_id'];
 			$this->data['flip'] = "false";
+			$id_active_kegiatan = $this->All_model->getActiveKegiatanInteger();
 			// For Kategori Lomba Data Table
 			$this->data['kategori_lomba'] = $this->All_model->getOnlyActiveKategoriLomba();
 			// For Lomba Data Table
@@ -69,9 +74,13 @@ class Integer extends CI_Controller
 			// For Informasi Data Table
 			$this->data['berita'] = $this->All_model->getOnlyActiveBeritaInteger();
 			$this->data['group'] = $this->ion_auth_model->getGroup($id);
-			$this->load->view('admin/master/header', $this->data);
-			$this->load->view('admin/page/integer/lomba', $this->data);
-			$this->load->view('admin/master/footer', $this->data);
+			if (!empty($id_active_kegiatan)) {
+				$this->load->view('admin/master/header', $this->data);
+				$this->load->view('admin/page/integer/lomba', $this->data);
+				$this->load->view('admin/master/footer', $this->data);
+			} else {
+				show_404();
+			}
 		}
 	}
 	public function tambah_kegiatan()
@@ -95,7 +104,7 @@ class Integer extends CI_Controller
 				$id_file = "integer";
 
 				// FOTO
-				if (($_FILES["foto"]['error'] == 0)){
+				if (($_FILES["foto"]['error'] == 0)) {
 					$id_foto = "foto";
 					$tujuan = "integer/foto";
 					$upload = $this->All_model->uploadFile($id_foto, $id_file, $tujuan);
@@ -104,11 +113,11 @@ class Integer extends CI_Controller
 					} else {
 						$this->session->set_flashdata('gagal', 'Ditambahkan, Terjadi Masalah Pada Foto, Apakah File Sudah Sesuai?');
 						redirect("integer/tambah_kegiatan");
-					}	
+					}
 				}
 
 				// VIDEO
-				if (($_FILES["video"]['error'] == 0 )){
+				if (($_FILES["video"]['error'] == 0)) {
 					$id_video = "video";
 					$tujuan = "integer/video";
 					$upload = $this->All_model->uploadFile($id_video, $id_file, $tujuan);
@@ -171,7 +180,7 @@ class Integer extends CI_Controller
 				$id_file = "integer";
 				$id_aktif_integer = $this->All_model->getActiveKegiatanInteger();
 				// SPONSOR
-				if (($_FILES["sponsor"]['error'] == 0)){
+				if (($_FILES["sponsor"]['error'] == 0)) {
 					$id_sponsor = "sponsor";
 					$tujuan = "integer/sponsor";
 					$upload = $this->All_model->uploadFile($id_sponsor, $id_file, $tujuan);
@@ -180,18 +189,22 @@ class Integer extends CI_Controller
 					} else {
 						$this->session->set_flashdata('gagal', 'Ditambahkan, Terjadi Masalah Pada Logo Sponsor, Apakah File Sudah Sesuai?');
 						redirect("integer/tambah_sponsor");
-					}	
+					}
 				}
 				if (empty($sponsor)) {
 					$sponsor = null;
 				}
-
-				if ($this->All_model->tambahDataSponsor($sponsor, $id_aktif_integer)) {
-					$this->session->set_flashdata('berhasil', 'Ditambahkan');
-					redirect("integer/kegiatan");
-				} else {
-					$this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Form Inputan Anda');
+				if (empty($id_aktif_integer)) {
+					$this->session->set_flashdata('gagal', 'Ditambahkan, Tidak Ada Kegiatan Yang Aktif');
 					redirect("integer/tambah_sponsor");
+				} else {
+					if ($this->All_model->tambahDataSponsor($sponsor, $id_aktif_integer)) {
+						$this->session->set_flashdata('berhasil', 'Ditambahkan');
+						redirect("integer/kegiatan");
+					} else {
+						$this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Form Inputan Anda');
+						redirect("integer/tambah_sponsor");
+					}
 				}
 			}
 		}
@@ -274,6 +287,7 @@ class Integer extends CI_Controller
 				$this->load->view('admin/page/integer/tmb_kegiatan_perhari', $this->data);
 				$this->load->view('admin/master/footer', $this->data);
 			} else {
+				$waktu_mulai = $_POST['waktu_mulai_jam'] . ":" . $_POST['waktu_mulai_menit'];
 				if ($this->All_model->tambahDataDetailHari()) {
 					$this->session->set_flashdata('berhasil', 'Ditambahkan');
 					redirect("integer/kegiatan");
@@ -363,7 +377,7 @@ class Integer extends CI_Controller
 				$id_file = "integer";
 				$id_aktif_integer = $this->All_model->getActiveKegiatanInteger();
 				// ICON KATEGORI LOMBA
-				if (($_FILES["icon_kategori"]['error'] == 0)){
+				if (($_FILES["icon_kategori"]['error'] == 0)) {
 					$id_icon_kategori = "icon_kategori";
 					$tujuan = "integer/icon_kategori";
 					$upload = $this->All_model->uploadFile($id_icon_kategori, $id_file, $tujuan);
@@ -372,7 +386,7 @@ class Integer extends CI_Controller
 					} else {
 						$this->session->set_flashdata('gagal', 'Ditambahkan, Terjadi Masalah Pada Icon Kategori Lomba, Apakah File Sudah Sesuai?');
 						redirect("integer/tambah_kategori_lomba");
-					}	
+					}
 				}
 				if (empty($icon_kategori)) {
 					$icon_kategori = null;
@@ -424,7 +438,7 @@ class Integer extends CI_Controller
 			} else {
 				$id_file = "integer";
 				// ICON LOMBA
-				if (($_FILES["icon_lomba"]['error'] == 0)){
+				if (($_FILES["icon_lomba"]['error'] == 0)) {
 					$id_icon_lomba = "icon_lomba";
 					$tujuan = "integer/icon_lomba";
 					$upload = $this->All_model->uploadFile($id_icon_lomba, $id_file, $tujuan);
@@ -433,7 +447,7 @@ class Integer extends CI_Controller
 					} else {
 						$this->session->set_flashdata('gagal', 'Ditambahkan, Terjadi Masalah Pada Icon Lomba, Apakah File Sudah Sesuai?');
 						redirect("integer/tambah_lomba");
-					}	
+					}
 				}
 				if (empty($icon_lomba)) {
 					$icon_lomba = null;
@@ -486,7 +500,7 @@ class Integer extends CI_Controller
 				$id_file = "integer";
 				$id_aktif_integer = $this->All_model->getActiveKegiatanInteger();
 				// FOTO1
-				if (($_FILES["foto_1"]['error'] == 0)){
+				if (($_FILES["foto_1"]['error'] == 0)) {
 					$id_foto_1 = "foto_1";
 					$tujuan = "integer/berita/foto";
 					$upload = $this->All_model->uploadFile($id_foto_1, $id_file, $tujuan);
@@ -495,10 +509,10 @@ class Integer extends CI_Controller
 					} else {
 						$this->session->set_flashdata('gagal', 'Ditambahkan, Terjadi Masalah Pada Foto, Apakah File Sudah Sesuai?');
 						redirect("integer/tambah_informasi");
-					}	
+					}
 				}
 				// FOTO2
-				if (($_FILES["foto_2"]['error'] == 0)){
+				if (($_FILES["foto_2"]['error'] == 0)) {
 					$id_foto_2 = "foto_2";
 					$tujuan = "integer/berita/foto";
 					$upload = $this->All_model->uploadFile($id_foto_2, $id_file, $tujuan);
@@ -507,10 +521,10 @@ class Integer extends CI_Controller
 					} else {
 						$this->session->set_flashdata('gagal', 'Ditambahkan, Terjadi Masalah Pada Foto, Apakah File Sudah Sesuai?');
 						redirect("integer/tambah_informasi");
-					}	
+					}
 				}
 				// FOTO3
-				if (($_FILES["foto_3"]['error'] == 0)){
+				if (($_FILES["foto_3"]['error'] == 0)) {
 					$id_foto_3 = "foto_3";
 					$tujuan = "integer/berita/foto";
 					$upload = $this->All_model->uploadFile($id_foto_3, $id_file, $tujuan);
@@ -519,10 +533,10 @@ class Integer extends CI_Controller
 					} else {
 						$this->session->set_flashdata('gagal', 'Ditambahkan, Terjadi Masalah Pada Foto, Apakah File Sudah Sesuai?');
 						redirect("integer/tambah_informasi");
-					}	
+					}
 				}
 				// PDF
-				if (($_FILES["file"]['error'] == 0 )){
+				if (($_FILES["file"]['error'] == 0)) {
 					$id_file_1 = "file";
 					$tujuan = "integer/berita/file";
 					$upload = $this->All_model->uploadFile($id_file_1, $id_file, $tujuan);

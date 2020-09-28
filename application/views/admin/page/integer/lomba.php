@@ -40,18 +40,19 @@
                                  </tr>
                              </thead>
                              <tbody>
-                                <?php foreach ($kategori_lomba as $data) : ?>
+                                 <?php foreach ($kategori_lomba as $data) : ?>
                                  <tr>
                                      <td style="text-align: center;"> <img
-                                             src="<?= base_url() ?>assets/upload/Folder_integer/icon_kategori/<?=$data['icon_kategori_lomba_integer'];?>"
+                                             src="<?= base_url() ?>assets/upload/Folder_integer/icon_kategori/<?= $data['icon_kategori_lomba_integer']; ?>"
                                              alt="" width="50px"></td>
-                                     <td><?=$data['nama_kategori_lomba_integer'];?></td>
-                                     <td><?=$data['deskripsi_kategori_lomba_integer'];?></td>
-                                     <td><?=$data['create_by'];?></td>
-                                     <td><?=$data['create_at'];?></td>
+                                     <td><?= $data['nama_kategori_lomba_integer']; ?></td>
+                                     <td><?= $data['deskripsi_kategori_lomba_integer']; ?></td>
+                                     <td><?= $data['create_by']; ?></td>
+                                     <td><?= $data['create_at']; ?></td>
                                      <?php if ($group[0]['group_id'] == "1") { ?>
                                      <td>
-                                         <a href="<?= base_url() ?>integer/hapus_data_kategori_lomba_integer/<?= $data['id_kategori_lomba_integer']; ?>" class="btn btn-danger btn-sm btn-icon-split">
+                                         <a href="<?= base_url() ?>integer/hapus_data_kategori_lomba_integer/<?= $data['id_kategori_lomba_integer']; ?>"
+                                             class="btn btn-danger btn-sm btn-icon-split">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-trash"></i>
                                              </span>
@@ -90,25 +91,25 @@
                                  </tr>
                              </thead>
                              <tbody>
-                             <?php foreach ($lomba as $data) : ?>
+                                 <?php foreach ($lomba as $data) : ?>
                                  <tr>
-                                     <td><?=$data['nama_kategori_lomba_integer'];?></td>
-                                     <td><img
-                                             src="<?= base_url() ?>assets/upload/Folder_integer/icon_lomba/<?=$data['icon_lomba_integer'];?>"
+                                     <td><?= $data['nama_kategori_lomba_integer']; ?></td>
+                                     <td><img src="<?= base_url() ?>assets/upload/Folder_integer/icon_lomba/<?= $data['icon_lomba_integer']; ?>"
                                              alt="" width="50px"></td>
-                                     <td><?=$data['nama_lomba_integer'];?></td>
-                                     <td><?=$data['deskripsi_lomba_integer'];?></td>
-                                     <td><a href="<?= base_url() ?><?=$data['pendaftaran_lomba_integer'];?>"
+                                     <td><?= $data['nama_lomba_integer']; ?></td>
+                                     <td><?= $data['deskripsi_lomba_integer']; ?></td>
+                                     <td><a href="<?= base_url() ?><?= $data['pendaftaran_lomba_integer']; ?>"
                                              class="btn btn-primary btn-sm btn-icon-split">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-eye"></i>
                                              </span>
                                              <span class="text">Link</span>
                                          </a></td>
-                                     <td><?=$data['create_by'];?></td>
-                                     <td><?=$data['create_at'];?></td>
+                                     <td><?= $data['create_by']; ?></td>
+                                     <td><?= $data['create_at']; ?></td>
                                      <td> <?php if ($group[0]['group_id'] == "1" || $group[0]['group_id'] == "2") { ?>
-                                         <a href="<?= base_url() ?>integer/hapus_data_lomba_integer/<?= $data['id_lomba_integer']; ?>" class="btn btn-danger btn-sm btn-icon-split">
+                                         <a href="<?= base_url() ?>integer/hapus_data_lomba_integer/<?= $data['id_lomba_integer']; ?>"
+                                             class="btn btn-danger btn-sm btn-icon-split">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-trash"></i>
                                              </span>
@@ -156,16 +157,16 @@
                                  </tr>
                              </thead>
                              <tbody>
-                             <?php foreach ($berita as $data) : ?>
+                                 <?php foreach ($berita as $data) : ?>
                                  <tr>
-                                     <?php if($data['kategori_berita_integer'] === 1):?>
-                                        <td>Berita</td>
-                                     <?php else: ?>
-                                        <td>Pengumuman</td>
-                                     <?php endif;?>  
-                                     <td><?=$data['nama_berita_integer']?></td>
+                                     <?php if ($data['kategori_berita_integer'] === 1) : ?>
+                                     <td>Berita</td>
+                                     <?php else : ?>
+                                     <td>Pengumuman</td>
+                                     <?php endif; ?>
+                                     <td><?= $data['nama_berita_integer'] ?></td>
                                      <td>
-                                         <a href="<?= base_url() ?><?=$data['youtube_berita_integer']?>"
+                                         <a href="<?= base_url() ?><?= $data['youtube_berita_integer'] ?>"
                                              class="btn btn-primary btn-sm btn-icon-split">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-eye"></i>
@@ -174,7 +175,8 @@
                                          </a>
                                      </td>
                                      <td>
-                                        <a href="<?= base_url() ?>assets/upload/Folder_integer/berita/file/<?=$data['file_berita_integer']?>"
+                                         <!-- Kondisi belum ada -->
+                                         <a href="<?= base_url() ?>assets/upload/Folder_integer/berita/file/<?= $data['file_berita_integer'] ?>"
                                              class="btn btn-primary btn-sm btn-icon-split">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-eye"></i>
@@ -182,10 +184,10 @@
                                              <span class="text">Lihat</span>
                                          </a>
                                      </td>
-                                     <td><?=$data['create_by']?></td>
-                                     <td><?=$data['create_at']?></td>
+                                     <td><?= $data['create_by'] ?></td>
+                                     <td><?= $data['create_at'] ?></td>
                                      <td>
-                                         <a href="<?= base_url() ?>integer/hapus_data_informasi/<?=$data['id_berita_integer']?>"
+                                         <a href="<?= base_url() ?>integer/hapus_data_informasi/<?= $data['id_berita_integer'] ?>"
                                              class="btn btn-danger btn-sm btn-icon-split tombol-hapus">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-trash"></i>

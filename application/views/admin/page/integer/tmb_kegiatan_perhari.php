@@ -27,7 +27,24 @@
                                                     class="form-control form-control-select" required>
                                                     <option value="">Pilih Tanggal Kegiatan...</option>
                                                     <?php foreach ($hari as $data) : ?>
-                                                    <option value="<?= $data['id_hari_integer'] ?>"><?= $data['nama_hari_integer'] ?>
+                                                    <option value="<?= $data['id_hari_integer'] ?>">
+                                                        <?php
+                                                            $daftar_hari = array(
+                                                                'Sunday' => 'Minggu',
+                                                                'Monday' => 'Senin',
+                                                                'Tuesday' => 'Selasa',
+                                                                'Wednesday' => 'Rabu',
+                                                                'Thursday' => 'Kamis',
+                                                                'Friday' => 'Jumat',
+                                                                'Saturday' => 'Sabtu'
+                                                            );
+                                                            $data_tanggal =  $data['nama_hari_integer'];
+                                                            $hari = date('l', strtotime($data_tanggal));
+                                                            $tanggal = date('d F Y', strtotime($data_tanggal));
+
+
+                                                            echo $daftar_hari[$hari] . ", " . $tanggal;
+                                                            ?>
                                                     </option>
                                                     <?php endforeach ?>
                                                 </select>
@@ -46,7 +63,8 @@
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Nama Kegiatan</div>
                                                 <input type="text" class="form-control form-control-user"
-                                                    id="nama_detail_hari_integer" aria-describedby="nama_detail_hari_integer"
+                                                    id="nama_detail_hari_integer"
+                                                    aria-describedby="nama_detail_hari_integer"
                                                     placeholder="Masukkan Nama Kegiatan" name="nama_detail_hari_integer"
                                                     value="<?= set_value('nama_detail_hari_integer') ?>" required>
                                             </div>
@@ -115,9 +133,11 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Tempat Kegiatan</div>
-                                                <input type="text" class="form-control form-control-user" id="tempat_detail_hari_integer"
+                                                <input type="text" class="form-control form-control-user"
+                                                    id="tempat_detail_hari_integer"
                                                     aria-describedby="tempat_detail_hari_integer"
-                                                    placeholder="Masukkan Tempat Kegiatan" name="tempat_detail_hari_integer"
+                                                    placeholder="Masukkan Tempat Kegiatan"
+                                                    name="tempat_detail_hari_integer"
                                                     value="<?= set_value('tempat_detail_hari_integer') ?>" required>
                                             </div>
                                         </div>
