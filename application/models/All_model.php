@@ -815,15 +815,15 @@ class All_model extends CI_Model
 	{
 		return $this->db->where('nama_kegiatan=' . "'$data'")->get('s4_kegiatan')->num_rows();
 	}
-	public function insertKegiatanEors($file_berkas)
+	public function insertKegiatanEors($file_berkas, $date_mulai, $date_akhir)
 	{
 		$query = array(
 			'icon_kegiatan' => $file_berkas['icon_kegiatan']['file_name'],
 			'nama_kegiatan' => $this->input->post('nama_kegiatan', true),
 			'deskripsi' => $this->input->post('deskripsi', false),
 			'persyaratan' => $this->input->post('persyaratan', false),
-			'tgl_mulai' => $this->input->post('tanggal_mulai', true),
-			'tgl_akhir' => $this->input->post('tanggal_selesai', true),
+			'tgl_mulai' => $date_mulai,
+			'tgl_akhir' => $date_akhir,
 			'aktivasi' => 0,
 			'target_pendaftar' => $this->input->post('target_pendaftar', true),
 			'jumlah_pendaftar' => 0,
@@ -986,6 +986,10 @@ class All_model extends CI_Model
 			'create_at' => date("Y-m-d H:i:s"),
 		);
 		return $this->db->insert('s4_informasi_umum', $query);
+	}
+	public function getAllKegiatanEorsActive()
+	{
+		return $this->db->where('aktivasi = 1')->get('s4_kegiatan')->result_array();
 	}
 	public function hapusPendaftarEors($id_kegiatan, $id_user, $folder_name)
 	{
