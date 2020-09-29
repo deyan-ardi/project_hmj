@@ -23,9 +23,30 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Tanggal</div>
-                                                <select name="tanggal" id="tanggal"
+                                                <select name="hari_integer" id="hari_integer"
                                                     class="form-control form-control-select" required>
                                                     <option value="">Pilih Tanggal Kegiatan...</option>
+                                                    <?php foreach ($hari as $data) : ?>
+                                                    <option value="<?= $data['id_hari_integer'] ?>">
+                                                        <?php
+                                                            $daftar_hari = array(
+                                                                'Sunday' => 'Minggu',
+                                                                'Monday' => 'Senin',
+                                                                'Tuesday' => 'Selasa',
+                                                                'Wednesday' => 'Rabu',
+                                                                'Thursday' => 'Kamis',
+                                                                'Friday' => 'Jumat',
+                                                                'Saturday' => 'Sabtu'
+                                                            );
+                                                            $data_tanggal =  $data['nama_hari_integer'];
+                                                            $hari = date('l', strtotime($data_tanggal));
+                                                            $tanggal = date('d F Y', strtotime($data_tanggal));
+
+
+                                                            echo $daftar_hari[$hari] . ", " . $tanggal;
+                                                            ?>
+                                                    </option>
+                                                    <?php endforeach ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -42,9 +63,10 @@
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Nama Kegiatan</div>
                                                 <input type="text" class="form-control form-control-user"
-                                                    id="nama_kegiatan" aria-describedby="nama_kegiatan"
-                                                    placeholder="Masukkan Nama Kegiatan" name="nama_kegiatan"
-                                                    value="<?= set_value('nama_kegiatan') ?>" required>
+                                                    id="nama_detail_hari_integer"
+                                                    aria-describedby="nama_detail_hari_integer"
+                                                    placeholder="Masukkan Nama Kegiatan" name="nama_detail_hari_integer"
+                                                    value="<?= set_value('nama_detail_hari_integer') ?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -63,12 +85,12 @@
                                                     <div class="col-lg-3 col-6">
                                                         <input type="number" min="0" max="24"
                                                             class="form-control form-control-user" id="time"
-                                                            name="jam_mulai" value="<?= date("H"); ?>" required>
+                                                            name="waktu_mulai_jam" value="<?= date("H"); ?>" required>
                                                     </div>
                                                     <div class="col-lg-3 col-6">
                                                         <input type="number" min="0" max="60"
                                                             class="form-control form-control-user" id="time"
-                                                            name="menit_mulai" value="<?= date("i"); ?>" required>
+                                                            name="waktu_mulai_menit" value="<?= date("i"); ?>" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -89,12 +111,12 @@
                                                     <div class="col-lg-3 col-6">
                                                         <input type="number" min="0" max="24"
                                                             class="form-control form-control-user" id="time"
-                                                            name="jam_selesai" value="<?= date("H"); ?>" required>
+                                                            name="waktu_akhir_jam" value="<?= date("H"); ?>" required>
                                                     </div>
                                                     <div class="col-lg-3 col-6">
                                                         <input type="number" min="0" max="60"
                                                             class="form-control form-control-user" id="time"
-                                                            name="menit_selesai" value="<?= date("i"); ?>" required>
+                                                            name="waktu_akhir_menit" value="<?= date("i"); ?>" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -111,10 +133,12 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Tempat Kegiatan</div>
-                                                <input type="text" class="form-control form-control-user" id="ketua"
-                                                    aria-describedby="tempat_kegiatan"
-                                                    placeholder="Masukkan Tempat Kegiatan" name="tempat_kegiatan"
-                                                    value="<?= set_value('tempat_kegiatan') ?>" required>
+                                                <input type="text" class="form-control form-control-user"
+                                                    id="tempat_detail_hari_integer"
+                                                    aria-describedby="tempat_detail_hari_integer"
+                                                    placeholder="Masukkan Tempat Kegiatan"
+                                                    name="tempat_detail_hari_integer"
+                                                    value="<?= set_value('tempat_detail_hari_integer') ?>" required>
                                             </div>
                                         </div>
                                     </div>

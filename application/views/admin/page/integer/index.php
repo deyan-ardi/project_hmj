@@ -46,27 +46,50 @@
                                  </tr>
                              </thead>
                              <tbody>
+                                 <?php foreach ($integer as $data) : ?>
                                  <tr>
                                      <td>
+                                         <?php
+                                                if ($data['status_integer'] == 1) {
+                                                ?>
                                          <a href="#" class="btn btn-success btn-sm btn-icon-split mb-4">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-check"></i>
                                              </span>
                                              <span class="text">Aktif</span>
                                          </a>
+                                         <?php
+                                                } else if ($data['status_integer'] == 0) {
+                                                ?>
+                                         <a href="#" class="btn btn-secondary btn-sm btn-icon-split mb-4">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-check"></i>
+                                             </span>
+                                             <span class="text">NonAktif</span>
+                                         </a>
+                                         <?php
+                                                }
+                                                ?>
                                      </td>
-                                     <td>INTEGER #2</td>
-                                     <td>Logo Kegiatan</td>
-                                     <td>Video</td>
-                                     <td>Be Bright with Techonology </td>
-                                     <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus commodi,
-                                         voluptate quaerat iure quidem expedita eos a blanditiis sint modi est error
-                                         veniam facere eum at doloribus amet, nobis ut.</td>
-                                     <td>Deyan</td>
-                                     <td>2011/04/25</td>
+                                     <td><?= $data['nama_integer']; ?></td>
+                                     <td><img src="<?= base_url() ?>assets/upload/Folder_integer/foto/<?= $data['logo_integer']; ?>"
+                                             alt="" width="50px"></td>
+                                     <td><a href="<?= base_url() ?>assets/upload/Folder_integer/video/<?= $data['video_integer']; ?>"
+                                             class="btn btn-primary btn-sm btn-icon-split">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-eye"></i>
+                                             </span>
+                                             <span class="text">Lihat</span>
+                                         </a>
+                                     </td>
+                                     <td><?= $data['tema_integer']; ?></td>
+                                     <td><?= $data['deskripsi_integer']; ?></td>
+                                     <td><?= $data['create_by']; ?></td>
+                                     <td><?= $data['create_at']; ?></td>
                                      <?php if ($group[0]['group_id'] == "1") { ?>
                                      <td>
-                                         <a href="#" class="btn btn-danger btn-sm btn-icon-split">
+                                         <a href="<?= base_url() ?>integer/hapus_data_integer/<?= $data['id_integer']; ?>"
+                                             class="btn btn-danger btn-sm btn-icon-split">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-trash"></i>
                                              </span>
@@ -75,6 +98,7 @@
                                      </td>
                                      <?php } ?>
                                  </tr>
+                                 <?php endforeach; ?>
                              </tbody>
                          </table>
                      </div>
@@ -82,6 +106,7 @@
              </div>
          </div>
          <!-- Sponsor -->
+         <?php if (!empty($active_integer)) { ?>
          <div class="card shadow mb-4">
              <!-- Card Header - Accordion -->
              <a href="#sponsor" class="d-block card-header py-3" data-toggle="collapse" role="button"
@@ -111,16 +136,18 @@
                                  </tr>
                              </thead>
                              <tbody>
+                                 <?php foreach ($sponsor as $data) : ?>
                                  <tr>
-                                     <td>Coca Cola</td>
-                                     <td>Coca-cola membantu menyumbangkan 10 tenda dan 1 stand makanan</td>
+                                     <td><?= $data['nama_sponsor_integer']; ?></td>
+                                     <td><?= $data['deskripsi_sponsor_integer']; ?></td>
                                      <td style="text-align: center;"> <img
-                                             src="https://www.coca-cola.co.id/content/dam/brands/id/coca-cola/id/images/cq5dam.thumbnail.319.319.png"
+                                             src="<?= base_url() ?>assets/upload/Folder_integer/sponsor/<?= $data['foto_sponsor_integer']; ?>"
                                              alt="" width="50px"></td>
-                                     <td>Deyan</td>
-                                     <td>2011/04/25</td>
+                                     <td><?= $data['create_by']; ?></td>
+                                     <td><?= $data['create_at']; ?></td>
                                      <td> <?php if ($group[0]['group_id'] == "1" || $group[0]['group_id'] == "2") { ?>
-                                         <a href="#" class="btn btn-danger btn-sm btn-icon-split">
+                                         <a href="<?= base_url() ?>integer/hapus_data_sponsor_integer/<?= $data['id_sponsor_integer']; ?>"
+                                             class="btn btn-danger btn-sm btn-icon-split">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-trash"></i>
                                              </span>
@@ -129,6 +156,7 @@
                                          <?php } ?>
                                      </td>
                                  </tr>
+                                 <?php endforeach; ?>
                              </tbody>
                          </table>
                      </div>
@@ -167,13 +195,33 @@
                                  </tr>
                              </thead>
                              <tbody>
+                                 <?php foreach ($hari as $data) : ?>
                                  <tr>
-                                     <td>Senin, 12 Maret 2020</td>
-                                     <td>Deyan</td>
-                                     <td>2011/04/25</td>
+                                     <td>
+                                         <?php
+                                                    $daftar_hari = array(
+                                                        'Sunday' => 'Minggu',
+                                                        'Monday' => 'Senin',
+                                                        'Tuesday' => 'Selasa',
+                                                        'Wednesday' => 'Rabu',
+                                                        'Thursday' => 'Kamis',
+                                                        'Friday' => 'Jumat',
+                                                        'Saturday' => 'Sabtu'
+                                                    );
+                                                    $data_tanggal =  $data['nama_hari_integer'];
+                                                    $hari = date('l', strtotime($data_tanggal));
+                                                    $tanggal = date('d F Y', strtotime($data_tanggal));
+
+
+                                                    echo $daftar_hari[$hari] . ", " . $tanggal;
+                                                    ?>
+                                     </td>
+                                     <td><?= $data['create_by']; ?></td>
+                                     <td><?= $data['create_at']; ?></td>
                                      <?php if ($group[0]['group_id'] == "1") { ?>
                                      <td>
-                                         <a href="#" class="btn btn-danger btn-sm btn-icon-split">
+                                         <a href="<?= base_url() ?>integer/hapus_data_hari_integer/<?= $data['id_hari_integer']; ?>"
+                                             class="btn btn-danger btn-sm btn-icon-split">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-trash"></i>
                                              </span>
@@ -183,6 +231,7 @@
                                      </td>
                                      <?php } ?>
                                  </tr>
+                                 <?php endforeach; ?>
                              </tbody>
                          </table>
                      </div>
@@ -210,15 +259,36 @@
                                  </tr>
                              </thead>
                              <tbody>
+                                 <?php foreach ($detail_hari as $data) : ?>
                                  <tr>
-                                     <td>Senin, 12 Maret 2020</td>
-                                     <td>Megibung</td>
-                                     <td>12.00 - 13.00 WITA</td>
-                                     <td>Monumen Bajra Sandhi Denpasar</td>
-                                     <td>Deyan</td>
-                                     <td>12 April 2020</td>
+                                     <td>
+                                         <?php
+                                                    $daftar_hari = array(
+                                                        'Sunday' => 'Minggu',
+                                                        'Monday' => 'Senin',
+                                                        'Tuesday' => 'Selasa',
+                                                        'Wednesday' => 'Rabu',
+                                                        'Thursday' => 'Kamis',
+                                                        'Friday' => 'Jumat',
+                                                        'Saturday' => 'Sabtu'
+                                                    );
+                                                    $data_tanggal =  $data['nama_hari_integer'];
+                                                    $hari = date('l', strtotime($data_tanggal));
+                                                    $tanggal = date('d F Y', strtotime($data_tanggal));
+
+
+                                                    echo $daftar_hari[$hari] . ", " . $tanggal;
+                                                    ?>
+                                     </td>
+                                     <td><?= $data['nama_detail_hari_integer']; ?></td>
+                                     <td><?= $data['waktu_mulai_jam']; ?>.<?= $data['waktu_mulai_menit']; ?> -
+                                         <?= $data['waktu_akhir_jam']; ?>.<?= $data['waktu_akhir_menit']; ?> WITA</td>
+                                     <td><?= $data['tempat_detail_hari_integer']; ?></td>
+                                     <td><?= $data['create_by']; ?></td>
+                                     <td><?= $data['create_at']; ?></td>
                                      <td> <?php if ($group[0]['group_id'] == "1" || $group[0]['group_id'] == "2") { ?>
-                                         <a href="#" class="btn btn-danger btn-sm btn-icon-split">
+                                         <a href="<?= base_url() ?>integer/hapus_data_detail_hari_integer/<?= $data['id_detail_hari_integer']; ?>"
+                                             class="btn btn-danger btn-sm btn-icon-split">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-trash"></i>
                                              </span>
@@ -227,11 +297,13 @@
                                          <?php } ?>
                                      </td>
                                  </tr>
+                                 <?php endforeach; ?>
                              </tbody>
                          </table>
                      </div>
                  </div>
              </div>
          </div>
+         <?php } ?>
      </div>
  </div>

@@ -72,6 +72,269 @@ class All_model extends CI_Model
 	// **************************************************************
 
 
+	// **************************************************************
+	// Start Integer
+	// **************************************************************
+
+	public function getActiveKegiatanInteger()
+	{
+		$this->db->SELECT('s3_integer.*');
+		$this->db->FROM('s3_integer');
+		$this->db->WHERE('s3_integer.status_integer = "1"');
+		return $this->db->get()->result_array();
+	}
+	public function getOnlyActiveBeritaInteger()
+	{
+		$this->db->SELECT('s3_berita_integer.*');
+		$this->db->FROM('s3_berita_integer');
+		$this->db->JOIN('s3_integer', 's3_berita_integer.id_integer = s3_integer.id_integer');
+		$this->db->WHERE('s3_integer.status_integer = "1"');
+		return $this->db->get()->result_array();
+	}
+	public function getOnlyActiveKategoriLomba()
+	{
+		$this->db->SELECT('s3_kategori_lomba_integer.*');
+		$this->db->FROM('s3_kategori_lomba_integer');
+		$this->db->JOIN('s3_integer', 's3_kategori_lomba_integer.id_integer = s3_integer.id_integer');
+		$this->db->WHERE('s3_integer.status_integer = "1"');
+		return $this->db->get()->result_array();
+	}
+	public function getOnlyActiveLombaInteger()
+	{
+		$this->db->SELECT('s3_lomba_integer.*, s3_kategori_lomba_integer.nama_kategori_lomba_integer');
+		$this->db->FROM('s3_lomba_integer');
+		$this->db->JOIN('s3_kategori_lomba_integer', 's3_lomba_integer.id_kategori_lomba_integer = s3_kategori_lomba_integer.id_kategori_lomba_integer');
+		$this->db->JOIN('s3_integer', 's3_kategori_lomba_integer.id_integer = s3_integer.id_integer');
+		$this->db->WHERE('s3_integer.status_integer = "1"');
+		return $this->db->get()->result_array();
+	}
+	public function getOnlyActiveSponsor()
+	{
+		$this->db->SELECT('s3_sponsor_integer.*');
+		$this->db->FROM('s3_sponsor_integer');
+		$this->db->JOIN('s3_integer', 's3_sponsor_integer.id_integer = s3_integer.id_integer');
+		$this->db->WHERE('s3_integer.status_integer = "1"');
+		return $this->db->get()->result_array();
+	}
+	public function getOnlyActiveHari()
+	{
+		$this->db->SELECT('s3_hari_integer.*');
+		$this->db->FROM('s3_hari_integer');
+		$this->db->JOIN('s3_integer', 's3_hari_integer.id_integer = s3_integer.id_integer');
+		$this->db->WHERE('s3_integer.status_integer = "1"');
+		return $this->db->get()->result_array();
+	}
+	public function getAllInteger()
+	{
+		$this->db->SELECT('s3_integer.*');
+		$this->db->FROM('s3_integer');
+		return $this->db->get()->result_array();
+	}
+	public function getAllSponsorActive()
+	{
+		$this->db->SELECT('s3_integer.*');
+		$this->db->FROM('s3_integer');
+		return $this->db->get()->result_array();
+	}
+	public function getIntegerSelect()
+	{
+		return $this->db->where('status_integer=' . "1")->get('s3_integer')->result_array();
+	}
+	public function getActiveDetailHari()
+	{
+		$this->db->select('s3_detail_hari_integer.*, s3_hari_integer.nama_hari_integer');
+		$this->db->from('s3_detail_hari_integer');
+		$this->db->JOIN('s3_hari_integer', 's3_hari_integer.id_hari_integer = s3_detail_hari_integer.id_hari_integer');
+		$this->db->JOIN('s3_integer', 's3_hari_integer.id_integer = s3_integer.id_integer');
+		$this->db->WHERE('s3_integer.status_integer= "1"');
+		return $this->db->get()->result_array();
+	}
+	public function sinkronasiInteger($id)
+	{
+		$query = [
+			"status_integer" => "1",
+		];
+		return $this->db->where("id_integer=" . $id)->update('s3_integer', $query);
+	}
+	public function rowIntegerSelect()
+	{
+		return $this->db->where('status_integer=' . "1")->get('s3_integer')->num_rows();
+	}
+	public function ubahStatusInteger()
+	{
+		$query = [
+			"status_integer" => "0",
+		];
+		return $this->db->where("status_integer=" . "1")->update('s3_integer', $query);
+	}
+	public function tambahDataInteger($foto, $video)
+	{
+		$query = array(
+			'nama_integer' => $this->input->post('nama_integer', true),
+			'logo_integer' => $foto,
+			'video_integer' => $video,
+			'tema_integer' => $this->input->post('tema_integer', true),
+			'deskripsi_integer' => $this->input->post('deskripsi_integer', true),
+			'status_integer' => 0,
+			'create_at' => date("Y-m-d H:i:s"),
+			'create_by' => $this->input->post('create_by', true),
+
+		);
+		return $this->db->insert('s3_integer', $query);
+	}
+	public function tambahDataBerita($foto_1, $foto_2, $foto_3, $file, $id_aktif_integer)
+	{
+		$query = array(
+			'id_integer' => $id_aktif_integer[0]['id_integer'],
+			'nama_berita_integer' => $this->input->post('nama_berita_integer', true),
+			'kategori_berita_integer' => $this->input->post('kategori_berita_integer', true),
+			'konten_berita_integer' => $this->input->post('konten_berita_integer', true),
+			'youtube_berita_integer' => $this->input->post('youtube_berita_integer', true),
+			'foto1_berita_integer' => $foto_1,
+			'foto2_berita_integer' => $foto_2,
+			'foto3_berita_integer' => $foto_3,
+			'file_berita_integer' => $file,
+			'create_at' => date("Y-m-d H:i:s"),
+			'create_by' => $this->input->post('create_by', true),
+		);
+		return $this->db->insert('s3_berita_integer', $query);
+	}
+	public function deleteBerita($id)
+	{
+		$row = $this->db->where('id_berita_integer', $id)->get('s3_berita_integer')->row();
+		if ($this->db->delete('s3_berita_integer', array('id_berita_integer' => $id))) {
+			unlink('assets/upload/Folder_integer/berita/foto/' . $row->foto1_berita_integer);
+			unlink('assets/upload/Folder_integer/berita/foto/' . $row->foto2_berita_integer);
+			unlink('assets/upload/Folder_integer/berita/foto/' . $row->foto3_berita_integer);
+			unlink('assets/upload/Folder_integer/berita/file/' . $row->file_berita_integer);
+			return true;
+		}
+	}
+	public function deleteInteger($id)
+	{
+		$row = $this->db->where('id_integer', $id)->get('s3_integer')->row();
+		if ($this->db->delete('s3_integer', array('id_integer' => $id))) {
+			unlink('assets/upload/Folder_integer/video/' . $row->video_integer);
+			unlink('assets/upload/Folder_integer/foto/' . $row->logo_integer);
+			return true;
+		}
+	}
+	public function tambahDataSponsor($sponsor, $id_aktif_integer)
+	{
+		$query = array(
+			'id_sponsor_integer' => '',
+			'id_integer' => $id_aktif_integer[0]['id_integer'],
+			'nama_sponsor_integer' => $this->input->post('nama_sponsor_integer', true),
+			'deskripsi_sponsor_integer' => $this->input->post('deskripsi_sponsor_integer', true),
+			'foto_sponsor_integer' => $sponsor,
+			'create_at' => date("Y-m-d H:i:s"),
+			'create_by' => $this->input->post('create_by', true),
+
+		);
+		return $this->db->insert('s3_sponsor_integer', $query);
+	}
+	public function deleteSponsor($id)
+	{
+		$row = $this->db->where('id_sponsor_integer', $id)->get('s3_sponsor_integer')->row();
+		if ($this->db->delete('s3_sponsor_integer', array('id_sponsor_integer' => $id))) {
+			unlink('assets/upload/Folder_integer/sponsor/' . $row->foto_sponsor_integer);
+			return true;
+		}
+	}
+	public function tambahDataHari($id_aktif_integer)
+	{
+		$query = array(
+			'id_integer' => $id_aktif_integer[0]['id_integer'],
+			'nama_hari_integer' => $this->input->post('nama_hari_integer', true),
+			'create_at' => date("Y-m-d H:i:s"),
+			'create_by' => $this->input->post('create_by', true),
+
+		);
+		return $this->db->insert('s3_hari_integer', $query);
+	}
+	public function deleteHari($id)
+	{
+		$row = $this->db->where('id_hari_integer', $id)->get('s3_hari_integer')->row();
+		if ($this->db->delete('s3_hari_integer', array('id_hari_integer' => $id))) {
+			return true;
+		}
+	}
+	public function tambahDataDetailHari()
+	{
+		$query = array(
+			'id_hari_integer' => $this->input->post('hari_integer', true),
+			'nama_detail_hari_integer' => $this->input->post('nama_detail_hari_integer', true),
+			'tempat_detail_hari_integer' => $this->input->post('tempat_detail_hari_integer', true),
+			'waktu_mulai_jam' => $this->input->post('waktu_mulai_jam', true),
+			'waktu_mulai_menit' => $this->input->post('waktu_mulai_menit', true),
+			'waktu_akhir_jam' => $this->input->post('waktu_akhir_jam', true),
+			'waktu_akhir_menit' => $this->input->post('waktu_akhir_menit', true),
+			'create_at' => date("Y-m-d H:i:s"),
+			'create_by' => $this->input->post('create_by', true),
+
+		);
+		return $this->db->insert('s3_detail_hari_integer', $query);
+	}
+	public function deleteDetailHari($id)
+	{
+		$row = $this->db->where('id_detail_hari_integer', $id)->get('s3_detail_hari_integer')->row();
+		if ($this->db->delete('s3_detail_hari_integer', array('id_detail_hari_integer' => $id))) {
+			return true;
+		}
+	}
+	public function tambahDataKategoriLombaInteger($icon_kategori, $id_aktif_integer)
+	{
+		$query = array(
+			'id_kategori_lomba_integer' => '',
+			'id_integer' => $id_aktif_integer[0]['id_integer'],
+			'nama_kategori_lomba_integer' => $this->input->post('nama_kategori_lomba_integer', true),
+			'deskripsi_kategori_lomba_integer' => $this->input->post('deskripsi_kategori_lomba_integer', true),
+			'icon_kategori_lomba_integer' => $icon_kategori,
+			'create_at' => date("Y-m-d H:i:s"),
+			'create_by' => $this->input->post('create_by', true),
+
+		);
+		return $this->db->insert('s3_kategori_lomba_integer', $query);
+	}
+	public function deleteKategoriLombaInteger($id)
+	{
+		$row = $this->db->where('id_kategori_lomba_integer', $id)->get('s3_kategori_lomba_integer')->row();
+		if ($this->db->delete('s3_kategori_lomba_integer', array('id_kategori_lomba_integer' => $id))) {
+			unlink('assets/upload/Folder_integer/icon_kategori/' . $row->icon_kategori_lomba_integer);
+			return true;
+		}
+	}
+	public function tambahDataLombaInteger($icon_lomba)
+	{
+		$query = array(
+			'id_lomba_integer' => '',
+			'id_kategori_lomba_integer' => $this->input->post('id_kategori_lomba_integer', true),
+			'nama_lomba_integer' => $this->input->post('nama_lomba_integer', true),
+			'deskripsi_lomba_integer' => $this->input->post('deskripsi_lomba_integer', true),
+			'icon_lomba_integer' => $icon_lomba,
+			'pendaftaran_lomba_integer' => $this->input->post('pendaftaran_lomba_integer', true),
+			'create_at' => date("Y-m-d H:i:s"),
+			'create_by' => $this->input->post('create_by', true),
+
+		);
+		return $this->db->insert('s3_lomba_integer', $query);
+	}
+	public function deleteLombaInteger($id)
+	{
+		$row = $this->db->where('id_lomba_integer', $id)->get('s3_lomba_integer')->row();
+		if ($this->db->delete('s3_lomba_integer', array('id_lomba_integer' => $id))) {
+			unlink('assets/upload/Folder_integer/icon_lomba/' . $row->icon_lomba_integer);
+			return true;
+		}
+	}
+
+
+
+
+	// **************************************************************
+	// End Integer
+	// **************************************************************
+
 
 	// **************************************************************
 	// Start Bidang
@@ -552,15 +815,15 @@ class All_model extends CI_Model
 	{
 		return $this->db->where('nama_kegiatan=' . "'$data'")->get('s4_kegiatan')->num_rows();
 	}
-	public function insertKegiatanEors($file_berkas)
+	public function insertKegiatanEors($file_berkas, $date_mulai, $date_akhir)
 	{
 		$query = array(
 			'icon_kegiatan' => $file_berkas['icon_kegiatan']['file_name'],
 			'nama_kegiatan' => $this->input->post('nama_kegiatan', true),
 			'deskripsi' => $this->input->post('deskripsi', false),
 			'persyaratan' => $this->input->post('persyaratan', false),
-			'tgl_mulai' => $this->input->post('tanggal_mulai', true),
-			'tgl_akhir' => $this->input->post('tanggal_selesai', true),
+			'tgl_mulai' => $date_mulai,
+			'tgl_akhir' => $date_akhir,
 			'aktivasi' => 0,
 			'target_pendaftar' => $this->input->post('target_pendaftar', true),
 			'jumlah_pendaftar' => 0,
@@ -723,6 +986,10 @@ class All_model extends CI_Model
 			'create_at' => date("Y-m-d H:i:s"),
 		);
 		return $this->db->insert('s4_informasi_umum', $query);
+	}
+	public function getAllKegiatanEorsActive()
+	{
+		return $this->db->where('aktivasi = 1')->get('s4_kegiatan')->result_array();
 	}
 	public function hapusPendaftarEors($id_kegiatan, $id_user, $folder_name)
 	{
@@ -1139,6 +1406,92 @@ class All_model extends CI_Model
 				} else {
 					// Jika gagal :      
 					$return = array('result' => 'failed', 'file_dokumen' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			}
+		} else if ($id_file == "integer") {
+			$config['upload_path'] = $folder;
+			$config['allowed_types'] = 'jpg|png|mp4|pdf';
+			$config['encrypt_name'] = TRUE;
+			if ($nama == "video" || $nama == "file") {
+				$config['max_size']  = '10048';
+			} else {
+				$config['max_size']  = '1048';
+			}
+			$config['remove_space'] = TRUE;
+			$config['overwrite'] = TRUE;
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			if ($nama == "foto") {
+				if ($this->upload->do_upload('foto')) {
+					$return = array('result' => 'success', 'foto' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'foto' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "video") {
+				if ($this->upload->do_upload('video')) {
+					$return = array('result' => 'success', 'video' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'video' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "sponsor") {
+				if ($this->upload->do_upload('sponsor')) {
+					$return = array('result' => 'success', 'sponsor' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'sponsor' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "icon_kategori") {
+				if ($this->upload->do_upload('icon_kategori')) {
+					$return = array('result' => 'success', 'icon_kategori' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'icon_kategori' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "icon_lomba") {
+				if ($this->upload->do_upload('icon_lomba')) {
+					$return = array('result' => 'success', 'icon_lomba' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'icon_lomba' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "foto_1") {
+				if ($this->upload->do_upload('foto_1')) {
+					$return = array('result' => 'success', 'foto_1' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'foto_1' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "foto_2") {
+				if ($this->upload->do_upload('foto_2')) {
+					$return = array('result' => 'success', 'foto_2' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'foto_2' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "foto_3") {
+				if ($this->upload->do_upload('foto_3')) {
+					$return = array('result' => 'success', 'foto_3' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'foto_3' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "file") {
+				if ($this->upload->do_upload('file')) {
+					$return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
 					return $return;
 				}
 			}

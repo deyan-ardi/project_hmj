@@ -20,14 +20,22 @@
                                 <div class="card border-left-primary shadow h-100 py-2">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
+                                        <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Nama Kegiatan</div>
-                                                <select name="nama_kegiatan" id="nama_kegiatan"
+                                                    Nama Kegiatan Integer</div>
+                                                <select name="id_integer" id="id_integer"
                                                     class="form-control form-control-select"
-                                                    aria-describedby="emailHelp" aria-placeholder="Masukkan Bidang HMJ">
-                                                    <option value="">Pilih Kegiatan</option>
-
+                                                    aria-describedby="emailHelp" aria-placeholder="Pilih Kegiatan">
+                                                    <option value="">Pilih Kegiatan Integer</option>
+                                                    <?php foreach ($integer as $data) : ?>
+                                                    <?php if ($select_integer[0]['status_integer'] == $data['status_integer']) { ?>
+                                                    <option value="<?= $data['id_integer'] ?>" selected>
+                                                        <?= $data['nama_integer'] ?></option>
+                                                    <?php } else { ?>
+                                                    <option value="<?= $data['id_integer'] ?>"><?= $data['nama_integer'] ?>
+                                                    </option>
+                                                    <?php } ?>
+                                                    <?php endforeach ?>
                                                 </select>
                                             </div>
                                         </div>
