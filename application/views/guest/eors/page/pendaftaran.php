@@ -33,7 +33,7 @@
                 <div class="col-12 col-lg-8 mb-5">
                     <!-- Formnya -->
                     <?php if (date('Y-m-d H:i:s') >= $kegiatan[0]['tgl_mulai'] && date('Y-m-d H:i:s') <= $kegiatan[0]['tgl_akhir'] && $kegiatan[0]['penilaian'] == 0 && $kegiatan[0]['hasil_akhir'] == 0 && $kegiatan[0]['pengumuman'] == 0) { ?>
-                    <form action="" method="POST" id="form_user">
+                    <form action="" method="POST" id="form_user" enctype="multipart/form-data">
                         <!-- Foto -->
                         <?php if ($kegiatan[0]['upload_file'] == 1) { ?>
                         <div class="form-group">
