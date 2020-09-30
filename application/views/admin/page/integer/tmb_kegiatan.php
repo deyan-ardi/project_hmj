@@ -4,23 +4,6 @@
     <h1 class="h3 mb-2 text-gray-800">Tambah Data Kegiatan</h1>
     <p class="mb-4">Untuk menambah informasi kegiatan yang akan ditampilkan pada website, silahkan isi form dibawah ini
     </p>
-    <!-- Kepengurusan -->
-    <?php if ($this->session->flashdata('gagal')) : ?>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        Data <strong>Gagal</strong> <?= $this->session->flashdata('gagal'); ?>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <?php endif; ?>
-    <?php if (validation_errors()) : ?>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <?= validation_errors(); ?>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <?php endif; ?>
     <div class="card shadow mb-4">
         <!-- Card Header - Accordion -->
         <a href="#kepengurusan" class="d-block card-header py-3" data-toggle="collapse" role="button"
@@ -56,8 +39,8 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Video Throwback (durasi maks 1 menit, *.mp4, maks 10 Mb)</div>
-                                                <input type="file" class="form-control form-control-user"
-                                                    id="video" name="video" required>
+                                                <input type="file" class="form-control form-control-user" id="video"
+                                                    name="video" required>
                                             </div>
                                         </div>
                                     </div>

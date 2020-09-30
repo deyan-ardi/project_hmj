@@ -327,8 +327,8 @@ class All_model extends CI_Model
 			return true;
 		}
 	}
-	
-	
+
+
 
 
 	// **************************************************************
@@ -815,15 +815,15 @@ class All_model extends CI_Model
 	{
 		return $this->db->where('nama_kegiatan=' . "'$data'")->get('s4_kegiatan')->num_rows();
 	}
-	public function insertKegiatanEors($file_berkas)
+	public function insertKegiatanEors($file_berkas, $date_mulai, $date_akhir)
 	{
 		$query = array(
 			'icon_kegiatan' => $file_berkas['icon_kegiatan']['file_name'],
 			'nama_kegiatan' => $this->input->post('nama_kegiatan', true),
 			'deskripsi' => $this->input->post('deskripsi', false),
 			'persyaratan' => $this->input->post('persyaratan', false),
-			'tgl_mulai' => $this->input->post('tanggal_mulai', true),
-			'tgl_akhir' => $this->input->post('tanggal_selesai', true),
+			'tgl_mulai' => $date_mulai,
+			'tgl_akhir' => $date_akhir,
 			'aktivasi' => 0,
 			'target_pendaftar' => $this->input->post('target_pendaftar', true),
 			'jumlah_pendaftar' => 0,
@@ -986,6 +986,10 @@ class All_model extends CI_Model
 			'create_at' => date("Y-m-d H:i:s"),
 		);
 		return $this->db->insert('s4_informasi_umum', $query);
+	}
+	public function getAllKegiatanEorsActive()
+	{
+		return $this->db->where('aktivasi = 1')->get('s4_kegiatan')->result_array();
 	}
 	public function hapusPendaftarEors($id_kegiatan, $id_user, $folder_name)
 	{
@@ -1402,6 +1406,92 @@ class All_model extends CI_Model
 				} else {
 					// Jika gagal :      
 					$return = array('result' => 'failed', 'file_dokumen' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			}
+		} else if ($id_file == "integer") {
+			$config['upload_path'] = $folder;
+			$config['allowed_types'] = 'jpg|png|mp4|pdf';
+			$config['encrypt_name'] = TRUE;
+			if ($nama == "video" || $nama == "file") {
+				$config['max_size']  = '10048';
+			} else {
+				$config['max_size']  = '1048';
+			}
+			$config['remove_space'] = TRUE;
+			$config['overwrite'] = TRUE;
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			if ($nama == "foto") {
+				if ($this->upload->do_upload('foto')) {
+					$return = array('result' => 'success', 'foto' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'foto' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "video") {
+				if ($this->upload->do_upload('video')) {
+					$return = array('result' => 'success', 'video' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'video' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "sponsor") {
+				if ($this->upload->do_upload('sponsor')) {
+					$return = array('result' => 'success', 'sponsor' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'sponsor' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "icon_kategori") {
+				if ($this->upload->do_upload('icon_kategori')) {
+					$return = array('result' => 'success', 'icon_kategori' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'icon_kategori' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "icon_lomba") {
+				if ($this->upload->do_upload('icon_lomba')) {
+					$return = array('result' => 'success', 'icon_lomba' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'icon_lomba' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "foto_1") {
+				if ($this->upload->do_upload('foto_1')) {
+					$return = array('result' => 'success', 'foto_1' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'foto_1' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "foto_2") {
+				if ($this->upload->do_upload('foto_2')) {
+					$return = array('result' => 'success', 'foto_2' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'foto_2' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "foto_3") {
+				if ($this->upload->do_upload('foto_3')) {
+					$return = array('result' => 'success', 'foto_3' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'foto_3' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "file") {
+				if ($this->upload->do_upload('file')) {
+					$return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
 					return $return;
 				}
 			}

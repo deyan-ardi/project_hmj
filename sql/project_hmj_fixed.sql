@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 26, 2020 at 06:24 PM
+-- Generation Time: Sep 28, 2020 at 12:23 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -108,13 +108,6 @@ CREATE TABLE `login_attempts` (
   `login` varchar(100) NOT NULL,
   `time` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `login_attempts`
---
-
-INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
-(32, '127.0.0.1', 'riyan.clsg11@gmail.com', 1601135473);
 
 -- --------------------------------------------------------
 
@@ -420,14 +413,22 @@ CREATE TABLE `s3_berita_integer` (
   `nama_berita_integer` varchar(200) NOT NULL,
   `kategori_berita_integer` varchar(1) NOT NULL,
   `konten_berita_integer` text NOT NULL,
-  `youtube_berita_integer` text NOT NULL,
-  `file_berita_integer` text NOT NULL,
+  `youtube_berita_integer` text DEFAULT NULL,
+  `file_berita_integer` text DEFAULT NULL,
   `foto1_berita_integer` text NOT NULL,
-  `foto2_berita_integer` text NOT NULL,
-  `foto3_berita_integer` text NOT NULL,
+  `foto2_berita_integer` text DEFAULT NULL,
+  `foto3_berita_integer` text DEFAULT NULL,
   `create_at` datetime NOT NULL,
   `create_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `s3_berita_integer`
+--
+
+INSERT INTO `s3_berita_integer` (`id_berita_integer`, `id_integer`, `nama_berita_integer`, `kategori_berita_integer`, `konten_berita_integer`, `youtube_berita_integer`, `file_berita_integer`, `foto1_berita_integer`, `foto2_berita_integer`, `foto3_berita_integer`, `create_at`, `create_by`) VALUES
+(2, 19, 'ada', '2', 'ada', 'ada', NULL, 'c4351de5c3994226fef3ae695947fcac.png', NULL, NULL, '2020-09-28 13:46:01', 'Admin'),
+(3, 19, 'adad', '2', 'adad', 'ad', '21f7309c0a42925203668c9b91c975be.pdf', '93bfb01738b432f28334f21365119b96.jpg', NULL, NULL, '2020-09-28 18:10:18', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -462,6 +463,13 @@ CREATE TABLE `s3_hari_integer` (
   `create_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `s3_hari_integer`
+--
+
+INSERT INTO `s3_hari_integer` (`id_hari_integer`, `id_integer`, `nama_hari_integer`, `create_at`, `create_by`) VALUES
+(4, 19, '2020-09-30', '2020-09-28 11:55:34', 'Admin');
+
 -- --------------------------------------------------------
 
 --
@@ -479,6 +487,13 @@ CREATE TABLE `s3_integer` (
   `create_at` datetime NOT NULL,
   `create_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `s3_integer`
+--
+
+INSERT INTO `s3_integer` (`id_integer`, `nama_integer`, `logo_integer`, `video_integer`, `tema_integer`, `deskripsi_integer`, `status_integer`, `create_at`, `create_by`) VALUES
+(19, 'ada', '878f35280a86fe40e19cca46399fe101.png', 'f5fb987af0f577ae113b7cd52c291141.mp4', 'ada', 'ada', 1, '2020-09-28 11:34:16', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -528,6 +543,13 @@ CREATE TABLE `s3_sponsor_integer` (
   `create_at` datetime NOT NULL,
   `create_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `s3_sponsor_integer`
+--
+
+INSERT INTO `s3_sponsor_integer` (`id_sponsor_integer`, `id_integer`, `nama_sponsor_integer`, `deskripsi_sponsor_integer`, `foto_sponsor_integer`, `create_at`, `create_by`) VALUES
+(4, 19, 'ada', 'ada', 'c2074d19e3448b20b1f900263a7acfce.png', '2020-09-28 11:52:10', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -609,7 +631,7 @@ CREATE TABLE `s4_kegiatan` (
 --
 
 INSERT INTO `s4_kegiatan` (`id_kegiatan`, `icon_kegiatan`, `nama_kegiatan`, `deskripsi`, `persyaratan`, `tgl_mulai`, `tgl_akhir`, `aktivasi`, `target_pendaftar`, `jumlah_pendaftar`, `upload_file`, `informasi_pribadi`, `informasi_pendidikan`, `wawancara`, `penilaian`, `hasil_akhir`, `pengumuman`, `create_at`, `create_by`) VALUES
-(1, 'b5e51c9ab7a64064a8e1aa4ee97c6b2b.png', 'Kepanitiaan Integer', '<p>Kepanitian Integer #2</p>\r\n', '<p>Mahasiswa Undiksha</p>\r\n', '2020-09-27', '2020-09-29', 0, 2, 2, 0, 0, 1, 0, 0, 0, 0, '2020-09-26 23:56:50', 'Admin');
+(1, 'b5e51c9ab7a64064a8e1aa4ee97c6b2b.png', 'Kepanitiaan Integer', '<p>Kepanitian Integer #2</p>\r\n', '<p>Mahasiswa Undiksha</p>\r\n', '2020-09-27', '2020-09-29', 1, 2, 2, 0, 0, 1, 0, 1, 0, 0, '2020-09-26 23:56:50', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -685,7 +707,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$BEzghKoXZdRN9TvTBKG/gO2Fmd5nARtU6QAFEj9pjl9sH3Y3VmFp.', 'hmjtiundiksha@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1268889823, 1601137256, 1, 'Admin', '1815091037', 46, '081915656865'),
+(1, '127.0.0.1', 'administrator', '$2y$12$BEzghKoXZdRN9TvTBKG/gO2Fmd5nARtU6QAFEj9pjl9sH3Y3VmFp.', 'hmjtiundiksha@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1268889823, 1601287182, 1, 'Admin', '1815091037', 46, '081915656865'),
 (21, '127.0.0.1', NULL, '$2y$10$uaGnGP/qqL6DwDGpF7Uyke7g0Az3R7pKoSC0Vu5sL5nHkHxg30oU6', 'riyan.clsg11@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601135894, 1601137099, 1, 'I Gede Riyan Ardi Darmawan', '1815091037', 38, '081915656865');
 
 -- --------------------------------------------------------
@@ -991,43 +1013,43 @@ ALTER TABLE `s2_peminjaman`
 -- AUTO_INCREMENT for table `s3_berita_integer`
 --
 ALTER TABLE `s3_berita_integer`
-  MODIFY `id_berita_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_berita_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `s3_detail_hari_integer`
 --
 ALTER TABLE `s3_detail_hari_integer`
-  MODIFY `id_detail_hari_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_detail_hari_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `s3_hari_integer`
 --
 ALTER TABLE `s3_hari_integer`
-  MODIFY `id_hari_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_hari_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `s3_integer`
 --
 ALTER TABLE `s3_integer`
-  MODIFY `id_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `s3_kategori_lomba_integer`
 --
 ALTER TABLE `s3_kategori_lomba_integer`
-  MODIFY `id_kategori_lomba_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_kategori_lomba_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `s3_lomba_integer`
 --
 ALTER TABLE `s3_lomba_integer`
-  MODIFY `id_lomba_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_lomba_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `s3_sponsor_integer`
 --
 ALTER TABLE `s3_sponsor_integer`
-  MODIFY `id_sponsor_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_sponsor_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `s4_informasi_umum`
