@@ -49,7 +49,17 @@
                                 <tr>
                                     <td scope="row"><?= $data['nim'] ?></td>
                                     <td><?= $data['nama_lengkap'] ?></td>
-                                    <td><?= $data['prodi'] ?></td>
+                                    <?php if ($data['prodi'] == "05") { ?>
+                                    <td>Pendidikan Teknik Informatika</td>
+                                    <?php } else if ($data['prodi'] == "02") { ?>
+                                    <td>Manajemen Informatika</td>
+                                    <?php } else if ($data['prodi'] == "09") { ?>
+                                    <td>Sistem Informasi</td>
+                                    <?php } else if ($data['prodi'] == "10") { ?>
+                                    <td>Ilmu Komputer</td>
+                                    <?php } else { ?>
+                                    <td>Error</td>
+                                    <?php } ?>
                                     <td><?= $data['angkatan'] ?></td>
                                     <td><?= $data['jenis_kelamin'] ?></td>
                                     <td><?= $data['diterima_di'] ?></td>
