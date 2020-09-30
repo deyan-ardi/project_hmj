@@ -11,11 +11,17 @@
 <script src="<?= base_url() ?>assets/js/plugins/plugins.min.js"></script>
 
 <!-- Active js -->
+<script src="<?= base_url() ?>assets/js/sweetalert2.all.min.js"></script>
 <script src="<?= base_url() ?>assets/js/active.js"></script>
 <script src="<?= base_url() ?>assets/js/inputCostum.js"></script>
-<!-- Chart -->
-<script src="<?= base_url() ?>assets/js/plugins/Chart.min.js"></script>
+<?php if ($id_chart == true) { ?>
+<script src="<?= base_url() ?>assets/vendor/chart.js/Chart.min.js"></script>
 <script src="<?= base_url() ?>assets/js/chart.js"></script>
+<?php } ?>
+<!-- Datatables -->
+<script src="<?= base_url() ?>assets/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url() ?>assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="<?= base_url() ?>assets/js/table.js"></script>
 </body>
 
 </html>

@@ -2,6 +2,7 @@ const pilihanUtama = document.querySelector("#pilihanUtama"),
     pilihanCadangan = document.querySelector("#pilihanCadangan");
 
 
+
 const printList = (list) => {
     //set default
     let def = pilihanCadangan.querySelector("option").innerHTML;
@@ -10,6 +11,7 @@ const printList = (list) => {
     // loop
     list.map(l => pilihanCadangan.innerHTML += `<option>${l}</option>`);
 }
+
 
 const panitiaCadangan = () => {
 
@@ -24,7 +26,7 @@ const panitiaCadangan = () => {
     all.filter(l => {
         if (l != ls) rest.push(l);
     });
-
+    console.log(rest);
     printList(rest);
 }
 
@@ -45,3 +47,27 @@ const checkProdi = () => {
         })
     };
 }
+$(document).ready(function () {
+    const success = $('.berhasil').data('berhasil');
+    if (success) {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            text: 'Berhasil ' + success + '...',
+            showConfirmButton: false,
+            timer: 2500
+        })
+    }
+});
+$(document).ready(function () {
+    const gagal = $('.gagal').data('gagal');
+    if (gagal) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            text: 'Opss.. Gagal ' + gagal + '...',
+            showConfirmButton: false,
+            timer: 2500
+        })
+    }
+});

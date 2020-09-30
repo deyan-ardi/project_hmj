@@ -2,7 +2,7 @@
         <!-- ***** Header Start ***** -->
         <header class="navbar navbar-sticky navbar-expand-lg navbar-dark">
             <div class="container position-relative">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="<?= base_url() ?>eors/home">
                     <img class="navbar-brand-regular" src="<?= base_url() ?>assets/img/logo/NAV.png" alt="brand-logo" />
                     <img class="navbar-brand-sticky" src="<?= base_url() ?>assets/img/logo/NAV.png"
                         alt="sticky brand-logo" />
@@ -43,7 +43,7 @@
 
         <!-- ***** Tujuan Area Start ***** -->
         <section id="features" class="section features-area ptb_100 bg-gray">
-            <div class="container">
+            <div class="container" id="tujuan">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-10 col-lg-6">
                         <!-- Section Heading -->
@@ -110,34 +110,36 @@
 
         <!-- ***** Kepanitiaan Area Start ***** -->
         <section id="blog" class="section blog-area ptb_100">
-            <div class="section-heading text-center">
+            <div class="section-heading text-center" id="kepanitiaan">
                 <h2>Kepanitiaan yang Bisa Diikuti</h2>
             </div>
             <div class="container">
                 <div class="row">
+                    <?php if (!empty($kegiatan)) { ?>
                     <?php foreach ($kegiatan as $data) { ?>
                     <div class="col-12 col-md-6 col-lg-4">
                         <!-- Single Blog -->
                         <div class="single-blog res-margin">
                             <!-- Blog Thumb -->
                             <div class="blog-thumb" style="height: 17rem;">
-                                <img src="<?= base_url() ?>assets/img/lomba/dance2.png" alt="">
+                                <img src="<?= base_url() ?>assets/upload/Folder_<?= $data['nama_kegiatan'] ?>/<?= $data['icon_kegiatan'] ?>"
+                                    alt="">
                             </div>
                             <!-- Blog Content -->
                             <div class="blog-content p-4">
                                 <!-- Meta Info -->
                                 <?php if (date('Y-m-d H:i:s') < $data['tgl_mulai']) {
-                                        $start = new Datetime(date('Y-m-d H:i:s'));
-                                        $end = new Datetime($data['tgl_mulai']);
-                                        $interval = $start->diff($end);
-                                    ?>
+                                            $start = new Datetime(date('Y-m-d H:i:s'));
+                                            $end = new Datetime($data['tgl_mulai']);
+                                            $interval = $start->diff($end);
+                                        ?>
                                 <p>Dimulai dalam <?= $interval->d ?> hari <?= $interval->h ?> jam <?= $interval->i ?>
                                     menit</p>
                                 <?php } else if (date('Y-m-d H:i:s') >= $data['tgl_mulai'] && date('Y-m-d H:i:s') <= $data['tgl_akhir']) {
-                                        $start = new Datetime(date('Y-m-d H:i:s'));
-                                        $end = new Datetime($data['tgl_akhir']);
-                                        $interval = $start->diff($end);
-                                    ?>
+                                            $start = new Datetime(date('Y-m-d H:i:s'));
+                                            $end = new Datetime($data['tgl_akhir']);
+                                            $interval = $start->diff($end);
+                                        ?>
                                 <p>Berakhir dalam <?= $interval->d ?> hari <?= $interval->h ?> jam <?= $interval->i ?>
                                     menit</p>
                                 <?php } else { ?>
@@ -145,16 +147,29 @@
                                 <?php } ?>
                                 <!-- Blog Title -->
                                 <h3 class="blog-title my-3"><?= $data['nama_kegiatan'] ?></h3>
-                                <p><?= $data['deskripsi'] ?></p>
-                                <?php if (date('Y-m-d H:i:s') > $data['tgl_akhir']) { ?>
-                                <a href="<?= base_url() ?>eors/lihat_hasil/<?= $data['nama_kegiatan'] ?>"
-                                    class="btn btn-primary mt-3">Lihat Hasil</a>
-                                <?php } else { ?>
-                                <a href="<?= base_url() ?>eors/daftar_sekarang/<?= $data['nama_kegiatan'] ?>"
-                                    class="btn btn-primary mt-3">Daftar
-                                    Sekarang</a>
-                                <?php } ?>
+                                <p>
+                                    <?php
+                                            echo (str_word_count($data['deskripsi']) > 20 ? substr($data['deskripsi'], 0, 75) . "... <br>" : $data['deskripsi'])
+                                            ?>
+                                    <?php if (date('Y-m-d H:i:s') > $data['tgl_akhir'] || $data['pengumuman'] == 1) { ?>
+                                    <a href="<?= base_url() ?>eors/lihat_hasil/<?= $data['nama_kegiatan'] ?>"
+                                        class="btn btn-primary mt-3">Lihat Hasil</a>
+                                    <?php } else { ?>
+                                    <a href="<?= base_url() ?>eors/daftar_sekarang/<?= $data['nama_kegiatan'] ?>"
+                                        class="btn btn-primary mt-3">Daftar
+                                        Sekarang</a>
+                                    <?php } ?>
                             </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <?php } else { ?>
+                    <div class="col-lg-12 row justify-content-center">
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>Opps ...</strong> Belum ada ada agenda open recruitment
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                     </div>
                     <?php } ?>
@@ -170,9 +185,8 @@
                     <div class="col-12 col-md-10 col-lg-7">
                         <!-- Section Heading -->
                         <div class="section-heading text-center">
-                            <h2 class="text-capitalize">Pertanyaan umum seputar E-ORS</h2>
-                            <p class=" mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.
+                            <h2 class="text-capitalize" id="pertanyaan">Pertanyaan umum seputar E-ORS</h2>
+                            <p class=" mt-4">Berikut beberapa pertanyaan yang sering diajukan
                             </p>
                         </div>
                     </div>
@@ -192,18 +206,15 @@
                                                 <h2 class="mb-0">
                                                     <button class="btn px-0 py-3" type="button" data-toggle="collapse"
                                                         data-target="#collapseOne">
-                                                        How to install sApp?
+                                                        Bagaimana cara mendaftar dalam kegiatan?
                                                     </button>
                                                 </h2>
                                             </div>
                                             <div id="collapseOne" class="collapse show" data-parent="#sApp-accordion">
                                                 <!-- Card Body -->
                                                 <div class="card-body px-0 py-3 bg-gray">
-                                                    The point of using Lorem Ipsum is that it has a more-or-less normal
-                                                    distribution of letters, as opposed to using 'Content here, content
-                                                    here', making it look like readable English. Many desktop publishing
-                                                    packages and web page editors now use Lorem Ipsum as their default
-                                                    model text.
+                                                    Silahkan perhatikan pada bagian Kepanitiaan Yang Bisa Diikuti untuk
+                                                    mengetahui informasi terkait waktu pendaftaran dan lain lain.
                                                 </div>
                                             </div>
                                         </div>
@@ -214,20 +225,16 @@
                                                 <h2 class="mb-0">
                                                     <button class="btn collapsed px-0 py-3" type="button"
                                                         data-toggle="collapse" data-target="#collapseTwo">
-                                                        Can I get support from the Author?
+                                                        Terdapat informasi bahwa
+                                                        nim sudah digunakan, apa yang harus saya lakukan?
                                                     </button>
                                                 </h2>
                                             </div>
                                             <div id="collapseTwo" class="collapse" data-parent="#sApp-accordion">
                                                 <!-- Card Body -->
                                                 <div class="card-body px-0 py-3 bg-gray">
-                                                    Contrary to popular belief, Lorem Ipsum is not simply random text.
-                                                    It has roots in a piece of classical Latin literature from 45 BC,
-                                                    making it over 2000 years old. Richard McClintock, a Latin professor
-                                                    at Hampden-Sydney College in Virginia, looked up one of the more
-                                                    obscure Latin words, consectetur, from a Lorem Ipsum passage, and
-                                                    going through the cites of the word in classical literature,
-                                                    discovered the undoubtable source.
+                                                    Jika anda memang tidak merasa pernah mendaftar pada suatu kegiatan,
+                                                    silahkan hubungi administrator untuk men set ulang nim anda.
                                                 </div>
                                             </div>
                                         </div>
@@ -238,19 +245,18 @@
                                                 <h2 class="mb-0">
                                                     <button class="btn collapsed px-0 py-3" type="button"
                                                         data-toggle="collapse" data-target="#collapseThree">
-                                                        Do you have a free trail?
+                                                        Kuota pendaftaran telah terpenuhi, apa yang harus saya lakukan?
                                                     </button>
                                                 </h2>
                                             </div>
                                             <div id="collapseThree" class="collapse" data-parent="#sApp-accordion">
                                                 <!-- Card Body -->
                                                 <div class="card-body px-0 py-3 bg-gray">
-                                                    It has survived not only five centuries, but also the leap into
-                                                    electronic typesetting, remaining essentially unchanged. It was
-                                                    popularised in the 1960s with the release of Letraset sheets
-                                                    containing Lorem Ipsum passages, and more recently with desktop
-                                                    publishing software like Aldus PageMaker including versions of Lorem
-                                                    Ipsum.
+                                                    Kuota pendaftaran yang telah terpenuhi menandakan bahwa kapasitas
+                                                    kepanitiaan yang diterima pada suatu kegiatan sudah penuh, jumlah
+                                                    kuota yang diterima tidak menandakan bahwa semuanya akan diterima.
+                                                    Anda dapat menghubungi administrator untuk men set kuota pendaftaran
+                                                    selama waktu open recruitment masih berlangsung
                                                 </div>
                                             </div>
                                         </div>
@@ -261,19 +267,18 @@
                                                 <h2 class="mb-0">
                                                     <button class="btn collapsed px-0 py-3" type="button"
                                                         data-toggle="collapse" data-target="#collapseFour">
-                                                        How can I edit my personal information?
+                                                        Saya bingung terkait dengan peletakan dokumen yang diminta
                                                     </button>
                                                 </h2>
                                             </div>
                                             <div id="collapseFour" class="collapse" data-parent="#sApp-accordion">
                                                 <!-- Card Body -->
                                                 <div class="card-body px-0 py-3 bg-gray">
-                                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                                    accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                                                    quae ab illo inventore veritatis et quasi architecto beatae vitae
-                                                    dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                                                    aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-                                                    eos qui ratione voluptatem sequi nesciunt.
+                                                    Untuk dokumen persyaratan, jika diminta harap menggunakan format
+                                                    *.pdf dan berisi semua file dokumen persyaratan yang diminta kecuali
+                                                    foto pendaftar. Contoh, file yang diminta adalah KRS dan KHS,
+                                                    silahkan kedua file tersebut dijadikan 1 file berformat *.pdf.
+                                                    Sehingga yang dikumpul nantinya hanya 1 file saja..
                                                 </div>
                                             </div>
                                         </div>
@@ -284,19 +289,19 @@
                                                 <h2 class="mb-0">
                                                     <button class="btn collapsed px-0 py-3" type="button"
                                                         data-toggle="collapse" data-target="#collapseFive">
-                                                        Contact form isn't working?
+                                                        Saya menemukan masalah lain terkait website, kemana saya harus
+                                                        melapor?
                                                     </button>
                                                 </h2>
                                             </div>
                                             <div id="collapseFive" class="collapse" data-parent="#sApp-accordion">
                                                 <!-- Card Body -->
                                                 <div class="card-body px-0 py-3 bg-gray">
-                                                    There are many variations of passages of Lorem Ipsum available, but
-                                                    the majority have suffered alteration in some form, by injected
-                                                    humour, or randomised words which don't look even slightly
-                                                    believable. If you are going to use a passage of Lorem Ipsum, you
-                                                    need to be sure there isn't anything embarrassing hidden in the
-                                                    middle of text.
+                                                    Jika anda menemukan masalah pada pendaftaran kegiatan, pada
+                                                    masing-masing kegiatan sudah diberikan kontak yang dapat dihubungi,
+                                                    atau jika anda masih bingung, anda dapat menghubungi akun Instagram
+                                                    <span class="text-primary"> @hmj_ti.undiksha</span>
+                                                    untuk informasi lebih lengkap
                                                 </div>
                                             </div>
                                         </div>
@@ -361,12 +366,10 @@
                             <!-- Footer Items -->
                             <div class="footer-items">
                                 <!-- Footer Title -->
-                                <h3 class="footer-title mb-2">Lomba</h3>
+                                <h3 class="footer-title mb-2">Akses Cepat</h3>
                                 <ul>
-                                    <li class="py-2"><a class="scroll" href="#">Bidang Seni</a></li>
-                                    <li class="py-2"><a class="scroll" href="#">Bidang Karya Tulis</a></li>
-                                    <li class="py-2"><a class="scroll" href="#">Bidang It</a></li>
-                                    <li class="py-2"><a class="scroll" href="#">Bidang Games</a></li>
+                                    <li class="py-2"><a href="<?= base_url() ?>web/home">Web HMJ</a></li>
+                                    <li class="py-2"><a href="<?= base_url() ?>integer/home">Web Integer</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -376,10 +379,9 @@
                                 <!-- Footer Title -->
                                 <h3 class="footer-title mb-2">Konten</h3>
                                 <ul>
-                                    <li class="py-2" href="#">Beranda</a></li>
-                                    <li class="py-2"><a href="#">Tentang</a></li>
-                                    <li class="py-2"><a href="#">Jadwal</a></li>
-                                    <li class="py-2"><a href="#">Lomba</a></li>
+                                    <li class="py-2"><a href="#tujuan">Tujuan E-ORS</a></li>
+                                    <li class="py-2"><a href="#kepanitiaan">Kepanitiaan</a></li>
+                                    <li class="py-2"><a href="#pertanyaan">Pertanyaan Umum</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -389,10 +391,7 @@
                                 <!-- Footer Title -->
                                 <h3 class="footer-title mb-2">Layanan</h3>
                                 <ul>
-                                    <li class="py-2"><a href="#">Beranda</a></li>
-                                    <li class="py-2"><a href="#">Website</a></li>
-                                    <li class="py-2"><a href="#">Integer</a></li>
-                                    <li class="py-2"><a href="#">OKK</a></li>
+                                    <li class="py-2"><a href="<?= base_url() ?>">Landing Page</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -439,7 +438,10 @@
                         <p>Putu Zasya Eka Satya Nugraha</p>
                         <hr>
                         <h5>Front End</h5>
+                        <p>Komang Jepri Kusuma Jaya</p>
                         <p>I Nyoman Triarta</p>
+                        <p>Komang Pramayasa</p>
+                        <p>Ketut Kerta Hendrawan</p>
                         <hr>
                         <h5>Back End</h5>
                         <p>I Gede Riyan Ardi Darmawan</p>

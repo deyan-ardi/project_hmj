@@ -2,7 +2,7 @@
     <!-- ***** Header Start ***** -->
     <header class="navbar navbar-sticky navbar-expand-lg navbar-dark">
         <div class="container position-relative">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="<?= base_url() ?>/eors/home">
                 <img class="navbar-brand-regular" src="<?= base_url() ?>assets/img/logo/NAV.png" alt="brand-logo" />
                 <img class="navbar-brand-sticky" src="<?= base_url() ?>assets/img/logo/NAV.png"
                     alt="sticky brand-logo" />
@@ -18,7 +18,7 @@
                 <div class="col-12">
                     <!-- Breamcrumb Content -->
                     <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
-                        <h3 class="text-white">Hasil Seleksi Panitia Raker</h3>
+                        <h3 class="text-white">Hasil Seleksi <?= $kegiatan[0]['nama_kegiatan'] ?></h3>
                     </div>
                 </div>
             </div>
@@ -32,49 +32,32 @@
             <div class="row">
                 <div class="col-12 col-lg-8 mb-5">
 
-                    <table class="table">
-                        <thead class="thead-light">
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">NIM</th>
-                                <th scope="col">Sie</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>1915091001</td>
-                                <td>Acara</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>1915091002</td>
-                                <td>Kesekretariatan</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>1915091003</td>
-                                <td>Pubdekdok</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Jepri</td>
-                                <td>1915091004</td>
-                                <td>Pubdekdok</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Mangpram</td>
-                                <td>1915091005</td>
-                                <td>Modusin Cwek</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
+                    <div class="table-responsive">
+                        <table class="table" id="tableInformasi">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="row">Nim Pendaftar</th>
+                                    <th scope="row">Nama Pendaftar</th>
+                                    <th scope="row">Prodi</th>
+                                    <th scope="row">Angkatan</th>
+                                    <th scope="row">Jenis Kelamin</th>
+                                    <th scope="row">Diterima di</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($kelulusan as $data) { ?>
+                                <tr>
+                                    <td scope="row"><?= $data['nim'] ?></td>
+                                    <td><?= $data['nama_lengkap'] ?></td>
+                                    <td><?= $data['prodi'] ?></td>
+                                    <td><?= $data['angkatan'] ?></td>
+                                    <td><?= $data['jenis_kelamin'] ?></td>
+                                    <td><?= $data['diterima_di'] ?></td>
+                                </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="col-12 col-lg-4">
                     <aside class="sidebar">
@@ -85,17 +68,13 @@
                                 <div class="single-accordion">
                                     <h5>
                                         <a role="button" class="collapse show text-uppercase d-block p-3"
-                                            data-toggle="collapse" href="#accordion3">Tentang
+                                            data-toggle="collapse" href="#accordion3">Tentang Kegiatan
                                         </a>
                                     </h5>
                                     <!-- Post Widget Content -->
                                     <div id="accordion3" class="accordion-content widget-content collapse show p-3"
                                         data-parent="#post-accordion">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium aperiam
-                                        porro,
-                                        exercitationem tenetur qui illum nesciunt. Eligendi exercitationem cupiditate
-                                        esse quibusdam ullam
-                                        saepe ipsam possimus, praesentium, facilis nesciunt odit nulla!
+                                        <?= $kegiatan[0]['deskripsi'] ?>
                                         <button type="button" class="btn btn-primary mt-3" data-toggle="modal"
                                             data-target="#staticBackdrop">
                                             Syarat dan ketentuan
@@ -118,59 +97,54 @@
                                     <div id="accordion4" class="accordion-content widget-content collapse show p-3"
                                         data-parent="#post-accordion">
                                         <!-- chart Pie -->
-                                        <p>Program Studi</p>
+                                        <p>Berdasarkan Program Studi</p>
                                         <div>
                                             <div class="chart-pie pt-4 pb-2">
+                                                <input type="hidden" value="<?= $PTI ?>" id="PTI">
+                                                <input type="hidden" value="<?= $SI ?>" id="SI">
+                                                <input type="hidden" value="<?= $MI ?>" id="MI">
+                                                <input type="hidden" value="<?= $ILKOM ?>" id="Ilkom">
                                                 <canvas id="myPieChart"></canvas>
                                             </div>
                                             <div class="mt-4 text-center small">
                                                 <span class="mr-2">
-                                                    <i class="fas fa-circle" style="color:#469bd1 ;"></i> PTI
+                                                    Berdasarkan Prodi :
                                                 </span>
                                                 <span class="mr-2">
-                                                    <i class="fas fa-circle" style="color:#f6a80a ;"></i> SI
+                                                    <i class="fas fa-circle text-primary"></i> PTI
                                                 </span>
                                                 <span class="mr-2">
-                                                    <i class="fas fa-circle" style="color:#020065 ;"></i> MI
+                                                    <i class="fas fa-circle text-success"></i> SI
                                                 </span>
                                                 <span class="mr-2">
-                                                    <i class="fas fa-circle" style="color:#00587c ;"></i> ILKOM
+                                                    <i class="fas fa-circle text-info"></i> MI
+                                                </span>
+                                                <span class="mr-2">
+                                                    <i class="fas fa-circle text-warning"></i> Ilkom
                                                 </span>
                                             </div>
 
                                             <!-- chart bar-->
-                                            <p class="mt-4 mb-2">Pemilih masing-masing sie</p>
-                                            <div>
-                                                <p class="small ">Sie Sekret <span class="float-right">10%</span></p>
-                                                <div class="progress mb-4">
-                                                    <div class="progress-bar bg-danger" role="progressbar"
-                                                        style="width: 10%" aria-valuenow="20" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                                <p class="small ">Sie Acara <span class="float-right">30%</span></p>
-                                                <div class="progress mb-4">
-                                                    <div class="progress-bar bg-warning" role="progressbar"
-                                                        style="width: 30%" aria-valuenow="40" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                                <p class="small ">Sie Kerohanian<span class="float-right">20%</span></p>
-                                                <div class="progress mb-4">
-                                                    <div class="progress-bar" role="progressbar" style="width: 20%"
-                                                        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                                <p class="small ">Sie Keamanan <span class="float-right">10%</span></p>
-                                                <div class="progress mb-4">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                        style="width: 10%" aria-valuenow="80" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                                <p class="small ">Sie Apenih yee <span class="float-right">30%</span>
-                                                </p>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-success" role="progressbar"
-                                                        style="width: 30%" aria-valuenow="100" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
+                                            <p class="mt-4 mb-2">Berdasarkan Angkatan</p>
+                                            <div class="chart-pie pt-4 pb-2">
+                                                <input type="hidden" value="<?= $thn_2018 ?>" id="thn_2018">
+                                                <input type="hidden" value="<?= $thn_2019 ?>" id="thn_2019">
+                                                <input type="hidden" value="<?= $thn_2020 ?>" id="thn_2020">
+                                                <canvas id="myAngkatanChart"></canvas>
+                                            </div>
+                                            <div class="mt-4 text-center small">
+                                                <span class="mr-2">
+                                                    Berdasarkan Angkatan :
+                                                </span>
+                                                <span class="mr-2">
+                                                    <i class="fas fa-circle text-primary"></i> 2018
+                                                </span>
+                                                <span class="mr-2">
+                                                    <i class="fas fa-circle text-success"></i> 2019
+                                                </span>
+                                                <span class="mr-2">
+                                                    <i class="fas fa-circle text-info"></i> 2020
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -191,11 +165,12 @@
                                     <div id="accordion2" class="accordion-content widget-content collapse show p-3"
                                         data-parent="#post-accordion">
                                         <p>
-                                            Jika menemupkan bug atau masalah pada website silahkan hubungin admin via
-                                            <span class="text-primary font-weight-bold">WhatsApp</span> dengan mengklik
-                                            tombol dibawah.
+                                            Jika menemukan masalah pada website silahkan hubungi admin
+                                            via <span class="text-primary font-weight-bold">WhatsApp</span> dengan
+                                            mengklik tombol dibawah.
                                         </p>
-                                        <a href="#" class="btn btn-primary mt-3" data-target="#staticBackdrop">
+                                        <a href="https://api.whatsapp.com/send?phone=6281915656865&text=Terdapat%20masalah%20pada%20website%20pendaftaran,%20mhon%20bantuannya%20untuk%20memperbaiki"
+                                            class="btn btn-primary mt-3" data-target="#staticBackdrop">
                                             Hubungi
                                         </a>
                                     </div>
@@ -208,110 +183,15 @@
         </div>
     </section>
     <!-- ***** Blog Area End ***** -->
-    <!-- Syarat Modal -->
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content ">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Syarat dan Ketentuan</h5>
                 </div>
                 <div class="modal-body">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas atque ullam suscipit facere
-                    blanditiis,
-                    quam cupiditate, ratione, libero dolorum asperiores maxime dolores at veniam ea non quas incidunt
-                    molestias
-                    commodi.
-                    <ul class="check-list">
-                        <li class="py-1">
-                            <!-- List Box -->
-                            <div class="list-box media">
-                                <span class="icon align-self-center"><i class="fas fa-check"></i></span>
-                                <span class="media-body pl-2">Combined with a handful of model sentence
-                                    structures looks reasonable.</span>
-                            </div>
-                        </li>
-                        <li class="py-1">
-                            <!-- List Box -->
-                            <div class="list-box media">
-                                <span class="icon align-self-center"><i class="fas fa-check"></i></span>
-                                <span class="media-body pl-2">Contrary to popular belief, Lorem Ipsum is not
-                                    simply random text.</span>
-                            </div>
-                        </li>
-                        <li class="py-1">
-                            <!-- List Box -->
-                            <div class="list-box media">
-                                <span class="icon align-self-center"><i class="fas fa-check"></i></span>
-                                <span class="media-body pl-2">Sed ut perspiciatis unde omnis iste natus error
-                                    sit voluptatem accusantium.</span>
-                            </div>
-                        </li>
-                        <li class="py-1">
-                            <!-- List Box -->
-                            <div class="list-box media">
-                                <span class="icon align-self-center"><i class="fas fa-check"></i></span>
-                                <span class="media-body pl-2">Natus error sit voluptatem unde omnis iste natus
-                                    error sit voluptatem accusantium.</span>
-                            </div>
-                        </li>
-                        <li class="py-1">
-                            <!-- List Box -->
-                            <div class="list-box media">
-                                <span class="icon align-self-center"><i class="fas fa-check"></i></span>
-                                <span class="media-body pl-2">All the Lorem Ipsum generators on the Internet
-                                    tend to repeat necessary.</span>
-                            </div>
-                        </li>
-                        <li class="py-1">
-                            <!-- List Box -->
-                            <div class="list-box media">
-                                <span class="icon align-self-center"><i class="fas fa-check"></i></span>
-                                <span class="media-body pl-2">All the Lorem Ipsum generators on the Internet
-                                    tend to repeat necessary.</span>
-                            </div>
-                        </li>
-                        <li class="py-1">
-                            <!-- List Box -->
-                            <div class="list-box media">
-                                <span class="icon align-self-center"><i class="fas fa-check"></i></span>
-                                <span class="media-body pl-2">All the Lorem Ipsum generators on the Internet
-                                    tend to repeat necessary.</span>
-                            </div>
-                        </li>
-                        <li class="py-1">
-                            <!-- List Box -->
-                            <div class="list-box media">
-                                <span class="icon align-self-center"><i class="fas fa-check"></i></span>
-                                <span class="media-body pl-2">All the Lorem Ipsum generators on the Internet
-                                    tend to repeat necessary.</span>
-                            </div>
-                        </li>
-                        <li class="py-1">
-                            <!-- List Box -->
-                            <div class="list-box media">
-                                <span class="icon align-self-center"><i class="fas fa-check"></i></span>
-                                <span class="media-body pl-2">All the Lorem Ipsum generators on the Internet
-                                    tend to repeat necessary.</span>
-                            </div>
-                        </li>
-                        <li class="py-1">
-                            <!-- List Box -->
-                            <div class="list-box media">
-                                <span class="icon align-self-center"><i class="fas fa-check"></i></span>
-                                <span class="media-body pl-2">All the Lorem Ipsum generators on the Internet
-                                    tend to repeat necessary.</span>
-                            </div>
-                        </li>
-                        <li class="py-1">
-                            <!-- List Box -->
-                            <div class="list-box media">
-                                <span class="icon align-self-center"><i class="fas fa-check"></i></span>
-                                <span class="media-body pl-2">All the Lorem Ipsum generators on the Internet
-                                    tend to repeat necessary.</span>
-                            </div>
-                        </li>
-                    </ul>
+                    <?= $kegiatan[0]['persyaratan'] ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Mengerti</button>
