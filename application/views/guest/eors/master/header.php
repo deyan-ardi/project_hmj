@@ -10,7 +10,7 @@
     <title>E-ORS - <?= $title ?></title>
 
     <!-- Favicon  -->
-    <link rel="icon" href="<?= base_url() ?>assets/img/favicon.png">
+    <link rel="icon" href="<?= base_url() ?>assets/img/logo/NAV.png" />
 
     <!-- ***** All CSS Files ***** -->
 
@@ -57,3 +57,6 @@
             <i class="fas fa-arrow-up"></i>
         </div>
         <!--====== Scroll To Top Area End ======-->
+        <div class="berhasil" data-berhasil="<?= $this->session->flashdata('berhasil') ?>"></div>
+        <div class="gagal" data-gagal="<?= $this->session->flashdata('gagal') ?>"></div>
+        <div class="gagal" data-gagal="<?= validation_errors() ?>"></div>

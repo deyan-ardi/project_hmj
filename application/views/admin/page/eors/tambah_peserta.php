@@ -244,7 +244,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" onchange="panitiaCadangan()">
                             <div class=" col-lg-12 mb-3">
                                 <div class="card border-left-primary shadow h-100 py-2">
                                     <div class="card-body">
@@ -252,12 +252,10 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Pilihan Wajib</div>
-                                                <select name="pil_wajib" id="pil_wajib"
+                                                <select name="pil_wajib" id="pilihanUtama"
                                                     class="form-control form-control-select" required>
-                                                    <option value="">Masukkan Sie Pertama Yang Diminati</option>
                                                     <?php foreach ($jabatan as $data) : ?>
-                                                    <option value=" <?= $data['nama_pilihan'] ?>">
-                                                        <?= $data['nama_pilihan'] ?></option>
+                                                    <option><?= $data['nama_pilihan'] ?></option>
                                                     <?php endforeach ?>
                                                 </select>
                                             </div>
@@ -274,13 +272,9 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Pilihan Opsional</div>
-                                                <select name="pil_ops" id="pil_ops"
+                                                <select name="pil_ops" id="pilihanCadangan"
                                                     class="form-control form-control-select">
-                                                    <option value="">Masukkan Sie Kedua Yang Diminati</option>
-                                                    <?php foreach ($jabatan as $data) : ?>
-                                                    <option value="<?= $data['nama_pilihan'] ?>">
-                                                        <?= $data['nama_pilihan'] ?></option>
-                                                    <?php endforeach ?>
+                                                    <option></option>
                                                 </select>
                                             </div>
                                         </div>

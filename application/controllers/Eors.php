@@ -279,10 +279,10 @@ class Eors extends CI_Controller
             $this->data['id_halaman'] = $data_kegiatan[0]['nama_kegiatan'];
             $id_kegiatan = $data_kegiatan[0]['id_kegiatan'];
             // SETTING CHART PENDAFTARAN
-            $this->data['PTI'] = $this->All_model->getAllPendaftarProdi("PTI", $id_kegiatan);
-            $this->data['MI'] = $this->All_model->getAllPendaftarProdi("MI", $id_kegiatan);
-            $this->data['SI'] = $this->All_model->getAllPendaftarProdi("SI", $id_kegiatan);
-            $this->data['ILKOM'] = $this->All_model->getAllPendaftarProdi("ILKOM", $id_kegiatan);
+            $this->data['PTI'] = $this->All_model->getAllPendaftarProdi("05", $id_kegiatan);
+            $this->data['MI'] = $this->All_model->getAllPendaftarProdi("02", $id_kegiatan);
+            $this->data['SI'] = $this->All_model->getAllPendaftarProdi("09", $id_kegiatan);
+            $this->data['ILKOM'] = $this->All_model->getAllPendaftarProdi("10", $id_kegiatan);
             $this->data['thn_2018'] = $this->All_model->getAllPendaftarTahun("2018", $id_kegiatan);
             $this->data['thn_2019'] = $this->All_model->getAllPendaftarTahun("2019", $id_kegiatan);
             $this->data['thn_2020'] = $this->All_model->getAllPendaftarTahun("2020", $id_kegiatan);
@@ -361,8 +361,11 @@ class Eors extends CI_Controller
             $id_kegiatan = $id_kegiatan[0]['id_kegiatan'];
             if ($this->All_model->getKegiatanEorsWhereNum($id_kegiatan) > 0) {
                 if ($this->All_model->hapusPendaftarEors($id_kegiatan, $id_user, urldecode($data))) {
-                    $this->session->set_flashdata('berhasil', 'Dihapus');
-                    redirect("eors/administrator/" . urldecode($data));
+                    $jumlah_peserta = $this->All_model->countPesertaEors($id_kegiatan);
+                    if ($this->All_model->updateJumlahPeserta($jumlah_peserta, $id_kegiatan)) {
+                        $this->session->set_flashdata('berhasil', 'Dihapus');
+                        redirect("eors/administrator/" . urldecode($data));
+                    }
                 } else {
                     $this->session->set_flashdata('gagal', 'Dihapus, Terjadi Masalah');
                     redirect("eors/administrator/" . urldecode($data));
@@ -464,14 +467,12 @@ class Eors extends CI_Controller
                         }
 
                         if ($this->All_model->cekNimPeserta($_POST['nim'], $id_kegiatan) > 0) {
-                            $this->session->set_flashdata('gagal', 'Ditambahkan, Peserta dengan Nim' . $_POST['nim'] . 'Sudah Melakukan Pendaftaran Pada Kegiatan Ini');
+                            $this->session->set_flashdata('gagal', 'Ditambahkan, Peserta dengan Nim ' . $_POST['nim'] . ' Sudah Melakukan Pendaftaran Pada Kegiatan Ini');
                             redirect('eors/tambah_peserta/' . urldecode($data));
                         } else {
-                            $jumlah_peserta = $this->All_model->countPesertaEors($id_kegiatan);
-                            $jumlah_peserta = $jumlah_peserta + 1;
-                            if ($this->All_model->updateJumlahPeserta($jumlah_peserta, $id_kegiatan)) {
-
-                                if ($this->All_model->inputDataPeserta($nama_dokumen, $nama_foto, $id_kegiatan)) {
+                            if ($this->All_model->inputDataPeserta($nama_dokumen, $nama_foto, $id_kegiatan)) {
+                                $jumlah_peserta = $this->All_model->countPesertaEors($id_kegiatan);
+                                if ($this->All_model->updateJumlahPeserta($jumlah_peserta, $id_kegiatan)) {
                                     $this->session->set_flashdata('berhasil', 'Ditambahkan');
                                     redirect('eors/administrator/' . urldecode($data));
                                 } else {
@@ -654,6 +655,7 @@ class Eors extends CI_Controller
     {
         $this->data['title'] = "Home";
         $this->data['body'] = '1';
+        $this->data['id_chart'] = false;
         $this->data['kegiatan'] = $this->All_model->getAllKegiatanEorsActive();
         $this->load->view('guest/eors/master/header', $this->data);
         $this->load->view('guest/eors/page/index', $this->data);
@@ -663,19 +665,48 @@ class Eors extends CI_Controller
     {
         $this->data['title'] = "Home";
         $this->data['body'] = '1';
+        $this->data['id_chart'] = true;
         $data_kegiatan = $this->All_model->getKegiatanEorsWhereChar(urldecode($data));
-        $this->load->view('guest/eors/master/header', $this->data);
-        $this->load->view('guest/eors/page/hasil', $this->data);
-        $this->load->view('guest/eors/master/footer', $this->data);
+        $this->data['kegiatan'] = $data_kegiatan;
+        $id_kegiatan = $data_kegiatan[0]['id_kegiatan'];
+        $this->data['kelulusan'] = $this->All_model->getAllPendaftarLulus($id_kegiatan);
+        // SETTING CHART PENDAFTARAN
+        $this->data['PTI'] = $this->All_model->getAllPendaftarProdi("05", $id_kegiatan);
+        $this->data['MI'] = $this->All_model->getAllPendaftarProdi("02", $id_kegiatan);
+        $this->data['SI'] = $this->All_model->getAllPendaftarProdi("09", $id_kegiatan);
+        $this->data['ILKOM'] = $this->All_model->getAllPendaftarProdi("10", $id_kegiatan);
+        $this->data['thn_2018'] = $this->All_model->getAllPendaftarTahun("2018", $id_kegiatan);
+        $this->data['thn_2019'] = $this->All_model->getAllPendaftarTahun("2019", $id_kegiatan);
+        $this->data['thn_2020'] = $this->All_model->getAllPendaftarTahun("2020", $id_kegiatan);
+        // END SETTING CHART PENDAFTARAN
+
+        if (!empty($data_kegiatan)) {
+            $this->load->view('guest/eors/master/header', $this->data);
+            $this->load->view('guest/eors/page/hasil', $this->data);
+            $this->load->view('guest/eors/master/footer', $this->data);
+        } else {
+            show_404();
+        }
     }
     public function daftar_sekarang($data = '')
     {
         $this->data['title'] = "Daftar Kegiatan " . $data;
         $this->data['body'] = '2';
+        $this->data['id_chart'] = true;
         $data_kegiatan = $this->All_model->getKegiatanEorsWhereChar(urldecode($data));
         $this->data['kegiatan'] = $data_kegiatan;
         $id_kegiatan = $data_kegiatan[0]['id_kegiatan'];
         $this->data['jabatan'] = $this->All_model->getAllPilihanWhere($id_kegiatan);
+        // SETTING CHART PENDAFTARAN
+        $this->data['PTI'] = $this->All_model->getAllPendaftarProdi("05", $id_kegiatan);
+        $this->data['MI'] = $this->All_model->getAllPendaftarProdi("02", $id_kegiatan);
+        $this->data['SI'] = $this->All_model->getAllPendaftarProdi("09", $id_kegiatan);
+        $this->data['ILKOM'] = $this->All_model->getAllPendaftarProdi("10", $id_kegiatan);
+        $this->data['thn_2018'] = $this->All_model->getAllPendaftarTahun("2018", $id_kegiatan);
+        $this->data['thn_2019'] = $this->All_model->getAllPendaftarTahun("2019", $id_kegiatan);
+        $this->data['thn_2020'] = $this->All_model->getAllPendaftarTahun("2020", $id_kegiatan);
+        // END SETTING CHART PENDAFTARAN
+
         // All Validations
         $this->form_validation->set_rules('nim', 'Nama Sie', 'required');
         $this->form_validation->set_rules('nama_lengkap', 'Nama Sie', 'required');
@@ -702,80 +733,79 @@ class Eors extends CI_Controller
             $this->form_validation->set_rules('tahun_sma', 'Tahun Sekolah Menengah Atas', 'required');
         }
         if ($this->form_validation->run() == FALSE) {
-            if (!empty($id_kegiatan)) {
-                if (date('Y-m-d H:i:s') >= $data_kegiatan[0]['tgl_mulai'] && date('Y-m-d H:i:s') <= $data_kegiatan[0]['tgl_akhir']) {
+            if (!empty($id_kegiatan) && !empty($data_kegiatan)) {
+                if (date('Y-m-d H:i:s') < $data_kegiatan[0]['tgl_mulai'] || date('Y-m-d H:i:s') >= $data_kegiatan[0]['tgl_mulai'] && date('Y-m-d H:i:s') <= $data_kegiatan[0]['tgl_akhir']) {
                     $this->load->view('guest/eors/master/header', $this->data);
                     $this->load->view('guest/eors/page/pendaftaran', $this->data);
                     $this->load->view('guest/eors/master/footer', $this->data);
                 } else {
                     $this->session->set_flashdata('gagal', 'Masa Pendaftaran Telah Berakhir');
-                    redirect('eors/administrator/' . urldecode($data));
+                    redirect('eors/daftar_sekarang/' . urldecode($data));
                 }
             } else {
                 show_404();
             }
         } else {
-            // if (date('Y-m-d') >= $data_kegiatan[0]['tgl_mulai'] && date('Y-m-d') <= $data_kegiatan[0]['tgl_akhir']) {
-            //     if (($data_kegiatan[0]['jumlah_pendaftar'] + 1) <= $data_kegiatan[0]['target_pendaftar']) {
-            //         if ($data_kegiatan[0]['upload_file'] == 1) {
-            //             $id_file = "eors";
-            //             if ($_FILES['file_foto']['error'] == 4) {
-            //                 $this->session->set_flashdata('gagal', 'Ditambahkan, Foto Masih Kosong');
-            //                 redirect('eors/tambah_peserta/' . urldecode($data));
-            //             } else {
-            //                 $bag_foto = "foto";
-            //                 $tujuan_foto = $data_kegiatan[0]['nama_kegiatan'];
-            //                 $upload = $this->All_model->uploadFile($bag_foto, $id_file, $tujuan_foto);
-            //                 if ($upload['result'] == "success") {
-            //                     $nama_foto = $upload['file_foto']['file_name'];
-            //                 } else {
-            //                     $this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Ukuran dan Tipe dari File');
-            //                     redirect('eors/tambah_peserta/' . urldecode($data));
-            //                 }
-            //             }
-            //             if ($_FILES['file_dokumen']['error'] == 4) {
-            //                 $this->session->set_flashdata('gagal', 'Ditambahkan, File Masih Kosong');
-            //                 redirect('eors/tambah_peserta/' . urldecode($data));
-            //             } else {
-            //                 $bag_dokumen = "dokumen";
-            //                 $tujuan_dokumen = $data_kegiatan[0]['nama_kegiatan'];
-            //                 $upload = $this->All_model->uploadFile($bag_dokumen, $id_file, $tujuan_dokumen);
-            //                 if ($upload['result'] == "success") {
-            //                     $nama_dokumen = $upload['file_dokumen']['file_name'];
-            //                 } else {
-            //                     $this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Ukuran dan Tipe dari File');
-            //                     redirect('eors/tambah_peserta/' . urldecode($data));
-            //                 }
-            //             }
-            //         } else {
-            //             $nama_dokumen = null;
-            //             $nama_foto = null;
-            //         }
+            if (date('Y-m-d H:i:s') >= $data_kegiatan[0]['tgl_mulai'] && date('Y-m-d H:i:s') <= $data_kegiatan[0]['tgl_akhir']) {
+                if (($data_kegiatan[0]['jumlah_pendaftar'] + 1) <= $data_kegiatan[0]['target_pendaftar']) {
+                    if ($data_kegiatan[0]['upload_file'] == 1) {
+                        $id_file = "eors";
+                        if ($_FILES['file_foto']['error'] == 4) {
+                            $this->session->set_flashdata('gagal', 'Ditambahkan, Foto Masih Kosong');
+                            redirect('eors/daftar_sekarang/' . urldecode($data));
+                        } else {
+                            $bag_foto = "foto";
+                            $tujuan_foto = $data_kegiatan[0]['nama_kegiatan'];
+                            $upload = $this->All_model->uploadFile($bag_foto, $id_file, $tujuan_foto);
+                            if ($upload['result'] == "success") {
+                                $nama_foto = $upload['file_foto']['file_name'];
+                            } else {
+                                $this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Ukuran dan Tipe dari File');
+                                redirect('eors/daftar_sekarang/' . urldecode($data));
+                            }
+                        }
+                        if ($_FILES['file_dokumen']['error'] == 4) {
+                            $this->session->set_flashdata('gagal', 'Ditambahkan, File Masih Kosong');
+                            redirect('eors/daftar_sekarang/' . urldecode($data));
+                        } else {
+                            $bag_dokumen = "dokumen";
+                            $tujuan_dokumen = $data_kegiatan[0]['nama_kegiatan'];
+                            $upload = $this->All_model->uploadFile($bag_dokumen, $id_file, $tujuan_dokumen);
+                            if ($upload['result'] == "success") {
+                                $nama_dokumen = $upload['file_dokumen']['file_name'];
+                            } else {
+                                $this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Ukuran dan Tipe dari File');
+                                redirect('eors/daftar_sekarang/' . urldecode($data));
+                            }
+                        }
+                    } else {
+                        $nama_dokumen = null;
+                        $nama_foto = null;
+                    }
 
-            //         if ($this->All_model->cekNimPeserta($_POST['nim'], $id_kegiatan) > 0) {
-            //             $this->session->set_flashdata('gagal', 'Ditambahkan, Peserta dengan Nim' . $_POST['nim'] . 'Sudah Melakukan Pendaftaran Pada Kegiatan Ini');
-            //             redirect('eors/tambah_peserta/' . urldecode($data));
-            //         } else {
-            //             $jumlah_peserta = $this->All_model->countPesertaEors($id_kegiatan);
-            //             $jumlah_peserta = $jumlah_peserta + 1;
-            //             if ($this->All_model->updateJumlahPeserta($jumlah_peserta, $id_kegiatan)) {
-            //                 if ($this->All_model->inputDataPeserta($nama_dokumen, $nama_foto, $id_kegiatan)) {
-            //                     $this->session->set_flashdata('berhasil', 'Ditambahkan');
-            //                     redirect('eors/administrator/' . urldecode($data));
-            //                 } else {
-            //                     $this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Ukuran dan Tipe dari File');
-            //                     redirect('eors/tambah_peserta/' . urldecode($data));
-            //                 }
-            //             }
-            //         }
-            //     } else {
-            //         $this->session->set_flashdata('gagal', 'Kuota Telah Terpenuhi');
-            //         redirect('eors/administrator/' . urldecode($data));
-            //     }
-            // } else {
-            //     $this->session->set_flashdata('gagal', 'Masa Pendaftaran Telah Berakhir');
-            //     redirect('eors/administrator/' . urldecode($data));
-            // }
+                    if ($this->All_model->cekNimPeserta($_POST['nim'], $id_kegiatan) > 0) {
+                        $this->session->set_flashdata('gagal', 'Ditambahkan, Peserta dengan Nim ' . $_POST['nim'] . ' Sudah Melakukan Pendaftaran Pada Kegiatan Ini');
+                        redirect('eors/daftar_sekarang/' . urldecode($data));
+                    } else {
+                        if ($this->All_model->inputDataPeserta($nama_dokumen, $nama_foto, $id_kegiatan)) {
+                            $jumlah_peserta = $this->All_model->countPesertaEors($id_kegiatan);
+                            if ($this->All_model->updateJumlahPeserta($jumlah_peserta, $id_kegiatan)) {
+                                $this->session->set_flashdata('berhasil', 'Dikirim, Terimakasih Telah Melakukan Pendaftaran');
+                                redirect('eors/daftar_sekarang/' . urldecode($data));
+                            } else {
+                                $this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Ukuran dan Tipe dari File');
+                                redirect('eors/daftar_sekarang/' . urldecode($data));
+                            }
+                        }
+                    }
+                } else {
+                    $this->session->set_flashdata('gagal', 'Kuota Telah Terpenuhi');
+                    redirect('eors/daftar_sekarang/' . urldecode($data));
+                }
+            } else {
+                $this->session->set_flashdata('gagal', 'Masa Pendaftaran Telah Berakhir');
+                redirect('eors/daftar_sekarang/' . urldecode($data));
+            }
         }
     }
 }

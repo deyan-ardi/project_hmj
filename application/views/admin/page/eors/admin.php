@@ -66,7 +66,7 @@
              <!-- Card Content - Collapse -->
              <div class="collapse" id="administrator" data-parent="#ManajemenEors">
                  <div class="card-body">
-                     <?php if ($group[0]['group_id'] == "1" && (date('Y-m-d') >= $kegiatan[0]['tgl_mulai'] && date('Y-m-d') <= $kegiatan[0]['tgl_akhir'])) { ?>
+                     <?php if ($group[0]['group_id'] == "1" && (date('Y-m-d H:i:s') >= $kegiatan[0]['tgl_mulai'] && date('Y-m-d H:i:s') <= $kegiatan[0]['tgl_akhir'])) { ?>
                      <a href="<?= base_url() ?>eors/tambah_peserta/<?= $id_halaman ?>"
                          class="btn btn-primary btn-sm btn-icon-split mb-4">
                          <span class="icon text-white-50">
@@ -92,7 +92,7 @@
                      </a>
 
                      <?php } ?>
-                     <?php if (date('Y-m-d') >= $kegiatan[0]['tgl_mulai'] && date('Y-m-d') <= $kegiatan[0]['tgl_akhir']) { ?>
+                     <?php if (date('Y-m-d H:i:s') >= $kegiatan[0]['tgl_mulai'] && date('Y-m-d H:i:s') <= $kegiatan[0]['tgl_akhir']) { ?>
                      <a href="<?= base_url() ?>eors/unduh_data_sementara/<?= $id_halaman ?>"
                          class="btn btn-success btn-sm btn-icon-split mb-4">
                          <span class="icon text-white-50">
@@ -124,7 +124,17 @@
                                      <td><?= $i++ ?></td>
                                      <td><?= $data['nim'] ?></td>
                                      <td><?= $data['nama_lengkap'] ?></td>
-                                     <td><?= $data['prodi'] ?></td>
+                                     <?php if ($data['prodi'] == "05") { ?>
+                                     <td>Pendidikan Teknik Informatika</td>
+                                     <?php } else if ($data['prodi'] == "02") { ?>
+                                     <td>Manajemen Informatika</td>
+                                     <?php } else if ($data['prodi'] == "09") { ?>
+                                     <td>Sistem Informasi</td>
+                                     <?php } else if ($data['prodi'] == "10") { ?>
+                                     <td>Ilmu Komputer</td>
+                                     <?php } else { ?>
+                                     <td>Error</td>
+                                     <?php } ?>
                                      <?php if ($data['ket_wawancara'] == 0) { ?>
                                      <td>Belum Wawancara</td>
                                      <?php } else { ?>
@@ -267,7 +277,15 @@
                              <tr>
                                  <td><?= $data['nim'] ?></td>
                                  <td><?= $data['nama_lengkap'] ?></td>
-                                 <td><?= $data['prodi'] ?></td>
+                                 <?php if ($data['prodi'] == "05") { ?>
+                                 <td>Pendidikan Teknik Informatika</td>
+                                 <?php } else if ($data['prodi'] == "02") { ?>
+                                 <td>Manajemen Informatika</td>
+                                 <?php } else if ($data['prodi'] == "09") { ?>
+                                 <td>Sistem Informasi</td>
+                                 <?php } else if ($data['prodi'] == "10") { ?>
+                                 <td>Ilmu Komputer</td>
+                                 <?php } ?>
                                  <td><?= $data['angkatan'] ?></td>
                                  <td><?= $data['jenis_kelamin'] ?></td>
                                  <td><?= $data['diterima_di'] ?></td>
