@@ -33,7 +33,7 @@
                 <div class="col-12 col-lg-8 mb-5">
                     <!-- Formnya -->
                     <?php if (date('Y-m-d H:i:s') >= $kegiatan[0]['tgl_mulai'] && date('Y-m-d H:i:s') <= $kegiatan[0]['tgl_akhir'] && $kegiatan[0]['penilaian'] == 0 && $kegiatan[0]['hasil_akhir'] == 0 && $kegiatan[0]['pengumuman'] == 0) { ?>
-                    <form action="" method="POST" id="form_user">
+                    <form action="" method="POST" id="form_user" enctype="multipart/form-data">
                         <!-- Foto -->
                         <?php if ($kegiatan[0]['upload_file'] == 1) { ?>
                         <div class="form-group">
@@ -55,7 +55,7 @@
                         <div class="form-group" onkeyup="checkProdi()">
                             <label for="NIM">NIM</label>
                             <input type="text" class="form-control" pattern="[0-9]*" minlength="10" maxlength="10"
-                                id="NIM" name="nim" aria-describedby="NIMHelp" required>
+                                id="nim" name="nim" aria-describedby="NIMHelp" required>
                         </div>
                         <!-- Nama -->
                         <div class="form-group">
@@ -127,10 +127,10 @@
                             <label for="pilihanUtama">Program Studi</label>
                             <select class="form-control" id="prodi" name="prodi" required>
                                 <option value="">Masukkan Prodi</option>
-                                <option value="PTI">Pendidikan Teknik Informatika</option>
-                                <option value="MI">Manajemen Informatika</option>
-                                <option value="SI">Sistem Informasi</option>
-                                <option value="ILKOM">Ilmu Komputer</option>
+                                <option value="05">Pendidikan Teknik Informatika</option>
+                                <option value="02">Manajemen Informatika</option>
+                                <option value="09">Sistem Informasi</option>
+                                <option value="10">Ilmu Komputer</option>
                             </select>
                         </div>
                         <!-- Pilihan Utama Panitia -->

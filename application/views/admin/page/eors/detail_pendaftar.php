@@ -74,6 +74,29 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Program
+                                            Studi</div>
+                                        <div class="p mb-0 font-weight-bold text-gray-800">
+                                            <?php if ($pendaftar[0]['prodi'] == "05") { ?>
+                                            Pendidikan Teknik Informatika
+                                            <?php } else if ($pendaftar[0]['prodi'] == "02") { ?>
+                                            Manajemen Informatika
+                                            <?php } else if ($pendaftar[0]['prodi'] == "09") { ?>
+                                            Sistem Informasi
+                                            <?php } else if ($pendaftar[0]['prodi'] == "10") { ?>
+                                            Ilmu Komputer
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 mb-3">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Angkatan
                                         </div>
                                         <div class="p mb-0 font-weight-bold text-gray-800">
