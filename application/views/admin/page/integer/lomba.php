@@ -52,7 +52,7 @@
                                      <?php if ($group[0]['group_id'] == "1") { ?>
                                      <td>
                                          <a href="<?= base_url() ?>integer/hapus_data_kategori_lomba_integer/<?= $data['id_kategori_lomba_integer']; ?>"
-                                             class="btn btn-danger btn-sm btn-icon-split">
+                                             class="btn btn-danger btn-sm btn-icon-split tombol-hapus">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-trash"></i>
                                              </span>
@@ -109,7 +109,7 @@
                                      <td><?= $data['create_at']; ?></td>
                                      <td> <?php if ($group[0]['group_id'] == "1" || $group[0]['group_id'] == "2") { ?>
                                          <a href="<?= base_url() ?>integer/hapus_data_lomba_integer/<?= $data['id_lomba_integer']; ?>"
-                                             class="btn btn-danger btn-sm btn-icon-split">
+                                             class="btn btn-danger btn-sm btn-icon-split tombol-hapus">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-trash"></i>
                                              </span>
@@ -147,18 +147,19 @@
                          <table class="table table-bordered" id="tableInformasi" width="100%" cellspacing="0">
                              <thead>
                                  <tr>
+                                     <th>Upload Pada</th>
                                      <th>Kategori</th>
                                      <th>Judul</th>
-                                     <th>Youtube</th>
-                                     <th>File PDF</th>
+                                     <th>Tampilan Informasi</th>
+                                     <th>File Informasi</th>
                                      <th>Dibuat Oleh</th>
-                                     <th>Upload Pada</th>
                                      <th>Fitur</th>
                                  </tr>
                              </thead>
                              <tbody>
                                  <?php foreach ($berita as $data) : ?>
                                  <tr>
+                                     <td><?= $data['create_at'] ?></td>
                                      <?php if ($data['kategori_berita_integer'] === 1) : ?>
                                      <td>Berita</td>
                                      <?php else : ?>
@@ -175,17 +176,28 @@
                                          </a>
                                      </td>
                                      <td>
-                                         <!-- Kondisi belum ada -->
-                                         <a href="<?= base_url() ?>assets/upload/Folder_integer/berita/file/<?= $data['file_berita_integer'] ?>"
-                                             class="btn btn-primary btn-sm btn-icon-split">
-                                             <span class="icon text-white-50">
-                                                 <i class="fas fa-eye"></i>
-                                             </span>
-                                             <span class="text">Lihat</span>
-                                         </a>
+                                     <?php if ($data['file_berita_integer'] == null) { ?>
+                                     <div class="p mb-0  text-gray-500">
+                                         <i>Tidak Terdapat File</i>
+                                     </div>
+                                     <?php } else { ?>
+                                     <a href="<?= base_url() ?>assets/upload/Folder_integer/berita/file/<?= $data['file_berita_integer'] ?>"
+                                         target="_blank" class="btn btn-primary btn-sm  btn-icon-split">
+                                         <span class="icon text-white-50">
+                                             <i class="fas fa-eye"></i>
+                                         </span>
+                                         <span class="text">Lihat</span>
+                                     </a><br>
+                                     <a href="<?= base_url() ?>integer/download_file_informasi_integer/<?= $data['file_berita_integer'] ?>/pakekpengaman"
+                                         class="btn btn-success btn-sm mt-2 btn-icon-split">
+                                         <span class="icon text-white-50">
+                                             <i class="fas fa-download"></i>
+                                         </span>
+                                         <span class="text">Unduh</span>
+                                     </a>
+                                     <?php } ?>
                                      </td>
                                      <td><?= $data['create_by'] ?></td>
-                                     <td><?= $data['create_at'] ?></td>
                                      <td>
                                          <a href="<?= base_url() ?>integer/hapus_data_informasi/<?= $data['id_berita_integer'] ?>"
                                              class="btn btn-danger btn-sm btn-icon-split tombol-hapus">

@@ -259,16 +259,14 @@ class All_model extends CI_Model
 			return true;
 		}
 	}
-	public function tambahDataDetailHari()
+	public function tambahDataDetailHari($a, $b)
 	{
 		$query = array(
 			'id_hari_integer' => $this->input->post('hari_integer', true),
 			'nama_detail_hari_integer' => $this->input->post('nama_detail_hari_integer', true),
 			'tempat_detail_hari_integer' => $this->input->post('tempat_detail_hari_integer', true),
-			'waktu_mulai_jam' => $this->input->post('waktu_mulai_jam', true),
-			'waktu_mulai_menit' => $this->input->post('waktu_mulai_menit', true),
-			'waktu_akhir_jam' => $this->input->post('waktu_akhir_jam', true),
-			'waktu_akhir_menit' => $this->input->post('waktu_akhir_menit', true),
+			'waktu_mulai' => $a,
+			'waktu_akhir' => $b,
 			'create_at' => date("Y-m-d H:i:s"),
 			'create_by' => $this->input->post('create_by', true),
 
