@@ -18,7 +18,7 @@
             </div>
             <div class="container h-100">
                 <div class="row align-items-center h-100">
-                    <div class="col-12 col-md-5 order-0 order-lg-1">
+                    <div class="col-12 col-md-5 order-0 order-lg-1 order-md-1">
                         <!-- Welcome Thumb -->
                         <div class=" welcome-thumb" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000">
                             <img src="<?= base_url() ?>assets/img/maskot/welcome.png" style="max-width: unset;"
@@ -121,7 +121,7 @@
                         <!-- Single Blog -->
                         <div class="single-blog res-margin">
                             <!-- Blog Thumb -->
-                            <div class="blog-thumb" style="height: 17rem;">
+                            <div class="t-cards blog-thumb">
                                 <img src="<?= base_url() ?>assets/upload/Folder_<?= $data['nama_kegiatan'] ?>/<?= $data['icon_kegiatan'] ?>"
                                     alt="">
                             </div>
