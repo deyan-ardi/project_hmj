@@ -61,7 +61,7 @@
                         <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s">
                             <!-- Featured Icon -->
                             <div class="featured-icon mb-3">
-                                <span class="flaticon-tap"></span>
+                                <i class="far fa-window-maximize" style="font-size: 5rem"></i>
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
@@ -77,7 +77,7 @@
                         <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
                             <!-- Featured Icon -->
                             <div class="featured-icon mb-3">
-                                <span class="flaticon-fingerprint"></span>
+                                <i class="fab fa-envira" style="font-size: 5rem"></i>
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
@@ -92,7 +92,7 @@
                         <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.4s">
                             <!-- Featured Icon -->
                             <div class="featured-icon mb-3">
-                                <span class="flaticon-notification"></span>
+                                <i class="fas fa-tasks" style="font-size: 5rem"></i>
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
