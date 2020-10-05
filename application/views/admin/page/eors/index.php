@@ -23,7 +23,7 @@
                             </span>
                             <span class="text">Tambah Data</span>
                         </a>
-                        <table class="table table-bordered" id="tableKepengurusan" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="tableSponsor" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>No</th>

@@ -26,7 +26,6 @@ const panitiaCadangan = () => {
     all.filter(l => {
         if (l != ls) rest.push(l);
     });
-    console.log(rest);
     printList(rest);
 }
 
@@ -34,7 +33,7 @@ panitiaCadangan();
 
 
 // prodi
-const nim = document.querySelector("#NIM"),
+const nim = document.querySelector("#nim"),
     prodi = document.querySelector("#prodi"),
     elProdi = prodi.querySelectorAll("option");
 

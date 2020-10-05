@@ -279,10 +279,10 @@ class Eors extends CI_Controller
             $this->data['id_halaman'] = $data_kegiatan[0]['nama_kegiatan'];
             $id_kegiatan = $data_kegiatan[0]['id_kegiatan'];
             // SETTING CHART PENDAFTARAN
-            $this->data['PTI'] = $this->All_model->getAllPendaftarProdi("PTI", $id_kegiatan);
-            $this->data['MI'] = $this->All_model->getAllPendaftarProdi("MI", $id_kegiatan);
-            $this->data['SI'] = $this->All_model->getAllPendaftarProdi("SI", $id_kegiatan);
-            $this->data['ILKOM'] = $this->All_model->getAllPendaftarProdi("ILKOM", $id_kegiatan);
+            $this->data['PTI'] = $this->All_model->getAllPendaftarProdi("05", $id_kegiatan);
+            $this->data['MI'] = $this->All_model->getAllPendaftarProdi("02", $id_kegiatan);
+            $this->data['SI'] = $this->All_model->getAllPendaftarProdi("09", $id_kegiatan);
+            $this->data['ILKOM'] = $this->All_model->getAllPendaftarProdi("10", $id_kegiatan);
             $this->data['thn_2018'] = $this->All_model->getAllPendaftarTahun("2018", $id_kegiatan);
             $this->data['thn_2019'] = $this->All_model->getAllPendaftarTahun("2019", $id_kegiatan);
             $this->data['thn_2020'] = $this->All_model->getAllPendaftarTahun("2020", $id_kegiatan);
@@ -671,10 +671,10 @@ class Eors extends CI_Controller
         $id_kegiatan = $data_kegiatan[0]['id_kegiatan'];
         $this->data['kelulusan'] = $this->All_model->getAllPendaftarLulus($id_kegiatan);
         // SETTING CHART PENDAFTARAN
-        $this->data['PTI'] = $this->All_model->getAllPendaftarProdi("PTI", $id_kegiatan);
-        $this->data['MI'] = $this->All_model->getAllPendaftarProdi("MI", $id_kegiatan);
-        $this->data['SI'] = $this->All_model->getAllPendaftarProdi("SI", $id_kegiatan);
-        $this->data['ILKOM'] = $this->All_model->getAllPendaftarProdi("ILKOM", $id_kegiatan);
+        $this->data['PTI'] = $this->All_model->getAllPendaftarProdi("05", $id_kegiatan);
+        $this->data['MI'] = $this->All_model->getAllPendaftarProdi("02", $id_kegiatan);
+        $this->data['SI'] = $this->All_model->getAllPendaftarProdi("09", $id_kegiatan);
+        $this->data['ILKOM'] = $this->All_model->getAllPendaftarProdi("10", $id_kegiatan);
         $this->data['thn_2018'] = $this->All_model->getAllPendaftarTahun("2018", $id_kegiatan);
         $this->data['thn_2019'] = $this->All_model->getAllPendaftarTahun("2019", $id_kegiatan);
         $this->data['thn_2020'] = $this->All_model->getAllPendaftarTahun("2020", $id_kegiatan);
@@ -698,10 +698,10 @@ class Eors extends CI_Controller
         $id_kegiatan = $data_kegiatan[0]['id_kegiatan'];
         $this->data['jabatan'] = $this->All_model->getAllPilihanWhere($id_kegiatan);
         // SETTING CHART PENDAFTARAN
-        $this->data['PTI'] = $this->All_model->getAllPendaftarProdi("PTI", $id_kegiatan);
-        $this->data['MI'] = $this->All_model->getAllPendaftarProdi("MI", $id_kegiatan);
-        $this->data['SI'] = $this->All_model->getAllPendaftarProdi("SI", $id_kegiatan);
-        $this->data['ILKOM'] = $this->All_model->getAllPendaftarProdi("ILKOM", $id_kegiatan);
+        $this->data['PTI'] = $this->All_model->getAllPendaftarProdi("05", $id_kegiatan);
+        $this->data['MI'] = $this->All_model->getAllPendaftarProdi("02", $id_kegiatan);
+        $this->data['SI'] = $this->All_model->getAllPendaftarProdi("09", $id_kegiatan);
+        $this->data['ILKOM'] = $this->All_model->getAllPendaftarProdi("10", $id_kegiatan);
         $this->data['thn_2018'] = $this->All_model->getAllPendaftarTahun("2018", $id_kegiatan);
         $this->data['thn_2019'] = $this->All_model->getAllPendaftarTahun("2019", $id_kegiatan);
         $this->data['thn_2020'] = $this->All_model->getAllPendaftarTahun("2020", $id_kegiatan);
@@ -760,7 +760,7 @@ class Eors extends CI_Controller
                             if ($upload['result'] == "success") {
                                 $nama_foto = $upload['file_foto']['file_name'];
                             } else {
-                                $this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Ukuran dan Tipe dari File');
+                                $this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Ukuran dan Tipe dari File Foto');
                                 redirect('eors/daftar_sekarang/' . urldecode($data));
                             }
                         }
@@ -774,7 +774,7 @@ class Eors extends CI_Controller
                             if ($upload['result'] == "success") {
                                 $nama_dokumen = $upload['file_dokumen']['file_name'];
                             } else {
-                                $this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Ukuran dan Tipe dari File');
+                                $this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Ukuran dan Tipe dari File Dokumen');
                                 redirect('eors/daftar_sekarang/' . urldecode($data));
                             }
                         }
@@ -790,12 +790,15 @@ class Eors extends CI_Controller
                         if ($this->All_model->inputDataPeserta($nama_dokumen, $nama_foto, $id_kegiatan)) {
                             $jumlah_peserta = $this->All_model->countPesertaEors($id_kegiatan);
                             if ($this->All_model->updateJumlahPeserta($jumlah_peserta, $id_kegiatan)) {
-                                $this->session->set_flashdata('berhasil', 'Terimakasih Telah Melakukan Pendaftaran');
+                                $this->session->set_flashdata('berhasil', 'Dikirim, Terimakasih Telah Melakukan Pendaftaran');
                                 redirect('eors/daftar_sekarang/' . urldecode($data));
                             } else {
-                                $this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Ukuran dan Tipe dari File');
+                                $this->session->set_flashdata('gagal', 'Tidak Terkirim, Error Server');
                                 redirect('eors/daftar_sekarang/' . urldecode($data));
                             }
+                        } else {
+                            $this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Ukuran dan Tipe dari File');
+                            redirect('eors/daftar_sekarang/' . urldecode($data));
                         }
                     }
                 } else {
