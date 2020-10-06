@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 28, 2020 at 12:23 PM
+-- Generation Time: Oct 06, 2020 at 04:56 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -39,7 +39,7 @@ CREATE TABLE `groups` (
 
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 (1, 'admin', 'Administrator'),
-(2, 'members', 'General User'),
+(2, 'inti_hmj', 'General User'),
 (3, 'pemilih', 'pemilih digunakan untuk di sistem evoting'),
 (4, 'koordinator_sie', 'koordinator sie digunakan untuk di sistem eors'),
 (5, 'inti_kepanitiaan', 'inti kepanitiaan digunakan untuk sistem eors');
@@ -94,7 +94,8 @@ CREATE TABLE `links` (
 --
 
 INSERT INTO `links` (`id_links`, `title`, `icon`, `href`, `type`) VALUES
-(9, 'Website', 'fas fa-globe', 'web/home', 'main');
+(9, 'Website', 'fas fa-globe', 'web/home', 'main'),
+(10, 'E-ORS', 'fas fa-users', 'eors/home', 'main');
 
 -- --------------------------------------------------------
 
@@ -108,6 +109,14 @@ CREATE TABLE `login_attempts` (
   `login` varchar(100) NOT NULL,
   `time` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `login_attempts`
+--
+
+INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
+(33, '127.0.0.1', 'hmjtiundiksha@gmail.com', 1601954764),
+(34, '127.0.0.1', 'hmjtiundiksha@gmail.com', 1601954771);
 
 -- --------------------------------------------------------
 
@@ -270,7 +279,11 @@ INSERT INTO `s1_informasi` (`id_informasi`, `foto1_informasi`, `foto2_informasi`
 (52, '90d0662b2e19fdeee5ac624fc5144b0c.jpg', NULL, NULL, '', 'HMJ TI Undiksha 2020-2021', 'Informasi Twibbon Mahasiswa Baru', 'Pengumuman', '<p style=\"text-align:justify\">Hallo Infinity,<br />\r\nDiumumkan kepada seluruh mahasiswa baru Undiksha tahun 2020, untuk memenuhi syarat&nbsp; bergabung bersama kami di Jurusan Teknik Informatika dalam kegiatan Pengenalan Kehidupan Fakultas Teknik dan Kejuruan Tahun 2020. Adik-adik diwajibkan untuk mengupload Twibbon dan diupload ke Instagram masing-masing dengan menyertakan caption yang menarik dengan format sebagai berikut :</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><em>&ldquo;(Motto Hidup Kalian)&rdquo;</em></p>\r\n\r\n<p style=\"text-align:justify\"><em>Hallo perkenalkan nama saya&hellip;. dari prodi&hellip;&hellip;.<br />\r\nSaya bangga menjadi bagian dari Jurusan Teknik Informatika Universitas Pendidikan Ganesha Tahun 2020.</em></p>\r\n\r\n<p style=\"text-align:justify\"><em>#include &lt;iostream&gt;<br />\r\nusing namespace std;<br />\r\nint main(){<br />\r\ncout&lt;&lt;&rdquo;I&rsquo;m ready to be a part of Infinity&rdquo;&lt;&lt;endl;<br />\r\nreturn 0;<br />\r\n}</em></p>\r\n\r\n<p style=\"text-align:justify\"><em>@hmj_ti.undiksha</em></p>\r\n\r\n<p style=\"text-align:justify\"><em>#INFINITY<br />\r\n#gotechnology<br />\r\n#TeknikInformatikaUndiksha2020</em></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\">Untuk Twibbon dapat didownload pada link dibawah ini</p>\r\n\r\n<p style=\"text-align:justify\"><a href=\"https://drive.google.com/file/d/14Ur_gQ561U30kGko5trIzmt4Sk_uU6hz/view?usp=sharing\">Link Twibbon Jurusan Teknik Informatika</a></p>\r\n\r\n<p style=\"text-align:justify\">Twibbon diupload paling lambat sebelum pelaksanaan Pengenalan Kehidupan Fakultas Teknik dan Kejuruan. Untuk informasi dan pertanyaan dapat menghubungi akun instagram HMJ Teknik Informatika.</p>\r\n\r\n<p style=\"text-align:justify\">IG : @hmj_ti.undiksha<br />\r\nDemikian informasi, terimakasih<br />\r\n#hmjti<br />\r\n#undiksha<br />\r\n#twibbon_mahasiswa_baru</p>\r\n', NULL, '2020-09-10 22:57:16', 'Admin'),
 (54, '4248c4dd62e6e5b416ad34943135e608.png', NULL, NULL, '', 'HMJ TI Undiksha 2020-2021', 'Penyusunan KRS Mahasiswa Baru', 'Pengumuman', '<p style=\"text-align:justify\">Hallo infinity,</p>\r\n\r\n<p style=\"text-align:justify\">Kami informasikan kepada seluruh Mahasiswa Baru Jurusan Teknik Informatika, Fakuktas Teknik dan Kejuruan bahwa Pelaksanaan Penyusunan Kartu Rencana Studi (KRS) untuk mahasiswa baru tahun 2020 dilaksanakan secara online melalui:<br />\r\n<a href=\"https://siakng.undiksha.ac.id\">https://siakng.undiksha.ac.id</a><br />\r\nmulai tanggal 12 s/d 18 September 2020.</p>\r\n\r\n<p style=\"text-align:justify\">Sehubungan dengan itu kami mohon bantuan Bapak/Ibu agar menginformasikan kepada mahasiswa baru dan dosen yang terlibat sebagai Pembimbing Akademik (PA) di lingkungan fakultas masing-masing untuk melakukan pembimbingan KRS secara daring kepada mahasiswa yang bersangkutan.</p>\r\n\r\n<p style=\"text-align:justify\">Untuk surat edaran resmi terkait informasi ini, dapat didownload pada tombol download diatas.</p>\r\n\r\n<p style=\"text-align:justify\">Sekian Informasi yang dapat kami sampaikan, Atas perhatiannya kami ucapkan terima kasih</p>\r\n\r\n<p style=\"text-align:justify\">#SalamTeknikInformatika<br />\r\n#SolidaritasTanpaBatas<br />\r\n#TI..GoTeknologi</p>\r\n', '13092020001811.pdf', '2020-09-13 00:18:11', 'Admin'),
 (55, '03d926db7d12faccf6891235d20c950c.png', NULL, NULL, '', 'HMJ TI Undiksha 2020-2021', 'Sosialisasi KRS dan Pengenalan Komunitas', 'Pengumuman', '<p style=\"text-align:justify\">Hallo infinity,<br />\r\nDiinformasikan kepada seluruh Mahasiswa Baru Jurusan Teknik Informatika, Fakultas Teknik dan Kejuruan akan diadakan pelaksanaan sosialisasi KRS-an dan pengenalan Komunitas HMJ TI 2020 pada Senin, 14 September 2020 secara online dengan menggunakan google meet. Acara akan dibagi menjadi 2 sesi yaitu :<br />\r\n1. Sesi pertama untuk prodi SI dan MI dimulai pukul 09.45-12.15 WITA.<br />\r\n2. Sesi kedua untuk prodi PTI dan ILKOM dimulai pukul 12.45-15.15 WITA.<br />\r\n<br />\r\nMahasiswa wajib mengikuti acara sampai selesai dengan berpakaian rapi dan sopan (berkerah).</p>\r\n\r\n<p style=\"text-align:justify\">Untuk rincian jadwal acara dapat didownload pada tombol download diatas<br />\r\nSekian Informasi yang dapat kami sampaikan, Remember to stay safe and healthy<br />\r\nAtas perhatiannya kami ucapkan terima kasih</p>\r\n\r\n<p style=\"text-align:justify\">#SalamTeknikInformatika<br />\r\n#SolidaritasTanpaBatas<br />\r\n#TI..GoTechnology</p>\r\n', '13092020003322.pdf', '2020-09-13 00:33:22', 'Admin'),
-(56, 'b30969944da34481272232e8f9d9bd48.jpg', NULL, NULL, '', 'HMJ TI Undiksha 2020-2021', 'ada deg', 'Pengumuman', '<p style=\"text-align:justify\">????[INFINITY]<br />\r\n????[INFO JURUSAN]</p>\r\n\r\n<p style=\"text-align:justify\">Om Swastyatu<br />\r\nAssalamualaikum Warahmatulahhi Wabarakatuh<br />\r\nShalom<br />\r\nNamo Budhaya<br />\r\nSalam Harmoni????????<br />\r\nHallo INFINITY????????????????????????<br />\r\n&bull; INFO PENDATAAN UKURAN BAJU DAN JAKET MAHASISWA BARU<br />\r\nDiinformasikan kepada seluruh Mahasiswa Baru Jurusan Teknik Informatika, Fakultas Teknik dan Kejuruan untuk melengkapi data ukuran baju dan jaket pada link berikut:<br />\r\nhttps://bit.ly/PendataanBajuJaket<br />\r\nSekian Informasi yang dapat kami sampaikan,<br />\r\nRemember to stay safe and healthy????<br />\r\nAtas perhatiannya kami ucapkan terima kasih????????????????</p>\r\n\r\n<p style=\"text-align:justify\">#SalamTeknikInformatika<br />\r\n#SolidaritasTanpaBatas<br />\r\n#TI..GoTeknologi</p>\r\n', NULL, '2020-09-14 19:19:17', 'Admin');
+(56, '139dff926ae085a5b3a1f62622adbcce.jpg', NULL, NULL, '', 'HMJ TI Undiksha 2020-2021', 'Informasi Link Pendaftaran Komunitas', 'Pengumuman', '<p style=\"text-align:justify\">Halo infinity,<br />\r\ndiumumkan kepada seluruh mahasiswa aktif jurusan teknik informatika, bagi yang berkeinginan untuk bergabung bersama komunitas yang ada di Jurusan Teknik Informatika, dapat melakukan pendaftaran pada link berikut, berdasarkan komunitas yang dipilih. Masing-masing mahasiswa boleh memilih komunitas lebih dari 1, asalkan bisa fokus dalam mengatur waktu antara komunitas dan perkuliahan.</p>\r\n\r\n<ul>\r\n	<li style=\"text-align: justify;\">Link Pendaftaran Komunitas Multimedia :&nbsp;<a href=\"http://bit.ly/komunitasmultimedia\">http://bit.ly/komunitasmultimedia</a></li>\r\n	<li style=\"text-align: justify;\">Link Pendaftaran Komunitas TKJ : <a href=\"http://bit.ly/formkomunitastkj\">http://bit.ly/formkomunitastkj</a></li>\r\n	<li style=\"text-align: justify;\">Link Pendaftaran Komunitas Programming : <a href=\"http://bit.ly/JoinG-PromersFamily\">http://bit.ly/JoinG-PromersFamily</a></li>\r\n	<li style=\"text-align: justify;\">Link Pendaftaran Komunitas Robotik : <a href=\"http://bit.ly/formkomunitasrobotik\">http://bit.ly/formkomunitasrobotik</a></li>\r\n	<li style=\"text-align: justify;\">Link Pendaftaran Komunitas Minat dan Bakat : <a href=\"https://docs.google.com/forms/d/e/1FAIpQLSe0wZr_1I_OA4NfCV2_j8SgnJ3qk5RWA8N3iPVV93ajpMrp3g/viewform?usp=sf_link\">http://bit.ly/pendaftaranminatbakat</a></li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\">Demikian informasi terkait dengan pendaftaran komunitas, jika ada yang ingin ditanyakan dapat menghubungi akun instagram resmi HMJ TI Undiksha<br />\r\nIG : @hmj_ti.undiksha</p>\r\n\r\n<p style=\"text-align:justify\">#hmjti<br />\r\n#undiksha<br />\r\n#go_technology<br />\r\n#info_komunitas</p>\r\n', NULL, '2020-09-14 19:19:17', 'Admin'),
+(57, '546637b277a791398dbbfab4eccd8047.png', '1145729e373ef80eb7a2627ae244b98a.jpg', 'b4aecefde1b3d8d03bd3aeb4d7c7c0b5.jpg', NULL, 'HMJ TI Undiksha 2020-2021', 'SOSIALISASI KRS DAN KOMUNITAS ', 'Berita', '<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\"><strong>Singaraja</strong> &ndash; <em>Penyusunan Kartu Rencana Studi dan perkenalan komunitas, HMJ TI Universitas Pendidikan Ganesha melakukan penyampaian gambaran umum proses akademik yang akan berlangsung.</em></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Serangkaian Orientasi Kegiatan Jurusan (OKJ) di lingkungan Jurusan Teknik Informatika, HMJ TI Universitas Pendidikan Ganesha mensosialisasikan mengenai sistem dan alur pelaksanaan KRS Mahasiswa secara online. Tujuan dari kegiatan ini adalah memberikan pengenalan sistem yang akan digunakan mahasiswa baru dalam perkuliahan dan menyalurkan informasi pemahaman mengenai prosedur penyusunan Kartu Rencana Studi (KRS) online mahasiswa yang dilakukan setiap awal semester.&nbsp;Kegiatan sosialisasi dimulai sejak pukul 09.45 WITA &ndash; 12.15 WITA yang diawali dengan presensi mahasiswa baru.</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">HMJ TI Universitas Pendidikan Ganesha melakukan penyampaian gambaran umum proses akademik yang akan berlangsung.&nbsp;Kegiatan ini dihadiri 98 peserta yang terdiri pengurus HMJ TI dan Mahasiswa Baru TI. Mahasiswa tampak begitu antusias dengan materi dan aktif melakukan diskusi.</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">&ldquo;Perancangan KRS dilakukan sesuai dengan algoritma yang berlaku dan dilakukan pada tanggal 10-14 September, nanti untuk lebih jelas terkait penyusunan KRS akan diinformasikan,&rdquo; ujar Irfan Walhidayah selaku Ketua HMJ TI, Senin (14/9/2020).</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Penjelasan yang berlangsung terkait penyusunan KRS mendapatkan kendala bagi mahasiswa baru, salah satunya adalah tidak bisa melakukan penyusunan KRS yang dilakukan oleh mahasiswa Manajemen Informatika karena tidak ada pilihan kelas. Terkait dengan itu maka I Putu Ega Suwidi Darma selaku Koordinator Prodi Manajemen Informatika menyampaikan bahwa &ldquo;Kurikulum D3 Manajemen Informatika sistem paket yang sudah ditentukan oleh ketua Program Studi Manajemen Informatika, jadi tinggal melakukan penyusunann KRS sesuai dengan paket mata kuliah yang berlaku. Untuk kelas yang belum muncul saat penyusunan KRS akan saya tanyakan keatasan, tapi kerana jumlah mahasiswa MI 20 orang maka dipastikan dapat kelas A&rdquo; ujarnya.</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Melanjutkan penyampaian cara penyusunan KRS, mahasiswa baru mendapatkan tips jitu untuk kedepannya jika melakukan penyusunan KRS.</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">&ldquo;Ada tips untuk mahasiswa baru bila nanti melakukan penyusunan KRS yaitu membuat group komukasi antar teman jika mendapatkan pembimbing akademik agar pada saat melakukan koordinasi terhadap dosen hanya melalui perwakilan saja, jadi koordinasi terhadap PA bisa terlaksana secara baik karena kita tidak tau karakter dari masing masing pembimbing akademik tersebut,&rdquo; tutur Zasya selaku Wakil Ketua HMJ TI.</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Seiring dengan kegiatan tersebut, HMJ TI Universitas Pendidikan Ganesha melakukan pengenalan seputar jurusan dan HMJ TI Universitas Pendidikan Ganesha diantaranya pengenalan berbagai jenis iuran kepada mahasiswa baru, pengenalan seputar Pembimbing Akademik (PA), Koordinator Tingkat (KORTI), Kepala Program Studi (KAPRODI), dan tata cara menghubungi dosen. Kemudian, dilanjutkan pula dengan pengenalan komunitas untuk mengembangkan bakat dan minat mahasiswa di lingkungan Jurusan Teknik Informatika.</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Salam hangat dari Irfan Walhidayah, dibuka dengan dijelaskan ulang iuran HMJ TI yang diberlakukan supaya mahasiswa baru lebih jelas dan paham terkait rincian biaya dari iuran HMJ TI. Setelah itu dilanjutkan dengan pembahasan terkait komunitas yang ada di lingkungan Teknik Informatika.</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Perkenalan komunitas yang berfungsi sebagai wadah penyaluran minat dan bakat mahsiswa teknik informatika. Penyampaian tersebut terdapat 5 komunitas yang ada di Teknik Informatika, diantaranya :</span></span></p>\r\n\r\n<ol>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Komunitas Multimedia</span></span></span></span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Komunitas Programming</span></span></span></span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Komunitas Teknik Komputer Jaringan</span></span></span></span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Komunitas Robotika</span></span></span></span></li>\r\n	<li style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Komunitas Olahraga dan Seni</span></span></span></span></li>\r\n</ol>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Mahasiswa baru akan diarahkan sesuai dengan minat dan bakat yang dimiliki melalui 5 komunitas tersebut dan nantinya akan dilakukan pendataan terhadap komunitas yang akan dianut oleh mahasiswa baru.</span></span></p>\r\n', NULL, '2020-09-14 17:58:20', 'Sub Bidang Jurnalistik'),
+(58, '9ca14bb57d4b43a3a6d3ccdd461dac62.png', NULL, NULL, NULL, 'HMJ TI Undiksha 2020-2021', 'Info Mahasiswa Baru 2020', 'Pengumuman', '<p>[INFINITY]<br />\r\n[INFO JURUSAN]</p>\r\n\r\n<p>Om Swastyatu<br />\r\nAssalamualaikum Warahmatulahhi Wabarakatuh<br />\r\nShalom<br />\r\nNamo Budhaya<br />\r\nSalam Harmoni<br />\r\nHallo INFINITY<br />\r\n<strong>&bull; INFO PENDATAAN UKURAN BAJU DAN JAKET MAHASISWA BARU</strong><br />\r\nDiinformasikan kepada seluruh Mahasiswa Baru Angkatan Tahun 2020 Jurusan Teknik Informatika, Fakultas Teknik dan Kejuruan untuk melengkapi data ukuran baju dan jaket pada link berikut:&nbsp;<br />\r\nhttps://bit.ly/PendataanBajuJaket<br />\r\nBagi mahasiswa yang<strong> telah</strong> membayar administrasi dan iuran <strong>diwajibkan</strong> untuk mengisi link pendataan baju dan jaket tersebut. Untuk mahasiswa yang <strong>belum</strong> membayar administrasi dan iuran juga <strong>boleh</strong>&nbsp;mengisi pendataan baju dan jaket tersebut terlebih dahulu.<br />\r\nSekian Informasi yang dapat kami sampaikan,<br />\r\nRemember to stay safe and healthy<br />\r\nAtas perhatiannya kami ucapkan terima kasih</p>\r\n\r\n<p>#SalamTeknikInformatika<br />\r\n#SolidaritasTanpaBatas<br />\r\n#TI..GoTeknologi</p>\r\n', NULL, '2020-09-14 19:25:00', 'Dwi Prima Handayani Putri'),
+(59, 'd3f902bfb4d714e3f4249acd297a56ed.png', NULL, NULL, NULL, 'HMJ TI Undiksha 2020-2021', 'Info Data Iuran HMJ 2020 ', 'Pengumuman', '<p>[INFINITY]<br />\r\n[INFO JURUSAN]</p>\r\n\r\n<p>Om Swastyatu<br />\r\nAssalamualaikum Warahmatulahhi Wabarakatuh<br />\r\nShalom<br />\r\nNamo Budhaya<br />\r\nSalam Harmoni<br />\r\nHallo INFINITY<br />\r\n<strong>&bull; INFO DATA PEMBAYARAN IURAN HMJ 2020</strong><br />\r\nDiinformasikan kepada seluruh Mahasiswa Aktif di Jurusan Teknik Informatika semester 3, 5, dan 7 untuk melakukan pengecekan nama dan keterangan terkait pembayaran iuran HMJ TI untuk Bulan Agustus s.d. Desember 2020 yang telah dilakukan.<br />\r\nData pembayaran dapat diakses pada link berikut: &nbsp;<br />\r\nhttps://docs.google.com/spreadsheets/d/10nsUVpVNl9Y1qDw720Oyx6dLmfiY8irnDjgS2IE35nw/edit?usp=sharing<br />\r\nJika terdapat kesalahan bisa menghubungi <strong>salah satu </strong>kontak berikut<strong> via wa</strong>:<br />\r\n+62 895-3950-13615<br />\r\n(Gusti Aditya Trisna Murti)<br />\r\n+62 812-4634-2145<br />\r\n(Dwi Prima Handayani Putri)<br />\r\n.<br />\r\n.<br />\r\nSekian informasi yang dapat kami sampaikan.<br />\r\nRemember to stay safe and healthy<img alt=\"wink\" src=\"http://if.undiksha.ac.id/assets/ckeditor/plugins/smiley/images/wink_smile.png\" style=\"height:23px; width:23px\" title=\"wink\" /><br />\r\nAtas perhatiannya kami ucapkan terima kasih</p>\r\n\r\n<p>#SalamTeknikInformatika<br />\r\n#SolidaritasTanpaBatas<br />\r\n#TI..GoTechnology</p>\r\n', NULL, '2020-09-16 23:05:51', 'Dwi Prima Handayani Putri'),
+(60, 'df93f35e1ce525963a3eb390164012fc.jpg', '8a5ff1569889c639aa3f00fbafa7ab6d.jpg', '942cc8c328403932e8f9017cbd956e6d.jpg', NULL, 'HMJ TI Undiksha 2020-2021', 'RAPAT KERJA HMJ TI MASA BAKTI 2020/2021', 'Berita', '<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:\'Times New Roman\'\"><span style=\"color:#000000\"><em>Singaraja &ndash; Pelaksanaan Rapat Kerja Himpunan Mahasiswa Jurusan Teknik Informatika, Universitas Pendidikan Ganesha. Rapat membahas Program Kerja dari masing-masing Bidang yang ada pada HMJ TI Undiksha masa bakti 2020/2021.</em></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:\'Times New Roman\'\"><span style=\"color:#000000\">Rapat Kerja Himpunan Mahasiswa Jurusan Teknik Informatika, Universitas Pendidikan Ganesha, dilaksanakan secara daring dan dihadiri oleh pengurus HMJ Teknik Informatika masa bakti 2020/2021, 2 orang perwakilan kelas yang ada di&nbsp; Jurusan Teknik Informatika serta tamu undangan yang meliputi Dekan FTK, Ketua Jurusan TI, Sekretaris Jurusan TI, Wakil Dekan 3, Ketua Ormawa di lingkungan FTK, perwakilan dari BEM FTK, perwakilan dari MPM REMA, BEM REMA , serta demisioner HMJ TI masa bakti 2019/2020. Sehingga total peserta dalam kegiatan Rapat Kerja ini berjumlah 120 peserta.</span></span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:\'Times New Roman\'\"><span style=\"color:#000000\">Dalam acara Rapat Kerja HMJ TI Undiksha ini, Dekan FTK yakni Dr. I Gede Sudirtha, S.Pd, M.Pd, memberikan sambutan yang sekaligus membuka acara Rapat Kerja HMJ TI. &ldquo; Saya sangat mengapresiasi seluruh kegiatan mahasiswa karena kegiatannya berjalan dengan lancar, saya bangga kepada semua program studi yang ada di lingkungan FTK, salah satunya adalah program studi Pendidikan Teknik Informatika yang telah mendapatkan akreditasi A. Semoga program studi yang lainnya bisa memperoleh akreditasi nilai A kedepannya. Perlu kita ketahui Jurusan Teknik Informatika memiliki segudang prestasi yang dihasilkan oleh Mahasiswa Jurusan Teknik Informatika, terbukti dari lomba - lomba gemastik, game dll. Pada tahun 2019 FTK memperoleh peringkat ke-4 dalam prestasi di klasterisasi walaupun fakultas nya kecil akan tetapi memiliki segudang prestasi semoga bisa termotivasi lagi agar bisa meningkatkan prestasi lagi. &ldquo;&nbsp; ujarnya saat membuka kegiatan Rapat Kerja HMJ TI</span></span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:\'Times New Roman\'\"><span style=\"color:#000000\">Irfan Walhidayah selaku Ketua HMJ TI masa bakti 2020/2021, juga memberikan tanggapan tentang tujuan diadakannya Rapat Kerja HMJ TI ini. Tujuan dari kegiatan ini adalah ,tercapainya susunan jadwal program kerja HMJ Teknik Informatika&nbsp; periode 2020/2021 yang sistematis,tercapainya insan akademis yang disiplin, cakap, terampil dan bertanggung jawab dalam mengemban keprofesian dan tercapainya rancangan pasti sebuah program kerja yang menjadi patokan oleh organisasi ini dalam berkegiatan.</span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:\'Times New Roman\'\"><span style=\"color:#000000\">&ldquo;Landasan terbentuknya sebuah organisasi tentunya adalah memiliki tujuan bersama, organisasi layaknya ditopang oleh elemen-elemen penting seperti anggota, program kerja, dan pengurus inti yang menjalankan roda organisasinya. Elemen-elemen penting itu memiliki fungsinya tersendiri, anggota dalam organisasi akan melaksanakan program kerja sehingga dapat mencapai tujuan organisasi. Program kerja dirancang dan dilaksanakan dalam rangka mencapai tujuan organisasi, dengan adanya program kerja akan membuat langkah organisasi dalam mencapai tujuan organisasi menjadi jelas. Dalam setiap organisasi diperlukan pengurus yang menjadi penggerak dalam berorganisasi, pengurus merumuskan dan menjadi nahkoda dalam bahtera organisasi. Organisasi yang baik tentu saja perlu didukung dengan terbentuknya program kerja yang jelas dan memiliki kualitas, melihat pentingnya program kerja dalam sebuah organisasi, maka dipandang sangat perlu untuk melakukan program tahunan yaitu Rapat Kerja Himpunan Mahasiswa Jurusan Teknik Informatika Masa Bakti 2020/2021 untuk menyusun Program Kerja (Proker) Himpunan Mahasiswa Jurusan Teknik Informatika Masa Bakti 2020/2021.&rdquo;, imbuhnya .</span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:\'Times New Roman\'\"><span style=\"color:#000000\">Hal senada juga disampaikan oleh Zasya Eka, selaku ketua panitia Rapat Kerja HMJ TI. &ldquo;Untuk Raker kali ini berjalan dengan lancar walau kita melakukannya secara full daring. Jadi mengingat kondisi seperti ini, kami dari kepanitiaan memutuskan untuk melaksanakan kegiatan Raker HMJ TI masa bakti 2020/2021 secara full daring. Ini merupakan tantangan bagi panitia karena dengan kondisi seperti ini koordinasi tidak akan intens seperti ketika kita melaksanakan kegiatan secara luring.&rdquo;,ujarnya</span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:\'Times New Roman\'\"><span style=\"color:#000000\">Tak hanya itu, mahasiswa yang juga menjabat sebagi Wakil Ketua HMJ TI ini juga mengucapkan terimakasih kepada semua pihak yang telah terlibat dalam kegiatan kali ini sehingga dapat berjalan dengan baik.</span></span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n', NULL, '2020-10-05 23:10:44', 'Sub Bidang Jurnalistik');
 
 -- --------------------------------------------------------
 
@@ -440,10 +453,8 @@ CREATE TABLE `s3_detail_hari_integer` (
   `id_detail_hari_integer` int(11) NOT NULL,
   `id_hari_integer` int(11) NOT NULL,
   `nama_detail_hari_integer` varchar(200) NOT NULL,
-  `waktu_mulai_jam` varchar(2) NOT NULL,
-  `waktu_mulai_menit` varchar(2) NOT NULL,
-  `waktu_akhir_jam` varchar(2) NOT NULL,
-  `waktu_akhir_menit` varchar(2) NOT NULL,
+  `waktu_mulai` varchar(8) NOT NULL,
+  `waktu_akhir` varchar(8) NOT NULL,
   `tempat_detail_hari_integer` text NOT NULL,
   `create_at` datetime NOT NULL,
   `create_by` varchar(50) NOT NULL
@@ -590,14 +601,6 @@ CREATE TABLE `s4_informasi_umum` (
   `create_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `s4_informasi_umum`
---
-
-INSERT INTO `s4_informasi_umum` (`id_informasi`, `id_kegiatan`, `nim`, `nama_lengkap`, `angkatan`, `jenis_kelamin`, `agama`, `alamat_asal`, `alamat_sekarang`, `email`, `wa`, `prodi`, `pilihan_wajib`, `pilihan_opsional`, `riwayat_kesehatan`, `hobi`, `motto`, `ipk`, `sd`, `thn_sd`, `smp`, `thn_smp`, `sma`, `thn_sma`, `file_foto`, `file_dokumen`, `ket_wawancara`, `diterima_di`, `ket_lulus`, `create_at`) VALUES
-(1, 1, '1815091037', 'I Gede Riyan Ardi Darmawan', 2018, 'Laki-Laki', 'Hindu', '<p>Lovina</p>\r\n', '<p>Lovina</p>\r\n', 'riyan.clsg11@gmail.com', '081915656865', 'SI', ' Sie Acara', 'Sie Expo', NULL, NULL, NULL, 4, 'SD N 2 Kalibukbuk', '2012', 'SMP N 2 Singaraja', '2015', 'SMA N 1 Singaraja', '2018', NULL, NULL, 0, 'Belum Ada', 0, '2020-09-27 00:20:08'),
-(2, 1, '1815091038', 'Kadek Bagus Genjing', 2020, 'Laki-Laki', 'Konghucu', '<p>Ada</p>\r\n', '<p>Ada</p>\r\n', 'riyan.clsg@yahoo.com', '081915656865', 'ILKOM', ' Sie Acara', 'Sie Pengda', NULL, NULL, NULL, 3, 'sd', '2020', 'sd', '2020', 'sd', '2020', NULL, NULL, 0, 'Belum Ada', 0, '2020-09-27 00:22:36');
-
 -- --------------------------------------------------------
 
 --
@@ -610,8 +613,8 @@ CREATE TABLE `s4_kegiatan` (
   `nama_kegiatan` varchar(100) NOT NULL,
   `deskripsi` text NOT NULL,
   `persyaratan` text NOT NULL,
-  `tgl_mulai` date NOT NULL,
-  `tgl_akhir` date NOT NULL,
+  `tgl_mulai` datetime NOT NULL,
+  `tgl_akhir` datetime NOT NULL,
   `aktivasi` int(1) NOT NULL DEFAULT 0,
   `target_pendaftar` int(11) NOT NULL,
   `jumlah_pendaftar` int(11) NOT NULL DEFAULT 0,
@@ -626,13 +629,6 @@ CREATE TABLE `s4_kegiatan` (
   `create_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `s4_kegiatan`
---
-
-INSERT INTO `s4_kegiatan` (`id_kegiatan`, `icon_kegiatan`, `nama_kegiatan`, `deskripsi`, `persyaratan`, `tgl_mulai`, `tgl_akhir`, `aktivasi`, `target_pendaftar`, `jumlah_pendaftar`, `upload_file`, `informasi_pribadi`, `informasi_pendidikan`, `wawancara`, `penilaian`, `hasil_akhir`, `pengumuman`, `create_at`, `create_by`) VALUES
-(1, 'b5e51c9ab7a64064a8e1aa4ee97c6b2b.png', 'Kepanitiaan Integer', '<p>Kepanitian Integer #2</p>\r\n', '<p>Mahasiswa Undiksha</p>\r\n', '2020-09-27', '2020-09-29', 1, 2, 2, 0, 0, 1, 0, 1, 0, 0, '2020-09-26 23:56:50', 'Admin');
-
 -- --------------------------------------------------------
 
 --
@@ -644,16 +640,6 @@ CREATE TABLE `s4_pilihan` (
   `id_kegiatan` int(11) NOT NULL,
   `id_jabatan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `s4_pilihan`
---
-
-INSERT INTO `s4_pilihan` (`id_pilihan`, `id_kegiatan`, `id_jabatan`) VALUES
-(1, 1, 47),
-(2, 1, 48),
-(3, 1, 49),
-(4, 1, 50);
 
 -- --------------------------------------------------------
 
@@ -707,8 +693,18 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$BEzghKoXZdRN9TvTBKG/gO2Fmd5nARtU6QAFEj9pjl9sH3Y3VmFp.', 'hmjtiundiksha@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1268889823, 1601287182, 1, 'Admin', '1815091037', 46, '081915656865'),
-(21, '127.0.0.1', NULL, '$2y$10$uaGnGP/qqL6DwDGpF7Uyke7g0Az3R7pKoSC0Vu5sL5nHkHxg30oU6', 'riyan.clsg11@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601135894, 1601137099, 1, 'I Gede Riyan Ardi Darmawan', '1815091037', 38, '081915656865');
+(1, '127.0.0.1', 'administrator', '$2y$12$zotV59v60G..Z2mko/zs0uGOQ6gAs9FyMaPckq5OvwfdtLGi6eNQ2', 'hmjtiundiksha@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1268889823, 1601990062, 1, 'Admin', '1815091037', 46, '081915656865'),
+(22, '127.0.0.1', NULL, '$2y$10$g/F9rFfU0BI6v592ioVx1u7Mu8DzSrRdSotsIguNj8fPneI9lki4m', 'irfan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601478582, 1601478918, 1, 'IRFAN WALHIDAYAH', '1815091002', 38, '08983197636'),
+(23, '127.0.0.1', NULL, '$2y$10$oZZGNZj4iE8g53ONFgRFIe4LVgMBa/egnW3h49VEeWhsEZaSRptQK', 'budi.setiawan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601478638, 1601478958, 1, 'Sub Bidang Jurnalistik', '1815051083', 40, '081339289008'),
+(24, '127.0.0.1', NULL, '$2y$10$iVqV8Sshmj6omakzzMU.Iu06yCCfsBFZUNT/JCM3dDaKFugs4GzC6', 'riyan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601992246, NULL, 1, 'I Gede Riyan Ardi Darmawan', '1815091037', 44, '081915656865'),
+(25, '127.0.0.1', NULL, '$2y$10$SJfWbTDGZKBYEp5WI1.Dde1DAoq/46Ps9djX7LRe8OMvSnaCf8qtS', 'willy@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601992447, NULL, 1, 'Willy Yogantara Sidhi', '1815091063', 43, '087853652474'),
+(26, '127.0.0.1', NULL, '$2y$10$t90cFNvkVrmnqhWHMSuj7OrSy6Q97DE7l2yXXVu7H3gwX9xGwZ7EC', 'primadwi84@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601992497, NULL, 1, 'Dwi Prima Handayani Putri', '1915101012', 45, '081246342145'),
+(27, '127.0.0.1', NULL, '$2y$10$Ei8Psz3K2AemekBhdei7cuaDT5Dwcldb47DrmfVqAnkycLjpE7b1e', 'komangdianary23@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601994775, NULL, 1, 'Komang Dian Ary Kristiadi', '1815051040', 45, '081339320140'),
+(28, '127.0.0.1', NULL, '$2y$10$SlIzdi2xRdhVBrSn21Peb.g..fA1V8KEEvV.7xhuc3W7imRqpu4dm', 'gustiaditya123@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601994837, NULL, 1, 'Gusti Aditya Trisna Murti', '1815051092', 45, '0895395013615'),
+(29, '127.0.0.1', NULL, '$2y$10$GgBXaa793c8eXSCroLAoZeWI2l03E53j8SjmhEzfXZy07Ooj9MDvS', 'zasyasatya@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601994963, NULL, 1, 'Putu Zasya Eka Satya Nugraha', '1915051024', 39, '081238824262'),
+(30, '127.0.0.1', NULL, '$2y$10$HcFAFtNne78jsu.cy78Ix.yqZb2z6pnv3b2oB4cjwPI4ojcUMrCbq', 'anisamarta17@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601995022, NULL, 1, 'Ni Putu Anisa Marta Widyasari', '1915091024', 45, '081235170840'),
+(31, '127.0.0.1', NULL, '$2y$10$EcWpGLCa908k7FfAihqe2.Q3vjZtx7.UfIq4vL7zhhUiOuQ7pE0Wm', 'rifki@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601995120, NULL, 1, 'Rifki Nur Fauzi', '1815091048', 42, '08980138994'),
+(32, '127.0.0.1', NULL, '$2y$10$.PbI5DpKftREFzSKRj/zjOrlwLx.LeTueNni.he7fAKUeVxgQpKOK', 'erik@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601995159, NULL, 1, 'Putu Erik Hendrawan', '1815051052', 41, '08980244454');
 
 -- --------------------------------------------------------
 
@@ -728,7 +724,17 @@ CREATE TABLE `users_groups` (
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (24, 1, 1),
-(27, 21, 5);
+(36, 22, 2),
+(48, 23, 2),
+(45, 24, 1),
+(39, 25, 2),
+(40, 26, 2),
+(41, 27, 2),
+(42, 28, 2),
+(43, 29, 2),
+(44, 30, 2),
+(46, 31, 2),
+(47, 32, 2);
 
 --
 -- Indexes for dumped tables
@@ -941,13 +947,13 @@ ALTER TABLE `jabatan`
 -- AUTO_INCREMENT for table `links`
 --
 ALTER TABLE `links`
-  MODIFY `id_links` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_links` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `s1_detail_hmj`
@@ -971,7 +977,7 @@ ALTER TABLE `s1_hmj`
 -- AUTO_INCREMENT for table `s1_informasi`
 --
 ALTER TABLE `s1_informasi`
-  MODIFY `id_informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `s1_kegiatan_hmj`
@@ -1055,19 +1061,19 @@ ALTER TABLE `s3_sponsor_integer`
 -- AUTO_INCREMENT for table `s4_informasi_umum`
 --
 ALTER TABLE `s4_informasi_umum`
-  MODIFY `id_informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `s4_kegiatan`
 --
 ALTER TABLE `s4_kegiatan`
-  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `s4_pilihan`
 --
 ALTER TABLE `s4_pilihan`
-  MODIFY `id_pilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `s4_wawancara`
@@ -1079,13 +1085,13 @@ ALTER TABLE `s4_wawancara`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- Constraints for dumped tables
