@@ -288,7 +288,8 @@ class Integer extends CI_Controller
 				$this->load->view('admin/master/footer', $this->data);
 			} else {
 				$waktu_mulai = $_POST['waktu_mulai_jam'] . ":" . $_POST['waktu_mulai_menit'];
-				if ($this->All_model->tambahDataDetailHari()) {
+				$waktu_akhir = $_POST['waktu_akhir_jam'] . ":" . $_POST['waktu_akhir_menit'];
+				if ($this->All_model->tambahDataDetailHari($waktu_mulai, $waktu_akhir)) {
 					$this->session->set_flashdata('berhasil', 'Ditambahkan');
 					redirect("integer/kegiatan");
 				} else {
@@ -581,6 +582,15 @@ class Integer extends CI_Controller
 				$this->session->set_flashdata('gagal', 'Dihapus, Parameter Tidak Sesuai');
 				redirect('integer/kegiatan');
 			}
+		}
+	}
+	public function download_file_informasi_integer($nama  = '', $kode = '')
+	{
+		if ($kode == "pakekpengaman") {
+			$tujuan_donlot = '' . FCPATH . 'assets/upload/Folder_integer/berita/file/' . $nama . '';
+			force_download($tujuan_donlot, NULL);
+		} else {
+			redirect("notfound/index");
 		}
 	}
 }

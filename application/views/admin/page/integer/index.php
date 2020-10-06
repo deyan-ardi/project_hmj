@@ -89,7 +89,7 @@
                                      <?php if ($group[0]['group_id'] == "1") { ?>
                                      <td>
                                          <a href="<?= base_url() ?>integer/hapus_data_integer/<?= $data['id_integer']; ?>"
-                                             class="btn btn-danger btn-sm btn-icon-split">
+                                             class="btn btn-danger btn-sm btn-icon-split tombol-hapus">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-trash"></i>
                                              </span>
@@ -147,7 +147,7 @@
                                      <td><?= $data['create_at']; ?></td>
                                      <td> <?php if ($group[0]['group_id'] == "1" || $group[0]['group_id'] == "2") { ?>
                                          <a href="<?= base_url() ?>integer/hapus_data_sponsor_integer/<?= $data['id_sponsor_integer']; ?>"
-                                             class="btn btn-danger btn-sm btn-icon-split">
+                                             class="btn btn-danger btn-sm btn-icon-split tombol-hapus">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-trash"></i>
                                              </span>
@@ -221,7 +221,7 @@
                                      <?php if ($group[0]['group_id'] == "1") { ?>
                                      <td>
                                          <a href="<?= base_url() ?>integer/hapus_data_hari_integer/<?= $data['id_hari_integer']; ?>"
-                                             class="btn btn-danger btn-sm btn-icon-split">
+                                             class="btn btn-danger btn-sm btn-icon-split tombol-hapus">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-trash"></i>
                                              </span>
@@ -281,14 +281,14 @@
                                                     ?>
                                      </td>
                                      <td><?= $data['nama_detail_hari_integer']; ?></td>
-                                     <td><?= $data['waktu_mulai_jam']; ?>.<?= $data['waktu_mulai_menit']; ?> -
-                                         <?= $data['waktu_akhir_jam']; ?>.<?= $data['waktu_akhir_menit']; ?> WITA</td>
+                                     <td><?= $data['waktu_mulai']; ?> -
+                                         <?= $data['waktu_akhir']; ?> WITA</td>
                                      <td><?= $data['tempat_detail_hari_integer']; ?></td>
                                      <td><?= $data['create_by']; ?></td>
                                      <td><?= $data['create_at']; ?></td>
                                      <td> <?php if ($group[0]['group_id'] == "1" || $group[0]['group_id'] == "2") { ?>
                                          <a href="<?= base_url() ?>integer/hapus_data_detail_hari_integer/<?= $data['id_detail_hari_integer']; ?>"
-                                             class="btn btn-danger btn-sm btn-icon-split">
+                                             class="btn btn-danger btn-sm btn-icon-split tombol-hapus">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-trash"></i>
                                              </span>
