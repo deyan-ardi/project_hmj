@@ -44,7 +44,7 @@
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Dokumen Pendaftar</div>
                                                 <input type="file" class="form-control form-control-user"
-                                                    id="file_dokumen" name="file_dokumen" required>
+                                                    id="file_dokumen" name="file_dokumen">
                                             </div>
                                         </div>
                                     </div>

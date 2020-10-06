@@ -448,8 +448,9 @@ class Eors extends CI_Controller
                                 }
                             }
                             if ($_FILES['file_dokumen']['error'] == 4) {
-                                $this->session->set_flashdata('gagal', 'Ditambahkan, File Masih Kosong');
-                                redirect('eors/tambah_peserta/' . urldecode($data));
+                                $nama_dokumen = null;
+                                // $this->session->set_flashdata('gagal', 'Ditambahkan, File Masih Kosong');
+                                // redirect('eors/tambah_peserta/' . urldecode($data));
                             } else {
                                 $bag_dokumen = "dokumen";
                                 $tujuan_dokumen = $data_kegiatan[0]['nama_kegiatan'];
@@ -680,7 +681,7 @@ class Eors extends CI_Controller
         $this->data['thn_2020'] = $this->All_model->getAllPendaftarTahun("2020", $id_kegiatan);
         // END SETTING CHART PENDAFTARAN
 
-        if (!empty($data_kegiatan)) {
+        if (!empty($data_kegiatan) && $data_kegiatan[0]['pengumuman'] == 1) {
             $this->load->view('guest/eors/master/header', $this->data);
             $this->load->view('guest/eors/page/hasil', $this->data);
             $this->load->view('guest/eors/master/footer', $this->data);
@@ -765,8 +766,9 @@ class Eors extends CI_Controller
                             }
                         }
                         if ($_FILES['file_dokumen']['error'] == 4) {
-                            $this->session->set_flashdata('gagal', 'Ditambahkan, File Masih Kosong');
-                            redirect('eors/daftar_sekarang/' . urldecode($data));
+                            $nama_dokumen = null;
+                            // $this->session->set_flashdata('gagal', 'Ditambahkan, File Masih Kosong');
+                            // redirect('eors/daftar_sekarang/' . urldecode($data));
                         } else {
                             $bag_dokumen = "dokumen";
                             $tujuan_dokumen = $data_kegiatan[0]['nama_kegiatan'];

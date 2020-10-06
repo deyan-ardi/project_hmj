@@ -38,18 +38,18 @@ if (pilihanUtama != null && pilihanCadangan != null) {
 const nim = document.querySelector("#nim"),
 	prodi = document.querySelector("#prodi");
 
-if (nim != null && prodi != null) {
-	const elProdi = prodi.querySelectorAll("option");
-	const checkProdi = () => {
-		if (nim.value.length == 10) {
-			let code = nim.value.slice(4, 6);
+// if (nim != null && prodi != null) {
+const elProdi = prodi.querySelectorAll("option");
+const checkProdi = () => {
+	if (nim.value.length == 10) {
+		let code = nim.value.slice(4, 6);
 
-			[...elProdi].filter(p => {
-				if (p.value == code) prodi.value = code;
-			})
-		};
-	}
+		[...elProdi].filter(p => {
+			if (p.value == code) prodi.value = code;
+		})
+	};
 }
+// }
 
 
 $(document).ready(function () {

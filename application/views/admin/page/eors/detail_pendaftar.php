@@ -426,6 +426,7 @@
                             </div>
                         </div>
                     </div>
+                    <?php if ($pendaftar[0]['file_dokumen'] != null) { ?>
                     <div class="col-lg-12 mb-3">
                         <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
@@ -445,6 +446,7 @@
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

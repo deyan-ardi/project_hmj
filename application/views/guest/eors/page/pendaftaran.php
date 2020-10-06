@@ -38,7 +38,7 @@
                         <?php if ($kegiatan[0]['upload_file'] == 1) { ?>
                         <div class="form-group">
                             <label for="foto">Foto</label>
-                            <input type="file" class="form-control-file" name="file_foto" id="file_foto">
+                            <input type="file" class="form-control-file" name="file_foto" id="file_foto" required>
                             <small id="fotoHelp" class="form-text text-muted">Gunakan foto berjas dengan latar
                                 belakang
                                 biru, format *.png atau *.jpg maks 1 Mb</small>
@@ -149,9 +149,7 @@
                                 <option></option>
                             </select>
                             <small id="pilihanCadanganHelp" class="form-text text-muted">Pilihan cadangan akan
-                                digunakan jika
-                                pilihan
-                                utama tidak tersedia.</small>
+                                digunakan sebagai opsi penerimaan anda jika anda tidak diterima di pilihan utama</small>
                         </div>
 
 
@@ -234,15 +232,15 @@
                         <?php } ?>
                         <!-- Validador -->
                         <div class="form-group form-check mt-5 mb-5">
-                            <input type="checkbox" class="form-check-input" id="validator" required>
-                            <label class="form-check-label" for="validator">Saya sudah mengisi seluruh data dengan
+                            <input type="checkbox" class="form-check-input" id="validator1" required>
+                            <label class="form-check-label" for="validator1">Saya sudah mengisi seluruh data dengan
                                 benar dan sesuai dengan persyaratan. Jika data yang diberikan tidak benar dan tidak
                                 sesuai dengan persyaratan
                                 pendaftaran, saya siap menerima konsekuensi yang diberikan.</label>
                         </div>
                         <div class="form-group form-check mt-5 mb-5">
-                            <input type="checkbox" class="form-check-input" id="validator" required>
-                            <label class="form-check-label" for="validator">Saya siap mengikuti peraturan dan tata
+                            <input type="checkbox" class="form-check-input" id="validator2" required>
+                            <label class="form-check-label" for="validator2">Saya siap mengikuti peraturan dan tata
                                 tertib dari kegiatan <?= $kegiatan[0]['nama_kegiatan'] ?></label>
                         </div>
                         <!-- Kirim -->
