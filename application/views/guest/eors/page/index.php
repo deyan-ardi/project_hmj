@@ -18,7 +18,7 @@
             </div>
             <div class="container h-100">
                 <div class="row align-items-center h-100">
-                    <div class="col-12 col-md-5 order-0 order-lg-1">
+                    <div class="col-12 col-md-5 order-0 order-lg-1 order-md-1">
                         <!-- Welcome Thumb -->
                         <div class=" welcome-thumb" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000">
                             <img src="<?= base_url() ?>assets/img/maskot/welcome.png" style="max-width: unset;"
@@ -43,7 +43,7 @@
 
         <!-- ***** Tujuan Area Start ***** -->
         <section id="features" class="section features-area ptb_100 bg-gray">
-            <div class="container" id="tujuan">
+            <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-10 col-lg-6">
                         <!-- Section Heading -->
@@ -61,7 +61,7 @@
                         <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s">
                             <!-- Featured Icon -->
                             <div class="featured-icon mb-3">
-                                <span class="flaticon-tap"></span>
+                                <i class="far fa-window-maximize" style="font-size: 5rem"></i>
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
@@ -77,7 +77,7 @@
                         <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
                             <!-- Featured Icon -->
                             <div class="featured-icon mb-3">
-                                <span class="flaticon-fingerprint"></span>
+                                <i class="fab fa-envira" style="font-size: 5rem"></i>
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
@@ -92,7 +92,7 @@
                         <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.4s">
                             <!-- Featured Icon -->
                             <div class="featured-icon mb-3">
-                                <span class="flaticon-notification"></span>
+                                <i class="fas fa-tasks" style="font-size: 5rem"></i>
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
@@ -121,7 +121,7 @@
                         <!-- Single Blog -->
                         <div class="single-blog res-margin">
                             <!-- Blog Thumb -->
-                            <div class="blog-thumb" style="height: 17rem;">
+                            <div class="t-cards blog-thumb">
                                 <img src="<?= base_url() ?>assets/upload/Folder_<?= $data['nama_kegiatan'] ?>/<?= $data['icon_kegiatan'] ?>"
                                     alt="">
                             </div>
@@ -179,13 +179,13 @@
         <!-- ***** Kepanitiaan Area End ***** -->
 
         <!-- ***** Pertanyaan umum Area Start ***** -->
-        <section class="section faq-area ptb_100 bg-gray">
+        <section class="section faq-area ptb_100 bg-gray" id="pertanyaan">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-10 col-lg-7">
                         <!-- Section Heading -->
                         <div class="section-heading text-center">
-                            <h2 class="text-capitalize" id="pertanyaan">Pertanyaan umum seputar E-ORS</h2>
+                            <h2 class="text-capitalize">Pertanyaan umum seputar E-ORS</h2>
                             <p class=" mt-4">Berikut beberapa pertanyaan yang sering diajukan
                             </p>
                         </div>
@@ -379,9 +379,11 @@
                                 <!-- Footer Title -->
                                 <h3 class="footer-title mb-2">Konten</h3>
                                 <ul>
-                                    <li class="py-2"><a href="#tujuan">Tujuan E-ORS</a></li>
-                                    <li class="py-2"><a href="#kepanitiaan">Kepanitiaan</a></li>
-                                    <li class="py-2"><a href="#pertanyaan">Pertanyaan Umum</a></li>
+                                    <li class="py-2"><a class="scroll" href="#features">Tujuan E-Ors</a></li>
+                                    <li class="py-2"><a class="scroll" href="#blog">Kepanitiaan</a></li>
+                                    <li class="py-2"><a class="scroll" href="#pertanyaan">Pertanyaan Umum</a></li>
+
+
                                 </ul>
                             </div>
                         </div>
