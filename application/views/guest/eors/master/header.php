@@ -16,7 +16,7 @@
 
     <!-- Style css -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/eors.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/cards.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/cardStyle.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/intro.css">
 
     <!-- Responsive css -->

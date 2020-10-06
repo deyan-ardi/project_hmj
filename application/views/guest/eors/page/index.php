@@ -43,7 +43,7 @@
 
         <!-- ***** Tujuan Area Start ***** -->
         <section id="features" class="section features-area ptb_100 bg-gray">
-            <div class="container" id="tujuan">
+            <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-10 col-lg-6">
                         <!-- Section Heading -->
@@ -179,13 +179,13 @@
         <!-- ***** Kepanitiaan Area End ***** -->
 
         <!-- ***** Pertanyaan umum Area Start ***** -->
-        <section class="section faq-area ptb_100 bg-gray">
+        <section class="section faq-area ptb_100 bg-gray" id="pertanyaan">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-10 col-lg-7">
                         <!-- Section Heading -->
                         <div class="section-heading text-center">
-                            <h2 class="text-capitalize" id="pertanyaan">Pertanyaan umum seputar E-ORS</h2>
+                            <h2 class="text-capitalize">Pertanyaan umum seputar E-ORS</h2>
                             <p class=" mt-4">Berikut beberapa pertanyaan yang sering diajukan
                             </p>
                         </div>
@@ -379,9 +379,11 @@
                                 <!-- Footer Title -->
                                 <h3 class="footer-title mb-2">Konten</h3>
                                 <ul>
-                                    <li class="py-2"><a href="#tujuan">Tujuan E-ORS</a></li>
-                                    <li class="py-2"><a href="#kepanitiaan">Kepanitiaan</a></li>
-                                    <li class="py-2"><a href="#pertanyaan">Pertanyaan Umum</a></li>
+                                    <li class="py-2"><a class="scroll" href="#features">Tujuan E-Ors</a></li>
+                                    <li class="py-2"><a class="scroll" href="#blog">Kepanitiaan</a></li>
+                                    <li class="py-2"><a class="scroll" href="#pertanyaan">Pertanyaan Umum</a></li>
+
+
                                 </ul>
                             </div>
                         </div>
