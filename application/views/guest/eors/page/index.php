@@ -382,8 +382,6 @@
                                     <li class="py-2"><a class="scroll" href="#features">Tujuan E-Ors</a></li>
                                     <li class="py-2"><a class="scroll" href="#blog">Kepanitiaan</a></li>
                                     <li class="py-2"><a class="scroll" href="#pertanyaan">Pertanyaan Umum</a></li>
-
-
                                 </ul>
                             </div>
                         </div>
