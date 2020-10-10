@@ -71,9 +71,12 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Embed Video Youtube</div>
-                                                <input type="text" class="form-control form-control-user" id="youtube_berita_integer"
-                                                    aria-describedby="youtube_berita_integer" placeholder="Masukkan Embed Video Youtube"
-                                                    name="youtube_berita_integer" value="<?= set_value('youtube_berita_integer') ?>">
+                                                <input type="text" class="form-control form-control-user"
+                                                    id="youtube_berita_integer"
+                                                    aria-describedby="youtube_berita_integer"
+                                                    placeholder="Masukkan Embed Video Youtube"
+                                                    name="youtube_berita_integer"
+                                                    value="<?= set_value('youtube_berita_integer') ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -88,8 +91,10 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Kategori Informasi</div>
-                                                <select type="text" class="form-control form-control-select" id="kategori_berita_integer"
-                                                    aria-describedby="kategori_berita_integer" name="kategori_berita_integer" required
+                                                <select type="text" class="form-control form-control-select"
+                                                    id="kategori_berita_integer"
+                                                    aria-describedby="kategori_berita_integer"
+                                                    name="kategori_berita_integer" required
                                                     value="<?= set_value('kategori_berita_integer') ?>">
                                                     <option value="">Pilih Kategori Informasi</option>
                                                     <option value="1">Berita</option>
@@ -109,10 +114,11 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Judul Informasi</div>
-                                                <input type="text" class="form-control form-control-user" id="nama_berita_integer"
-                                                    aria-describedby="nama_berita_integer"
-                                                    placeholder="Masukkan Nama Kepengurusan HMJ" name="nama_berita_integer"
-                                                    required value="<?= set_value('nama_berita_integer') ?>">
+                                                <input type="text" class="form-control form-control-user"
+                                                    id="nama_berita_integer" aria-describedby="nama_berita_integer"
+                                                    placeholder="Masukkan Nama Kepengurusan HMJ"
+                                                    name="nama_berita_integer" required
+                                                    value="<?= set_value('nama_berita_integer') ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -127,7 +133,8 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Konten</div>
-                                                <textarea type="text" id="konten_berita_integer" rows="5" name="konten_berita_integer"
+                                                <textarea type="text" id="deskripsi" rows="5"
+                                                    name="konten_berita_integer"
                                                     required><?= set_value('konten_berita_integer') ?></textarea>
                                             </div>
                                         </div>
@@ -143,8 +150,8 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     File Dokumen (*.pdf maks 10 Mb)</div>
-                                                <input type="file" class="form-control form-control-user"
-                                                    id="file" name="file">
+                                                <input type="file" class="form-control form-control-user" id="file"
+                                                    name="file">
                                             </div>
                                         </div>
                                     </div>

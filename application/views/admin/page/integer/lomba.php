@@ -84,7 +84,11 @@
                                      <th>Icon Lomba</th>
                                      <th>Nama Lomba</th>
                                      <th>Deskripsi Lomba</th>
+                                     <th>Tgl Pendaftaran</th>
                                      <th>Link Pendaftaran</th>
+                                     <th>Pengumpulan Proposal</th>
+                                     <th>Tgl Pengumpulan</th>
+                                     <th>Link Pengumpulan</th>
                                      <th>Dibuat Oleh</th>
                                      <th>Dibuat Tanggal</th>
                                      <th>Fitur</th>
@@ -98,6 +102,8 @@
                                              alt="" width="50px"></td>
                                      <td><?= $data['nama_lomba_integer']; ?></td>
                                      <td><?= $data['deskripsi_lomba_integer']; ?></td>
+                                     <td><?= date('d-m-Y', strtotime($data['waktu_mulai_pendaftaran'])) ?> -
+                                         <?= date('d-m-Y', strtotime($data['waktu_akhir_pendaftaran'])) ?></td>
                                      <td><a href="<?= base_url() ?><?= $data['pendaftaran_lomba_integer']; ?>"
                                              class="btn btn-primary btn-sm btn-icon-split">
                                              <span class="icon text-white-50">
@@ -105,16 +111,62 @@
                                              </span>
                                              <span class="text">Link</span>
                                          </a></td>
+                                     <td> <?php if ($data['pengumpulan_proposal'] == 1) { ?>
+                                         <a href="#" class="btn btn-success btn-sm btn-icon-split">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-check"></i>
+                                             </span>
+                                             <span class="text">Perlu</span>
+                                         </a>
+                                         <?php } else { ?>
+                                         <a href="#" class="btn btn-secondary btn-sm btn-icon-split">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-times"></i>
+                                             </span>
+                                             <span class="text">Tidak</span>
+                                         </a>
+                                         <?php } ?>
+                                     </td>
+                                     <?php if ($data['pengumpulan_proposal'] == 1) { ?>
+                                     <td><?= date('d-m-Y', strtotime($data['waktu_awal_pengumpulan'])) ?> -
+                                         <?= date('d-m-Y', strtotime($data['waktu_akhir_pengumpulan'])) ?></td>
+                                     <td><a href="<?= base_url() ?><?= $data['pengumpulan_lomba_integer']; ?>"
+                                             class="btn btn-primary btn-sm btn-icon-split">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-eye"></i>
+                                             </span>
+                                             <span class="text">Link</span>
+                                         </a></td>
+                                     <?php } else { ?>
+                                     <td>
+                                         <div class="p mb-0  text-gray-500">
+                                             <i>Tidak Ada</i>
+                                         </div>
+                                     </td>
+                                     <td>
+                                         <div class="p mb-0  text-gray-500">
+                                             <i>Tidak Ada</i>
+                                         </div>
+                                     </td>
+                                     <?php } ?>
                                      <td><?= $data['create_by']; ?></td>
                                      <td><?= $data['create_at']; ?></td>
                                      <td> <?php if ($group[0]['group_id'] == "1" || $group[0]['group_id'] == "2") { ?>
+                                         <a href="<?= base_url() ?>integer/edit_lomba/<?= $data['id_lomba_integer']; ?>"
+                                             class="btn btn-warning btn-sm btn-icon-split">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-edit"></i>
+                                             </span>
+                                             <span class="text">Edit</span>
+                                         </a>
                                          <a href="<?= base_url() ?>integer/hapus_data_lomba_integer/<?= $data['id_lomba_integer']; ?>"
-                                             class="btn btn-danger btn-sm btn-icon-split tombol-hapus">
+                                             class="btn btn-danger mt-2 btn-sm btn-icon-split tombol-hapus">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-trash"></i>
                                              </span>
                                              <span class="text">Delete</span>
                                          </a>
+
                                          <?php } ?>
                                      </td>
                                  </tr>
@@ -167,8 +219,8 @@
                                      <?php endif; ?>
                                      <td><?= $data['nama_berita_integer'] ?></td>
                                      <td>
-                                         <a href="<?= base_url() ?><?= $data['youtube_berita_integer'] ?>"
-                                             class="btn btn-primary btn-sm btn-icon-split">
+                                         <a href="<?= base_url() ?>integer/detail_kabar_integer/<?= $data['id_berita_integer'] ?>"
+                                             class="btn btn-primary btn-sm btn-icon-split" target="_blank">
                                              <span class="icon text-white-50">
                                                  <i class="fas fa-eye"></i>
                                              </span>
@@ -176,26 +228,26 @@
                                          </a>
                                      </td>
                                      <td>
-                                     <?php if ($data['file_berita_integer'] == null) { ?>
-                                     <div class="p mb-0  text-gray-500">
-                                         <i>Tidak Terdapat File</i>
-                                     </div>
-                                     <?php } else { ?>
-                                     <a href="<?= base_url() ?>assets/upload/Folder_integer/berita/file/<?= $data['file_berita_integer'] ?>"
-                                         target="_blank" class="btn btn-primary btn-sm  btn-icon-split">
-                                         <span class="icon text-white-50">
-                                             <i class="fas fa-eye"></i>
-                                         </span>
-                                         <span class="text">Lihat</span>
-                                     </a><br>
-                                     <a href="<?= base_url() ?>integer/download_file_informasi_integer/<?= $data['file_berita_integer'] ?>/pakekpengaman"
-                                         class="btn btn-success btn-sm mt-2 btn-icon-split">
-                                         <span class="icon text-white-50">
-                                             <i class="fas fa-download"></i>
-                                         </span>
-                                         <span class="text">Unduh</span>
-                                     </a>
-                                     <?php } ?>
+                                         <?php if ($data['file_berita_integer'] == null) { ?>
+                                         <div class="p mb-0  text-gray-500">
+                                             <i>Tidak Terdapat File</i>
+                                         </div>
+                                         <?php } else { ?>
+                                         <a href="<?= base_url() ?>web/flip_me/integer/<?= $data['file_berita_integer'] ?>/integer"
+                                             target="_blank" class="btn btn-primary btn-sm  btn-icon-split">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-eye"></i>
+                                             </span>
+                                             <span class="text">Lihat</span>
+                                         </a><br>
+                                         <a href="<?= base_url() ?>integer/download_file_informasi_integer/<?= $data['file_berita_integer'] ?>/pakekpengaman"
+                                             class="btn btn-success btn-sm mt-2 btn-icon-split">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-download"></i>
+                                             </span>
+                                             <span class="text">Unduh</span>
+                                         </a>
+                                         <?php } ?>
                                      </td>
                                      <td><?= $data['create_by'] ?></td>
                                      <td>

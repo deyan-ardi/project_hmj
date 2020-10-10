@@ -49,13 +49,16 @@
 <script src="<?= base_url() ?>assets/js/demo/datatables-demo.js"></script>
 <script src="<?= base_url() ?>assets/js/table.js"></script>
 <!-- Ckeditor -->
-<?php if ($active == "4" || $active == "10") { ?>
+<?php if ($active == "4" || $active == "10" || $active == "5") { ?>
 <script src="<?= base_url() ?>assets/ckeditor/ckeditor.js"></script>
 <?php if ($ckeditor == "web") { ?>
 <script src="<?= base_url() ?>assets/js/ckeditor/web.js"></script>
 <?php } ?>
 <?php if ($ckeditor == "eors") { ?>
 <script src="<?= base_url() ?>assets/js/ckeditor/eors.js"></script>
+<?php } ?>
+<?php if ($ckeditor == "integer") { ?>
+<script src="<?= base_url() ?>assets/js/ckeditor/integer.js"></script>
 <?php } ?>
 <?php } ?>
 

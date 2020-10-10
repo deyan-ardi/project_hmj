@@ -89,6 +89,16 @@ class All_model extends CI_Model
 		$this->db->FROM('s3_berita_integer');
 		$this->db->JOIN('s3_integer', 's3_berita_integer.id_integer = s3_integer.id_integer');
 		$this->db->WHERE('s3_integer.status_integer = "1"');
+		$this->db->order_by('create_at', 'DESC');
+		return $this->db->get()->result_array();
+	}
+	public function getOnlyActiveBeritaIntegerWhere($data)
+	{
+		$this->db->SELECT('s3_berita_integer.*');
+		$this->db->FROM('s3_berita_integer');
+		$this->db->JOIN('s3_integer', 's3_berita_integer.id_integer = s3_integer.id_integer');
+		$this->db->WHERE('s3_integer.status_integer = "1"');
+		$this->db->WHERE('s3_berita_integer.id_berita_integer=' . $data);
 		return $this->db->get()->result_array();
 	}
 	public function getOnlyActiveKategoriLomba()
@@ -99,12 +109,37 @@ class All_model extends CI_Model
 		$this->db->WHERE('s3_integer.status_integer = "1"');
 		return $this->db->get()->result_array();
 	}
+	public function getOnlyActiveKategoridanLomba()
+	{
+		return $this->db->get('s3_lomba_integer')->result_array();
+	}
 	public function getOnlyActiveLombaInteger()
 	{
 		$this->db->SELECT('s3_lomba_integer.*, s3_kategori_lomba_integer.nama_kategori_lomba_integer');
 		$this->db->FROM('s3_lomba_integer');
 		$this->db->JOIN('s3_kategori_lomba_integer', 's3_lomba_integer.id_kategori_lomba_integer = s3_kategori_lomba_integer.id_kategori_lomba_integer');
 		$this->db->JOIN('s3_integer', 's3_kategori_lomba_integer.id_integer = s3_integer.id_integer');
+		$this->db->WHERE('s3_integer.status_integer = "1"');
+		return $this->db->get()->result_array();
+	}
+	public function getOnlyActiveLombaIntegerWhere($data)
+	{
+		$this->db->SELECT('s3_lomba_integer.*, s3_kategori_lomba_integer.nama_kategori_lomba_integer');
+		$this->db->FROM('s3_lomba_integer');
+		$this->db->JOIN('s3_kategori_lomba_integer', 's3_lomba_integer.id_kategori_lomba_integer = s3_kategori_lomba_integer.id_kategori_lomba_integer');
+		$this->db->JOIN('s3_integer', 's3_kategori_lomba_integer.id_integer = s3_integer.id_integer');
+		$this->db->WHERE('s3_integer.status_integer = "1"');
+		$this->db->WHERE('s3_lomba_integer.id_kategori_lomba_integer = ' . $data);
+		return $this->db->get()->result_array();
+	}
+	public function getSearchLombaInteger($data)
+	{
+		$this->db->SELECT('s3_lomba_integer.*, s3_kategori_lomba_integer.nama_kategori_lomba_integer');
+		$this->db->FROM('s3_lomba_integer');
+		$this->db->JOIN('s3_kategori_lomba_integer', 's3_lomba_integer.id_kategori_lomba_integer = s3_kategori_lomba_integer.id_kategori_lomba_integer');
+		$this->db->JOIN('s3_integer', 's3_kategori_lomba_integer.id_integer = s3_integer.id_integer');
+		$this->db->like('s3_lomba_integer.nama_lomba_integer', $data);
+		$this->db->or_like('s3_kategori_lomba_integer.nama_kategori_lomba_integer', $data);
 		$this->db->WHERE('s3_integer.status_integer = "1"');
 		return $this->db->get()->result_array();
 	}
@@ -149,6 +184,16 @@ class All_model extends CI_Model
 		$this->db->WHERE('s3_integer.status_integer= "1"');
 		return $this->db->get()->result_array();
 	}
+	public function getActiveDetailHariWhere($data)
+	{
+		$this->db->select('s3_detail_hari_integer.*, s3_hari_integer.nama_hari_integer');
+		$this->db->from('s3_detail_hari_integer');
+		$this->db->JOIN('s3_hari_integer', 's3_hari_integer.id_hari_integer = s3_detail_hari_integer.id_hari_integer');
+		$this->db->JOIN('s3_integer', 's3_hari_integer.id_integer = s3_integer.id_integer');
+		$this->db->WHERE('s3_integer.status_integer= "1"');
+		$this->db->WHERE('s3_detail_hari_integer.id_hari_integer= ' . $data);
+		return $this->db->get()->result_array();
+	}
 	public function sinkronasiInteger($id)
 	{
 		$query = [
@@ -174,7 +219,7 @@ class All_model extends CI_Model
 			'logo_integer' => $foto,
 			'video_integer' => $video,
 			'tema_integer' => $this->input->post('tema_integer', true),
-			'deskripsi_integer' => $this->input->post('deskripsi_integer', true),
+			'deskripsi_integer' => $this->input->post('deskripsi_integer', false),
 			'status_integer' => 0,
 			'create_at' => date("Y-m-d H:i:s"),
 			'create_by' => $this->input->post('create_by', true),
@@ -188,8 +233,8 @@ class All_model extends CI_Model
 			'id_integer' => $id_aktif_integer[0]['id_integer'],
 			'nama_berita_integer' => $this->input->post('nama_berita_integer', true),
 			'kategori_berita_integer' => $this->input->post('kategori_berita_integer', true),
-			'konten_berita_integer' => $this->input->post('konten_berita_integer', true),
-			'youtube_berita_integer' => $this->input->post('youtube_berita_integer', true),
+			'konten_berita_integer' => $this->input->post('konten_berita_integer', false),
+			'youtube_berita_integer' => $this->input->post('youtube_berita_integer', false),
 			'foto1_berita_integer' => $foto_1,
 			'foto2_berita_integer' => $foto_2,
 			'foto3_berita_integer' => $foto_3,
@@ -225,7 +270,7 @@ class All_model extends CI_Model
 			'id_sponsor_integer' => '',
 			'id_integer' => $id_aktif_integer[0]['id_integer'],
 			'nama_sponsor_integer' => $this->input->post('nama_sponsor_integer', true),
-			'deskripsi_sponsor_integer' => $this->input->post('deskripsi_sponsor_integer', true),
+			'deskripsi_sponsor_integer' => $this->input->post('deskripsi_sponsor_integer', false),
 			'foto_sponsor_integer' => $sponsor,
 			'create_at' => date("Y-m-d H:i:s"),
 			'create_by' => $this->input->post('create_by', true),
@@ -286,7 +331,7 @@ class All_model extends CI_Model
 			'id_kategori_lomba_integer' => '',
 			'id_integer' => $id_aktif_integer[0]['id_integer'],
 			'nama_kategori_lomba_integer' => $this->input->post('nama_kategori_lomba_integer', true),
-			'deskripsi_kategori_lomba_integer' => $this->input->post('deskripsi_kategori_lomba_integer', true),
+			'deskripsi_kategori_lomba_integer' => $this->input->post('deskripsi_kategori_lomba_integer', false),
 			'icon_kategori_lomba_integer' => $icon_kategori,
 			'create_at' => date("Y-m-d H:i:s"),
 			'create_by' => $this->input->post('create_by', true),
@@ -302,20 +347,55 @@ class All_model extends CI_Model
 			return true;
 		}
 	}
-	public function tambahDataLombaInteger($icon_lomba)
+	public function tambahDataLombaInteger($icon_lomba, $waktu_daftar_mulai, $waktu_daftar_selesai, $waktu_kumpul_mulai, $waktu_kumpul_selesai, $link_pengumpulan)
 	{
 		$query = array(
 			'id_lomba_integer' => '',
 			'id_kategori_lomba_integer' => $this->input->post('id_kategori_lomba_integer', true),
 			'nama_lomba_integer' => $this->input->post('nama_lomba_integer', true),
-			'deskripsi_lomba_integer' => $this->input->post('deskripsi_lomba_integer', true),
+			'deskripsi_lomba_integer' => $this->input->post('deskripsi_lomba_integer', false),
 			'icon_lomba_integer' => $icon_lomba,
+			'waktu_mulai_pendaftaran' => $waktu_daftar_mulai,
+			'waktu_akhir_pendaftaran' => $waktu_daftar_selesai,
 			'pendaftaran_lomba_integer' => $this->input->post('pendaftaran_lomba_integer', true),
+			'pengumpulan_proposal' => $this->input->post('proposal', true),
+			'waktu_awal_pengumpulan' => $waktu_kumpul_mulai,
+			'waktu_akhir_pengumpulan' => $waktu_kumpul_selesai,
+			'pengumpulan_lomba_integer' => $link_pengumpulan,
 			'create_at' => date("Y-m-d H:i:s"),
 			'create_by' => $this->input->post('create_by', true),
 
 		);
 		return $this->db->insert('s3_lomba_integer', $query);
+	}
+	public function editDataLombaInteger($id_lomba, $icon_lomba, $waktu_daftar_mulai, $waktu_daftar_selesai, $waktu_kumpul_mulai, $waktu_kumpul_selesai, $link_pengumpulan)
+	{
+		$query = array(
+			'id_kategori_lomba_integer' => $this->input->post('id_kategori_lomba_integer', true),
+			'nama_lomba_integer' => $this->input->post('nama_lomba_integer', true),
+			'deskripsi_lomba_integer' => $this->input->post('deskripsi_lomba_integer', false),
+			'icon_lomba_integer' => $icon_lomba,
+			'waktu_mulai_pendaftaran' => $waktu_daftar_mulai,
+			'waktu_akhir_pendaftaran' => $waktu_daftar_selesai,
+			'pendaftaran_lomba_integer' => $this->input->post('pendaftaran_lomba_integer', true),
+			'pengumpulan_proposal' => $this->input->post('proposal', true),
+			'waktu_awal_pengumpulan' => $waktu_kumpul_mulai,
+			'waktu_akhir_pengumpulan' => $waktu_kumpul_selesai,
+			'pengumpulan_lomba_integer' => $link_pengumpulan,
+			'create_at' => date("Y-m-d H:i:s"),
+			'create_by' => $this->input->post('create_by', true),
+
+		);
+		return $this->db->where('id_lomba_integer=' . $id_lomba)->update('s3_lomba_integer', $query);
+	}
+	public function deleteFotoIconInteger($nama_file)
+	{
+		unlink('assets/upload/Folder_integer/icon_lomba/' . $nama_file);
+		return true;
+	}
+	public function getLombaIntegerWhere($id)
+	{
+		return $this->db->where('id_lomba_integer =' . $id)->get('s3_lomba_integer')->result_array();
 	}
 	public function deleteLombaInteger($id)
 	{

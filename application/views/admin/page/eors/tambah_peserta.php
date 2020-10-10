@@ -57,7 +57,7 @@
                                 <div class="card border-left-primary shadow h-100 py-2">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
+                                            <div class="col mr-2" onkeyup="checkProdi()">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     NIM</div>
                                                 <input type="text" pattern="[0-9]*"
@@ -233,10 +233,10 @@
                                                 <select name="prodi" id="prodi" class="form-control form-control-select"
                                                     required>
                                                     <option value="">Masukkan Prodi</option>
-                                                    <option value="PTI">Pendidikan Teknik Informatika</option>
-                                                    <option value="MI">Manajemen Informatika</option>
-                                                    <option value="SI">Sistem Informasi</option>
-                                                    <option value="ILKOM">Ilmu Komputer</option>
+                                                    <option value="05">Pendidikan Teknik Informatika</option>
+                                                    <option value="02">Manajemen Informatika</option>
+                                                    <option value="09">Sistem Informasi</option>
+                                                    <option value="10">Ilmu Komputer</option>
                                                 </select>
                                             </div>
                                         </div>

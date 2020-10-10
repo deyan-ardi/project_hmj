@@ -10,12 +10,13 @@ class Integer extends CI_Controller
 	public function index()
 	{
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->in_group(group)) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			$this->data['title'] = "Integer - Manajemen Kegiatan";
 			$this->data['active'] = "5";
 			$id = $_SESSION['user_id'];
 			$this->data['flip'] = "false";
+			$this->data['ckeditor'] = "integer";
 			// For Detail Aktif Kegiatan
 			$this->data['active_integer'] = $this->All_model->getActiveKegiatanInteger();
 			// For Integer Data Table
@@ -35,12 +36,13 @@ class Integer extends CI_Controller
 	public function kegiatan()
 	{
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->in_group(group)) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			$this->data['title'] = "Integer - Manajemen Kegiatan";
 			$this->data['active'] = "5";
 			$id = $_SESSION['user_id'];
 			$this->data['flip'] = "false";
+			$this->data['ckeditor'] = "integer";
 			// For Detail Aktif Kegiatan
 			$this->data['active_integer'] = $this->All_model->getActiveKegiatanInteger();
 			// For Integer Data Table
@@ -60,12 +62,13 @@ class Integer extends CI_Controller
 	public function lomba()
 	{
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->in_group(group)) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			$this->data['title'] = "Integer - Manajemen Lomba";
 			$this->data['active'] = "5";
 			$id = $_SESSION['user_id'];
 			$this->data['flip'] = "false";
+			$this->data['ckeditor'] = "integer";
 			$id_active_kegiatan = $this->All_model->getActiveKegiatanInteger();
 			// For Kategori Lomba Data Table
 			$this->data['kategori_lomba'] = $this->All_model->getOnlyActiveKategoriLomba();
@@ -86,11 +89,12 @@ class Integer extends CI_Controller
 	public function tambah_kegiatan()
 	{
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->in_group(group)) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			$this->data['title'] = "Integer - Tambah Kegiatan";
 			$this->data['active'] = "5";
 			$id = $_SESSION['user_id'];
+			$this->data['ckeditor'] = "integer";
 			$this->data['flip'] = "false";
 			$this->data['group'] = $this->ion_auth_model->getGroup($id);
 			$this->form_validation->set_rules("tema_integer", "Tema Kegiatan", "required|max_length[100]");
@@ -149,7 +153,7 @@ class Integer extends CI_Controller
 	public function hapus_data_integer($id = '')
 	{
 		if (!$this->ion_auth->logged_in()) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			if ($this->All_model->deleteInteger($id)) {
 				$this->session->set_flashdata('berhasil', 'Dihapus');
@@ -163,12 +167,13 @@ class Integer extends CI_Controller
 	public function tambah_sponsor()
 	{
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->in_group(group)) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			$this->data['title'] = "Integer - Tambah Sponsor";
 			$this->data['active'] = "5";
 			$id = $_SESSION['user_id'];
 			$this->data['flip'] = "false";
+			$this->data['ckeditor'] = "integer";
 			$this->data['group'] = $this->ion_auth_model->getGroup($id);
 			$this->form_validation->set_rules("nama_sponsor_integer", "Nama Sponsor", "required|max_length[100]");
 			$this->form_validation->set_rules("deskripsi_sponsor_integer", "Deskripsi", "required|max_length[1000]");
@@ -212,7 +217,7 @@ class Integer extends CI_Controller
 	public function hapus_data_sponsor_integer($id = '')
 	{
 		if (!$this->ion_auth->logged_in()) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			if ($this->All_model->deleteSponsor($id)) {
 				$this->session->set_flashdata('berhasil', 'Dihapus');
@@ -226,10 +231,11 @@ class Integer extends CI_Controller
 	public function tambah_tanggal()
 	{
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->in_group(group)) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			$this->data['title'] = "Integer - Tambah Tanggal";
 			$this->data['active'] = "5";
+			$this->data['ckeditor'] = "integer";
 			$id = $_SESSION['user_id'];
 			$id_aktif_integer = $this->All_model->getActiveKegiatanInteger();
 			$this->data['flip'] = "false";
@@ -253,7 +259,7 @@ class Integer extends CI_Controller
 	public function hapus_data_hari_integer($id = '')
 	{
 		if (!$this->ion_auth->logged_in()) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			if ($this->All_model->deleteHari($id)) {
 				$this->session->set_flashdata('berhasil', 'Dihapus');
@@ -267,11 +273,12 @@ class Integer extends CI_Controller
 	public function tambah_kegiatan_perhari()
 	{
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->in_group(group)) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			$this->data['title'] = "Integer - Tambah Kegiatan Perhari";
 			$this->data['active'] = "5";
 			$id = $_SESSION['user_id'];
+			$this->data['ckeditor'] = "integer";
 			$this->data['flip'] = "false";
 			$this->data['group'] = $this->ion_auth_model->getGroup($id);
 			$this->data['hari'] = $this->All_model->getOnlyActiveHari();
@@ -302,7 +309,7 @@ class Integer extends CI_Controller
 	public function hapus_data_detail_hari_integer($id = '')
 	{
 		if (!$this->ion_auth->logged_in()) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			if ($this->All_model->deleteDetailHari($id)) {
 				$this->session->set_flashdata('berhasil', 'Dihapus');
@@ -321,6 +328,7 @@ class Integer extends CI_Controller
 			$this->data['title'] = "Integer - Tambah Kategori Lomba";
 			$this->data['active'] = "5";
 			$id = $_SESSION['user_id'];
+			$this->data['ckeditor'] = "integer";
 			$this->data['flip'] = "false";
 			$this->data['group'] = $this->ion_auth_model->getGroup($id);
 			$this->data['integer'] = $this->All_model->getAllInteger();
@@ -361,10 +369,11 @@ class Integer extends CI_Controller
 	public function tambah_kategori_lomba()
 	{
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->in_group(group)) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			$this->data['title'] = "Integer - Tambah Kategori Lomba";
 			$this->data['active'] = "5";
+			$this->data['ckeditor'] = "integer";
 			$id = $_SESSION['user_id'];
 			$this->data['flip'] = "false";
 			$this->data['group'] = $this->ion_auth_model->getGroup($id);
@@ -406,7 +415,7 @@ class Integer extends CI_Controller
 	public function hapus_data_kategori_lomba_integer($id = '')
 	{
 		if (!$this->ion_auth->logged_in()) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			if ($this->All_model->deleteKategoriLombaInteger($id)) {
 				$this->session->set_flashdata('berhasil', 'Dihapus');
@@ -420,18 +429,28 @@ class Integer extends CI_Controller
 	public function tambah_lomba()
 	{
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->in_group(group)) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			$this->data['title'] = "Integer - Tambah Lomba";
 			$this->data['active'] = "5";
 			$id = $_SESSION['user_id'];
 			$this->data['flip'] = "false";
+			$this->data['ckeditor'] = "integer";
 			$this->data['group'] = $this->ion_auth_model->getGroup($id);
 			$this->data['kategori'] = $this->All_model->getOnlyActiveKategoriLomba();
 			$this->form_validation->set_rules("id_kategori_lomba_integer", "Kategori Lomba", "required");
 			$this->form_validation->set_rules("nama_lomba_integer", "Nama Lomba", "required|max_length[100]");
 			$this->form_validation->set_rules("deskripsi_lomba_integer", "Deskripsi Lomba", "required|max_length[1000]");
+			$this->form_validation->set_rules("tanggal_daftar_mulai", "Tanggal Mulai Pendaftaran", "required");
+			$this->form_validation->set_rules("tanggal_daftar_selesai", "Tanggal Selesai Pendaftaran", "required");
 			$this->form_validation->set_rules("pendaftaran_lomba_integer", "Link Pendaftaran", "required|max_length[100]");
+			if (!empty($_POST)) {
+				if ($_POST['proposal'] == 1) {
+					$this->form_validation->set_rules("tanggal_kumpul_mulai", "Tanggal Mulai Pengumpulan", "required");
+					$this->form_validation->set_rules("tanggal_kumpul_selesai", "Tanggal Selesai Pengumpulan", "required");
+					$this->form_validation->set_rules("pengumpulan_lomba_integer", "Link Pengumpulan", "required|max_length[100]");
+				}
+			}
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/master/header', $this->data);
 				$this->load->view('admin/page/integer/tmb_lomba', $this->data);
@@ -453,8 +472,18 @@ class Integer extends CI_Controller
 				if (empty($icon_lomba)) {
 					$icon_lomba = null;
 				}
-
-				if ($this->All_model->tambahDataLombaInteger($icon_lomba)) {
+				$waktu_daftar_mulai = $_POST['tanggal_daftar_mulai'] . " 00:00:00";
+				$waktu_daftar_selesai = $_POST['tanggal_daftar_selesai'] . " 00:00:00";
+				if ($_POST['proposal'] == 1) {
+					$waktu_kumpul_mulai = $_POST['tanggal_kumpul_mulai'] . " 00:00:00";
+					$waktu_kumpul_selesai =	$_POST['tanggal_kumpul_selesai'] . " 00:00:00";
+					$link_pengumpulan = $_POST['pengumpulan_lomba_integer'];
+				} else {
+					$waktu_kumpul_mulai = null;
+					$waktu_kumpul_selesai = null;
+					$link_pengumpulan = null;
+				}
+				if ($this->All_model->tambahDataLombaInteger($icon_lomba, $waktu_daftar_mulai, $waktu_daftar_selesai, $waktu_kumpul_mulai, $waktu_kumpul_selesai, $link_pengumpulan)) {
 					$this->session->set_flashdata('berhasil', 'Ditambahkan');
 					redirect("integer/lomba");
 				} else {
@@ -464,10 +493,88 @@ class Integer extends CI_Controller
 			}
 		}
 	}
+	public function edit_lomba($id_lomba = '')
+	{
+		if (!$this->ion_auth->logged_in() || !$this->ion_auth->in_group(group)) {
+			redirect('integer/home', 'refresh');
+		} else {
+			$this->data['title'] = "Integer - Edit Lomba";
+			$this->data['active'] = "5";
+			$id = $_SESSION['user_id'];
+			$this->data['flip'] = "false";
+			$this->data['ckeditor'] = "integer";
+			$this->data['group'] = $this->ion_auth_model->getGroup($id);
+			$this->data['kategori'] = $this->All_model->getOnlyActiveKategoriLomba();
+			$lomba = $this->All_model->getLombaIntegerWhere($id_lomba);
+			$this->data['lomba'] = $lomba;
+			$this->form_validation->set_rules("id_kategori_lomba_integer", "Kategori Lomba", "required");
+			$this->form_validation->set_rules("nama_lomba_integer", "Nama Lomba", "required|max_length[100]");
+			$this->form_validation->set_rules("deskripsi_lomba_integer", "Deskripsi Lomba", "required|max_length[1000]");
+			$this->form_validation->set_rules("tanggal_daftar_mulai", "Tanggal Mulai Pendaftaran", "required");
+			$this->form_validation->set_rules("tanggal_daftar_selesai", "Tanggal Selesai Pendaftaran", "required");
+			$this->form_validation->set_rules("pendaftaran_lomba_integer", "Link Pendaftaran", "required|max_length[100]");
+			if (!empty($_POST)) {
+				if ($_POST['proposal'] == 1) {
+					$this->form_validation->set_rules("tanggal_kumpul_mulai", "Tanggal Mulai Pengumpulan", "required");
+					$this->form_validation->set_rules("tanggal_kumpul_selesai", "Tanggal Selesai Pengumpulan", "required");
+					$this->form_validation->set_rules("pengumpulan_lomba_integer", "Link Pengumpulan", "required|max_length[100]");
+				}
+			}
+			if ($this->form_validation->run() == FALSE) {
+				if (!empty($lomba)) {
+					$this->load->view('admin/master/header', $this->data);
+					$this->load->view('admin/page/integer/edt_lomba', $this->data);
+					$this->load->view('admin/master/footer', $this->data);
+				} else {
+					show_404();
+				}
+			} else {
+				$id_file = "integer";
+				// ICON LOMBA
+				if (($_FILES["icon_lomba"]['error'] == 0)) {
+					if ($this->All_model->deleteFotoIconInteger($_POST['file_old'])) {
+						$id_icon_lomba = "icon_lomba";
+						$tujuan = "integer/icon_lomba";
+						$upload = $this->All_model->uploadFile($id_icon_lomba, $id_file, $tujuan);
+						if ($upload['result'] == "success") {
+							$icon_lomba = $upload['icon_lomba']['file_name'];
+						} else {
+							$this->session->set_flashdata('gagal', 'Diubah, Terjadi Masalah Pada Icon Lomba, Apakah File Sudah Sesuai?');
+							redirect("integer/tambah_lomba");
+						}
+					} else {
+						$this->session->set_flashdata('gagal', 'Diubah, Terjadi Masalah Pada Icon Lomba');
+						redirect("integer/tambah_lomba");
+					}
+				} else {
+					$icon_lomba = $_POST['file_old'];
+				}
+
+				$waktu_daftar_mulai = $_POST['tanggal_daftar_mulai'] . " 00:00:00";
+				$waktu_daftar_selesai = $_POST['tanggal_daftar_selesai'] . " 00:00:00";
+				if ($_POST['proposal'] == 1) {
+					$waktu_kumpul_mulai = $_POST['tanggal_kumpul_mulai'] . " 00:00:00";
+					$waktu_kumpul_selesai =	$_POST['tanggal_kumpul_selesai'] . " 00:00:00";
+					$link_pengumpulan = $_POST['pengumpulan_lomba_integer'];
+				} else {
+					$waktu_kumpul_mulai = null;
+					$waktu_kumpul_selesai = null;
+					$link_pengumpulan = null;
+				}
+				if ($this->All_model->editDataLombaInteger($id_lomba, $icon_lomba, $waktu_daftar_mulai, $waktu_daftar_selesai, $waktu_kumpul_mulai, $waktu_kumpul_selesai, $link_pengumpulan)) {
+					$this->session->set_flashdata('berhasil', 'Diubah');
+					redirect("integer/lomba");
+				} else {
+					$this->session->set_flashdata('gagal', 'Diubah, Periksa Kembali Form Inputan Anda');
+					redirect("integer/tambah_lomba");
+				}
+			}
+		}
+	}
 	public function hapus_data_lomba_integer($id = '')
 	{
 		if (!$this->ion_auth->logged_in()) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			if ($this->All_model->deleteLombaInteger($id)) {
 				$this->session->set_flashdata('berhasil', 'Dihapus');
@@ -481,7 +588,7 @@ class Integer extends CI_Controller
 	public function tambah_informasi()
 	{
 		if (!$this->ion_auth->logged_in()) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			$id = $_SESSION['user_id'];
 			$this->data['group'] = $this->ion_auth_model->getGroup($id);
@@ -490,6 +597,7 @@ class Integer extends CI_Controller
 			$this->data['active'] = "5";
 			$this->data['flip'] = "false";
 			// All Validations
+			$this->data['ckeditor'] = "integer";
 			$this->form_validation->set_rules('kategori_berita_integer', 'Kategori', 'required');
 			$this->form_validation->set_rules('nama_berita_integer', 'Judul Informasi', 'required|max_length[100]');
 			$this->form_validation->set_rules('konten_berita_integer', 'Konten', 'required');
@@ -573,14 +681,14 @@ class Integer extends CI_Controller
 	public function hapus_data_informasi($id = '')
 	{
 		if (!$this->ion_auth->logged_in()) {
-			redirect('web/home', 'refresh');
+			redirect('integer/home', 'refresh');
 		} else {
 			if ($this->All_model->deleteBerita($id)) {
 				$this->session->set_flashdata('berhasil', 'Dihapus');
-				redirect('integer/kegiatan');
+				redirect('integer/lomba');
 			} else {
 				$this->session->set_flashdata('gagal', 'Dihapus, Parameter Tidak Sesuai');
-				redirect('integer/kegiatan');
+				redirect('integer/lomba');
 			}
 		}
 	}
@@ -591,6 +699,106 @@ class Integer extends CI_Controller
 			force_download($tujuan_donlot, NULL);
 		} else {
 			redirect("notfound/index");
+		}
+	}
+
+
+
+	// SYNTAX FOR USER
+	public function home()
+	{
+		$this->data['title'] = "Home";
+		$this->data['body'] = "1";
+		$active = $this->All_model->getActiveKegiatanInteger();
+		$this->data['kategori'] = $this->All_model->getOnlyActiveKategoriLomba();
+		$this->data['lomba'] = $this->All_model->getOnlyActiveKategoridanLomba();
+		$this->data['sponsor'] = $this->All_model->getOnlyActiveSponsor();
+		$this->data['berita'] = $this->All_model->getOnlyActiveBeritaInteger();
+		$this->data['kegiatan'] = $active;
+		if (!empty($active)) {
+			$this->load->view('guest/integer/master/header', $this->data);
+			$this->load->view('guest/integer/page/index', $this->data);
+			$this->load->view('guest/integer/master/footer', $this->data);
+		} else {
+			show_404();
+		}
+	}
+	public function lomba_integer($data = '')
+	{
+		$this->data['title'] = "Daftar Lomba";
+		$this->data['body'] = "2";
+		$active = $this->All_model->getActiveKegiatanInteger();
+		$this->data['kategori'] = $this->All_model->getOnlyActiveKategoriLomba();
+		$this->data['kegiatan'] = $active;
+		if (empty($data) && empty($_POST['cari'])) {
+			$this->data['lomba'] = $this->All_model->getOnlyActiveLombaInteger();
+		} else if (!empty($data) && empty($_POST['cari'])) {
+			$this->data['lomba'] = $this->All_model->getOnlyActiveLombaIntegerWhere($data);
+		} else {
+			$this->data['lomba'] = $this->All_model->getSearchLombaInteger($_POST['cari']);
+		}
+		$this->load->view('guest/integer/master/header', $this->data);
+		$this->load->view('guest/integer/page/lomba', $this->data);
+		$this->load->view('guest/integer/master/footer', $this->data);
+	}
+	public function jadwal_integer()
+	{
+		$this->data['title'] = "Jadwal Kegiatan";
+		$this->data['body'] = "3";
+		$active = $this->All_model->getActiveKegiatanInteger();
+		$this->data['kategori'] = $this->All_model->getOnlyActiveKategoriLomba();
+		$this->data['kegiatan'] = $active;
+		$this->data['hari'] = $this->All_model->getOnlyActiveHari();
+		$this->load->view('guest/integer/master/header', $this->data);
+		$this->load->view('guest/integer/page/jadwal', $this->data);
+		$this->load->view('guest/integer/master/footer', $this->data);
+	}
+	public function detail_jadwal_integer($data = '')
+	{
+		$this->data['title'] = "Detail Jadwal Kegiatan";
+		$this->data['body'] = "3";
+		$active = $this->All_model->getActiveKegiatanInteger();
+		$this->data['kategori'] = $this->All_model->getOnlyActiveKategoriLomba();
+		$this->data['kegiatan'] = $active;
+		$detail = $this->All_model->getActiveDetailHariWhere($data);
+		$this->data['detail_hari'] = $detail;
+		if (!empty($detail)) {
+
+			$this->load->view('guest/integer/master/header', $this->data);
+			$this->load->view('guest/integer/page/detail_jadwal', $this->data);
+			$this->load->view('guest/integer/master/footer', $this->data);
+		} else {
+			show_404();
+		}
+	}
+	public function kabar_integer()
+	{
+		$this->data['title'] = "Berita Kegiatan";
+		$this->data['body'] = "2";
+		$active = $this->All_model->getActiveKegiatanInteger();
+		$this->data['kategori'] = $this->All_model->getOnlyActiveKategoriLomba();
+		$this->data['kegiatan'] = $active;
+		$this->data['berita'] = $this->All_model->getOnlyActiveBeritaInteger();
+		$this->load->view('guest/integer/master/header', $this->data);
+		$this->load->view('guest/integer/page/kabar_integer', $this->data);
+		$this->load->view('guest/integer/master/footer-2', $this->data);
+	}
+	public function detail_kabar_integer($data = '')
+	{
+		$this->data['title'] = "Detail Kabar Kegiatan";
+		$this->data['body'] = "2";
+		$active = $this->All_model->getActiveKegiatanInteger();
+		$this->data['kategori'] = $this->All_model->getOnlyActiveKategoriLomba();
+		$this->data['kegiatan'] = $active;
+		$this->data['berita'] = $this->All_model->getOnlyActiveBeritaInteger();
+		$berita = $this->All_model->getOnlyActiveBeritaIntegerWhere($data);
+		$this->data['detail'] = $berita;
+		if (!empty($berita)) {
+			$this->load->view('guest/integer/master/header', $this->data);
+			$this->load->view('guest/integer/page/detail_berita', $this->data);
+			$this->load->view('guest/integer/master/footer-2', $this->data);
+		} else {
+			show_404();
 		}
 	}
 }

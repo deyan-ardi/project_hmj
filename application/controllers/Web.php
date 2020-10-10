@@ -763,6 +763,10 @@ class Web extends CI_Controller
 			$this->data['folder_eors'] = $data_kegiatan[0]['nama_kegiatan'];
 			$this->data['kode'] = $kode;
 			$this->data['nama_file'] = $nama;
+		} else if ($kode == "integer" && $tujuan == "integer") {
+			$this->data['folder_integer'] = $tujuan;
+			$this->data['kode'] = $kode;
+			$this->data['nama_file'] = $nama;
 		}
 		$this->load->view('admin/master/header', $this->data);
 		$this->load->view('admin/page/web/flip_me', $this->data);

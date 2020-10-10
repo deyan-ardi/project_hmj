@@ -57,7 +57,8 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                     Deskripsi Sponsor</div>
-                                                <textarea type="text" id="deskripsi_sponsor_integer" rows="5" name="deskripsi_sponsor_integer"
+                                                <textarea type="text" id="deskripsi" rows="5"
+                                                    name="deskripsi_sponsor_integer"
                                                     required><?= set_value('deskripsi_sponsor_integer') ?></textarea>
                                             </div>
                                         </div>
