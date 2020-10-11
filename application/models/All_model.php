@@ -257,6 +257,8 @@ class All_model extends CI_Model
 			return true;
 		}
 	}
+
+	// Remove Folder Integer
 	public function deleteInteger($id)
 	{
 		$row = $this->db->where('id_integer', $id)->get('s3_integer')->row();
@@ -266,6 +268,65 @@ class All_model extends CI_Model
 			return true;
 		}
 	}
+	public function deleteSponsorWhere($id)
+	{
+		$row = $this->db->where('id_integer', $id)->get('s3_sponsor_integer')->result_array();
+		foreach ($row as $data) {
+			if (!empty($data['foto_sponsor_integer'])) {
+				unlink("assets/upload/Folder_integer/sponsor/" . $data['foto_sponsor_integer']);
+			}
+			// var_dump("SPONSOR_" . $data['foto_sponsor_integer']);
+		}
+		return true;
+	}
+	public function deleteBeritaWhere($id)
+	{
+		$row = $this->db->where('id_integer', $id)->get('s3_berita_integer')->result_array();
+		foreach ($row as $data) {
+			if (!empty($data['foto1_berita_integer'])) {
+				if (!empty($data['file_berita_integer'])) {
+					unlink('assets/upload/Folder_integer/berita/file/' . $data['file_berita_integer']);
+				}
+				if (!empty($data['foto2_berita_integer'])) {
+					unlink('assets/upload/Folder_integer/berita/foto/' . $data['foto2_berita_integer']);
+				}
+				if (!empty($data['foto3_berita_integer'])) {
+					unlink('assets/upload/Folder_integer/berita/foto/' . $data['foto3_berita_integer']);
+				}
+				unlink('assets/upload/Folder_integer/berita/foto/' . $data['foto1_berita_integer']);
+				// var_dump("BERITA_" . $data['file_berita_integer']);
+			}
+		}
+		return true;
+	}
+	public function deleteKategoriWhere($id)
+	{
+		$row = $this->db->where('id_integer', $id)->get('s3_kategori_lomba_integer')->result_array();
+		foreach ($row as $data) {
+			if (!empty(['icon_kategori_lomba_integer'])) {
+				unlink('assets/upload/Folder_integer/icon_kategori/' . $data['icon_kategori_lomba_integer']);
+			}
+			// var_dump("KATEGORI_" . $data['icon_kategori_lomba_integer']);
+		}
+		return true;
+	}
+	public function deleteLombaWhere($id)
+	{
+		$this->db->select("s3_lomba_integer.*");
+		$this->db->from("s3_lomba_integer");
+		$this->db->join("s3_kategori_lomba_integer", "s3_lomba_integer.id_kategori_lomba_integer=s3_kategori_lomba_integer.id_kategori_lomba_integer");
+		$this->db->where("s3_kategori_lomba_integer.id_integer=" . $id);
+		$row = $this->db->get()->result_array();
+		// $row = $this->db->where('id_integer', $id)->get('s3_kategori_lomba_integer')->result_array();
+		foreach ($row as $data) {
+			if (!empty($data['icon_lomba_integer'])) {
+				unlink('assets/upload/Folder_integer/icon_lomba/' . $data['icon_lomba_integer']);
+				// var_dump("LOMBA_" . $data['icon_lomba_integer']);
+			}
+		}
+		return true;
+	}
+	// Selesai Remove Folder Integer
 	public function tambahDataSponsor($sponsor, $id_aktif_integer)
 	{
 		$query = array(
@@ -298,6 +359,10 @@ class All_model extends CI_Model
 
 		);
 		return $this->db->insert('s3_hari_integer', $query);
+	}
+	public function cekDataHari($id_integer, $data)
+	{
+		return $this->db->where('id_integer=' . $id_integer)->where('nama_hari_integer=' . "'$data'")->get('s3_hari_integer')->num_rows();
 	}
 	public function deleteHari($id)
 	{

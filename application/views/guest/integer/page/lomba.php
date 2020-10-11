@@ -33,7 +33,7 @@
                 <!-- Single Blog -->
                 <div class="single-blog res-margin">
                     <!-- Blog Thumb -->
-                    <div class="blog-thumb t-cards" style="height: 17rem;">
+                    <div class="blog-thumb t-cards">
                         <img src="<?= base_url() ?>assets/upload/Folder_integer/icon_lomba/<?= $data['icon_lomba_integer'] ?>"
                             alt="">
                     </div>

@@ -73,7 +73,7 @@
                                      </td>
                                      <td><?= $data['nama_integer']; ?></td>
                                      <td><img src="<?= base_url() ?>assets/upload/Folder_integer/foto/<?= $data['logo_integer']; ?>"
-                                             alt="" width="50px"></td>
+                                             alt="" width="150px" style="background-color: #eaeaea;"></td>
                                      <td><a href="<?= base_url() ?>assets/upload/Folder_integer/video/<?= $data['video_integer']; ?>"
                                              class="btn btn-primary btn-sm btn-icon-split">
                                              <span class="icon text-white-50">

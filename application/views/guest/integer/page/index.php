@@ -1,6 +1,6 @@
 <!-- ***** Intro Video Area Start ***** -->
 <section id="intro">
-    <div id="intro-video">
+    <div id="intro-video" class="row justify-content-center">
         <video autoplay disablePictureInPicture muted loop>
             <source src="<?= base_url() ?>assets/upload/Folder_integer/video/<?= $kegiatan[0]['video_integer'] ?>"
                 type="video/mp4">
@@ -209,8 +209,7 @@ foreach ($kategori as $data) {
                             <!-- List Box -->
                             <div class="list-box media">
                                 <span class="icon align-self-center"><i class="fas fa-check"></i></span>
-                                <span class="media-body pl-2">Combined with a handful of model sentence
-                                    structures looks reasonable.</span>
+                                <span class="media-body pl-2"><?= $lomba_data['nama_lomba_integer'] ?></span>
                             </div>
                         </li>
                         <?php }
@@ -413,9 +412,9 @@ foreach ($kategori as $data) {
             <div class="col-12 col-md-10 col-lg-7">
                 <!-- Section Heading -->
                 <div class="section-heading text-center">
-                    <h2 class="text-capitalize">Pertanyaan umum seputar INTEGER</h2>
-                    <p class=" mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.
+                    <h2 class="text-capitalize">Pertanyaan umum seputar <?= strtoupper($kegiatan[0]['nama_integer']) ?>
+                    </h2>
+                    <p class=" mt-4">Berikut merupakan beberapa pertanyaan yang sering diajukan oleh peserta
                     </p>
                 </div>
             </div>
@@ -435,18 +434,16 @@ foreach ($kategori as $data) {
                                         <h2 class="mb-0">
                                             <button class="btn px-0 py-3" type="button" data-toggle="collapse"
                                                 data-target="#collapseOne">
-                                                How to install sApp?
+                                                Berapa Maksimal Saya Boleh Mengikuti Perlombaan?
                                             </button>
                                         </h2>
                                     </div>
                                     <div id="collapseOne" class="collapse show" data-parent="#sApp-accordion">
                                         <!-- Card Body -->
                                         <div class="card-body px-0 py-3 bg-gray">
-                                            The point of using Lorem Ipsum is that it has a more-or-less normal
-                                            distribution of letters, as opposed to using 'Content here, content
-                                            here', making it look like readable English. Many desktop publishing
-                                            packages and web page editors now use Lorem Ipsum as their default
-                                            model text.
+                                            Secara umum, terkait dengan aturan dan ketentuan perlombaan telah diatur
+                                            pada buku pedoman Lomba. Untuk informasi terkait buku pedoman, dapat diakses
+                                            pada laman Kabar Integer atau dapat menghubungi panitia.
                                         </div>
                                     </div>
                                 </div>
@@ -457,20 +454,18 @@ foreach ($kategori as $data) {
                                         <h2 class="mb-0">
                                             <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
                                                 data-target="#collapseTwo">
-                                                Can I get support from the Author?
+                                                Bukti Pembayaran Saya Belum dikirim
                                             </button>
                                         </h2>
                                     </div>
                                     <div id="collapseTwo" class="collapse" data-parent="#sApp-accordion">
                                         <!-- Card Body -->
                                         <div class="card-body px-0 py-3 bg-gray">
-                                            Contrary to popular belief, Lorem Ipsum is not simply random text.
-                                            It has roots in a piece of classical Latin literature from 45 BC,
-                                            making it over 2000 years old. Richard McClintock, a Latin professor
-                                            at Hampden-Sydney College in Virginia, looked up one of the more
-                                            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
-                                            going through the cites of the word in classical literature,
-                                            discovered the undoubtable source.
+                                            Untuk sementara, bukti pembayaran masih harus ditulis manual oleh panitia,
+                                            bukti pembayaran anda maksimal dikirim 1x24 jam setelah anda melakukan
+                                            konfirmasi kepada panitia. Untuk informasi lebih lanjut dapat mengunjungi
+                                            akun instagram HMJ TI Undiksha <span
+                                                class="text-primary">@hmj_ti.undiksha</span>
                                         </div>
                                     </div>
                                 </div>
@@ -481,25 +476,23 @@ foreach ($kategori as $data) {
                                         <h2 class="mb-0">
                                             <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
                                                 data-target="#collapseThree">
-                                                Do you have a free trail?
+                                                Saya menemukan masalah pada website, kemana saya harus melapor?
                                             </button>
                                         </h2>
                                     </div>
                                     <div id="collapseThree" class="collapse" data-parent="#sApp-accordion">
                                         <!-- Card Body -->
                                         <div class="card-body px-0 py-3 bg-gray">
-                                            It has survived not only five centuries, but also the leap into
-                                            electronic typesetting, remaining essentially unchanged. It was
-                                            popularised in the 1960s with the release of Letraset sheets
-                                            containing Lorem Ipsum passages, and more recently with desktop
-                                            publishing software like Aldus PageMaker including versions of Lorem
-                                            Ipsum.
+                                            Untuk melaporkan masalah pada website, silahkan hubungi akun instagram HMJ
+                                            TI Undiksha <span class="text-primary">@hmj_ti.undiksha</span> atau dapat
+                                            menghubungi administrator website melalui No Wa berikut <a
+                                                href="https://api.whatsapp.com/send?phone=6281915656865&text=Terdapat%20masalah%20pada%20website%20INTEGER,%20mhon%20bantuannya%20untuk%20memperbaiki"><span
+                                                    class="text-primary">081915656865</span></a>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Single Accordion Item -->
-                                <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
-                                    <!-- Card Header -->
+                                <!-- <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
                                     <div class="card-header bg-gray border-0 p-0">
                                         <h2 class="mb-0">
                                             <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
@@ -509,7 +502,6 @@ foreach ($kategori as $data) {
                                         </h2>
                                     </div>
                                     <div id="collapseFour" class="collapse" data-parent="#sApp-accordion">
-                                        <!-- Card Body -->
                                         <div class="card-body px-0 py-3 bg-gray">
                                             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                                             accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
@@ -520,9 +512,8 @@ foreach ($kategori as $data) {
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Single Accordion Item -->
                                 <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
-                                    <!-- Card Header -->
+   
                                     <div class="card-header bg-gray border-0 p-0">
                                         <h2 class="mb-0">
                                             <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
@@ -532,7 +523,7 @@ foreach ($kategori as $data) {
                                         </h2>
                                     </div>
                                     <div id="collapseFive" class="collapse" data-parent="#sApp-accordion">
-                                        <!-- Card Body -->
+        
                                         <div class="card-body px-0 py-3 bg-gray">
                                             There are many variations of passages of Lorem Ipsum available, but
                                             the majority have suffered alteration in some form, by injected
@@ -542,7 +533,7 @@ foreach ($kategori as $data) {
                                             middle of text.
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

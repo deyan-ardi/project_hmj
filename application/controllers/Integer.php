@@ -155,11 +155,31 @@ class Integer extends CI_Controller
 		if (!$this->ion_auth->logged_in()) {
 			redirect('integer/home', 'refresh');
 		} else {
-			if ($this->All_model->deleteInteger($id)) {
-				$this->session->set_flashdata('berhasil', 'Dihapus');
-				redirect('integer/kegiatan');
+			if ($this->All_model->deleteSponsorWhere($id)) {
+				if ($this->All_model->deleteBeritaWhere($id)) {
+					if ($this->All_model->deleteKategoriWhere($id)) {
+						if ($this->All_model->deleteLombaWhere($id)) {
+							if ($this->All_model->deleteInteger($id)) {
+								$this->session->set_flashdata('berhasil', 'Dihapus');
+								redirect('integer/kegiatan');
+							} else {
+								$this->session->set_flashdata('gagal', 'Dihapus, Parameter Tidak Sesuai');
+								redirect('integer/kegiatan');
+							}
+						} else {
+							$this->session->set_flashdata('gagal', 'Dihapus, Terjadi Kesalahan Dalam Menghapus Data Lomba');
+							redirect('integer/kegiatan');
+						}
+					} else {
+						$this->session->set_flashdata('gagal', 'Dihapus, Terjadi Kesalahan Dalam Menghapus Data Kategori Lomba');
+						redirect('integer/kegiatan');
+					}
+				} else {
+					$this->session->set_flashdata('gagal', 'Dihapus, Terjadi Kesalahan Dalam Menghapus Data Berita');
+					redirect('integer/kegiatan');
+				}
 			} else {
-				$this->session->set_flashdata('gagal', 'Dihapus, Parameter Tidak Sesuai');
+				$this->session->set_flashdata('gagal', 'Dihapus, Terjadi Kesalahan Dalam Menghapus Data Sponsor');
 				redirect('integer/kegiatan');
 			}
 		}
@@ -246,12 +266,17 @@ class Integer extends CI_Controller
 				$this->load->view('admin/page/integer/tmb_hari', $this->data);
 				$this->load->view('admin/master/footer', $this->data);
 			} else {
-				if ($this->All_model->tambahDataHari($id_aktif_integer)) {
-					$this->session->set_flashdata('berhasil', 'Ditambahkan');
+				if ($this->All_model->cekDataHari($id_aktif_integer[0]['id_integer'], $_POST['nama_hari_integer']) > 0) {
+					$this->session->set_flashdata('gagal', 'Ditambahkan, Hari Sudah Tersedia');
 					redirect("integer/kegiatan");
 				} else {
-					$this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Form Inputan Anda');
-					redirect("integer/tambah_tanggal");
+					if ($this->All_model->tambahDataHari($id_aktif_integer)) {
+						$this->session->set_flashdata('berhasil', 'Ditambahkan');
+						redirect("integer/kegiatan");
+					} else {
+						$this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Form Inputan Anda');
+						redirect("integer/tambah_tanggal");
+					}
 				}
 			}
 		}
