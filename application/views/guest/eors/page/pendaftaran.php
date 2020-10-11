@@ -287,6 +287,8 @@
                                     <div id="accordion3" class="accordion-content widget-content collapse show p-3"
                                         data-parent="#post-accordion">
                                         <?= $kegiatan[0]['deskripsi'] ?>
+                                        <p style="text-align:justify">Adapun persyaratan agar dapat mengikuti
+                                            kepanitiaan ini adalah</p>
                                         <button type="button" class="btn btn-primary mt-3" data-toggle="modal"
                                             data-target="#staticBackdrop">
                                             Syarat dan ketentuan
