@@ -737,9 +737,13 @@ class Integer extends CI_Controller
 		} else {
 			$this->data['lomba'] = $this->All_model->getSearchLombaInteger($_POST['cari']);
 		}
-		$this->load->view('guest/integer/master/header', $this->data);
-		$this->load->view('guest/integer/page/lomba', $this->data);
-		$this->load->view('guest/integer/master/footer', $this->data);
+		if (!empty($active)) {
+			$this->load->view('guest/integer/master/header', $this->data);
+			$this->load->view('guest/integer/page/lomba', $this->data);
+			$this->load->view('guest/integer/master/footer', $this->data);
+		} else {
+			show_404();
+		}
 	}
 	public function jadwal_integer()
 	{
@@ -749,9 +753,13 @@ class Integer extends CI_Controller
 		$this->data['kategori'] = $this->All_model->getOnlyActiveKategoriLomba();
 		$this->data['kegiatan'] = $active;
 		$this->data['hari'] = $this->All_model->getOnlyActiveHari();
-		$this->load->view('guest/integer/master/header', $this->data);
-		$this->load->view('guest/integer/page/jadwal', $this->data);
-		$this->load->view('guest/integer/master/footer', $this->data);
+		if (!empty($active)) {
+			$this->load->view('guest/integer/master/header', $this->data);
+			$this->load->view('guest/integer/page/jadwal', $this->data);
+			$this->load->view('guest/integer/master/footer', $this->data);
+		} else {
+			show_404();
+		}
 	}
 	public function detail_jadwal_integer($data = '')
 	{
@@ -779,9 +787,13 @@ class Integer extends CI_Controller
 		$this->data['kategori'] = $this->All_model->getOnlyActiveKategoriLomba();
 		$this->data['kegiatan'] = $active;
 		$this->data['berita'] = $this->All_model->getOnlyActiveBeritaInteger();
-		$this->load->view('guest/integer/master/header', $this->data);
-		$this->load->view('guest/integer/page/kabar_integer', $this->data);
-		$this->load->view('guest/integer/master/footer-2', $this->data);
+		if (!empty($active)) {
+			$this->load->view('guest/integer/master/header', $this->data);
+			$this->load->view('guest/integer/page/kabar_integer', $this->data);
+			$this->load->view('guest/integer/master/footer-2', $this->data);
+		} else {
+			show_404();
+		}
 	}
 	public function detail_kabar_integer($data = '')
 	{
@@ -793,7 +805,7 @@ class Integer extends CI_Controller
 		$this->data['berita'] = $this->All_model->getOnlyActiveBeritaInteger();
 		$berita = $this->All_model->getOnlyActiveBeritaIntegerWhere($data);
 		$this->data['detail'] = $berita;
-		if (!empty($berita)) {
+		if (!empty($berita) || !empty($active)) {
 			$this->load->view('guest/integer/master/header', $this->data);
 			$this->load->view('guest/integer/page/detail_berita', $this->data);
 			$this->load->view('guest/integer/master/footer-2', $this->data);

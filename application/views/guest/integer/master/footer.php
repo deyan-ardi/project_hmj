@@ -72,10 +72,10 @@
                         <!-- Footer Title -->
                         <h3 class="footer-title mb-2">Konten</h3>
                         <ul>
-                            <li class="py-2" href="#">Beranda</a></li>
-                            <li class="py-2"><a href="#">Tentang</a></li>
-                            <li class="py-2"><a href="#">Jadwal</a></li>
-                            <li class="py-2"><a href="#">Lomba</a></li>
+                            <li class="py-2"><a href="<?= base_url() ?>integer/home">Beranda</a></li>
+                            <li class="py-2"><a href="<?= base_url() ?>integer/lomba_integer">Lomba</a></li>
+                            <li class="py-2"><a href="<?= base_url() ?>integer/jadwal_integer">Jadwal</a></li>
+                            <li class="py-2"><a href="<?= base_url() ?>integer/kabar_integer">Kabar Integer</a></li>
                         </ul>
                     </div>
                 </div>

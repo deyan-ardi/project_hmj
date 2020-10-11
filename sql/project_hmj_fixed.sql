@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 06, 2020 at 04:56 PM
+-- Generation Time: Oct 11, 2020 at 05:52 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -73,7 +73,13 @@ INSERT INTO `jabatan` (`id_pilihan`, `nama_pilihan`, `create_at`) VALUES
 (47, 'Sie Acara', '2020-09-26 23:58:42'),
 (48, 'Sie Humas', '2020-09-26 23:58:49'),
 (49, 'Sie Expo', '2020-09-26 23:58:58'),
-(50, 'Sie Pengda', '2020-09-26 23:59:46');
+(50, 'Sie Penggalian Dana', '2020-10-07 12:45:59'),
+(51, 'Sie Publikasi dan Dokumentasi', '2020-10-07 12:46:37'),
+(52, 'Sie Teknologi dan Informasi', '2020-10-07 12:43:58'),
+(53, 'Sie Kesekretariatan', '2020-10-07 12:44:16'),
+(54, 'Sie Pendaftaran', '2020-10-07 12:44:29'),
+(55, 'Sie MGS', '2020-10-07 12:44:43'),
+(56, 'Sie Social Event', '2020-10-07 12:45:06');
 
 -- --------------------------------------------------------
 
@@ -109,14 +115,6 @@ CREATE TABLE `login_attempts` (
   `login` varchar(100) NOT NULL,
   `time` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `login_attempts`
---
-
-INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
-(33, '127.0.0.1', 'hmjtiundiksha@gmail.com', 1601954764),
-(34, '127.0.0.1', 'hmjtiundiksha@gmail.com', 1601954771);
 
 -- --------------------------------------------------------
 
@@ -440,8 +438,8 @@ CREATE TABLE `s3_berita_integer` (
 --
 
 INSERT INTO `s3_berita_integer` (`id_berita_integer`, `id_integer`, `nama_berita_integer`, `kategori_berita_integer`, `konten_berita_integer`, `youtube_berita_integer`, `file_berita_integer`, `foto1_berita_integer`, `foto2_berita_integer`, `foto3_berita_integer`, `create_at`, `create_by`) VALUES
-(2, 19, 'ada', '2', 'ada', 'ada', NULL, 'c4351de5c3994226fef3ae695947fcac.png', NULL, NULL, '2020-09-28 13:46:01', 'Admin'),
-(3, 19, 'adad', '2', 'adad', 'ad', '21f7309c0a42925203668c9b91c975be.pdf', '93bfb01738b432f28334f21365119b96.jpg', NULL, NULL, '2020-09-28 18:10:18', 'Admin');
+(5, 19, 'contoh berita', '1', 'adaa dadad adad e ddrn fna nownfaomfnawfnan lwopawpm apemfpamp mopqp pwpfmapfawmolfn ol\'f anfoa oawf anwfawnf anca wnf awojfaoa pqpf anonf afn aa[anfa wohf aooa', '', 'adada', '125f9f46aa78599bf4fb4f5800e695e9.jpg', 'bf2b40e41b1ee4425a7f6106bc19918b.png', NULL, '2020-10-10 23:39:03', 'Admin'),
+(6, 19, 'contoh pengumuman', '2', 'konten 1 ada daa adada', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ORda-LwrEwE\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 'b7fc1073e01f8073d7d99b51e3674dab.pdf', '6cab97a9afd0c3ae6e59ac7823258b25.jpg', NULL, 'b04cbb5933a8e7b987db38657615c973.jpg', '2020-10-11 00:32:11', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -460,6 +458,16 @@ CREATE TABLE `s3_detail_hari_integer` (
   `create_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `s3_detail_hari_integer`
+--
+
+INSERT INTO `s3_detail_hari_integer` (`id_detail_hari_integer`, `id_hari_integer`, `nama_detail_hari_integer`, `waktu_mulai`, `waktu_akhir`, `tempat_detail_hari_integer`, `create_at`, `create_by`) VALUES
+(8, 6, 'kakakak', '13:53', '13:53', 'ada', '2020-10-07 13:53:29', 'Admin'),
+(10, 7, 'makan makan', '23:02', '23:02', 'rumah', '2020-10-10 23:02:39', 'Admin'),
+(11, 7, 'manggang', '10:54', '11:54', 'rumah', '2020-10-11 10:54:48', 'Admin'),
+(12, 8, 'ada', '11:21', '12:21', 'adad', '2020-10-11 11:21:18', 'Admin');
+
 -- --------------------------------------------------------
 
 --
@@ -469,7 +477,7 @@ CREATE TABLE `s3_detail_hari_integer` (
 CREATE TABLE `s3_hari_integer` (
   `id_hari_integer` int(11) NOT NULL,
   `id_integer` int(11) NOT NULL,
-  `nama_hari_integer` varchar(30) NOT NULL,
+  `nama_hari_integer` date NOT NULL,
   `create_at` datetime NOT NULL,
   `create_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -479,7 +487,9 @@ CREATE TABLE `s3_hari_integer` (
 --
 
 INSERT INTO `s3_hari_integer` (`id_hari_integer`, `id_integer`, `nama_hari_integer`, `create_at`, `create_by`) VALUES
-(4, 19, '2020-09-30', '2020-09-28 11:55:34', 'Admin');
+(6, 19, '2020-10-09', '2020-10-07 13:52:47', 'Admin'),
+(7, 19, '2020-10-11', '2020-10-10 22:49:29', 'Admin'),
+(8, 19, '2020-10-13', '2020-10-10 22:52:33', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -504,7 +514,7 @@ CREATE TABLE `s3_integer` (
 --
 
 INSERT INTO `s3_integer` (`id_integer`, `nama_integer`, `logo_integer`, `video_integer`, `tema_integer`, `deskripsi_integer`, `status_integer`, `create_at`, `create_by`) VALUES
-(19, 'ada', '878f35280a86fe40e19cca46399fe101.png', 'f5fb987af0f577ae113b7cd52c291141.mp4', 'ada', 'ada', 1, '2020-09-28 11:34:16', 'Admin');
+(19, 'Integer #2', '878f35280a86fe40e19cca46399fe101.png', 'f5fb987af0f577ae113b7cd52c291141.mp4', 'ada deh', 'ada', 1, '2020-09-28 11:34:16', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -522,6 +532,15 @@ CREATE TABLE `s3_kategori_lomba_integer` (
   `create_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `s3_kategori_lomba_integer`
+--
+
+INSERT INTO `s3_kategori_lomba_integer` (`id_kategori_lomba_integer`, `id_integer`, `nama_kategori_lomba_integer`, `icon_kategori_lomba_integer`, `deskripsi_kategori_lomba_integer`, `create_at`, `create_by`) VALUES
+(6, 19, 'ada', '252df573a338156f42aed40c4edd90f0.png', 'ada', '2020-10-07 14:00:41', 'Admin'),
+(7, 19, 'ada deh', '8529176360f9cb7accc3dca874f0bd91.png', '<p>ada</p>\r\n', '2020-10-10 00:12:41', 'Admin'),
+(8, 19, 'ddd', '93a593f3924f87d962411956105a642b.png', '<p>dd</p>\r\n', '2020-10-10 00:13:10', 'Admin');
+
 -- --------------------------------------------------------
 
 --
@@ -534,10 +553,24 @@ CREATE TABLE `s3_lomba_integer` (
   `nama_lomba_integer` varchar(60) NOT NULL,
   `deskripsi_lomba_integer` text NOT NULL,
   `icon_lomba_integer` text NOT NULL,
+  `waktu_mulai_pendaftaran` datetime NOT NULL,
+  `waktu_akhir_pendaftaran` datetime NOT NULL,
   `pendaftaran_lomba_integer` text NOT NULL,
+  `pengumpulan_proposal` int(1) NOT NULL DEFAULT 0,
+  `waktu_awal_pengumpulan` datetime DEFAULT NULL,
+  `waktu_akhir_pengumpulan` datetime DEFAULT NULL,
+  `pengumpulan_lomba_integer` text DEFAULT NULL,
   `create_at` datetime NOT NULL,
   `create_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `s3_lomba_integer`
+--
+
+INSERT INTO `s3_lomba_integer` (`id_lomba_integer`, `id_kategori_lomba_integer`, `nama_lomba_integer`, `deskripsi_lomba_integer`, `icon_lomba_integer`, `waktu_mulai_pendaftaran`, `waktu_akhir_pendaftaran`, `pendaftaran_lomba_integer`, `pengumpulan_proposal`, `waktu_awal_pengumpulan`, `waktu_akhir_pengumpulan`, `pengumpulan_lomba_integer`, `create_at`, `create_by`) VALUES
+(0, 6, 'ngentot', '<p>ada</p>\r\n', '773657761a6f3df0f32184f4187b5214.png', '2020-10-09 15:57:41', '2020-10-10 15:57:45', 'https://lldldl', 1, '2020-10-10 15:54:50', '2020-10-10 15:55:10', 'https://adaada', '2020-10-08 23:22:00', 'Admin'),
+(8, 6, 'kadek', '<p>adaq</p>\r\n', '5a9ae0a19ff4104c3e7130eb4bcc4873.png', '2020-10-10 15:59:33', '2020-10-10 16:00:07', 'ada', 0, NULL, NULL, NULL, '2020-10-08 23:56:32', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -560,7 +593,8 @@ CREATE TABLE `s3_sponsor_integer` (
 --
 
 INSERT INTO `s3_sponsor_integer` (`id_sponsor_integer`, `id_integer`, `nama_sponsor_integer`, `deskripsi_sponsor_integer`, `foto_sponsor_integer`, `create_at`, `create_by`) VALUES
-(4, 19, 'ada', 'ada', 'c2074d19e3448b20b1f900263a7acfce.png', '2020-09-28 11:52:10', 'Admin');
+(5, 19, 'Sampoerna', 'Sampoerna', 'c012c66e50fae0f691d052af8466e336.JPG', '2020-10-07 13:52:09', 'Admin'),
+(6, 19, 'aqua', '<p>ada</p>\r\n', 'cc526a8439bb02393d3255340f3fd119.png', '2020-10-10 00:37:51', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -629,6 +663,13 @@ CREATE TABLE `s4_kegiatan` (
   `create_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `s4_kegiatan`
+--
+
+INSERT INTO `s4_kegiatan` (`id_kegiatan`, `icon_kegiatan`, `nama_kegiatan`, `deskripsi`, `persyaratan`, `tgl_mulai`, `tgl_akhir`, `aktivasi`, `target_pendaftar`, `jumlah_pendaftar`, `upload_file`, `informasi_pribadi`, `informasi_pendidikan`, `wawancara`, `penilaian`, `hasil_akhir`, `pengumuman`, `create_at`, `create_by`) VALUES
+(7, '605b1e9fc7ea2474a51f1093c4e5369f.JPG', 'ada deh', '<p>ada deh</p>\r\n', '<p>ada deh</p>\r\n', '2020-10-07 00:00:00', '2020-10-09 00:00:00', 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, '2020-10-07 13:05:51', 'Admin');
+
 -- --------------------------------------------------------
 
 --
@@ -640,6 +681,14 @@ CREATE TABLE `s4_pilihan` (
   `id_kegiatan` int(11) NOT NULL,
   `id_jabatan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `s4_pilihan`
+--
+
+INSERT INTO `s4_pilihan` (`id_pilihan`, `id_kegiatan`, `id_jabatan`) VALUES
+(16, 7, 48),
+(17, 7, 47);
 
 -- --------------------------------------------------------
 
@@ -693,10 +742,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$zotV59v60G..Z2mko/zs0uGOQ6gAs9FyMaPckq5OvwfdtLGi6eNQ2', 'hmjtiundiksha@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1268889823, 1601990062, 1, 'Admin', '1815091037', 46, '081915656865'),
+(1, '127.0.0.1', 'administrator', '$2y$12$zotV59v60G..Z2mko/zs0uGOQ6gAs9FyMaPckq5OvwfdtLGi6eNQ2', 'hmjtiundiksha@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1268889823, 1602384849, 1, 'Admin', '1815091037', 46, '081915656865'),
 (22, '127.0.0.1', NULL, '$2y$10$g/F9rFfU0BI6v592ioVx1u7Mu8DzSrRdSotsIguNj8fPneI9lki4m', 'irfan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601478582, 1601478918, 1, 'IRFAN WALHIDAYAH', '1815091002', 38, '08983197636'),
-(23, '127.0.0.1', NULL, '$2y$10$oZZGNZj4iE8g53ONFgRFIe4LVgMBa/egnW3h49VEeWhsEZaSRptQK', 'budi.setiawan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601478638, 1601478958, 1, 'Sub Bidang Jurnalistik', '1815051083', 40, '081339289008'),
-(24, '127.0.0.1', NULL, '$2y$10$iVqV8Sshmj6omakzzMU.Iu06yCCfsBFZUNT/JCM3dDaKFugs4GzC6', 'riyan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601992246, NULL, 1, 'I Gede Riyan Ardi Darmawan', '1815091037', 44, '081915656865'),
+(23, '127.0.0.1', NULL, '$2y$10$oZZGNZj4iE8g53ONFgRFIe4LVgMBa/egnW3h49VEeWhsEZaSRptQK', 'jurnalistik@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601478638, 1601478958, 1, 'Sub Bidang Jurnalistik', '1815051083', 40, '081339289008'),
+(24, '127.0.0.1', NULL, '$2y$10$DAWjFjedaWxM7yQEoLhFueum.UMmxHelnKxrFvFzncohmqe.y/v1O', 'riyan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601992246, 1602043638, 1, 'I Gede Riyan Ardi Darmawan', '1815091037', 38, '081915656865'),
 (25, '127.0.0.1', NULL, '$2y$10$SJfWbTDGZKBYEp5WI1.Dde1DAoq/46Ps9djX7LRe8OMvSnaCf8qtS', 'willy@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601992447, NULL, 1, 'Willy Yogantara Sidhi', '1815091063', 43, '087853652474'),
 (26, '127.0.0.1', NULL, '$2y$10$t90cFNvkVrmnqhWHMSuj7OrSy6Q97DE7l2yXXVu7H3gwX9xGwZ7EC', 'primadwi84@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601992497, NULL, 1, 'Dwi Prima Handayani Putri', '1915101012', 45, '081246342145'),
 (27, '127.0.0.1', NULL, '$2y$10$Ei8Psz3K2AemekBhdei7cuaDT5Dwcldb47DrmfVqAnkycLjpE7b1e', 'komangdianary23@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601994775, NULL, 1, 'Komang Dian Ary Kristiadi', '1815051040', 45, '081339320140'),
@@ -704,7 +753,22 @@ INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activ
 (29, '127.0.0.1', NULL, '$2y$10$GgBXaa793c8eXSCroLAoZeWI2l03E53j8SjmhEzfXZy07Ooj9MDvS', 'zasyasatya@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601994963, NULL, 1, 'Putu Zasya Eka Satya Nugraha', '1915051024', 39, '081238824262'),
 (30, '127.0.0.1', NULL, '$2y$10$HcFAFtNne78jsu.cy78Ix.yqZb2z6pnv3b2oB4cjwPI4ojcUMrCbq', 'anisamarta17@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601995022, NULL, 1, 'Ni Putu Anisa Marta Widyasari', '1915091024', 45, '081235170840'),
 (31, '127.0.0.1', NULL, '$2y$10$EcWpGLCa908k7FfAihqe2.Q3vjZtx7.UfIq4vL7zhhUiOuQ7pE0Wm', 'rifki@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601995120, NULL, 1, 'Rifki Nur Fauzi', '1815091048', 42, '08980138994'),
-(32, '127.0.0.1', NULL, '$2y$10$.PbI5DpKftREFzSKRj/zjOrlwLx.LeTueNni.he7fAKUeVxgQpKOK', 'erik@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601995159, NULL, 1, 'Putu Erik Hendrawan', '1815051052', 41, '08980244454');
+(32, '127.0.0.1', NULL, '$2y$10$.PbI5DpKftREFzSKRj/zjOrlwLx.LeTueNni.he7fAKUeVxgQpKOK', 'erik@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601995159, NULL, 1, 'Putu Erik Hendrawan', '1815051052', 41, '08980244454'),
+(33, '127.0.0.1', NULL, '$2y$10$rnOqYpYSj4AU8xCCeFPRhe2Mld/.52Y.1SXBHIOmL/84Ls.TATEMS', 'bagus.alviantara@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602045314, NULL, 1, 'I Made Bagus Alviantara', '1915091037', 45, '082236608104'),
+(34, '127.0.0.1', NULL, '$2y$10$OKhDauuCVTkRkLvhykaMJuQWlz7d3Uya40SuoDhszirGWuqcBDsd.', 'beny.indrawan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602045362, NULL, 1, 'Gede Beny Indrawan', '1915101002', 45, '087761750517'),
+(35, '127.0.0.1', NULL, '$2y$10$HSg8e7NjHVjaqXtWINX8WOLIQQBYhwgWORvjbtVyzDZvsuHMc6URG', 'ega@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602045445, NULL, 1, 'I Putu Ega Suwidi Darma', '1805021012', 45, '08523774442'),
+(36, '127.0.0.1', NULL, '$2y$10$bDcwWvWvkxwGuXCTKC7hjuQSRUFGIKRCtc2LwdOW5OlKqBq1C9M.K', 'dwiki.anggara49@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602045499, NULL, 1, 'I Made Dwiki Pasek Anggara', '1815051078', 45, '089606254400'),
+(37, '127.0.0.1', NULL, '$2y$10$.ISk6Z2/vVlDvRqoKvGPfe3LLpeeED5zrbY.9LACI53vAqCSNXTby', 'nova.wirya@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046090, NULL, 1, 'Ketut Nova Wirya Dinata', '1800000000', 51, '082237653029'),
+(38, '127.0.0.1', NULL, '$2y$10$ntr/XNk9E6/V9jGwmoCP0eFwwxwSha5w200bPGIICXyabpndXYSfG', 'triarta.art@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046177, NULL, 1, 'I Nyoman Triarta', '1800000000', 52, '085967153944'),
+(39, '127.0.0.1', NULL, '$2y$10$hnkNoIsALHwhshUA5VvKNeRiDqSH3UE.DmqRzsgnWVyP0UIKXYAvK', 'tesdyanakelin2001@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046222, NULL, 1, 'Ni Luh Putu Tesdyana Kelin', '1800000000', 54, '083112292535'),
+(40, '127.0.0.1', NULL, '$2y$10$jQSWofC./CC0HgK0UOQaEOcFWiI7oBXhc1Pppxx9EGUwh3UkOrdyC', 'dwitasri123@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046268, NULL, 1, 'Ni Kadek Dwita Sri Wahyuni', '1800000000', 53, '081238758402'),
+(41, '127.0.0.1', NULL, '$2y$10$9pgfC03xonKPowlGhhK8Z.vETzBoj/kwRemCr3Gkv/dC5z.ITk/j6', 'subiksaketutgede2000@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046316, NULL, 1, 'Ketut Gede Subiksa', '1800000000', 55, '081917021065'),
+(42, '127.0.0.1', NULL, '$2y$10$aSNT2v3409GRypo8dD.VG.H.j1/QDHvmjq8KNXKgYN8ErYtlpsdAC', 'utaridp145@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046355, NULL, 1, 'Kadek Utari Darma Putri', '1800000000', 48, '085739637185'),
+(43, '127.0.0.1', NULL, '$2y$10$3oDM160Ru.5mXwslBRyDYu5SJsvw10hIw3063RrtasdW4T3AX5E/K', 'pramayasa@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046397, NULL, 1, 'Komang Pramayasa', '1800000000', 49, '083114682628'),
+(44, '127.0.0.1', NULL, '$2y$10$wLvn9ew6Z25WNfBvTsBtWuHMogDn0BkHUqdTQlyeMvmM.ydEMiWPS', 'vinavelina.id13@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046432, NULL, 1, 'Vina Velina', '1915051080', 56, '081805783010'),
+(45, '127.0.0.1', NULL, '$2y$10$ehzkweiD3gGvYwfl3OuXhe761aHK8pcp44PpNOwtPuAhkhs9xpD/6', 'mitta20177@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046515, NULL, 1, 'Ni Made Ayu Mita Kusumadewi', '1800000000', 47, '082146115112'),
+(46, '127.0.0.1', NULL, '$2y$10$RgXSbNSQlUrpdPOOIGin.eRQIyWR8ek1Il1hjfg4V4mUM2hYMs/.W', 'dius@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046561, NULL, 1, 'I Made Dius Wahyu Aditya', '1800000000', 39, '081239962713'),
+(47, '127.0.0.1', NULL, '$2y$10$Ku1suPcVsdwsKcny5jbjTevtQfuYGcHoYLQlprkhU3YcGSqQLAggC', 'budi.setiawan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046995, NULL, 1, 'Gede Budi Setiawan', '1815051083', 50, '081339289008');
 
 -- --------------------------------------------------------
 
@@ -724,17 +788,32 @@ CREATE TABLE `users_groups` (
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (24, 1, 1),
-(36, 22, 2),
+(71, 22, 5),
 (48, 23, 2),
-(45, 24, 1),
+(84, 24, 5),
 (39, 25, 2),
 (40, 26, 2),
 (41, 27, 2),
 (42, 28, 2),
-(43, 29, 2),
+(73, 29, 5),
 (44, 30, 2),
 (46, 31, 2),
-(47, 32, 2);
+(47, 32, 2),
+(55, 33, 2),
+(56, 34, 2),
+(57, 35, 2),
+(58, 36, 2),
+(61, 37, 4),
+(82, 38, 4),
+(74, 39, 4),
+(75, 40, 4),
+(76, 41, 4),
+(77, 42, 4),
+(78, 43, 4),
+(79, 44, 4),
+(80, 45, 4),
+(81, 46, 5),
+(85, 47, 4);
 
 --
 -- Indexes for dumped tables
@@ -941,7 +1020,7 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
-  MODIFY `id_pilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_pilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `links`
@@ -953,7 +1032,7 @@ ALTER TABLE `links`
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `s1_detail_hmj`
@@ -1019,43 +1098,43 @@ ALTER TABLE `s2_peminjaman`
 -- AUTO_INCREMENT for table `s3_berita_integer`
 --
 ALTER TABLE `s3_berita_integer`
-  MODIFY `id_berita_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_berita_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `s3_detail_hari_integer`
 --
 ALTER TABLE `s3_detail_hari_integer`
-  MODIFY `id_detail_hari_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_detail_hari_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `s3_hari_integer`
 --
 ALTER TABLE `s3_hari_integer`
-  MODIFY `id_hari_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_hari_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `s3_integer`
 --
 ALTER TABLE `s3_integer`
-  MODIFY `id_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `s3_kategori_lomba_integer`
 --
 ALTER TABLE `s3_kategori_lomba_integer`
-  MODIFY `id_kategori_lomba_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kategori_lomba_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `s3_lomba_integer`
 --
 ALTER TABLE `s3_lomba_integer`
-  MODIFY `id_lomba_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_lomba_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `s3_sponsor_integer`
 --
 ALTER TABLE `s3_sponsor_integer`
-  MODIFY `id_sponsor_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_sponsor_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `s4_informasi_umum`
@@ -1067,13 +1146,13 @@ ALTER TABLE `s4_informasi_umum`
 -- AUTO_INCREMENT for table `s4_kegiatan`
 --
 ALTER TABLE `s4_kegiatan`
-  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `s4_pilihan`
 --
 ALTER TABLE `s4_pilihan`
-  MODIFY `id_pilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_pilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `s4_wawancara`
@@ -1085,13 +1164,13 @@ ALTER TABLE `s4_wawancara`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- Constraints for dumped tables

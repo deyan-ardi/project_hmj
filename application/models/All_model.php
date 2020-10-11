@@ -181,6 +181,7 @@ class All_model extends CI_Model
 		$this->db->from('s3_detail_hari_integer');
 		$this->db->JOIN('s3_hari_integer', 's3_hari_integer.id_hari_integer = s3_detail_hari_integer.id_hari_integer');
 		$this->db->JOIN('s3_integer', 's3_hari_integer.id_integer = s3_integer.id_integer');
+		$this->db->order_by('s3_detail_hari_integer.waktu_mulai', 'ASC');
 		$this->db->WHERE('s3_integer.status_integer= "1"');
 		return $this->db->get()->result_array();
 	}
@@ -190,6 +191,7 @@ class All_model extends CI_Model
 		$this->db->from('s3_detail_hari_integer');
 		$this->db->JOIN('s3_hari_integer', 's3_hari_integer.id_hari_integer = s3_detail_hari_integer.id_hari_integer');
 		$this->db->JOIN('s3_integer', 's3_hari_integer.id_integer = s3_integer.id_integer');
+		$this->db->order_by('s3_detail_hari_integer.waktu_mulai', 'ASC');
 		$this->db->WHERE('s3_integer.status_integer= "1"');
 		$this->db->WHERE('s3_detail_hari_integer.id_hari_integer= ' . $data);
 		return $this->db->get()->result_array();
