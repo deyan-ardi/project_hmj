@@ -110,7 +110,7 @@ class Integer extends CI_Controller
 				// FOTO
 				if (($_FILES["foto"]['error'] == 0)) {
 					$id_foto = "foto";
-					$tujuan = "integer/foto";
+					$tujuan = "integer_website/foto";
 					$upload = $this->All_model->uploadFile($id_foto, $id_file, $tujuan);
 					if ($upload['result'] == "success") {
 						$foto = $upload['foto']['file_name'];
@@ -123,7 +123,7 @@ class Integer extends CI_Controller
 				// VIDEO
 				if (($_FILES["video"]['error'] == 0)) {
 					$id_video = "video";
-					$tujuan = "integer/video";
+					$tujuan = "integer_website/video";
 					$upload = $this->All_model->uploadFile($id_video, $id_file, $tujuan);
 					if ($upload['result'] == "success") {
 						$video = $upload['video']['file_name'];
@@ -207,7 +207,7 @@ class Integer extends CI_Controller
 				// SPONSOR
 				if (($_FILES["sponsor"]['error'] == 0)) {
 					$id_sponsor = "sponsor";
-					$tujuan = "integer/sponsor";
+					$tujuan = "integer_website/sponsor";
 					$upload = $this->All_model->uploadFile($id_sponsor, $id_file, $tujuan);
 					if ($upload['result'] == "success") {
 						$sponsor = $upload['sponsor']['file_name'];
@@ -414,7 +414,7 @@ class Integer extends CI_Controller
 				// ICON KATEGORI LOMBA
 				if (($_FILES["icon_kategori"]['error'] == 0)) {
 					$id_icon_kategori = "icon_kategori";
-					$tujuan = "integer/icon_kategori";
+					$tujuan = "integer_website/icon_kategori";
 					$upload = $this->All_model->uploadFile($id_icon_kategori, $id_file, $tujuan);
 					if ($upload['result'] == "success") {
 						$icon_kategori = $upload['icon_kategori']['file_name'];
@@ -485,7 +485,7 @@ class Integer extends CI_Controller
 				// ICON LOMBA
 				if (($_FILES["icon_lomba"]['error'] == 0)) {
 					$id_icon_lomba = "icon_lomba";
-					$tujuan = "integer/icon_lomba";
+					$tujuan = "integer_website/icon_lomba";
 					$upload = $this->All_model->uploadFile($id_icon_lomba, $id_file, $tujuan);
 					if ($upload['result'] == "success") {
 						$icon_lomba = $upload['icon_lomba']['file_name'];
@@ -559,7 +559,7 @@ class Integer extends CI_Controller
 				if (($_FILES["icon_lomba"]['error'] == 0)) {
 					if ($this->All_model->deleteFotoIconInteger($_POST['file_old'])) {
 						$id_icon_lomba = "icon_lomba";
-						$tujuan = "integer/icon_lomba";
+						$tujuan = "integer_website/icon_lomba";
 						$upload = $this->All_model->uploadFile($id_icon_lomba, $id_file, $tujuan);
 						if ($upload['result'] == "success") {
 							$icon_lomba = $upload['icon_lomba']['file_name'];
@@ -636,7 +636,7 @@ class Integer extends CI_Controller
 				// FOTO1
 				if (($_FILES["foto_1"]['error'] == 0)) {
 					$id_foto_1 = "foto_1";
-					$tujuan = "integer/berita/foto";
+					$tujuan = "integer_website/berita/foto";
 					$upload = $this->All_model->uploadFile($id_foto_1, $id_file, $tujuan);
 					if ($upload['result'] == "success") {
 						$foto_1 = $upload['foto_1']['file_name'];
@@ -648,7 +648,7 @@ class Integer extends CI_Controller
 				// FOTO2
 				if (($_FILES["foto_2"]['error'] == 0)) {
 					$id_foto_2 = "foto_2";
-					$tujuan = "integer/berita/foto";
+					$tujuan = "integer_website/berita/foto";
 					$upload = $this->All_model->uploadFile($id_foto_2, $id_file, $tujuan);
 					if ($upload['result'] == "success") {
 						$foto_2 = $upload['foto_2']['file_name'];
@@ -660,7 +660,7 @@ class Integer extends CI_Controller
 				// FOTO3
 				if (($_FILES["foto_3"]['error'] == 0)) {
 					$id_foto_3 = "foto_3";
-					$tujuan = "integer/berita/foto";
+					$tujuan = "integer_website/berita/foto";
 					$upload = $this->All_model->uploadFile($id_foto_3, $id_file, $tujuan);
 					if ($upload['result'] == "success") {
 						$foto_3 = $upload['foto_3']['file_name'];
@@ -672,7 +672,7 @@ class Integer extends CI_Controller
 				// PDF
 				if (($_FILES["file"]['error'] == 0)) {
 					$id_file_1 = "file";
-					$tujuan = "integer/berita/file";
+					$tujuan = "integer_website/berita/file";
 					$upload = $this->All_model->uploadFile($id_file_1, $id_file, $tujuan);
 					if ($upload['result'] == "success") {
 						$file = $upload['file']['file_name'];
@@ -720,7 +720,7 @@ class Integer extends CI_Controller
 	public function download_file_informasi_integer($nama  = '', $kode = '')
 	{
 		if ($kode == "pakekpengaman") {
-			$tujuan_donlot = '' . FCPATH . 'assets/upload/Folder_integer/berita/file/' . $nama . '';
+			$tujuan_donlot = '' . FCPATH . 'assets/upload/Folder_integer_website/berita/file/' . $nama . '';
 			force_download($tujuan_donlot, NULL);
 		} else {
 			redirect("notfound/index");

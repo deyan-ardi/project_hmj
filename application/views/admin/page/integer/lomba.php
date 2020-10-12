@@ -43,7 +43,7 @@
                                  <?php foreach ($kategori_lomba as $data) : ?>
                                  <tr>
                                      <td style="text-align: center;"> <img
-                                             src="<?= base_url() ?>assets/upload/Folder_integer/icon_kategori/<?= $data['icon_kategori_lomba_integer']; ?>"
+                                             src="<?= base_url() ?>assets/upload/Folder_integer_website/icon_kategori/<?= $data['icon_kategori_lomba_integer']; ?>"
                                              alt="" width="50px"></td>
                                      <td><?= $data['nama_kategori_lomba_integer']; ?></td>
                                      <td><?= $data['deskripsi_kategori_lomba_integer']; ?></td>
@@ -98,7 +98,7 @@
                                  <?php foreach ($lomba as $data) : ?>
                                  <tr>
                                      <td><?= $data['nama_kategori_lomba_integer']; ?></td>
-                                     <td><img src="<?= base_url() ?>assets/upload/Folder_integer/icon_lomba/<?= $data['icon_lomba_integer']; ?>"
+                                     <td><img src="<?= base_url() ?>assets/upload/Folder_integer_website/icon_lomba/<?= $data['icon_lomba_integer']; ?>"
                                              alt="" width="50px"></td>
                                      <td><?= $data['nama_lomba_integer']; ?></td>
                                      <td><?= $data['deskripsi_lomba_integer']; ?></td>

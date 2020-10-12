@@ -27,7 +27,7 @@
                 <div class="single-blog res-margin">
                     <!-- Blog Thumb -->
                     <div class="blog-thumb">
-                        <img src="<?= base_url() ?>assets/upload/Folder_integer/berita/foto/<?= $data['foto1_berita_integer'] ?>"
+                        <img src="<?= base_url() ?>assets/upload/Folder_integer_website/berita/foto/<?= $data['foto1_berita_integer'] ?>"
                             alt="">
                     </div>
                     <!-- Blog Content -->

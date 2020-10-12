@@ -2,7 +2,8 @@
 <section id="intro">
     <div id="intro-video" class="row justify-content-center">
         <video autoplay disablePictureInPicture muted loop>
-            <source src="<?= base_url() ?>assets/upload/Folder_integer/video/<?= $kegiatan[0]['video_integer'] ?>"
+            <source
+                src="<?= base_url() ?>assets/upload/Folder_integer_website/video/<?= $kegiatan[0]['video_integer'] ?>"
                 type="video/mp4">
         </video>
     </div>
@@ -11,7 +12,7 @@
             <h1 id="getAnimate" data-first="HMJ TI UNDIKSHA" data-sec="PROUDLY PRESENT">
             </h1>
             <div id="titleInteger" class="d-none">
-                <!-- <img src="<?= base_url() ?>assets/upload/Folder_integer/foto/<?= $kegiatan[0]['logo_integer'] ?>"> -->
+                <!-- <img src="<?= base_url() ?>assets/upload/Folder_integer_website/foto/<?= $kegiatan[0]['logo_integer'] ?>"> -->
                 <h1><?= strtoupper($kegiatan[0]['nama_integer']) ?></h1>
             </div>
 
@@ -147,7 +148,7 @@ foreach ($kategori as $data) {
             <div class="col-12 col-lg-6 order-1 order-lg-1">
                 <!-- Discover Thumb -->
                 <div class="service-thumb discover-thumb mx-auto text-center wow fadeInLeft">
-                    <img src="<?= base_url() ?>assets/upload/Folder_integer/icon_kategori/<?= $data['icon_kategori_lomba_integer'] ?>"
+                    <img src="<?= base_url() ?>assets/upload/Folder_integer_website/icon_kategori/<?= $data['icon_kategori_lomba_integer'] ?>"
                         alt="">
                 </div>
             </div>
@@ -189,7 +190,7 @@ foreach ($kategori as $data) {
             <div class="col-12 col-lg-6 order-1 order-lg-2">
                 <!-- Discover Thumb -->
                 <div class="service-thumb discover-thumb mx-auto text-center wow fadeInRight">
-                    <img src="<?= base_url() ?>assets/upload/Folder_integer/icon_kategori/<?= $data['icon_kategori_lomba_integer'] ?>"
+                    <img src="<?= base_url() ?>assets/upload/Folder_integer_website/icon_kategori/<?= $data['icon_kategori_lomba_integer'] ?>"
                         alt="">
                 </div>
             </div>
@@ -395,7 +396,7 @@ foreach ($kategori as $data) {
                 <!-- Single Brand -->
                 <?php foreach ($sponsor as $data) { ?>
                 <div class="single-brand p-3 d-flex justify-content-center align-items-center">
-                    <img src="<?= base_url() ?>assets/upload/Folder_integer/sponsor/<?= $data['foto_sponsor_integer'] ?>"
+                    <img src="<?= base_url() ?>assets/upload/Folder_integer_website/sponsor/<?= $data['foto_sponsor_integer'] ?>"
                         style="height: 5rem;" alt="">
                 </div>
                 <?php } ?>

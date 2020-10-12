@@ -34,7 +34,7 @@
                 <div class="single-blog res-margin">
                     <!-- Blog Thumb -->
                     <div class="blog-thumb t-cards">
-                        <img src="<?= base_url() ?>assets/upload/Folder_integer/icon_lomba/<?= $data['icon_lomba_integer'] ?>"
+                        <img src="<?= base_url() ?>assets/upload/Folder_integer_website/icon_lomba/<?= $data['icon_lomba_integer'] ?>"
                             alt="">
                     </div>
                     <!-- Blog Content -->
@@ -62,7 +62,7 @@
                         <!-- CEK WAKTU PENDAFTARAN -->
                         <?php if (date('Y-m-d H:i:s') < $data['waktu_mulai_pendaftaran']) { ?>
                         <!-- CEK JIKA KURANG DARI WAKTU PENDAFTARAN -->
-                        <a href="<?= base_url() ?>integer/kabar_integer" class="btn btn-primary mt-3">Tahap
+                        <a href="#" data-toggle="modal" data-target="#devModal" class="btn btn-primary mt-3">Tahap
                             Pendaftaran</a>
                     </div>
                     <div class="reviewer media bg-gray p-4">
@@ -74,7 +74,8 @@
                         </div>
                     </div>
                     <?php } else if (date('Y-m-d H:i:s') > $data['waktu_akhir_pendaftaran'] && date('Y-m-d H:i:s') < $data['waktu_awal_pengumpulan']) { ?>
-                    <a href="#" class="btn btn-primary mt-3">Pengumpulan Proposal</a>
+                    <a href="#" data-toggle="modal" data-target="#karyaModal" class="btn btn-primary mt-3">Pengumpulan
+                        Karya</a>
                 </div>
                 <div class="reviewer media bg-gray p-4">
                     <!-- Reviewer Thumb -->
@@ -113,12 +114,12 @@
         </div>
 
         <?php } else { ?>
-        <a href="<?= base_url() ?>integer/kabar_integer" class="btn btn-primary mt-3">Tahap Pengumuman</a>
+        <a href="#" data-toggle="modal" data-target="#pengumumanModal" class="btn btn-primary mt-3">Tahap Penyisihan</a>
     </div>
     <div class="reviewer media bg-gray p-4">
         <!-- Reviewer Thumb -->
         <div class="reviewer-meta media-body text-center ml-4">
-            <h6 class="text-secondary fw-6">Pengumpulan Telah Berakhir</h6>
+            <h6 class="text-secondary fw-6">Pengumpulan Karya Telah Berakhir</h6>
         </div>
     </div>
 
@@ -126,7 +127,7 @@
                             } else { ?>
     <?php if (date('Y-m-d H:i:s') < $data['waktu_mulai_pendaftaran']) { ?>
 
-    <a href="<?= base_url() ?>integer/kabar_integer" class="btn btn-primary mt-3">Tahap Pendaftaran</a>
+    <a href="#" data-toggle="modal" data-target="#devModal" class="btn btn-primary mt-3">Tahap Pendaftaran</a>
     </div>
     <div class="reviewer media bg-gray p-4">
         <!-- Reviewer Thumb -->
@@ -150,7 +151,7 @@
         </div>
     </div>
     <?php } else { ?>
-    <a href="<?= base_url() ?>integer/kabar_integer" class="btn btn-primary mt-3">Tahap Penyisihan</a>
+    <a href="#" data-toggle="modal" data-target="#akhirModal" class="btn btn-primary mt-3">Tahap Penyisihan</a>
     </div>
     <div class="reviewer media bg-gray p-4">
         <!-- Reviewer Thumb -->
@@ -174,3 +175,100 @@
 <!--====== Height Emulator Area Start ======-->
 <div class="height-emulator d-none d-lg-block"></div>
 <!--====== Height Emulator Area End ======-->
+
+<!--====== Modal Developer Area Start ======-->
+<div class="modal fade" id="devModal" tabindex="-1" role="dialog" aria-labelledby="devModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="devModalLabel">Pemberitahuan</h4>
+            </div>
+            <div class="modal-body" style="text-align: justify;">
+                <p>Tahap pendaftaran lomba belum dimulai, silahkan unduh buku panduan lomba serangkaian kegiatan
+                    <?= strtoupper($kegiatan[0]['nama_integer']) ?> pada laman <a
+                        href="<?= base_url() ?>integer/kabar_integer"><span class="text-primary">Kabar
+                            Integer</span></a> guna mempermudah Anda dalam mempersiapkan keperluan berkas pendaftaran
+                    dan
+                    mekanisme perlombaan nantinya. Untuk informasi lebih lanjut dapat menghubungi akun instagram HMJ TI
+                    Undiksha ( <span class="text-primary">@hmj_ti.undiksha</span> ) </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Kembali</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="karyaModal" tabindex="-1" role="dialog" aria-labelledby="karyaModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="karyaModalLabel">Pemberitahuan</h4>
+            </div>
+            <div class="modal-body" style="text-align: justify;">
+                <p>Tahap pengumpulan karya belum dimulai, silahkan unduh buku panduan lomba serangkaian kegiatan
+                    <?= strtoupper($kegiatan[0]['nama_integer']) ?> pada laman <a
+                        href="<?= base_url() ?>integer/kabar_integer"><span class="text-primary">Kabar
+                            Integer</span></a> guna mempermudah Anda dalam mempersiapkan keperluan pada pengumpulan
+                    karya
+                    dan
+                    mekanisme perlombaan nantinya. Setiap perlombaan memiliki mekanisme yang berbeda, silahkan baca
+                    baik-baik buku panduan yang diberikan.Untuk informasi lebih lanjut dapat menghubungi akun instagram
+                    HMJ TI
+                    Undiksha ( <span class="text-primary">@hmj_ti.undiksha</span> )</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Kembali</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="pengumumanModal" tabindex="-1" role="dialog" aria-labelledby="pengumumanModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="pengumumanModalLabel">Pemberitahuan</h4>
+            </div>
+            <div class="modal-body" style="text-align: justify;">
+                <p>Tahap pengumpulan karya sudah berakhir, pengumuman peserta yang lolos ke babak final akan diumumkan
+                    melalui laman <a href="<?= base_url() ?>integer/kabar_integer"><span class="text-primary">Kabar
+                            Integer</span></a> pada tanggal yang sudah ditentukan. Untuk informasi lebih lanjut dapat
+                    menghubungi akun instagram
+                    HMJ TI
+                    Undiksha ( <span class="text-primary">@hmj_ti.undiksha</span> )</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Kembali</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="akhirModal" tabindex="-1" role="dialog" aria-labelledby="akhirModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="akhirModalLabel">Pemberitahuan</h4>
+            </div>
+            <div class="modal-body" style="text-align: justify;">
+                <p>Lomba yang anda pilih tidak memerlukan pengumpulan karya, selamat berlomba kami ucapkan. Untuk
+                    mengikuti perkembangan terkait lomba serangkaian kegiatan
+                    <?= strtoupper($kegiatan[0]['nama_integer']) ?>, dapat diakses pada laman <a
+                        href="<?= base_url() ?>integer/kabar_integer"><span class="text-primary">Kabar
+                            Integer</span></a> . Informasi dan Pertanyaan lebih
+                    lanjut dapat
+                    menghubungi akun instagram
+                    HMJ TI
+                    Undiksha ( <span class="text-primary">@hmj_ti.undiksha</span> )</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Kembali</button>
+            </div>
+        </div>
+    </div>
+</div>

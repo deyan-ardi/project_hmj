@@ -38,18 +38,18 @@
                                     </div>
                                     <?php } ?>
                                     <div class="carousel-item active" data-interval="2000" data-touch="true">
-                                        <img src="<?= base_url() ?>assets/upload/Folder_integer/berita/foto/<?= $detail[0]['foto1_berita_integer']; ?>"
+                                        <img src="<?= base_url() ?>assets/upload/Folder_integer_website/berita/foto/<?= $detail[0]['foto1_berita_integer']; ?>"
                                             class="d-block w-100" alt="">
                                     </div>
                                     <?php if (!empty($detail[0]['foto2_berita_integer'])) { ?>
                                     <div class="carousel-item" data-touch="true">
-                                        <img src="<?= base_url() ?>assets/upload/Folder_integer/berita/foto/<?= $detail[0]['foto2_berita_integer']; ?>"
+                                        <img src="<?= base_url() ?>assets/upload/Folder_integer_website/berita/foto/<?= $detail[0]['foto2_berita_integer']; ?>"
                                             class="d-block w-100" alt="">
                                     </div>
                                     <?php } ?>
                                     <?php if (!empty($detail[0]['foto3_berita_integer'])) { ?>
                                     <div class="carousel-item" data-touch="true">
-                                        <img src="<?= base_url() ?>assets/upload/Folder_integer/berita/foto/<?= $detail[0]['foto3_berita_integer']; ?>"
+                                        <img src="<?= base_url() ?>assets/upload/Folder_integer_website/berita/foto/<?= $detail[0]['foto3_berita_integer']; ?>"
                                             class="d-block w-100" alt="">
                                     </div>
                                     <?php } ?>
@@ -80,20 +80,20 @@
                                     </li>
                                     <li class="d-inline-block p-2">Diupload oleh <?= $detail[0]['create_by'] ?></li>
                                     <li class="d-inline-block p-2"><?php
-                                                    $daftar_hari = array(
-                                                      'Sunday' => 'Minggu',
-                                                      'Monday' => 'Senin',
-                                                      'Tuesday' => 'Selasa',
-                                                      'Wednesday' => 'Rabu',
-                                                      'Thursday' => 'Kamis',
-                                                      'Friday' => 'Jumat',
-                                                      'Saturday' => 'Sabtu'
-                                                    );
-                                                    $data_tanggal =  $detail[0]['create_at'];
-                                                    $hari = date('l', strtotime($data_tanggal));
-                                                    $tanggal = date('d M Y', strtotime($data_tanggal));
-                                                    echo $daftar_hari[$hari] . ", " . $tanggal;
-                                                    ?>
+                                                                    $daftar_hari = array(
+                                                                        'Sunday' => 'Minggu',
+                                                                        'Monday' => 'Senin',
+                                                                        'Tuesday' => 'Selasa',
+                                                                        'Wednesday' => 'Rabu',
+                                                                        'Thursday' => 'Kamis',
+                                                                        'Friday' => 'Jumat',
+                                                                        'Saturday' => 'Sabtu'
+                                                                    );
+                                                                    $data_tanggal =  $detail[0]['create_at'];
+                                                                    $hari = date('l', strtotime($data_tanggal));
+                                                                    $tanggal = date('d M Y', strtotime($data_tanggal));
+                                                                    echo $daftar_hari[$hari] . ", " . $tanggal;
+                                                                    ?>
                                     </li>
                                     <?php if (!empty($detail[0]['file_berita_integer'])) { ?>
                                     <li class="d-inline-block p-2"><a
@@ -135,7 +135,7 @@
                                                     <!-- Post Thumb -->
                                                     <div class="post-thumb avatar-md">
                                                         <img class="align-self-center"
-                                                            src="<?= base_url() ?>assets/upload/Folder_integer/berita/foto/<?= $data['foto1_berita_integer']; ?>"
+                                                            src="<?= base_url() ?>assets/upload/Folder_integer_website/berita/foto/<?= $data['foto1_berita_integer']; ?>"
                                                             alt="">
                                                     </div>
                                                     <div class="post-content media-body pl-3">
@@ -147,20 +147,20 @@
                                                             <?php } ?>
                                                         </p>
                                                         <p class="post-date mb-2"><?php
-                                                          $daftar_hari = array(
-                                                            'Sunday' => 'Minggu',
-                                                            'Monday' => 'Senin',
-                                                            'Tuesday' => 'Selasa',
-                                                            'Wednesday' => 'Rabu',
-                                                            'Thursday' => 'Kamis',
-                                                            'Friday' => 'Jumat',
-                                                            'Saturday' => 'Sabtu'
-                                                          );
-                                                          $data_tanggal =  $data['create_at'];
-                                                          $hari = date('l', strtotime($data_tanggal));
-                                                          $tanggal = date('d M Y', strtotime($data_tanggal));
-                                                          echo $daftar_hari[$hari] . ", " . $tanggal;
-                                                          ?></p>
+                                                                                        $daftar_hari = array(
+                                                                                            'Sunday' => 'Minggu',
+                                                                                            'Monday' => 'Senin',
+                                                                                            'Tuesday' => 'Selasa',
+                                                                                            'Wednesday' => 'Rabu',
+                                                                                            'Thursday' => 'Kamis',
+                                                                                            'Friday' => 'Jumat',
+                                                                                            'Saturday' => 'Sabtu'
+                                                                                        );
+                                                                                        $data_tanggal =  $data['create_at'];
+                                                                                        $hari = date('l', strtotime($data_tanggal));
+                                                                                        $tanggal = date('d M Y', strtotime($data_tanggal));
+                                                                                        echo $daftar_hari[$hari] . ", " . $tanggal;
+                                                                                        ?></p>
                                                         <h6><?= ucwords($data['nama_berita_integer']); ?></h6>
                                                     </div>
                                                 </a>

@@ -250,10 +250,10 @@ class All_model extends CI_Model
 	{
 		$row = $this->db->where('id_berita_integer', $id)->get('s3_berita_integer')->row();
 		if ($this->db->delete('s3_berita_integer', array('id_berita_integer' => $id))) {
-			unlink('assets/upload/Folder_integer/berita/foto/' . $row->foto1_berita_integer);
-			unlink('assets/upload/Folder_integer/berita/foto/' . $row->foto2_berita_integer);
-			unlink('assets/upload/Folder_integer/berita/foto/' . $row->foto3_berita_integer);
-			unlink('assets/upload/Folder_integer/berita/file/' . $row->file_berita_integer);
+			unlink('assets/upload/Folder_integer_website/berita/foto/' . $row->foto1_berita_integer);
+			unlink('assets/upload/Folder_integer_website/berita/foto/' . $row->foto2_berita_integer);
+			unlink('assets/upload/Folder_integer_website/berita/foto/' . $row->foto3_berita_integer);
+			unlink('assets/upload/Folder_integer_website/berita/file/' . $row->file_berita_integer);
 			return true;
 		}
 	}
@@ -263,8 +263,8 @@ class All_model extends CI_Model
 	{
 		$row = $this->db->where('id_integer', $id)->get('s3_integer')->row();
 		if ($this->db->delete('s3_integer', array('id_integer' => $id))) {
-			unlink('assets/upload/Folder_integer/video/' . $row->video_integer);
-			unlink('assets/upload/Folder_integer/foto/' . $row->logo_integer);
+			unlink('assets/upload/Folder_integer_website/video/' . $row->video_integer);
+			unlink('assets/upload/Folder_integer_website/foto/' . $row->logo_integer);
 			return true;
 		}
 	}
@@ -273,7 +273,7 @@ class All_model extends CI_Model
 		$row = $this->db->where('id_integer', $id)->get('s3_sponsor_integer')->result_array();
 		foreach ($row as $data) {
 			if (!empty($data['foto_sponsor_integer'])) {
-				unlink("assets/upload/Folder_integer/sponsor/" . $data['foto_sponsor_integer']);
+				unlink("assets/upload/Folder_integer_website/sponsor/" . $data['foto_sponsor_integer']);
 			}
 			// var_dump("SPONSOR_" . $data['foto_sponsor_integer']);
 		}
@@ -285,15 +285,15 @@ class All_model extends CI_Model
 		foreach ($row as $data) {
 			if (!empty($data['foto1_berita_integer'])) {
 				if (!empty($data['file_berita_integer'])) {
-					unlink('assets/upload/Folder_integer/berita/file/' . $data['file_berita_integer']);
+					unlink('assets/upload/Folder_integer_website/berita/file/' . $data['file_berita_integer']);
 				}
 				if (!empty($data['foto2_berita_integer'])) {
-					unlink('assets/upload/Folder_integer/berita/foto/' . $data['foto2_berita_integer']);
+					unlink('assets/upload/Folder_integer_website/berita/foto/' . $data['foto2_berita_integer']);
 				}
 				if (!empty($data['foto3_berita_integer'])) {
-					unlink('assets/upload/Folder_integer/berita/foto/' . $data['foto3_berita_integer']);
+					unlink('assets/upload/Folder_integer_website/berita/foto/' . $data['foto3_berita_integer']);
 				}
-				unlink('assets/upload/Folder_integer/berita/foto/' . $data['foto1_berita_integer']);
+				unlink('assets/upload/Folder_integer_website/berita/foto/' . $data['foto1_berita_integer']);
 				// var_dump("BERITA_" . $data['file_berita_integer']);
 			}
 		}
@@ -304,7 +304,7 @@ class All_model extends CI_Model
 		$row = $this->db->where('id_integer', $id)->get('s3_kategori_lomba_integer')->result_array();
 		foreach ($row as $data) {
 			if (!empty(['icon_kategori_lomba_integer'])) {
-				unlink('assets/upload/Folder_integer/icon_kategori/' . $data['icon_kategori_lomba_integer']);
+				unlink('assets/upload/Folder_integer_website/icon_kategori/' . $data['icon_kategori_lomba_integer']);
 			}
 			// var_dump("KATEGORI_" . $data['icon_kategori_lomba_integer']);
 		}
@@ -320,7 +320,7 @@ class All_model extends CI_Model
 		// $row = $this->db->where('id_integer', $id)->get('s3_kategori_lomba_integer')->result_array();
 		foreach ($row as $data) {
 			if (!empty($data['icon_lomba_integer'])) {
-				unlink('assets/upload/Folder_integer/icon_lomba/' . $data['icon_lomba_integer']);
+				unlink('assets/upload/Folder_integer_website/icon_lomba/' . $data['icon_lomba_integer']);
 				// var_dump("LOMBA_" . $data['icon_lomba_integer']);
 			}
 		}
@@ -345,7 +345,7 @@ class All_model extends CI_Model
 	{
 		$row = $this->db->where('id_sponsor_integer', $id)->get('s3_sponsor_integer')->row();
 		if ($this->db->delete('s3_sponsor_integer', array('id_sponsor_integer' => $id))) {
-			unlink('assets/upload/Folder_integer/sponsor/' . $row->foto_sponsor_integer);
+			unlink('assets/upload/Folder_integer_website/sponsor/' . $row->foto_sponsor_integer);
 			return true;
 		}
 	}
@@ -410,7 +410,7 @@ class All_model extends CI_Model
 	{
 		$row = $this->db->where('id_kategori_lomba_integer', $id)->get('s3_kategori_lomba_integer')->row();
 		if ($this->db->delete('s3_kategori_lomba_integer', array('id_kategori_lomba_integer' => $id))) {
-			unlink('assets/upload/Folder_integer/icon_kategori/' . $row->icon_kategori_lomba_integer);
+			unlink('assets/upload/Folder_integer_website/icon_kategori/' . $row->icon_kategori_lomba_integer);
 			return true;
 		}
 	}
@@ -457,7 +457,7 @@ class All_model extends CI_Model
 	}
 	public function deleteFotoIconInteger($nama_file)
 	{
-		unlink('assets/upload/Folder_integer/icon_lomba/' . $nama_file);
+		unlink('assets/upload/Folder_integer_website/icon_lomba/' . $nama_file);
 		return true;
 	}
 	public function getLombaIntegerWhere($id)
@@ -468,7 +468,7 @@ class All_model extends CI_Model
 	{
 		$row = $this->db->where('id_lomba_integer', $id)->get('s3_lomba_integer')->row();
 		if ($this->db->delete('s3_lomba_integer', array('id_lomba_integer' => $id))) {
-			unlink('assets/upload/Folder_integer/icon_lomba/' . $row->icon_lomba_integer);
+			unlink('assets/upload/Folder_integer_website/icon_lomba/' . $row->icon_lomba_integer);
 			return true;
 		}
 	}
