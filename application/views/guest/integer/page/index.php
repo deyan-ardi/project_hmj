@@ -12,8 +12,9 @@
             <h1 id="getAnimate" data-first="HMJ TI UNDIKSHA" data-sec="PROUDLY PRESENT">
             </h1>
             <div id="titleInteger" class="d-none">
-                <!-- <img src="<?= base_url() ?>assets/upload/Folder_integer_website/foto/<?= $kegiatan[0]['logo_integer'] ?>"> -->
-                <h1><?= strtoupper($kegiatan[0]['nama_integer']) ?></h1>
+                <img
+                    src="<?= base_url() ?>assets/upload/Folder_integer_website/foto/<?= $kegiatan[0]['logo_integer'] ?>">
+                <!-- <h1><?= strtoupper($kegiatan[0]['nama_integer']) ?></h1> -->
             </div>
 
 
