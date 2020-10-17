@@ -85,6 +85,8 @@
                                     <div id="accordion3" class="accordion-content widget-content collapse show p-3"
                                         data-parent="#post-accordion">
                                         <?= $kegiatan[0]['deskripsi'] ?>
+                                        <p style="text-align:justify">Adapun persyaratan agar dapat mengikuti
+                                            kepanitiaan ini adalah</p>
                                         <button type="button" class="btn btn-primary mt-3" data-toggle="modal"
                                             data-target="#staticBackdrop">
                                             Syarat dan ketentuan
@@ -201,7 +203,9 @@
                     <h5 class="modal-title" id="staticBackdropLabel">Syarat dan Ketentuan</h5>
                 </div>
                 <div class="modal-body">
-                    <?= $kegiatan[0]['persyaratan'] ?>
+                    <div id="list-style" class="pl-3">
+                        <?= $kegiatan[0]['persyaratan'] ?>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Mengerti</button>

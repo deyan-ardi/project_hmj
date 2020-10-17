@@ -46,11 +46,12 @@
 /* ******************************
 :: 1.0 WEB FONTS
 ****************************** */
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap');
 
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap');
 /* ******************************
 :: 2.0 IMPORT ALL CSS
 ****************************** */
+
 @import url(bootstrap.min.css);
 @import url(all.min.css);
 @import url(../font/flaticon.css);
@@ -59,10 +60,10 @@
 @import url(owl.carousel.min.css);
 @import url(slick.css);
 @import url(jquery.fancybox.min.css);
-
 /* ******************************
 :: 3.0 GLOBAL CSS
 ****************************** */
+
 * {
     margin: 0;
     padding: 0;
@@ -80,8 +81,7 @@ body {
     background: #fff;
 }
 
-section,
-.section {
+section, .section {
     position: relative;
 }
 
@@ -90,12 +90,7 @@ section,
     margin: 0 auto;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     color: #222;
     margin-bottom: 0;
@@ -144,15 +139,11 @@ a {
     transition: all 0.3s ease 0s;
 }
 
-a:hover,
-a:focus {
+a:hover, a:focus {
     color: #7c4fe0;
 }
 
-a,
-a:hover,
-a:focus,
-.btn:focus {
+a, a:hover, a:focus, .btn:focus {
     text-decoration: none;
     outline: none;
     -webkit-box-shadow: none;
@@ -164,14 +155,16 @@ a:focus,
     color: #212529;
 }
 
-ol,
-ul {
+ol, ul {
     margin: 0;
     padding: 0;
 }
 
-ol li,
-ul li {
+#list-style ol li {
+    list-style: decimal;
+}
+
+ol li, ul li {
     list-style: none;
 }
 
@@ -183,6 +176,7 @@ img {
 /* ******************************
 :: 4.0 COMMON CSS
 ****************************** */
+
 .fw-3 {
     font-weight: 300;
 }
@@ -222,9 +216,7 @@ img {
     width: 5rem;
 }
 
-.text-underlined,
-.text-underlined:hover,
-.text-underlined:focus {
+.text-underlined, .text-underlined:hover, .text-underlined:focus {
     text-decoration: underline;
 }
 
@@ -255,12 +247,12 @@ img {
     width: auto;
 }
 
-.owl-prev:focus,
-.owl-next:focus {
+.owl-prev:focus, .owl-next:focus {
     outline: none;
 }
 
 /*SECTION HEADING*/
+
 .section-heading {
     margin-bottom: 80px;
 }
@@ -285,13 +277,13 @@ img {
     transform: translateX(-50%);
 }
 
-.homepage-5 .features-area .section-heading>h2::after,
-.contact-page .contact-area .section-heading>h2::after {
+.homepage-5 .features-area .section-heading>h2::after, .contact-page .contact-area .section-heading>h2::after {
     left: 0;
     transform: inherit;
 }
 
 /*SECTION PADDING*/
+
 .pt_0 {
     padding-top: 0;
 }
@@ -313,6 +305,7 @@ img {
 }
 
 /*BUTTONS*/
+
 .btn {
     font-size: 15px;
     font-weight: 500;
@@ -327,9 +320,7 @@ img {
     z-index: 1;
 }
 
-.btn:hover,
-.btn:focus,
-.btn:active {
+.btn:hover, .btn:focus, .btn:active {
     color: #fff;
     -webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -342,8 +333,7 @@ img {
     letter-spacing: 1px;
 }
 
-.btn.sApp-btn:hover,
-.btn.sApp-btn:focus {
+.btn.sApp-btn:hover, .btn.sApp-btn:focus {
     color: #fff;
 }
 
@@ -374,8 +364,7 @@ img {
     z-index: -1;
 }
 
-.btn.sApp-btn:hover:after,
-.btn.sApp-btn:focus:after {
+.btn.sApp-btn:hover:after, .btn.sApp-btn:focus:after {
     opacity: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 }
@@ -411,6 +400,7 @@ img {
 }
 
 /*BG SHAPE*/
+
 .shapes-container {
     position: absolute;
     top: 0;
@@ -444,6 +434,7 @@ img {
 }
 
 /*SHAPE DIVIDER*/
+
 .shape-bottom {
     position: absolute;
     top: auto;
@@ -461,14 +452,13 @@ img {
 }
 
 /*BACKGROUND OVERLAY*/
-.bg-overlay,
-.overlay-dark {
+
+.bg-overlay, .overlay-dark {
     position: relative;
     z-index: 0;
 }
 
-.bg-overlay::after,
-.overlay-dark:after {
+.bg-overlay::after, .overlay-dark:after {
     position: absolute;
     content: '';
     height: 100%;
@@ -490,6 +480,7 @@ img {
 }
 
 /*BACKGROUND COLORS*/
+
 .bg-gray {
     background-color: #f6f9fe;
 }
@@ -498,15 +489,12 @@ img {
     background: inherit !important;
 }
 
-.btn,
-.btn:active,
-.btn.sApp-btn:before,
-.bg-overlay::after,
-.benifits-item:after {
+.btn, .btn:active, .btn.sApp-btn:before, .bg-overlay::after, .benifits-item:after {
     background: linear-gradient(-47deg, #8731E8 0%, #4528DC 100%);
 }
 
 /*SOCIAL ICONS*/
+
 .social-icons>a {
     margin: 5px;
     width: 45px;
@@ -549,6 +537,7 @@ img {
 }
 
 /*BACKGROUND IMAGES*/
+
 .welcome-area {
     background: rgba(0, 0, 0, 0) url("../img/bg/welcome-bg.jpg") no-repeat scroll center center / cover;
 }
@@ -616,6 +605,7 @@ img {
 /* ******************************
 :: 5.0 PRELOADER AREA CSS
 ****************************** */
+
 .preloader-main {
     position: fixed;
     height: 100%;
@@ -701,13 +691,10 @@ img {
 }
 
 @-webkit-keyframes slide {
-
-    0%,
-    100% {
+    0%, 100% {
         -webkit-transform: translateX(0px);
         transform: translateX(0px);
     }
-
     50% {
         -webkit-transform: translateX(70px);
         transform: translateX(70px);
@@ -715,13 +702,10 @@ img {
 }
 
 @keyframes slide {
-
-    0%,
-    100% {
+    0%, 100% {
         -webkit-transform: translateX(0px);
         transform: translateX(0px);
     }
-
     50% {
         -webkit-transform: translateX(70px);
         transform: translateX(70px);
@@ -731,6 +715,7 @@ img {
 /* ******************************
 :: 6.0 SCROLL TO TOP AREA CSS
 ****************************** */
+
 #scrollUp {
     position: fixed;
     right: 2%;
@@ -762,6 +747,7 @@ img {
 /* ******************************
 :: 7.0 HEADER AREA CSS
 ****************************** */
+
 .navbar {
     position: absolute;
     top: 0;
@@ -826,6 +812,7 @@ img {
 }
 
 /*NAVBAR DARK*/
+
 .navbar-dark .navbar-nav .nav-link {
     color: #fff;
 }
@@ -842,22 +829,16 @@ img {
     color: #e7eaee;
 }
 
-.navbar-dark.navbar-sticky-on .navbar-nav .nav-link:hover,
-.navbar-dark.navbar-sticky-on .navbar-nav .nav-link:focus,
-.navbar-dark.navbar-sticky-on .navbar-nav .nav-link.active,
-.navbar-dark.navbar-sticky-on .navbar-nav .nav-link.current-menu-item {
+.navbar-dark.navbar-sticky-on .navbar-nav .nav-link:hover, .navbar-dark.navbar-sticky-on .navbar-nav .nav-link:focus, .navbar-dark.navbar-sticky-on .navbar-nav .nav-link.active, .navbar-dark.navbar-sticky-on .navbar-nav .nav-link.current-menu-item {
     color: #2c2e30;
 }
 
-[data-theme=dark] .navbar-dark.navbar-sticky-on .navbar-nav .nav-link:hover,
-[data-theme=dark] .navbar-dark.navbar-sticky-on .navbar-nav .nav-link:focus,
-[data-theme=dark] .navbar-dark.navbar-sticky-on .navbar-nav .nav-link.active,
-[data-theme=dark] .navbar-dark.navbar-sticky-on .navbar-nav .nav-link.current-menu-item {
+[data-theme=dark] .navbar-dark.navbar-sticky-on .navbar-nav .nav-link:hover, [data-theme=dark] .navbar-dark.navbar-sticky-on .navbar-nav .nav-link:focus, [data-theme=dark] .navbar-dark.navbar-sticky-on .navbar-nav .nav-link.active, [data-theme=dark] .navbar-dark.navbar-sticky-on .navbar-nav .nav-link.current-menu-item {
     color: #D2D5DA;
 }
 
-
 /*---------- bootstrap nav custom hover ----------*/
+
 .dropdown-menu {
     border: 0;
     padding: 0.625rem 0;
@@ -913,8 +894,7 @@ img {
     transition: .3s;
 }
 
-.dropdown-item.active,
-.dropdown-item:active {
+.dropdown-item.active, .dropdown-item:active {
     background: #f8f9fa;
 }
 
@@ -933,6 +913,7 @@ img {
 }
 
 /*  mainmenu caret */
+
 .dropdown-toggle:after {
     margin-left: 4px;
     vertical-align: 1px;
@@ -946,6 +927,7 @@ img {
 }
 
 /*  submenu cater */
+
 .dropdown-submenu .dropdown-toggle:after {
     position: absolute;
     right: 24px;
@@ -963,6 +945,7 @@ img {
 /* ******************************
 :: 8.0 WELCOME AREA CSS
 ****************************** */
+
 .welcome-area {
     height: 800px;
     z-index: 1;
@@ -977,7 +960,6 @@ img {
     .download-page .welcome-intro>h1 {
         font-size: 3.8em;
     }
-
     .download-page .welcome-intro p {
         font-size: 16px;
     }
@@ -1028,7 +1010,6 @@ img {
         transform: scale(1);
         opacity: 1;
     }
-
     to {
         -webkit-transform: scale(1.5);
         transform: scale(1.5);
@@ -1042,7 +1023,6 @@ img {
         transform: scale(1);
         opacity: 1;
     }
-
     to {
         -webkit-transform: scale(1.5);
         transform: scale(1.5);
@@ -1071,6 +1051,7 @@ img {
 /* ***********************************
 :: 8.1 WELCOME AREA HOMEPAGE-3 CSS
 **************************************/
+
 @media (min-width: 992px) {
     .homepage-2 .welcome-thumb {
         max-width: 400px;
@@ -1106,6 +1087,7 @@ img {
 /* ***********************************
 :: 8.2 WELCOME AREA HOMEPAGE-4 CSS
 **************************************/
+
 .homepage-4 .welcome-thumb {
     max-width: 100%;
 }
@@ -1120,11 +1102,9 @@ img {
     0% {
         top: 0px;
     }
-
     50% {
         top: 25px;
     }
-
     100% {
         top: 0px;
     }
@@ -1134,11 +1114,9 @@ img {
     0% {
         top: 0px;
     }
-
     50% {
         top: 25px;
     }
-
     100% {
         top: 0px;
     }
@@ -1147,6 +1125,7 @@ img {
 /* ***********************************
 :: 8.3 WELCOME AREA HOMEPAGE-6 CSS
 **************************************/
+
 .homepage-6 .shape-bottom {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
@@ -1167,6 +1146,7 @@ img {
 /* ******************************
 :: 9.0 COUNTER AREA CSS
 ****************************** */
+
 .single-counter {
     position: relative;
 }
@@ -1197,6 +1177,7 @@ img {
 /* ******************************
 :: 10.0 FEATURES AREA CSS
 ****************************** */
+
 .features-slider-wrapper {
     padding: 67px 23px 90px 26px;
     background-size: 100%;
@@ -1225,6 +1206,7 @@ img {
 /* ******************************
 :: 11.0 SERVICE AREA CSS
 ****************************** */
+
 .service-icon span {
     height: 54px;
     width: 54px;
@@ -1250,6 +1232,7 @@ img {
 /* ******************************
 :: 12.0 DISCOVER AREA CSS
 ****************************** */
+
 .list-box .icon {
     color: #764fe0;
 }
@@ -1263,6 +1246,7 @@ img {
 /* ******************************
 :: 13.0 WORK AREA CSS
 ****************************** */
+
 .single-work {
     position: relative;
 }
@@ -1301,6 +1285,7 @@ img {
 /* ******************************
 :: 14.0 SCREENSHOTS AREA CSS
 ****************************** */
+
 .single-screenshot {
     position: relative;
     -webkit-transform: scale(0.9);
@@ -1331,8 +1316,7 @@ img {
     transition: all 0.4s ease 0s;
 }
 
-.slick-dots .slick-active button,
-.testimonial-area .owl-carousel button.owl-dot.active {
+.slick-dots .slick-active button, .testimonial-area .owl-carousel button.owl-dot.active {
     background-color: #7c4fe0;
     -webkit-box-shadow: 0 1px 5px #7c4fe0;
     box-shadow: 0 1px 5px #7c4fe0;
@@ -1341,6 +1325,7 @@ img {
 /* ******************************
 :: 15.0 REVIEWS AREA CSS
 ****************************** */
+
 .single-review {
     -webkit-box-shadow: 0 0.313rem 0.875rem rgba(45, 49, 54, 0.09);
     box-shadow: 0 0.313rem 0.875rem rgba(45, 49, 54, 0.09);
@@ -1382,6 +1367,7 @@ img {
 /* ******************************
 :: 16.0 TESTIMONIAL AREA CSS
 ****************************** */
+
 .testimonial-area .owl-item img {
     width: 100px;
     height: 100px;
@@ -1423,6 +1409,7 @@ img {
 /* ******************************
 :: 17.0 PRICE PLAN AREA CSS
 ****************************** */
+
 .single-price-plan {
     -webkit-box-shadow: 0 0.313rem 0.875rem rgba(45, 49, 54, 0.09);
     box-shadow: 0 0.313rem 0.875rem rgba(45, 49, 54, 0.09);
@@ -1449,6 +1436,7 @@ img {
 /* ******************************
 :: 18.0 FAQ AREA CSS
 ****************************** */
+
 .card-header .btn {
     position: relative;
     display: block;
@@ -1462,15 +1450,12 @@ img {
     color: #444;
 }
 
-.card-header .btn:hover,
-.card-header .btn:focus,
-.card-header .btn:active {
+.card-header .btn:hover, .card-header .btn:focus, .card-header .btn:active {
     -webkit-box-shadow: inherit;
     box-shadow: inherit;
 }
 
-.card-header .btn::after,
-.card-header .btn.collapsed::after {
+.card-header .btn::after, .card-header .btn.collapsed::after {
     position: absolute;
     top: 50%;
     left: calc(100% - 1.25rem);
@@ -1500,6 +1485,7 @@ img {
 /* ******************************
 :: 19.0 TEAM AREA CSS
 ****************************** */
+
 .single-team {
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
@@ -1593,6 +1579,7 @@ img {
 /* ******************************
 :: 20.0 SUBSCRIBE AREA CSS
 ****************************** */
+
 .form-control {
     font-size: 15px;
     height: 60px;
@@ -1639,6 +1626,7 @@ img {
 /* ******************************
 :: 21.0 BLOG AREA CSS
 ****************************** */
+
 .blog-area {
     z-index: 1;
 }
@@ -1679,8 +1667,7 @@ img {
     transition: all 0.3s ease-in-out 0s;
 }
 
-.blog-btn:hover::after,
-.blog-btn:focus::after {
+.blog-btn:hover::after, .blog-btn:focus::after {
     visibility: visible;
     opacity: 1;
     top: 50%;
@@ -1696,6 +1683,7 @@ img {
 /* ******************************
 :: 22.0 BREADCRUMB AREA CSS
 ****************************** */
+
 .breadcrumb-area {
     height: 450px;
     z-index: 1;
@@ -1715,16 +1703,14 @@ img {
     color: #fff;
 }
 
-.blog .breadcrumb-item>a,
-.blog .breadcrumb-item,
-.blog .breadcrumb-item::before,
-.blog .breadcrumb-item.active {
+.blog .breadcrumb-item>a, .blog .breadcrumb-item, .blog .breadcrumb-item::before, .blog .breadcrumb-item.active {
     color: #fff;
 }
 
 /* ******************************
 :: 23.0 BLOG PAGE AREA CSS
 ****************************** */
+
 .blog .navbar-light .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
@@ -1744,15 +1730,13 @@ img {
     text-align: center;
 }
 
-.pagination li:first-child a,
-.pagination li:last-child a {
+.pagination li:first-child a, .pagination li:last-child a {
     display: block;
     border: none;
     position: relative;
 }
 
-.pagination li:first-child:hover a,
-.pagination li:last-child:hover a {
+.pagination li:first-child:hover a, .pagination li:last-child:hover a {
     background: none;
     color: inherit;
     border: none;
@@ -1771,7 +1755,9 @@ img {
 /* **********************************
 :: 24.0 BLOG PAGE DETAILS AREA CSS
 *************************************/
+
 /*Single Widget*/
+
 .single-widget {
     margin-bottom: 35px;
 }
@@ -1785,6 +1771,7 @@ img {
 }
 
 /*Search Widget*/
+
 .search-widget input {
     background-color: #f7f7f7;
     border: 1px solid #eee;
@@ -1804,6 +1791,7 @@ img {
 }
 
 /*Catagory Widget*/
+
 .widget .single-accordion {
     border: 1px solid #eee;
     border-radius: 4px;
@@ -1836,15 +1824,11 @@ img {
     transition: all 0.1s ease 0s;
 }
 
-.widget-items li a:hover,
-.widget-items li a:focus,
-.widget-items li a.active {
+.widget-items li a:hover, .widget-items li a:focus, .widget-items li a.active {
     background-color: #f7f7f7;
 }
 
-.widget-items li a:hover::before,
-.widget-items li a:focus::before,
-.widget-items li a.active::before {
+.widget-items li a:hover::before, .widget-items li a:focus::before, .widget-items li a.active::before {
     width: 2px;
     background-color: #7c4fe0;
 }
@@ -1854,6 +1838,7 @@ img {
 }
 
 /*Post Widget*/
+
 .post-thumb img {
     border: 1px solid #eee;
 }
@@ -1869,6 +1854,7 @@ img {
 }
 
 /*Tags Widget*/
+
 .tags-widget .single-accordion {
     border: none;
 }
@@ -1879,6 +1865,7 @@ img {
 }
 
 /*Blog Details*/
+
 .sApp-blog .meta-info {
     border-bottom: 1px solid #eee;
 }
@@ -1962,13 +1949,11 @@ img {
     border-top: 1px solid #e5e5e5;
 }
 
-.admin-thumb img,
-.comments-thumb img {
+.admin-thumb img, .comments-thumb img {
     border: 1px solid #eee;
 }
 
-.comments,
-.blog-contact {
+.comments, .blog-contact {
     margin-left: 200px;
 }
 
@@ -2009,6 +1994,7 @@ img {
 /* ******************************
 :: 25.0 CONTACT AREA CSS
 ****************************** */
+
 .contact-us .social-icon {
     display: inline-block;
     height: 45px;
@@ -2021,8 +2007,7 @@ img {
     border-radius: 4px;
 }
 
-.contact-box .form-group input,
-.contact-box .form-group textarea {
+.contact-box .form-group input, .contact-box .form-group textarea {
     font-size: 14px;
     height: 50px;
     padding: 0 15px;
@@ -2041,18 +2026,15 @@ img {
     padding: 15px;
 }
 
-.contact-box .form-group input::-webkit-input-placeholder,
-.contact-box .form-group textarea::-webkit-input-placeholder {
+.contact-box .form-group input::-webkit-input-placeholder, .contact-box .form-group textarea::-webkit-input-placeholder {
     color: rgba(68, 68, 68, 0.6);
 }
 
-.contact-box .form-group input:-ms-input-placeholder,
-.contact-box .form-group textarea:-ms-input-placeholder {
+.contact-box .form-group input:-ms-input-placeholder, .contact-box .form-group textarea:-ms-input-placeholder {
     color: rgba(68, 68, 68, 0.6);
 }
 
-.contact-box .form-group input::placeholder,
-.contact-box .form-group textarea::placeholder {
+.contact-box .form-group input::placeholder, .contact-box .form-group textarea::placeholder {
     color: rgba(68, 68, 68, 0.6);
 }
 
@@ -2063,6 +2045,7 @@ img {
 }
 
 /*Map Area*/
+
 .map-area {
     height: 550px;
     width: 100%;
@@ -2099,6 +2082,7 @@ img {
 /* ******************************
 :: 26.0 FOOTER AREA CSS
 ****************************** */
+
 .height-emulator {
     float: left;
     height: 585px;
@@ -2121,6 +2105,7 @@ img {
 /* ******************************
 :: 27.0 ERROR AREA CSS
 ****************************** */
+
 .error-area h1 {
     font-size: 18vmax;
 }
@@ -2140,6 +2125,7 @@ img {
 /* ******************************
 :: 28.0 COMING SOON AREA CSS
 ****************************** */
+
 .countdown {
     text-transform: uppercase;
     color: #fff;
@@ -2209,7 +2195,6 @@ img {
         margin: 0 2px;
         padding: 0;
     }
-
     .countdown-container .countdown-value {
         font-size: 40px;
     }
@@ -2218,6 +2203,7 @@ img {
 /* ******************************
 :: 29.0 PREVIEW AREA CSS
 ****************************** */
+
 .preview .welcome-intro h2 {
     line-height: 1.2;
 }

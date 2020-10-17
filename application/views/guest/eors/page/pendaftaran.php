@@ -241,7 +241,8 @@
                         <div class="form-group form-check mt-5 mb-5">
                             <input type="checkbox" class="form-check-input" id="validator2" required>
                             <label class="form-check-label" for="validator2">Saya siap mengikuti peraturan dan tata
-                                tertib dari kegiatan <?= $kegiatan[0]['nama_kegiatan'] ?></label>
+                                tertib kegitan serta berkomitmen sebagai panitia dalam menyukseskan kegiatan
+                                <?= $kegiatan[0]['nama_kegiatan'] ?></label>
                         </div>
                         <!-- Kirim -->
                         <button type="submit" class="btn btn-primary">Kirim Data</button>
@@ -406,7 +407,9 @@
                     <h5 class="modal-title" id="staticBackdropLabel">Syarat dan Ketentuan</h5>
                 </div>
                 <div class="modal-body">
-                    <?= $kegiatan[0]['persyaratan'] ?>
+                    <div id="list-style" class="pl-3">
+                        <?= $kegiatan[0]['persyaratan'] ?>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Mengerti</button>

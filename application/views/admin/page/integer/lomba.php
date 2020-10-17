@@ -212,11 +212,11 @@
                                  <?php foreach ($berita as $data) : ?>
                                  <tr>
                                      <td><?= $data['create_at'] ?></td>
-                                     <?php if ($data['kategori_berita_integer'] === 1) : ?>
+                                     <?php if ($data['kategori_berita_integer'] == 1) { ?>
                                      <td>Berita</td>
-                                     <?php else : ?>
+                                     <?php } else { ?>
                                      <td>Pengumuman</td>
-                                     <?php endif; ?>
+                                     <?php } ?>
                                      <td><?= $data['nama_berita_integer'] ?></td>
                                      <td>
                                          <a href="<?= base_url() ?>integer/detail_kabar_integer/<?= $data['id_berita_integer'] ?>"
