@@ -25,7 +25,7 @@
 	background: linear-gradient(-47deg, #8631e898 0%, #4528dc98 100%);
 }
 
-#intro #content img {
+#intro #content #titleInteger img {
 	width: 60rem;
 }
 
@@ -41,7 +41,6 @@
 		height: 100vh;
 		margin: auto;
 	}
-
 	#intro #content h1 {
 		font-size: 2.2rem;
 	}
@@ -63,7 +62,6 @@
 	from {
 		opacity: 0;
 	}
-
 	to {
 		opacity: 1;
 	}
@@ -73,7 +71,6 @@
 	from {
 		opacity: 1;
 	}
-
 	to {
 		opacity: 0;
 	}

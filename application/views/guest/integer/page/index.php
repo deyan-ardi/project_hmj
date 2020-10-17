@@ -456,18 +456,20 @@ foreach ($kategori as $data) {
                                         <h2 class="mb-0">
                                             <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
                                                 data-target="#collapseTwo">
-                                                Bukti Pembayaran Saya Belum dikirim
+                                                Kemana saya harus mengkonfirmasi setelah melakukan pembayaran
+                                                pendaftaran lomba?
                                             </button>
                                         </h2>
                                     </div>
                                     <div id="collapseTwo" class="collapse" data-parent="#sApp-accordion">
                                         <!-- Card Body -->
                                         <div class="card-body px-0 py-3 bg-gray">
-                                            Untuk sementara, bukti pembayaran masih harus ditulis manual oleh panitia,
-                                            bukti pembayaran anda maksimal dikirim 1x24 jam setelah anda melakukan
-                                            konfirmasi kepada panitia. Untuk informasi lebih lanjut dapat mengunjungi
-                                            akun instagram HMJ TI Undiksha <span
-                                                class="text-primary">@hmj_ti.undiksha</span>
+                                            Setelah melakukan pembayaran sesuai dengan rekening panitia yang diminta,
+                                            silahkan menghubungi CP yang terdapat pada buku panduan untuk melakukan
+                                            konfirmasi pendaftaran dengan mengirimkan bukti screenshoot penguploadan
+                                            Twibbon bagi tiap-tiap peserta dan bukti transfer. Untuk informasi dan
+                                            pertanyaan lebih lanjut dapat menghubungi akun instagram resmi HMJ TI
+                                            Undiksha (<span class="text-primary">@hmj_ti.undiksha</span>)
                                         </div>
                                     </div>
                                 </div>
