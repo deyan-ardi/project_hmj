@@ -214,12 +214,13 @@ class All_model extends CI_Model
 		];
 		return $this->db->where("status_integer=" . "1")->update('s3_integer', $query);
 	}
-	public function tambahDataInteger($foto, $video)
+	public function tambahDataInteger($foto, $video, $file)
 	{
 		$query = array(
 			'nama_integer' => $this->input->post('nama_integer', true),
 			'logo_integer' => $foto,
 			'video_integer' => $video,
+			'panduan_integer' => $file,
 			'tema_integer' => $this->input->post('tema_integer', true),
 			'deskripsi_integer' => $this->input->post('deskripsi_integer', false),
 			'status_integer' => 0,
@@ -265,6 +266,7 @@ class All_model extends CI_Model
 		if ($this->db->delete('s3_integer', array('id_integer' => $id))) {
 			unlink('assets/upload/Folder_integer_website/video/' . $row->video_integer);
 			unlink('assets/upload/Folder_integer_website/foto/' . $row->logo_integer);
+			unlink('assets/upload/Folder_integer_website/panduan/' . $row->panduan_integer);
 			return true;
 		}
 	}
@@ -1556,23 +1558,36 @@ class All_model extends CI_Model
 			}
 		} else if ($id_file == "integer") {
 			$config['upload_path'] = $folder;
-			$config['allowed_types'] = 'jpg|png|mp4|pdf';
-			$config['encrypt_name'] = TRUE;
-			if ($nama == "video" || $nama == "file") {
+			if ($nama == 'video') {
+				$config['allowed_types'] = 'mp4';
+				$config['encrypt_name'] = TRUE;
+			} else if ($nama == 'foto') {
+				$config['allowed_types'] = 'jpg|png';
+				$config['encrypt_name'] = TRUE;
+			} else if ($nama == 'file_info') {
+				$config['allowed_types'] = 'pdf|zip';
+				$config['file_name'] = date('YmdHis') . "_Panduan Kegiatan Integer";
+			} else {
+				$config['allowed_types'] = 'jpg|png|pdf';
+				$config['encrypt_name'] = TRUE;
+			}
+
+			if ($nama == "video" || $nama == "file" || $nama == "file_info") {
 				$config['max_size']  = '10048';
 			} else {
 				$config['max_size']  = '1048';
 			}
+		
 			$config['remove_space'] = TRUE;
 			$config['overwrite'] = TRUE;
 			$this->load->library('upload', $config);
 			$this->upload->initialize($config);
-			if ($nama == "foto") {
-				if ($this->upload->do_upload('foto')) {
-					$return = array('result' => 'success', 'foto' => $this->upload->data(), 'error' => '');
+			if ($nama == "logo") {
+				if ($this->upload->do_upload('logo')) {
+					$return = array('result' => 'success', 'logo' => $this->upload->data(), 'error' => '');
 					return $return;
 				} else {
-					$return = array('result' => 'failed', 'foto' => '', 'error' => $this->upload->display_errors());
+					$return = array('result' => 'failed', 'logo' => '', 'error' => $this->upload->display_errors());
 					return $return;
 				}
 			} else if ($nama == "video") {
@@ -1637,6 +1652,14 @@ class All_model extends CI_Model
 					return $return;
 				} else {
 					$return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
+					return $return;
+				}
+			} else if ($nama == "file_info") {
+				if ($this->upload->do_upload('file_info')) {
+					$return = array('result' => 'success', 'file_info' => $this->upload->data(), 'error' => '');
+					return $return;
+				} else {
+					$return = array('result' => 'failed', 'file_info' => '', 'error' => $this->upload->display_errors());
 					return $return;
 				}
 			}

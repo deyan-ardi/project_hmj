@@ -36,6 +36,7 @@
                                      <th>Nama Kegiatan</th>
                                      <th>Logo Kegiatan</th>
                                      <th>Video Header</th>
+                                     <th>File Informasi</th>
                                      <th>Tema Kegiatan</th>
                                      <th>Deskripsi Singkat</th>
                                      <th>Dibuat Oleh</th>
@@ -80,6 +81,14 @@
                                                  <i class="fas fa-eye"></i>
                                              </span>
                                              <span class="text">Lihat</span>
+                                         </a>
+                                     </td>
+                                     <td><a href="<?= base_url() ?>integer/download_file_informasi_integer/<?= $data['panduan_integer'] ?>/file_informasi"
+                                             class="btn btn-info btn-sm btn-icon-split">
+                                             <span class="icon text-white-50">
+                                                 <i class="fas fa-download"></i>
+                                             </span>
+                                             <span class="text">Unduh</span>
                                          </a>
                                      </td>
                                      <td><?= $data['tema_integer']; ?></td>

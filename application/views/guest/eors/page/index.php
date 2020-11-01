@@ -165,11 +165,10 @@
                     <?php } ?>
                     <?php } else { ?>
                     <div class="col-lg-12 row justify-content-center">
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong>Opps ...</strong> Belum ada ada agenda open recruitment
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                        <div class="col-img-waiting text-center">
+                            <img src="<?= base_url() ?>assets/img/maskot/waiting.jpg" width="450px"
+                                class="img-responsive" alt="">
+                            <h3 class="text-gray font-italic">Sorry, we are not look where he go :(</h3>
                         </div>
                     </div>
                     <?php } ?>

@@ -39,16 +39,15 @@
                         <div class="form-group">
                             <label for="foto">Foto</label>
                             <input type="file" class="form-control-file" name="file_foto" id="file_foto" required>
-                            <small id="fotoHelp" class="form-text text-muted">Gunakan foto berjas dengan latar
+                            <small id="fotoHelp" class="form-text text-muted">Gunakan foto berjas atau formal dengan latar
                                 belakang
                                 biru, format *.png atau *.jpg maks 1 Mb</small>
                         </div>
                         <!-- Documents -->
                         <div class="form-group">
-                            <label for="foto">Document Pendaftaran</label>
+                            <label for="foto">Document Pendaftaran (Bersifat Opsional)</label>
                             <input type="file" class="form-control-file" name="file_dokumen" id="file_dokumen">
-                            <small id="fotoHelp" class="form-text text-muted">Silahkan isi sesuai dengan
-                                persyaratan, format *.pdf maks 1 Mb</small>
+                            <small id="fotoHelp" class="form-text text-muted">Silahkan di cek terkait dokumen yang dikumpul pada bagian persyaratan dan ketentuan, format *.pdf maks 1 Mb</small>
                         </div>
                         <?php } ?>
                         <!-- NIM -->

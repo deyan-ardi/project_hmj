@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 11, 2020 at 06:53 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 01 Nov 2020 pada 04.22
+-- Versi server: 10.4.13-MariaDB
+-- Versi PHP: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `project_hmj_fixed`
+-- Database: `db_hmj_fix`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `groups`
+-- Struktur dari tabel `groups`
 --
 
 CREATE TABLE `groups` (
@@ -34,7 +34,7 @@ CREATE TABLE `groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `groups`
+-- Dumping data untuk tabel `groups`
 --
 
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jabatan`
+-- Struktur dari tabel `jabatan`
 --
 
 CREATE TABLE `jabatan` (
@@ -57,7 +57,7 @@ CREATE TABLE `jabatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `jabatan`
+-- Dumping data untuk tabel `jabatan`
 --
 
 INSERT INTO `jabatan` (`id_pilihan`, `nama_pilihan`, `create_at`) VALUES
@@ -79,12 +79,22 @@ INSERT INTO `jabatan` (`id_pilihan`, `nama_pilihan`, `create_at`) VALUES
 (53, 'Sie Kesekretariatan', '2020-10-07 12:44:16'),
 (54, 'Sie Pendaftaran', '2020-10-07 12:44:29'),
 (55, 'Sie MGS', '2020-10-07 12:44:43'),
-(56, 'Sie Social Event', '2020-10-07 12:45:06');
+(56, 'Sie Social Event', '2020-10-07 12:45:06'),
+(57, 'Sie Lomba Business IT Case', '2020-10-17 11:29:55'),
+(58, 'Sie Lomba UI/UX Design', '2020-10-17 23:57:06'),
+(59, 'Sie Lomba Essay Nasional', '2020-10-17 11:30:21'),
+(60, 'Sie Lomba Hacking The Game', '2020-10-17 11:30:36'),
+(61, 'Sie Lomba LIDP', '2020-10-26 13:19:33'),
+(62, 'Sie Lomba Coding Pandemic', '2020-10-17 11:31:00'),
+(63, 'Sie Lomba Mobile Legend', '2020-10-17 11:31:14'),
+(64, 'Sie Lomba Desain Poster', '2020-10-17 11:31:33'),
+(65, 'Sie Lomba Musik Cover', '2020-10-17 11:31:44'),
+(66, 'Sie Lomba Tiktok', '2020-10-17 11:31:53');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `links`
+-- Struktur dari tabel `links`
 --
 
 CREATE TABLE `links` (
@@ -96,17 +106,18 @@ CREATE TABLE `links` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `links`
+-- Dumping data untuk tabel `links`
 --
 
 INSERT INTO `links` (`id_links`, `title`, `icon`, `href`, `type`) VALUES
 (9, 'Website', 'fas fa-globe', 'web/home', 'main'),
-(10, 'E-ORS', 'fas fa-users', 'eors/home', 'main');
+(10, 'E-ORS', 'fas fa-users', 'eors/home', 'main'),
+(11, 'INTEGER', 'fas fa-chess', 'integer/home', 'main');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login_attempts`
+-- Struktur dari tabel `login_attempts`
 --
 
 CREATE TABLE `login_attempts` (
@@ -119,7 +130,7 @@ CREATE TABLE `login_attempts` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `readme`
+-- Struktur dari tabel `readme`
 --
 
 CREATE TABLE `readme` (
@@ -128,7 +139,7 @@ CREATE TABLE `readme` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `readme`
+-- Dumping data untuk tabel `readme`
 --
 
 INSERT INTO `readme` (`Kode`, `Keterangan`) VALUES
@@ -138,7 +149,7 @@ INSERT INTO `readme` (`Kode`, `Keterangan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s1_detail_hmj`
+-- Struktur dari tabel `s1_detail_hmj`
 --
 
 CREATE TABLE `s1_detail_hmj` (
@@ -151,7 +162,7 @@ CREATE TABLE `s1_detail_hmj` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `s1_detail_hmj`
+-- Dumping data untuk tabel `s1_detail_hmj`
 --
 
 INSERT INTO `s1_detail_hmj` (`id_detail_hmj`, `id_hmj`, `nama_bidang`, `deskripsi_bidang`, `ketua_nama`, `ketua_foto`) VALUES
@@ -164,7 +175,7 @@ INSERT INTO `s1_detail_hmj` (`id_detail_hmj`, `id_hmj`, `nama_bidang`, `deskrips
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s1_detail_kegiatan`
+-- Struktur dari tabel `s1_detail_kegiatan`
 --
 
 CREATE TABLE `s1_detail_kegiatan` (
@@ -179,7 +190,7 @@ CREATE TABLE `s1_detail_kegiatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `s1_detail_kegiatan`
+-- Dumping data untuk tabel `s1_detail_kegiatan`
 --
 
 INSERT INTO `s1_detail_kegiatan` (`id_detail_kegiatan`, `id_kegiatan_hmj`, `nama_repositori`, `deskripsi_repositori`, `kode_repositori`, `create_by`, `create_at`, `update_at`) VALUES
@@ -214,7 +225,7 @@ INSERT INTO `s1_detail_kegiatan` (`id_detail_kegiatan`, `id_kegiatan_hmj`, `nama
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s1_hmj`
+-- Struktur dari tabel `s1_hmj`
 --
 
 CREATE TABLE `s1_hmj` (
@@ -236,7 +247,7 @@ CREATE TABLE `s1_hmj` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `s1_hmj`
+-- Dumping data untuk tabel `s1_hmj`
 --
 
 INSERT INTO `s1_hmj` (`id_hmj`, `nama_hmj`, `deskripsi_hmj`, `ketua_hmj`, `ketua_foto`, `wakil_hmj`, `wakil_foto`, `visi_hmj`, `misi_hmj`, `vertikal_struktur_hmj`, `landscape_struktur_hmj`, `status_pakai`, `create_by`, `create_at`, `update_at`) VALUES
@@ -245,7 +256,7 @@ INSERT INTO `s1_hmj` (`id_hmj`, `nama_hmj`, `deskripsi_hmj`, `ketua_hmj`, `ketua
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s1_informasi`
+-- Struktur dari tabel `s1_informasi`
 --
 
 CREATE TABLE `s1_informasi` (
@@ -264,7 +275,7 @@ CREATE TABLE `s1_informasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `s1_informasi`
+-- Dumping data untuk tabel `s1_informasi`
 --
 
 INSERT INTO `s1_informasi` (`id_informasi`, `foto1_informasi`, `foto2_informasi`, `foto3_informasi`, `video_informasi`, `nama_kepengurusan`, `judul_informasi`, `kategori_informasi`, `konten_informasi`, `file_informasi`, `create_at`, `create_by`) VALUES
@@ -273,12 +284,15 @@ INSERT INTO `s1_informasi` (`id_informasi`, `foto1_informasi`, `foto2_informasi`
 (58, '9ca14bb57d4b43a3a6d3ccdd461dac62.png', NULL, NULL, NULL, 'HMJ TI Undiksha 2020-2021', 'Info Mahasiswa Baru 2020', 'Pengumuman', '<p>Hallo infinity</p>\r\nDiinformasikan kepada seluruh Mahasiswa Baru Angkatan Tahun 2020 Jurusan Teknik Informatika, Fakultas Teknik dan Kejuruan untuk melengkapi data ukuran baju dan jaket pada link berikut:&nbsp;<br />\r\nhttps://bit.ly/PendataanBajuJaket<br />\r\nBagi mahasiswa yang<strong> telah</strong> membayar administrasi dan iuran <strong>diwajibkan</strong> untuk mengisi link pendataan baju dan jaket tersebut. Untuk mahasiswa yang <strong>belum</strong> membayar administrasi dan iuran juga <strong>boleh</strong>&nbsp;mengisi pendataan baju dan jaket tersebut terlebih dahulu.<br />\r\nSekian Informasi yang dapat kami sampaikan,<br />\r\nRemember to stay safe and healthy<br />\r\nAtas perhatiannya kami ucapkan terima kasih</p>\r\n\r\n<p>#SalamTeknikInformatika<br />\r\n#SolidaritasTanpaBatas<br />\r\n#TI..GoTeknologi</p>\r\n', NULL, '2020-09-14 19:25:00', 'Dwi Prima Handayani Putri'),
 (59, 'd3f902bfb4d714e3f4249acd297a56ed.png', NULL, NULL, NULL, 'HMJ TI Undiksha 2020-2021', 'Info Data Iuran HMJ 2020 ', 'Pengumuman', '<p>Hallo Infinity</p>\r\nDiinformasikan kepada seluruh Mahasiswa Aktif di Jurusan Teknik Informatika semester 3, 5, dan 7 untuk melakukan pengecekan nama dan keterangan terkait pembayaran iuran HMJ TI untuk Bulan Agustus s.d. Desember 2020 yang telah dilakukan.<br />\r\nData pembayaran dapat diakses pada link berikut: &nbsp;<br />\r\nhttps://docs.google.com/spreadsheets/d/10nsUVpVNl9Y1qDw720Oyx6dLmfiY8irnDjgS2IE35nw/edit?usp=sharing<br />\r\nJika terdapat kesalahan bisa menghubungi <strong>salah satu </strong>kontak berikut<strong> via wa</strong>:<br />\r\n+62 895-3950-13615<br />\r\n(Gusti Aditya Trisna Murti)<br />\r\n+62 812-4634-2145<br />\r\n(Dwi Prima Handayani Putri)<br />\r\n.<br />\r\n.<br />\r\nSekian informasi yang dapat kami sampaikan.<br />\r\nRemember to stay safe and healthy<img alt=\"wink\" src=\"http://if.undiksha.ac.id/assets/ckeditor/plugins/smiley/images/wink_smile.png\" style=\"height:23px; width:23px\" title=\"wink\" /><br />\r\nAtas perhatiannya kami ucapkan terima kasih</p>\r\n\r\n<p>#SalamTeknikInformatika<br />\r\n#SolidaritasTanpaBatas<br />\r\n#TI..GoTechnology</p>\r\n', NULL, '2020-09-16 23:05:51', 'Dwi Prima Handayani Putri'),
 (61, 'ff37c987989847f6a473499038811f8e.jpg', 'e5dceb8d0ed5d5f278fc416b5ae6e58f.jpg', '8f085b5297cd51ab77c8bfbd984c68a6.jpg', '', 'HMJ TI Undiksha 2020-2021', 'RAPAT KERJA HMJ TI MASA BAKTI 2020/2021', 'Berita', '<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Singaraja - Pelaksanaan Rapat Kerja Himpunan Mahasiswa Jurusan Teknik Informatika, Universitas Pendidikan Ganesha. Rapat membahas Program Kerja dari masing-masing Bidang yang ada pada HMJ TI Undiksha masa bakti 2020/2021.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Rapat Kerja Himpunan Mahasiswa Jurusan Teknik Informatika, Universitas Pendidikan Ganesha, dilaksanakan secara daring dan dihadiri oleh pengurus HMJ Teknik Informatika masa bakti 2020/2021, 2 orang perwakilan kelas yang ada di Jurusan Teknik Informatika serta tamu undangan yang meliputi Dekan FTK, Ketua Jurusan TI, Sekretaris Jurusan TI, Wakil Dekan 3, Ketua Ormawa di lingkungan FTK, perwakilan dari BEM FTK, perwakilan dari MPM REMA, BEM REMA , serta demisioner HMJ TI masa bakti 2019/2020. Sehingga total peserta dalam kegiatan Rapat Kerja ini berjumlah 120 peserta.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Dalam acara Rapat Kerja HMJ TI Undiksha ini, Dekan FTK yakni Dr. I Gede Sudirtha, S.Pd, M.Pd, memberikan sambutan yang sekaligus membuka acara Rapat Kerja HMJ TI. &amp;ldquo; Saya sangat mengapresiasi seluruh kegiatan mahasiswa karena kegiatannya berjalan dengan lancar, saya bangga kepada semua program studi yang ada di lingkungan FTK, salah satunya adalah program studi Pendidikan Teknik Informatika yang telah mendapatkan akreditasi A. Semoga program studi yang lainnya bisa memperoleh akreditasi nilai A kedepannya. Perlu kita ketahui Jurusan Teknik Informatika memiliki segudang prestasi yang dihasilkan oleh Mahasiswa Jurusan Teknik Informatika, terbukti dari lomba - lomba gemastik, game dll. Pada tahun 2019 FTK memperoleh peringkat ke-4 dalam prestasi di klasterisasi walaupun fakultas nya kecil akan tetapi memiliki segudang prestasi semoga bisa termotivasi lagi agar bisa meningkatkan prestasi lagi. &amp;ldquo;&amp;nbsp; ujarnya saat membuka kegiatan Rapat Kerja HMJ TI.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Irfan Walhidayah selaku Ketua HMJ TI masa bakti 2020/2021, juga memberikan tanggapan tentang tujuan diadakannya Rapat Kerja HMJ TI ini. Tujuan dari kegiatan ini adalah ,tercapainya susunan jadwal program kerja HMJ Teknik Informatika&amp;nbsp; periode 2020/2021 yang sistematis,tercapainya insan akademis yang disiplin, cakap, terampil dan bertanggung jawab dalam mengemban keprofesian dan tercapainya rancangan pasti sebuah program kerja yang menjadi patokan oleh organisasi ini dalam berkegiatan.&quot;Landasan terbentuknya sebuah organisasi tentunya adalah memiliki tujuan bersama, organisasi layaknya ditopang oleh elemen-elemen penting seperti anggota, program kerja, dan pengurus inti yang menjalankan roda organisasinya. Elemen-elemen penting itu memiliki fungsinya tersendiri, anggota dalam organisasi akan melaksanakan program kerja sehingga dapat mencapai tujuan organisasi. Program kerja dirancang dan dilaksanakan dalam rangka mencapai tujuan organisasi, dengan adanya program kerja akan membuat langkah organisasi dalam mencapai tujuan organisasi menjadi jelas. Dalam setiap organisasi diperlukan pengurus yang menjadi penggerak dalam berorganisasi, pengurus merumuskan dan menjadi nahkoda dalam bahtera organisasi. Organisasi yang baik tentu saja perlu didukung dengan terbentuknya program kerja yang jelas dan memiliki kualitas, melihat pentingnya program kerja dalam sebuah organisasi, maka dipandang sangat perlu untuk melakukan program tahunan yaitu Rapat Kerja Himpunan Mahasiswa Jurusan Teknik Informatika Masa Bakti 2020/2021 untuk menyusun Program Kerja (Proker) Himpunan Mahasiswa Jurusan Teknik Informatika Masa Bakti 2020/2021&quot;, imbuhnya .</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Hal senada juga disampaikan oleh Zasya Eka, selaku ketua panitia Rapat Kerja HMJ TI. &quot;Untuk Raker kali ini berjalan dengan lancar walau kita melakukannya secara full daring. Jadi mengingat kondisi seperti ini, kami dari kepanitiaan memutuskan untuk melaksanakan kegiatan Raker HMJ TI masa bakti 2020/2021 secara full daring. Ini merupakan tantangan bagi panitia karena dengan kondisi seperti ini koordinasi tidak akan intens seperti ketika kita melaksanakan kegiatan secara luring.&quot;,ujarnya.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Tak hanya itu, mahasiswa yang juga menjabat sebagi Wakil Ketua HMJ TI ini juga mengucapkan terimakasih kepada semua pihak yang telah terlibat dalam kegiatan kali ini sehingga dapat berjalan dengan baik.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n', NULL, '2020-10-05 23:15:41', 'Admin'),
-(62, '24cdb424fee3f6e4e3908ca22dd626bd.png', 'e5a65524fb0a31610823f6735e97df98.jpg', '4d06cd7318757ade3fe19fc2012a7140.jpg', '', 'HMJ TI Undiksha 2020-2021', 'SOSIALISASI KRS DAN KOMUNITAS ', 'Berita', '<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Singaraja - Penyusunan Kartu Rencana Studi dan perkenalan komunitas, HMJ TI Universitas Pendidikan Ganesha melakukan penyampaian gambaran umum proses akademik yang akan berlangsung.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Serangkaian Orientasi Kegiatan Jurusan (OKJ) di lingkungan Jurusan Teknik Informatika, HMJ TI Universitas Pendidikan Ganesha mensosialisasikan mengenai sistem dan alur pelaksanaan KRS Mahasiswa secara online. Tujuan dari kegiatan ini adalah memberikan pengenalan sistem yang akan digunakan mahasiswa baru dalam perkuliahan dan menyalurkan informasi pemahaman mengenai prosedur penyusunan Kartu Rencana Studi (KRS) online mahasiswa yang dilakukan setiap awal semester.Kegiatan sosialisasi dimulai sejak pukul 09.45 WITA - 12.15 WITA yang diawali dengan presensi mahasiswa baru.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">HMJ TI Universitas Pendidikan Ganesha melakukan penyampaian gambaran umum proses akademik yang akan berlangsung. Kegiatan ini dihadiri 98 peserta yang terdiri pengurus HMJ TI dan Mahasiswa Baru TI. Mahasiswa tampak begitu antusias dengan materi dan aktif melakukan diskusi.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">&quot;Perancangan KRS dilakukan sesuai dengan algoritma yang berlaku dan dilakukan pada tanggal 10-14 September, nanti untuk lebih jelas terkait penyusunan KRS akan diinformasikan,&quot; ujar Irfan Walhidayah selaku Ketua HMJ TI, Senin (14/9/2020).</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Penjelasan yang berlangsung terkait penyusunan KRS mendapatkan kendala bagi mahasiswa baru, salah satunya adalah tidak bisa melakukan penyusunan KRS yang dilakukan oleh mahasiswa Manajemen Informatika karena tidak ada pilihan kelas. Terkait dengan itu maka I Putu Ega Suwidi Darma selaku Koordinator Prodi Manajemen Informatika menyampaikan bahwa &quot;Kurikulum D3 Manajemen Informatika sistem paket yang sudah ditentukan oleh ketua Program Studi Manajemen Informatika, jadi tinggal melakukan penyusunann KRS sesuai dengan paket mata kuliah yang berlaku. Untuk kelas yang belum muncul saat penyusunan KRS akan saya tanyakan keatasan, tapi kerana jumlah mahasiswa MI 20 orang maka dipastikan dapat kelas A&quot; ujarnya.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Melanjutkan penyampaian cara penyusunan KRS, mahasiswa baru mendapatkan tips jitu untuk kedepannya jika melakukan penyusunan KRS.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">&quot;Ada tips untuk mahasiswa baru bila nanti melakukan penyusunan KRS yaitu membuat group komukasi antar teman jika mendapatkan pembimbing akademik agar pada saat melakukan koordinasi terhadap dosen hanya melalui perwakilan saja, jadi koordinasi terhadap PA bisa terlaksana secara baik karena kita tidak tau karakter dari masing masing pembimbing akademik tersebut,&quot; tutur Zasya selaku Wakil Ketua HMJ TI.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Seiring dengan kegiatan tersebut, HMJ TI Universitas Pendidikan Ganesha melakukan pengenalan seputar jurusan dan HMJ TI Universitas Pendidikan Ganesha diantaranya pengenalan berbagai jenis iuran kepada mahasiswa baru, pengenalan seputar Pembimbing Akademik (PA), Koordinator Tingkat (KORTI), Kepala Program Studi (KAPRODI), dan tata cara menghubungi dosen. Kemudian, dilanjutkan pula dengan pengenalan komunitas untuk mengembangkan bakat dan minat mahasiswa di lingkungan Jurusan Teknik Informatika.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Salam hangat dari Irfan Walhidayah, dibuka dengan dijelaskan ulang iuran HMJ TI yang diberlakukan supaya mahasiswa baru lebih jelas dan paham terkait rincian biaya dari iuran HMJ TI. Setelah itu dilanjutkan dengan pembahasan terkait komunitas yang ada di lingkungan Teknik Informatika.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Perkenalan komunitas yang berfungsi sebagai wadah penyaluran minat dan bakat mahsiswa teknik informatika. Penyampaian tersebut terdapat 5 komunitas yang ada di Teknik Informatika, diantaranya :</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<ul>\r\n	<li style=\"text-align: justify;\"><span style=\"font-family:Times New Roman,Times,serif\">Komunitas Multimedia</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-family:Times New Roman,Times,serif\">Komunitas Programming</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-family:Times New Roman,Times,serif\">Komunitas Teknik Komputer Jaringan</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-family:Times New Roman,Times,serif\">Komunitas Robotika</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-family:Times New Roman,Times,serif\">Komunitas Olahraga dan Seni</span></li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Mahasiswa baru akan diarahkan sesuai dengan minat dan bakat yang dimiliki melalui 5 komunitas tersebut dan nantinya akan dilakukan pendataan terhadap komunitas yang akan dianut oleh mahasiswa baru.</span></p>\r\n', NULL, '2020-09-14 23:23:26', 'Admin');
+(62, '24cdb424fee3f6e4e3908ca22dd626bd.png', 'e5a65524fb0a31610823f6735e97df98.jpg', '4d06cd7318757ade3fe19fc2012a7140.jpg', '', 'HMJ TI Undiksha 2020-2021', 'SOSIALISASI KRS DAN KOMUNITAS ', 'Berita', '<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Singaraja - Penyusunan Kartu Rencana Studi dan perkenalan komunitas, HMJ TI Universitas Pendidikan Ganesha melakukan penyampaian gambaran umum proses akademik yang akan berlangsung.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Serangkaian Orientasi Kegiatan Jurusan (OKJ) di lingkungan Jurusan Teknik Informatika, HMJ TI Universitas Pendidikan Ganesha mensosialisasikan mengenai sistem dan alur pelaksanaan KRS Mahasiswa secara online. Tujuan dari kegiatan ini adalah memberikan pengenalan sistem yang akan digunakan mahasiswa baru dalam perkuliahan dan menyalurkan informasi pemahaman mengenai prosedur penyusunan Kartu Rencana Studi (KRS) online mahasiswa yang dilakukan setiap awal semester.Kegiatan sosialisasi dimulai sejak pukul 09.45 WITA - 12.15 WITA yang diawali dengan presensi mahasiswa baru.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">HMJ TI Universitas Pendidikan Ganesha melakukan penyampaian gambaran umum proses akademik yang akan berlangsung. Kegiatan ini dihadiri 98 peserta yang terdiri pengurus HMJ TI dan Mahasiswa Baru TI. Mahasiswa tampak begitu antusias dengan materi dan aktif melakukan diskusi.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">&quot;Perancangan KRS dilakukan sesuai dengan algoritma yang berlaku dan dilakukan pada tanggal 10-14 September, nanti untuk lebih jelas terkait penyusunan KRS akan diinformasikan,&quot; ujar Irfan Walhidayah selaku Ketua HMJ TI, Senin (14/9/2020).</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Penjelasan yang berlangsung terkait penyusunan KRS mendapatkan kendala bagi mahasiswa baru, salah satunya adalah tidak bisa melakukan penyusunan KRS yang dilakukan oleh mahasiswa Manajemen Informatika karena tidak ada pilihan kelas. Terkait dengan itu maka I Putu Ega Suwidi Darma selaku Koordinator Prodi Manajemen Informatika menyampaikan bahwa &quot;Kurikulum D3 Manajemen Informatika sistem paket yang sudah ditentukan oleh ketua Program Studi Manajemen Informatika, jadi tinggal melakukan penyusunann KRS sesuai dengan paket mata kuliah yang berlaku. Untuk kelas yang belum muncul saat penyusunan KRS akan saya tanyakan keatasan, tapi kerana jumlah mahasiswa MI 20 orang maka dipastikan dapat kelas A&quot; ujarnya.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Melanjutkan penyampaian cara penyusunan KRS, mahasiswa baru mendapatkan tips jitu untuk kedepannya jika melakukan penyusunan KRS.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">&quot;Ada tips untuk mahasiswa baru bila nanti melakukan penyusunan KRS yaitu membuat group komukasi antar teman jika mendapatkan pembimbing akademik agar pada saat melakukan koordinasi terhadap dosen hanya melalui perwakilan saja, jadi koordinasi terhadap PA bisa terlaksana secara baik karena kita tidak tau karakter dari masing masing pembimbing akademik tersebut,&quot; tutur Zasya selaku Wakil Ketua HMJ TI.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Seiring dengan kegiatan tersebut, HMJ TI Universitas Pendidikan Ganesha melakukan pengenalan seputar jurusan dan HMJ TI Universitas Pendidikan Ganesha diantaranya pengenalan berbagai jenis iuran kepada mahasiswa baru, pengenalan seputar Pembimbing Akademik (PA), Koordinator Tingkat (KORTI), Kepala Program Studi (KAPRODI), dan tata cara menghubungi dosen. Kemudian, dilanjutkan pula dengan pengenalan komunitas untuk mengembangkan bakat dan minat mahasiswa di lingkungan Jurusan Teknik Informatika.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Salam hangat dari Irfan Walhidayah, dibuka dengan dijelaskan ulang iuran HMJ TI yang diberlakukan supaya mahasiswa baru lebih jelas dan paham terkait rincian biaya dari iuran HMJ TI. Setelah itu dilanjutkan dengan pembahasan terkait komunitas yang ada di lingkungan Teknik Informatika.</span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Perkenalan komunitas yang berfungsi sebagai wadah penyaluran minat dan bakat mahsiswa teknik informatika. Penyampaian tersebut terdapat 5 komunitas yang ada di Teknik Informatika, diantaranya :</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<ul>\r\n	<li style=\"text-align: justify;\"><span style=\"font-family:Times New Roman,Times,serif\">Komunitas Multimedia</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-family:Times New Roman,Times,serif\">Komunitas Programming</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-family:Times New Roman,Times,serif\">Komunitas Teknik Komputer Jaringan</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-family:Times New Roman,Times,serif\">Komunitas Robotika</span></li>\r\n	<li style=\"text-align: justify;\"><span style=\"font-family:Times New Roman,Times,serif\">Komunitas Olahraga dan Seni</span></li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-family:Times New Roman,Times,serif\">Mahasiswa baru akan diarahkan sesuai dengan minat dan bakat yang dimiliki melalui 5 komunitas tersebut dan nantinya akan dilakukan pendataan terhadap komunitas yang akan dianut oleh mahasiswa baru.</span></p>\r\n', NULL, '2020-09-14 23:23:26', 'Admin'),
+(63, '33f7cdb98430b193f4cd1e2e79cb2031.jpg', '89c3c8b983c383f30f252248dfd457b4.jpg', 'c96f442a56e7acad742f5c0b62715bf5.jpg', '', 'HMJ TI Undiksha 2020-2021', 'Info Open Recruitment Panitia INTEGER #2', 'Pengumuman', '<p>Halo Infinity &nbsp;</p>\r\n\r\n<p style=\"text-align:justify\">Diinformasikan kepada seluruh Mahasiswa Aktif Jurusan Teknik Informatika bahwa Kami dari Himpunan Mahasiswa Jurusan Teknik Informatika akan mengadakan kembali acara untuk memperingati HUT Jurusan kita yaitu INTEGER #2 (<em>Information Technology Grand Celebration</em>) 2020. Untuk itu kami membuka kesempatan untuk Mahasiswa Aktif Jurusan Teknik Informatika khususnya semester 1, 3, dan 5 untuk menunjukan rasa dedikasi dan rasa solidaritas dalam Open Recruitment Panitia INTEGER #2.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\">Kami mengajak kalian bergabung dalam kepanitiaan untuk mewujudkan keinginan kita bersama untuk menyukseskan acara HUT Jurusan Teknik Informatika yang ke-2 ini. Kami tunggu partisipasi kalian para Mahasiswa Teknik Informatika.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p>Pengumpulan berkas dan wawancara dilaksanakan pada tanggal:<br />\r\n&bull; Pendaftaran : 19-21 Oktober 2020<br />\r\n&bull; Wawancara : 22-25 Oktober 2020<br />\r\n&bull; Pengumuman : Senin, 26 Oktober 2020<br />\r\n&bull; Tempat : Daring</p>\r\n\r\n<p style=\"text-align:justify\"><br />\r\nUntuk informasi lebih lanjut dapat diakses pada slide atau dapat mengunjungi website Electronic Open Recruitment System HMJ TI Undiksha (http://if.undiksha.ac.id/eors/home)</p>\r\n\r\n<p><br />\r\nSekian informasi yang dapat kami sampaikan.<br />\r\nRemember to stay safe and healthywink<br />\r\nAtas perhatiannya kami ucapkan terima kasih</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>#SalamTeknikInformatika<br />\r\n#SolidaritasTanpaBatas<br />\r\n#TI..GoTechnology<br />\r\n#HMJTIUNDIKSHA<br />\r\n#INTEGER2<br />\r\n#HIDUP MAHASISWA !!!</p>\r\n\r\n<p>&nbsp;</p>\r\n', NULL, '2020-10-19 07:37:13', 'Admin'),
+(64, '22cc1ae263b82d4350e92a99d2f024be.jpg', NULL, NULL, '', 'HMJ TI Undiksha 2020-2021', 'Pengumuman Hasil Open Recruitment Panitia INTEGER #2', 'Pengumuman', '<p style=\"text-align:justify\">Halo Infinity</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\">Diinformasikan kepada seluruh Mahasiswa Aktif Jurusan Teknik Informatika semester 1, 3, dan 5 yang sudah mengikuti tahap pendaftaran serta tahap wawancara open recruitment kepanitiaan INTEGER #2, pengumuman terkait hasil open recruitment sudah dapat dilihat pada website Electronic Open Recruitment HMJ Teknik Informatika.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\">Berikut adalah link hasil open recruitment panitia INTEGER #2: <a href=\"http://if.undiksha.ac.id/eors/lihat_hasil/INTEGER\">http://if.undiksha.ac.id/eors/lihat_hasil/INTEGER</a></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\">Terimakasih kami ucapkan kepada seluruh mahasiswa yang sudah ikut berpartisipasi dan mengikuti open recruitment. Kami ucapkan selamat kepada mahasiswa yang sudah terpilih dan untuk yang belum terpilih jangan berkecil hati karena masih banyak event yang bisa kalian ikuti selanjutnya.</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\">Sekian informasi yang dapat kami sampaikan.<br />\r\nRemember to stay safe and healthywink<br />\r\nAtas perhatiannya kami ucapkan terima kasih</p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\">#SalamTeknikInformatika<br />\r\n#SolidaritasTanpaBatas<br />\r\n#TI..GoTechnology<br />\r\n#HMJTIUNDIKSHA<br />\r\n#INTEGER2<br />\r\n#HIDUP MAHASISWA !!!</p>\r\n', NULL, '2020-10-26 21:08:31', 'Sub Bidang Jurnalistik'),
+(69, '1237b643eee9d0fa9fca24ec4db5354d.png', '0744c8ac08d11404c7522274600f3cab.jpg', 'a1fa4a5788a28352676e5d306d74d696.jpg', '', 'HMJ TI Undiksha 2020-2021', 'RAPAT UMUM 1 PANITIA INTEGER #2', 'Berita', '<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:\'Times New Roman\'\"><span style=\"color:#000000\">Singaraja (29/10/2020) - Pelaksanaan Rapat Umum 1 INTEGER#2 Himpunan Mahasiswa Jurusan Teknik Informatika, Universitas Pendidikan Ganesha. Rapat ini membahas progres dari masing-masing sie, kendala masing-masing sie, Panduan, RAB, konsep, jobdesk masing-masing sie, dan panduan mekanisme pendaftaran pada Event Integer #2. Rapat Umum ini diselenggarakan via daring mengingat kondisi yang saat ini tidak kondusif untuk melakukan rapat tatap muka, rapat umum ini dihadiri oleh ketua HMJ TI Irfan Walhidayah, Putu Zasya Eka Satya Nugraha selaku wakil ketua HMJ TI, seluruh koordinator sie beserta anggota. Dalam rapat ini masing-masing sie telah membeberkan masing-masing progres atau perkembangannya, dalam rapat ini pihak HMJ TI berencana bekerja sama dengan media partner dan juga sponsor.</span></span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:\'Times New Roman\'\"><span style=\"color:#000000\">Dalam pelaksanaan rapat umum ini I Gede Riyan Ardi Darmawan selaku koordinator bidang 5 HMJ TI sekaligus ketua panitia INTEGER #2, berpesan untuk masing-masing sie agar lebih banyak berkomunikasi satu sama lain, agar nantinya tidak terjadi kesalahan ketika event dilaksanakan mengingat hari-h yang sudah dekat.&nbsp;</span></span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:\'Times New Roman\'\"><span style=\"color:#000000\">Irfan Walhidayah selaku Ketua HMJ TI memberi pesan agar pembuatan pamflet untuk lomba dipisah, karena menurut pengalamannya mengikuti lomba, agar pihak yang diajak bekerja sama tidak kebingungan. Sie Pubdok, yang bertanggung jawab dalam pembuatan desain piagam dan juga pencetakannya diminta untuk menyesuaikan kembali beberapa piagam penghargaan untuk membedakan piagam satu dengan yang lain, selain Sie Pubdok, Sie pendaftaran juga diberi masukan untuk menambah penggunaaan M-Banking dalam pelaksanaan pendaftaran masing-masing lomba agar memudahkan dan mempercepat proses pendaftaran. Terkait dengan pemberian bantuan, yang menjadi tanggung jawab Sie Social-Event, I Gede Riyan Ardi Darmawan selaku ketua panitia, meminta pendapat dari seluruh peserta rapat untuk memberi informasi mengenai daerah yang belum mendapat bantuan, terutama yang ada di Bali, khususnya di kabupaten Buleleng. Sie MGS atau yang lebih dikenal dengan Malam Gelar Seni, dalam rangka EVENT INTEGER #2, HMJ TI berencana menyumbang dance cover, namun latihannya terkendala karena adanya ujian tengah semester. Kemudian, Sie Expo bertanggung jawab atas kegiatan Expo, karena tahun ini acara INTEGER #2 dilaksanakan secara online, maka Expo tidak memungkinkan untuk dilaksanakan. Sehingga sie Expo akan sedikit merubah konsep Exponya menjadi acara Webinar dan rencananya webinar ini akan berlangsung selama 3 hari. Kemudian, berlanjut ke Sie Penggalian Dana sejauh ini telah berjalan dengan baik, dan tidak memiliki masalah hingga saat artikel ini dibuat, dimana klien dari paid promote juga telah menyatakan kepuasannya, dan yang terakhir dari Sie umum yaitu Sie Teknologi Informasi, tidak ada kendala dari Sie Teknologi Informasi dimana semua telah diberi peran dan tugas masing-masing secara merata.</span></span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:\'Times New Roman\'\"><span style=\"color:#000000\">Sie Lomba Business IT Case, telah menyelesaikan panduannya, tetapi masih menunggu bimbingan dari dosen, dan juri, untuk RAB masih belum dibuat karena belum ada konfirmasi biaya dari masing-masing juri, sedangkan untuk kendala yang diterima hanya ada pada juri yang belum ada konfirmasi. Sie Lomba UI/UX, diminta untuk lebih menekankan konsepnya, sedangkan yang lainnya telah berjalan dengan lancar. Sie Lomba Hacking The Game, mengalami sedikit kendala dalam memilih juri untuk lomba tersebut.</span></span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:\'Times New Roman\'\"><span style=\"color:#000000\">Kemudian rapat dilanjutkan dengan Sie Lomba Mobile Legend, dimana Sie ini diwanti agar nantinya room yang digunakan untuk lomba menjadi maksimal, karena dari pengalaman sebelumnya, penyelenggara pernah disalahkan karena room yang ngelag.</span></span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:\'Times New Roman\'\"><span style=\"color:#000000\">Dengan adanya rapat ini, diharapkan Event INTEGER #2 ini dapat berjalan sebaik-baiknya, ini juga tidak luput dari restu yang mahakuasa yang juga membuat rapat umum INTEGER #2 ini berjalan dengan lancar, setelah itu rapat ditutup dengan doa.</span></span></span></p>\r\n', NULL, '2020-10-30 12:06:39', 'Sub Bidang Jurnalistik');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s1_kegiatan_hmj`
+-- Struktur dari tabel `s1_kegiatan_hmj`
 --
 
 CREATE TABLE `s1_kegiatan_hmj` (
@@ -292,7 +306,7 @@ CREATE TABLE `s1_kegiatan_hmj` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `s1_kegiatan_hmj`
+-- Dumping data untuk tabel `s1_kegiatan_hmj`
 --
 
 INSERT INTO `s1_kegiatan_hmj` (`id_kegiatan_hmj`, `id_hmj`, `nama_kegiatan`, `deskripsi_kegiatan`, `create_by`, `create_at`, `update_at`) VALUES
@@ -303,7 +317,7 @@ INSERT INTO `s1_kegiatan_hmj` (`id_kegiatan_hmj`, `id_hmj`, `nama_kegiatan`, `de
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s2_barang`
+-- Struktur dari tabel `s2_barang`
 --
 
 CREATE TABLE `s2_barang` (
@@ -319,7 +333,7 @@ CREATE TABLE `s2_barang` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s2_detail_peminjaman`
+-- Struktur dari tabel `s2_detail_peminjaman`
 --
 
 CREATE TABLE `s2_detail_peminjaman` (
@@ -331,7 +345,7 @@ CREATE TABLE `s2_detail_peminjaman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Triggers `s2_detail_peminjaman`
+-- Trigger `s2_detail_peminjaman`
 --
 DELIMITER $$
 CREATE TRIGGER `Peminjaman` AFTER INSERT ON `s2_detail_peminjaman` FOR EACH ROW BEGIN
@@ -351,7 +365,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s2_organisasi`
+-- Struktur dari tabel `s2_organisasi`
 --
 
 CREATE TABLE `s2_organisasi` (
@@ -364,7 +378,7 @@ CREATE TABLE `s2_organisasi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s2_peminjam`
+-- Struktur dari tabel `s2_peminjam`
 --
 
 CREATE TABLE `s2_peminjam` (
@@ -382,7 +396,7 @@ CREATE TABLE `s2_peminjam` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s2_peminjaman`
+-- Struktur dari tabel `s2_peminjaman`
 --
 
 CREATE TABLE `s2_peminjaman` (
@@ -395,7 +409,7 @@ CREATE TABLE `s2_peminjaman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Triggers `s2_peminjaman`
+-- Trigger `s2_peminjaman`
 --
 DELIMITER $$
 CREATE TRIGGER `Selesai_pinjam` AFTER UPDATE ON `s2_peminjaman` FOR EACH ROW BEGIN
@@ -407,7 +421,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s3_berita_integer`
+-- Struktur dari tabel `s3_berita_integer`
 --
 
 CREATE TABLE `s3_berita_integer` (
@@ -426,7 +440,7 @@ CREATE TABLE `s3_berita_integer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `s3_berita_integer`
+-- Dumping data untuk tabel `s3_berita_integer`
 --
 
 INSERT INTO `s3_berita_integer` (`id_berita_integer`, `id_integer`, `nama_berita_integer`, `kategori_berita_integer`, `konten_berita_integer`, `youtube_berita_integer`, `file_berita_integer`, `foto1_berita_integer`, `foto2_berita_integer`, `foto3_berita_integer`, `create_at`, `create_by`) VALUES
@@ -436,7 +450,7 @@ INSERT INTO `s3_berita_integer` (`id_berita_integer`, `id_integer`, `nama_berita
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s3_detail_hari_integer`
+-- Struktur dari tabel `s3_detail_hari_integer`
 --
 
 CREATE TABLE `s3_detail_hari_integer` (
@@ -451,7 +465,7 @@ CREATE TABLE `s3_detail_hari_integer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `s3_detail_hari_integer`
+-- Dumping data untuk tabel `s3_detail_hari_integer`
 --
 
 INSERT INTO `s3_detail_hari_integer` (`id_detail_hari_integer`, `id_hari_integer`, `nama_detail_hari_integer`, `waktu_mulai`, `waktu_akhir`, `tempat_detail_hari_integer`, `create_at`, `create_by`) VALUES
@@ -464,7 +478,7 @@ INSERT INTO `s3_detail_hari_integer` (`id_detail_hari_integer`, `id_hari_integer
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s3_hari_integer`
+-- Struktur dari tabel `s3_hari_integer`
 --
 
 CREATE TABLE `s3_hari_integer` (
@@ -476,7 +490,7 @@ CREATE TABLE `s3_hari_integer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `s3_hari_integer`
+-- Dumping data untuk tabel `s3_hari_integer`
 --
 
 INSERT INTO `s3_hari_integer` (`id_hari_integer`, `id_integer`, `nama_hari_integer`, `create_at`, `create_by`) VALUES
@@ -487,7 +501,7 @@ INSERT INTO `s3_hari_integer` (`id_hari_integer`, `id_integer`, `nama_hari_integ
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s3_integer`
+-- Struktur dari tabel `s3_integer`
 --
 
 CREATE TABLE `s3_integer` (
@@ -495,6 +509,7 @@ CREATE TABLE `s3_integer` (
   `nama_integer` varchar(100) NOT NULL,
   `logo_integer` text NOT NULL,
   `video_integer` text NOT NULL,
+  `panduan_integer` text NOT NULL,
   `tema_integer` varchar(200) NOT NULL,
   `deskripsi_integer` text NOT NULL,
   `status_integer` int(1) NOT NULL,
@@ -503,16 +518,16 @@ CREATE TABLE `s3_integer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `s3_integer`
+-- Dumping data untuk tabel `s3_integer`
 --
 
-INSERT INTO `s3_integer` (`id_integer`, `nama_integer`, `logo_integer`, `video_integer`, `tema_integer`, `deskripsi_integer`, `status_integer`, `create_at`, `create_by`) VALUES
-(21, 'Integer #2', 'IT GRAND CELEBRATION.png', 'f29e212a942fa1f80f864de6351f26b7.mp4', 'Be Bright With Technology', '<p>Be Brigth With Technology artinya seorang yang sukses atau jadilah seseorang yang cerdas. Setiap orang pasti punya kilauan atau talenta bakat masing-masing, buatlah perubahan dirimu dengan teknologi</p>\r\n', 1, '2020-10-11 12:38:48', 'Admin');
+INSERT INTO `s3_integer` (`id_integer`, `nama_integer`, `logo_integer`, `video_integer`, `panduan_integer`, `tema_integer`, `deskripsi_integer`, `status_integer`, `create_at`, `create_by`) VALUES
+(21, 'Integer #2', '3b9b7d8877acb72cce7ade24545fbea1.png', 'f29e212a942fa1f80f864de6351f26b7.mp4', '20201031214518_Panduan_Kegiatan_Integer.zip', 'Enabling Technology to Light Up Your Normality in New Normal Era', '<p style=\"text-align:justify\">Dengan diadakannya acara Integer #2 yang menyungsung tema diatas, harapannya seluruh pelajar dan mahasiswa yang berfokus pada bidang Teknologi Informasi di seluruh Indonesia dapat mengembangkan kreativitas dan meningkatkan semangat dalam diri serta berinovasi khususnya dibidang Teknologi walaupun dimasa pandemi seperti ini.</p>\r\n', 1, '2020-10-11 12:38:48', 'Admin');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s3_kategori_lomba_integer`
+-- Struktur dari tabel `s3_kategori_lomba_integer`
 --
 
 CREATE TABLE `s3_kategori_lomba_integer` (
@@ -526,17 +541,17 @@ CREATE TABLE `s3_kategori_lomba_integer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `s3_kategori_lomba_integer`
+-- Dumping data untuk tabel `s3_kategori_lomba_integer`
 --
 
 INSERT INTO `s3_kategori_lomba_integer` (`id_kategori_lomba_integer`, `id_integer`, `nama_kategori_lomba_integer`, `icon_kategori_lomba_integer`, `deskripsi_kategori_lomba_integer`, `create_at`, `create_by`) VALUES
-(9, 21, 'Akademik', 'eeb613694eb4cb914d596825e364b872.png', '<p>Kategori Akademik, dalam kategori ini akan melombakan beberapa lomba yang terkait dengan akademik atau kemampuan peserta berdasarkan kecerdasannya. Berikut merupakan beberapa lomba yang dapat diikuti peserta dalam kategori ini</p>\r\n', '2020-10-11 15:04:29', 'Admin'),
-(10, 21, 'Non Akademik', '5208f56a0204f63b83701f08a00cce15.jpg', '<p>Kategori Non Akademik, dalam kategori ini akan melombakan beberapa lomba yang terkait dengan non akademik atau kemampuan peserta dalam hal kreativitas,minat, dan bakatnya. Berikut merupakan beberapa lomba yang dapat diikuti peserta dalam kategori ini</p>\r\n', '2020-10-11 15:06:56', 'Admin');
+(9, 21, 'Akademik', 'eeb613694eb4cb914d596825e364b872.png', '<p style=\"text-align:justify\">Kategori Akademik, dalam kategori ini akan melombakan beberapa lomba yang terkait dengan akademik atau kemampuan peserta berdasarkan tingkat pemahaman terkait hal ilmiah dan ilmu pengetahuan. Berikut merupakan beberapa lomba yang dapat diikuti peserta dalam kategori ini</p>\r\n', '2020-10-11 15:04:29', 'Admin'),
+(10, 21, 'Non Akademik', '5208f56a0204f63b83701f08a00cce15.png', '<p style=\"text-align:justify\">Kategori Non Akademik, dalam kategori ini akan melombakan beberapa lomba yang terkait dengan non akademik atau kemampuan peserta dalam hal kreativitas, minat, dan bakatnya. Berikut merupakan beberapa lomba yang dapat diikuti peserta dalam kategori ini</p>\r\n', '2020-10-11 15:06:56', 'Admin');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s3_lomba_integer`
+-- Struktur dari tabel `s3_lomba_integer`
 --
 
 CREATE TABLE `s3_lomba_integer` (
@@ -557,19 +572,25 @@ CREATE TABLE `s3_lomba_integer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `s3_lomba_integer`
+-- Dumping data untuk tabel `s3_lomba_integer`
 --
 
 INSERT INTO `s3_lomba_integer` (`id_lomba_integer`, `id_kategori_lomba_integer`, `nama_lomba_integer`, `deskripsi_lomba_integer`, `icon_lomba_integer`, `waktu_mulai_pendaftaran`, `waktu_akhir_pendaftaran`, `pendaftaran_lomba_integer`, `pengumpulan_proposal`, `waktu_awal_pengumpulan`, `waktu_akhir_pengumpulan`, `pengumpulan_lomba_integer`, `create_at`, `create_by`) VALUES
-(16, 10, 'Lomba Vlog Competition', '<p>Lomba vlog competition adalah lomba terkait dengan vlog</p>\r\n', 'e4b0e00788b64c95a005cfbb8732a4ee.jpg', '2020-10-14 00:00:00', '2020-10-17 00:00:00', 'https://if.undiksha.ac.id', 1, '2020-10-18 00:00:00', '2020-10-19 00:00:00', 'https://if.undiksha.ac.id', '2020-10-11 15:09:30', 'Admin'),
-(17, 10, 'Lomba Tari Kreasi', '<p>Lomba tari kreasi adalah lomba yang mengedepankan tari kreasi,</p>\r\n', 'd8265f7143daad048943515e4dec3565.png', '2020-10-14 00:00:00', '2020-10-17 00:00:00', 'https://if.undiksha.ac.id', 0, NULL, NULL, NULL, '2020-10-11 15:11:04', 'Admin'),
-(18, 9, 'Lomba Business Plan', '<p>Lomba Business Plan adalah lomba yang diselenggarakan oleh</p>\r\n', '14896fcfb080311516f43709b82fb293.png', '2020-10-14 00:00:00', '2020-10-17 00:00:00', 'https://if.undiksha.ac.id', 1, '2020-10-18 00:00:00', '2020-10-19 00:00:00', 'https://if.undiksha.ac.id', '2020-10-11 15:12:20', 'Admin'),
-(19, 9, 'Lomba Essay Nasional', '<p>Lomba essay nasional adalah lomba yang diselenggarakan oleh HMJ TI Undiksha</p>\r\n', '062f1fcff6f2e7459b0e0cd4242dc13f.jpg', '2020-10-13 00:00:00', '2020-10-14 00:00:00', 'https://if.undiksha.ac.id', 0, NULL, NULL, NULL, '2020-10-11 20:40:20', 'Admin');
+(16, 10, 'Lomba Musik Cover', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait lomba Musik Cover dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', 'e4b0e00788b64c95a005cfbb8732a4ee.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaMusicCover', 1, '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaMusicCover', '2020-10-31 16:06:24', 'Admin'),
+(17, 10, 'Lomba Tiktok', '<p>Informasi lebih lanjut terkait lomba Tiktok dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', 'd8265f7143daad048943515e4dec3565.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaTikTok', 1, '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaTikTok', '2020-10-31 22:51:36', 'Admin'),
+(18, 9, 'Lomba IT Business Case', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait lomba IT Business Case dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', '14896fcfb080311516f43709b82fb293.png', '2020-11-05 00:00:00', '2020-12-03 00:00:00', ' https://s.id/LombaBusinessITCase', 1, '2020-11-05 00:00:00', '2020-12-03 00:00:00', ' https://s.id/LombaBusinessITCase', '2020-10-31 22:54:03', 'Admin'),
+(19, 9, 'Lomba Essay Nasional', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait lomba Essay Nasional dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', '062f1fcff6f2e7459b0e0cd4242dc13f.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaEssayNasional', 1, '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaEssayNasional', '2020-10-31 16:05:08', 'Admin'),
+(21, 9, 'Coding Competition', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait Coding Competition dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', '4d2238bf9c355fa30a60a4ee8e62975e.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/Codingcompetition', 0, NULL, NULL, NULL, '2020-10-31 23:36:33', 'Admin'),
+(22, 9, 'Lomba Hacking The Game', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait Hacking The Game Competition dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', '5ed03a8d368bddf0838d32958bf88a55.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/HackingTheGame', 0, NULL, NULL, NULL, '2020-10-31 23:41:19', 'Admin'),
+(23, 9, 'LIDM', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait Lomba Inovasi Digital Pendidikan dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', '8fb552645127801d11225b496b0e9ee0.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaLIDP', 1, '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaLIDP', '2020-10-31 23:45:08', 'Admin'),
+(24, 9, 'Lomba UI/UX Design', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait Lomba UI/UX Design dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', 'e99fa73dba712c1690b7970dd2482aab.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaUIUXDesign', 1, '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaUIUXDesign', '2020-10-31 23:56:40', 'Admin'),
+(25, 10, 'Lomba Desain Poster', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait Lomba Desain Poster dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', 'c8e0499b161b35afc417e57a002643f0.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaPOSTER', 1, '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaPOSTER', '2020-10-31 23:58:45', 'Admin'),
+(26, 10, 'Lomba Mobile Legend', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait Lomba Mobile Legend dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', '4c73be850513015774102777551b3f0b.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaMLBB', 0, NULL, NULL, NULL, '2020-11-01 00:00:06', 'Admin');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s3_sponsor_integer`
+-- Struktur dari tabel `s3_sponsor_integer`
 --
 
 CREATE TABLE `s3_sponsor_integer` (
@@ -583,7 +604,7 @@ CREATE TABLE `s3_sponsor_integer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `s3_sponsor_integer`
+-- Dumping data untuk tabel `s3_sponsor_integer`
 --
 
 INSERT INTO `s3_sponsor_integer` (`id_sponsor_integer`, `id_integer`, `nama_sponsor_integer`, `deskripsi_sponsor_integer`, `foto_sponsor_integer`, `create_at`, `create_by`) VALUES
@@ -594,7 +615,7 @@ INSERT INTO `s3_sponsor_integer` (`id_sponsor_integer`, `id_integer`, `nama_spon
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s4_informasi_umum`
+-- Struktur dari tabel `s4_informasi_umum`
 --
 
 CREATE TABLE `s4_informasi_umum` (
@@ -633,7 +654,7 @@ CREATE TABLE `s4_informasi_umum` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s4_kegiatan`
+-- Struktur dari tabel `s4_kegiatan`
 --
 
 CREATE TABLE `s4_kegiatan` (
@@ -658,17 +679,10 @@ CREATE TABLE `s4_kegiatan` (
   `create_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `s4_kegiatan`
---
-
-INSERT INTO `s4_kegiatan` (`id_kegiatan`, `icon_kegiatan`, `nama_kegiatan`, `deskripsi`, `persyaratan`, `tgl_mulai`, `tgl_akhir`, `aktivasi`, `target_pendaftar`, `jumlah_pendaftar`, `upload_file`, `informasi_pribadi`, `informasi_pendidikan`, `wawancara`, `penilaian`, `hasil_akhir`, `pengumuman`, `create_at`, `create_by`) VALUES
-(7, '605b1e9fc7ea2474a51f1093c4e5369f.png', 'INTEGER', '<p style=\"text-align:justify;\">IT Grand Celebration #2 merupakan acara tahunan yang diselenggarakan oleh HMJ TI Undiksha, pada tahun ini kegiatan INTEGER #2 dilaksanakan secara daring. Oleh karena itu, guna membantu dalam pelaksanaan INTEGER tahun ini, maka HMJ TI Undiksha membuka kesempatan bagi mahasiswa diluar anggota HMJ TI Undiksha untuk ikut bergabung menjadi panitia dalam kegiatan ini. Adapun persyaratan yang harus dipenuhi, dapat dilihat pada tombol persyaratan dibawah ini</p>\r\n', '<ul>\r\n                                            <li>Mahasiswa Semester 1,3, dan 5 di lingkungan Jurusan Teknik Informatika\r\n                                            </li>\r\n                                            <li>Dapat mengikuti kegiatan dengan serius </li>\r\n                                            <li>Mengisi formulir pendaftaran</li>\r\n                                        </ul>', '2020-10-13 00:00:00', '2020-10-15 00:00:00', 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, '2020-10-07 13:05:51', 'Admin');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s4_pilihan`
+-- Struktur dari tabel `s4_pilihan`
 --
 
 CREATE TABLE `s4_pilihan` (
@@ -677,18 +691,10 @@ CREATE TABLE `s4_pilihan` (
   `id_jabatan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `s4_pilihan`
---
-
-INSERT INTO `s4_pilihan` (`id_pilihan`, `id_kegiatan`, `id_jabatan`) VALUES
-(16, 7, 48),
-(17, 7, 47);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `s4_wawancara`
+-- Struktur dari tabel `s4_wawancara`
 --
 
 CREATE TABLE `s4_wawancara` (
@@ -707,7 +713,7 @@ CREATE TABLE `s4_wawancara` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -733,14 +739,14 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$zotV59v60G..Z2mko/zs0uGOQ6gAs9FyMaPckq5OvwfdtLGi6eNQ2', 'hmjtiundiksha@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1268889823, 1602413956, 1, 'Admin', '1815091037', 46, '081915656865'),
-(22, '127.0.0.1', NULL, '$2y$10$g/F9rFfU0BI6v592ioVx1u7Mu8DzSrRdSotsIguNj8fPneI9lki4m', 'irfan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601478582, 1601478918, 1, 'IRFAN WALHIDAYAH', '1815091002', 38, '08983197636'),
-(23, '127.0.0.1', NULL, '$2y$10$oZZGNZj4iE8g53ONFgRFIe4LVgMBa/egnW3h49VEeWhsEZaSRptQK', 'jurnalistik@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601478638, 1601478958, 1, 'Sub Bidang Jurnalistik', '1815051083', 40, '081339289008'),
-(24, '127.0.0.1', NULL, '$2y$10$DAWjFjedaWxM7yQEoLhFueum.UMmxHelnKxrFvFzncohmqe.y/v1O', 'riyan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601992246, 1602043638, 1, 'I Gede Riyan Ardi Darmawan', '1815091037', 38, '081915656865'),
+(1, '127.0.0.1', 'administrator', '$2y$12$zotV59v60G..Z2mko/zs0uGOQ6gAs9FyMaPckq5OvwfdtLGi6eNQ2', 'hmjtiundiksha@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1268889823, 1604147168, 1, 'Admin', '1815091037', 46, '081915656865'),
+(22, '127.0.0.1', NULL, '$2y$10$O1KWWZXWdDoo8qm364F/4.qwXRG/78xxha6cAQ9wPGbUFwPLZgIje', 'irfan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601478582, 1603603369, 1, 'IRFAN WALHIDAYAH', '1815091002', 38, '08983197636'),
+(23, '127.0.0.1', NULL, '$2y$10$UdZ.NWa/aTPtwQgR0MlO8./sUjlSPRpYuOQB8CsTtZT/cO0TWp9eS', 'jurnalistik@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601478638, 1604029034, 1, 'Sub Bidang Jurnalistik', '1815051083', 40, '081339289008'),
+(24, '127.0.0.1', NULL, '$2y$10$DAWjFjedaWxM7yQEoLhFueum.UMmxHelnKxrFvFzncohmqe.y/v1O', 'riyan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, '960becbf65eb8fefad6b8a5949c4603b471a4819', '$2y$10$95reC7zPM2VWN3UAdlrNcOdYEZXbAbHRvYB3ZLqHmJddg.UUBmwGu', 1601992246, 1603673136, 1, 'I Gede Riyan Ardi Darmawan', '1815091037', 38, '081915656865'),
 (25, '127.0.0.1', NULL, '$2y$10$SJfWbTDGZKBYEp5WI1.Dde1DAoq/46Ps9djX7LRe8OMvSnaCf8qtS', 'willy@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601992447, NULL, 1, 'Willy Yogantara Sidhi', '1815091063', 43, '087853652474'),
 (26, '127.0.0.1', NULL, '$2y$10$t90cFNvkVrmnqhWHMSuj7OrSy6Q97DE7l2yXXVu7H3gwX9xGwZ7EC', 'primadwi84@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601992497, NULL, 1, 'Dwi Prima Handayani Putri', '1915101012', 45, '081246342145'),
 (27, '127.0.0.1', NULL, '$2y$10$Ei8Psz3K2AemekBhdei7cuaDT5Dwcldb47DrmfVqAnkycLjpE7b1e', 'komangdianary23@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601994775, NULL, 1, 'Komang Dian Ary Kristiadi', '1815051040', 45, '081339320140'),
@@ -749,26 +755,35 @@ INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activ
 (30, '127.0.0.1', NULL, '$2y$10$HcFAFtNne78jsu.cy78Ix.yqZb2z6pnv3b2oB4cjwPI4ojcUMrCbq', 'anisamarta17@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601995022, NULL, 1, 'Ni Putu Anisa Marta Widyasari', '1915091024', 45, '081235170840'),
 (31, '127.0.0.1', NULL, '$2y$10$EcWpGLCa908k7FfAihqe2.Q3vjZtx7.UfIq4vL7zhhUiOuQ7pE0Wm', 'rifki@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601995120, NULL, 1, 'Rifki Nur Fauzi', '1815091048', 42, '08980138994'),
 (32, '127.0.0.1', NULL, '$2y$10$.PbI5DpKftREFzSKRj/zjOrlwLx.LeTueNni.he7fAKUeVxgQpKOK', 'erik@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601995159, NULL, 1, 'Putu Erik Hendrawan', '1815051052', 41, '08980244454'),
-(33, '127.0.0.1', NULL, '$2y$10$rnOqYpYSj4AU8xCCeFPRhe2Mld/.52Y.1SXBHIOmL/84Ls.TATEMS', 'bagus.alviantara@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602045314, NULL, 1, 'I Made Bagus Alviantara', '1915091037', 45, '082236608104'),
+(33, '127.0.0.1', NULL, '$2y$10$Qraf.xlZQe9b/vg0CMUhOui35qBEMqZwyp7Ugi2NA8pD4qtaAlela', 'bagus.alviantara@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602045314, 1603424112, 1, 'I Made Bagus Alviantara', '1915091037', 60, '082236608104'),
 (34, '127.0.0.1', NULL, '$2y$10$OKhDauuCVTkRkLvhykaMJuQWlz7d3Uya40SuoDhszirGWuqcBDsd.', 'beny.indrawan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602045362, NULL, 1, 'Gede Beny Indrawan', '1915101002', 45, '087761750517'),
 (35, '127.0.0.1', NULL, '$2y$10$HSg8e7NjHVjaqXtWINX8WOLIQQBYhwgWORvjbtVyzDZvsuHMc6URG', 'ega@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602045445, NULL, 1, 'I Putu Ega Suwidi Darma', '1805021012', 45, '08523774442'),
 (36, '127.0.0.1', NULL, '$2y$10$bDcwWvWvkxwGuXCTKC7hjuQSRUFGIKRCtc2LwdOW5OlKqBq1C9M.K', 'dwiki.anggara49@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602045499, NULL, 1, 'I Made Dwiki Pasek Anggara', '1815051078', 45, '089606254400'),
-(37, '127.0.0.1', NULL, '$2y$10$.ISk6Z2/vVlDvRqoKvGPfe3LLpeeED5zrbY.9LACI53vAqCSNXTby', 'nova.wirya@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046090, NULL, 1, 'Ketut Nova Wirya Dinata', '1800000000', 51, '082237653029'),
-(38, '127.0.0.1', NULL, '$2y$10$ntr/XNk9E6/V9jGwmoCP0eFwwxwSha5w200bPGIICXyabpndXYSfG', 'triarta.art@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046177, NULL, 1, 'I Nyoman Triarta', '1800000000', 52, '085967153944'),
-(39, '127.0.0.1', NULL, '$2y$10$hnkNoIsALHwhshUA5VvKNeRiDqSH3UE.DmqRzsgnWVyP0UIKXYAvK', 'tesdyanakelin2001@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046222, NULL, 1, 'Ni Luh Putu Tesdyana Kelin', '1800000000', 54, '083112292535'),
-(40, '127.0.0.1', NULL, '$2y$10$jQSWofC./CC0HgK0UOQaEOcFWiI7oBXhc1Pppxx9EGUwh3UkOrdyC', 'dwitasri123@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046268, NULL, 1, 'Ni Kadek Dwita Sri Wahyuni', '1800000000', 53, '081238758402'),
-(41, '127.0.0.1', NULL, '$2y$10$9pgfC03xonKPowlGhhK8Z.vETzBoj/kwRemCr3Gkv/dC5z.ITk/j6', 'subiksaketutgede2000@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046316, NULL, 1, 'Ketut Gede Subiksa', '1800000000', 55, '081917021065'),
-(42, '127.0.0.1', NULL, '$2y$10$aSNT2v3409GRypo8dD.VG.H.j1/QDHvmjq8KNXKgYN8ErYtlpsdAC', 'utaridp145@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046355, NULL, 1, 'Kadek Utari Darma Putri', '1800000000', 48, '085739637185'),
-(43, '127.0.0.1', NULL, '$2y$10$3oDM160Ru.5mXwslBRyDYu5SJsvw10hIw3063RrtasdW4T3AX5E/K', 'pramayasa@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046397, NULL, 1, 'Komang Pramayasa', '1800000000', 49, '083114682628'),
-(44, '127.0.0.1', NULL, '$2y$10$wLvn9ew6Z25WNfBvTsBtWuHMogDn0BkHUqdTQlyeMvmM.ydEMiWPS', 'vinavelina.id13@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046432, NULL, 1, 'Vina Velina', '1915051080', 56, '081805783010'),
-(45, '127.0.0.1', NULL, '$2y$10$ehzkweiD3gGvYwfl3OuXhe761aHK8pcp44PpNOwtPuAhkhs9xpD/6', 'mitta20177@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046515, NULL, 1, 'Ni Made Ayu Mita Kusumadewi', '1800000000', 47, '082146115112'),
-(46, '127.0.0.1', NULL, '$2y$10$RgXSbNSQlUrpdPOOIGin.eRQIyWR8ek1Il1hjfg4V4mUM2hYMs/.W', 'dius@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046561, NULL, 1, 'I Made Dius Wahyu Aditya', '1800000000', 39, '081239962713'),
-(47, '127.0.0.1', NULL, '$2y$10$Ku1suPcVsdwsKcny5jbjTevtQfuYGcHoYLQlprkhU3YcGSqQLAggC', 'budi.setiawan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046995, NULL, 1, 'Gede Budi Setiawan', '1815051083', 50, '081339289008');
+(37, '127.0.0.1', NULL, '$2y$10$.ISk6Z2/vVlDvRqoKvGPfe3LLpeeED5zrbY.9LACI53vAqCSNXTby', 'nova.wirya@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, '796ab7cd10b7e091b4cc4ed48518106d23ba530e', '$2y$10$AlDtqJgx70oUPmUuOM1lmuD.w3VmU4o1BVhCOQeGgZeqYoNZUEaLS', 1602046090, 1603372928, 1, 'Ketut Nova Wirya Dinata', '1800000000', 51, '082237653029'),
+(38, '127.0.0.1', NULL, '$2y$10$ntr/XNk9E6/V9jGwmoCP0eFwwxwSha5w200bPGIICXyabpndXYSfG', 'triarta.art@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046177, 1603693614, 1, 'I Nyoman Triarta', '1800000000', 52, '085967153944'),
+(39, '127.0.0.1', NULL, '$2y$10$hnkNoIsALHwhshUA5VvKNeRiDqSH3UE.DmqRzsgnWVyP0UIKXYAvK', 'tesdyanakelin2001@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046222, 1603537961, 1, 'Ni Luh Putu Tesdyana Kelin', '1800000000', 54, '083112292535'),
+(40, '127.0.0.1', NULL, '$2y$10$jQSWofC./CC0HgK0UOQaEOcFWiI7oBXhc1Pppxx9EGUwh3UkOrdyC', 'dwitasri123@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046268, 1603435502, 1, 'Ni Kadek Dwita Sri Wahyuni', '1800000000', 53, '081238758402'),
+(41, '127.0.0.1', NULL, '$2y$10$9pgfC03xonKPowlGhhK8Z.vETzBoj/kwRemCr3Gkv/dC5z.ITk/j6', 'subiksaketutgede2000@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046316, 1603416387, 1, 'Ketut Gede Subiksa', '1800000000', 55, '081917021065'),
+(42, '127.0.0.1', NULL, '$2y$10$aSNT2v3409GRypo8dD.VG.H.j1/QDHvmjq8KNXKgYN8ErYtlpsdAC', 'utaridp145@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046355, 1603503583, 1, 'Kadek Utari Darma Putri', '1800000000', 48, '085739637185'),
+(43, '127.0.0.1', NULL, '$2y$10$3oDM160Ru.5mXwslBRyDYu5SJsvw10hIw3063RrtasdW4T3AX5E/K', 'pramayasa@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046397, 1603512952, 1, 'Komang Pramayasa', '1800000000', 49, '083114682628'),
+(44, '127.0.0.1', NULL, '$2y$10$wLvn9ew6Z25WNfBvTsBtWuHMogDn0BkHUqdTQlyeMvmM.ydEMiWPS', 'vinavelina.id13@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046432, 1603452205, 1, 'Vina Velina', '1915051080', 56, '081805783010'),
+(45, '127.0.0.1', NULL, '$2y$10$tJj9SOCslu424lxi3.cJQumWLnvztmnddVQ7mg3wwVGao0ogmGSIS', 'mitta20177@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046515, 1603635546, 1, 'Ni Made Ayu Mita Kusumadewi', '1800000000', 47, '082146115112'),
+(46, '127.0.0.1', NULL, '$2y$10$RgXSbNSQlUrpdPOOIGin.eRQIyWR8ek1Il1hjfg4V4mUM2hYMs/.W', 'dius@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046561, 1603520889, 1, 'I Made Dius Wahyu Aditya', '1800000000', 39, '081239962713'),
+(47, '127.0.0.1', NULL, '$2y$10$Ku1suPcVsdwsKcny5jbjTevtQfuYGcHoYLQlprkhU3YcGSqQLAggC', 'budi.setiawan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602046995, 1603668398, 1, 'Gede Budi Setiawan', '1815051083', 50, '081339289008'),
+(48, '127.0.0.1', NULL, '$2y$10$cUsR24xDSerDhGflvyn6g.69f1c6sauzHV/HNiOoM2I144FkFCZdu', 'anggiipuspita21@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602905975, 1603366629, 1, 'Anggi Puspita Lestari', '1815051047', 66, '081239186845'),
+(49, '127.0.0.1', NULL, '$2y$10$1jwebYEOg5FNSP01lHVPSeU7EoRhwnVohAjhzpcaXnwYfLFQn92Aq', 'kadekramawasudewa@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602906068, 1603622643, 1, 'Kadek Rama Wasudewa', '1815091046', 63, '082144853317'),
+(50, '127.0.0.1', NULL, '$2y$10$hM2DVXycR8KqCk1AJ.cWZuJECm9U9etWoN518F4A3AbtaIJn3msEy', 'komangwiidyas@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602906247, 1603341872, 1, 'Ni Komang Sri Widyastuti', '1915051033', 57, '085739533769'),
+(51, '127.0.0.1', NULL, '$2y$10$pqkVhEO9EX.O.j235R2pl.gt.RAhTIrUah8dZE6xtXDKzAXRIp5iq', 'wisnuputu200@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602906319, 1603331974, 1, 'Putu Wisnu Ardia Chandra', '1915051017', 59, '087774460530'),
+(52, '127.0.0.1', NULL, '$2y$10$U4LcmsyFm1FrDcmMc8SlteGTLPTChSfJsUM1UNmn72CX2boiKQ6sq', 'krisnadarmawan07@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602906392, 1603366489, 1, 'I Made Krisna Darmawan', '1815051059', 61, '087760052129'),
+(53, '127.0.0.1', NULL, '$2y$10$pZ9LYrYSOMIMMYYQqjwMsujdRKRq/atXngRyAaDLuXZgjqJPBmrSS', 'dehandy14@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602906456, 1603535563, 1, 'I Gede Handy Tresna Wirawan', '1815051085', 64, '081238934049'),
+(54, '127.0.0.1', NULL, '$2y$10$1tFNjkEVukGDrJ3qI1gxVeV3sjTP5Nxz93oRjHx4pKTHAqB9qVdvm', 'devabrilsana@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602906788, 1603547739, 1, 'Komang Deva Bayudi Brilsana', '1815051018', 65, '081931635966'),
+(55, '127.0.0.1', NULL, '$2y$10$zcw6kj2fnfa4D98OBDFNauKSyv4bjCBZpL9x9p2IhW/zZODgymMY.', 'arpinese.1@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602906858, 1603549204, 1, 'I Gede Anggie Suardika Arpin', '1915091008', 58, '082237256677'),
+(56, '127.0.0.1', NULL, '$2y$10$7Bg7MsGW9dAxBsI/7hAAGOUCEx3Fzn60TKpGASPSBKBzdw4yJORuy', 'jeprikusuma11@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1602906912, 1603455131, 1, 'Komang Jepri Kusuma Jaya', '1915051025', 62, '081337178506');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_groups`
+-- Struktur dari tabel `users_groups`
 --
 
 CREATE TABLE `users_groups` (
@@ -778,13 +793,13 @@ CREATE TABLE `users_groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users_groups`
+-- Dumping data untuk tabel `users_groups`
 --
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (24, 1, 1),
-(71, 22, 5),
-(48, 23, 2),
+(99, 22, 5),
+(101, 23, 2),
 (84, 24, 5),
 (39, 25, 2),
 (40, 26, 2),
@@ -794,7 +809,7 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (44, 30, 2),
 (46, 31, 2),
 (47, 32, 2),
-(55, 33, 2),
+(100, 33, 4),
 (56, 34, 2),
 (57, 35, 2),
 (58, 36, 2),
@@ -806,79 +821,88 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (77, 42, 4),
 (78, 43, 4),
 (79, 44, 4),
-(80, 45, 4),
+(97, 45, 4),
 (81, 46, 5),
-(85, 47, 4);
+(85, 47, 4),
+(95, 48, 4),
+(96, 49, 4),
+(88, 50, 4),
+(89, 51, 4),
+(90, 52, 4),
+(91, 53, 4),
+(92, 54, 4),
+(93, 55, 4),
+(94, 56, 4);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `groups`
+-- Indeks untuk tabel `groups`
 --
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `jabatan`
+-- Indeks untuk tabel `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id_pilihan`);
 
 --
--- Indexes for table `links`
+-- Indeks untuk tabel `links`
 --
 ALTER TABLE `links`
   ADD PRIMARY KEY (`id_links`);
 
 --
--- Indexes for table `login_attempts`
+-- Indeks untuk tabel `login_attempts`
 --
 ALTER TABLE `login_attempts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `s1_detail_hmj`
+-- Indeks untuk tabel `s1_detail_hmj`
 --
 ALTER TABLE `s1_detail_hmj`
   ADD PRIMARY KEY (`id_detail_hmj`),
   ADD KEY `id_hmj` (`id_hmj`);
 
 --
--- Indexes for table `s1_detail_kegiatan`
+-- Indeks untuk tabel `s1_detail_kegiatan`
 --
 ALTER TABLE `s1_detail_kegiatan`
   ADD PRIMARY KEY (`id_detail_kegiatan`),
   ADD KEY `id_kegiatan_hmj` (`id_kegiatan_hmj`);
 
 --
--- Indexes for table `s1_hmj`
+-- Indeks untuk tabel `s1_hmj`
 --
 ALTER TABLE `s1_hmj`
   ADD PRIMARY KEY (`id_hmj`);
 
 --
--- Indexes for table `s1_informasi`
+-- Indeks untuk tabel `s1_informasi`
 --
 ALTER TABLE `s1_informasi`
   ADD PRIMARY KEY (`id_informasi`);
 
 --
--- Indexes for table `s1_kegiatan_hmj`
+-- Indeks untuk tabel `s1_kegiatan_hmj`
 --
 ALTER TABLE `s1_kegiatan_hmj`
   ADD PRIMARY KEY (`id_kegiatan_hmj`),
   ADD KEY `id_hmj` (`id_hmj`);
 
 --
--- Indexes for table `s2_barang`
+-- Indeks untuk tabel `s2_barang`
 --
 ALTER TABLE `s2_barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indexes for table `s2_detail_peminjaman`
+-- Indeks untuk tabel `s2_detail_peminjaman`
 --
 ALTER TABLE `s2_detail_peminjaman`
   ADD PRIMARY KEY (`id_detail_peminjaman`),
@@ -886,88 +910,88 @@ ALTER TABLE `s2_detail_peminjaman`
   ADD KEY `id_barang` (`id_barang`);
 
 --
--- Indexes for table `s2_organisasi`
+-- Indeks untuk tabel `s2_organisasi`
 --
 ALTER TABLE `s2_organisasi`
   ADD PRIMARY KEY (`id_organisasi`);
 
 --
--- Indexes for table `s2_peminjam`
+-- Indeks untuk tabel `s2_peminjam`
 --
 ALTER TABLE `s2_peminjam`
   ADD PRIMARY KEY (`id_peminjam`),
   ADD KEY `id_organisasi` (`id_organisasi`);
 
 --
--- Indexes for table `s2_peminjaman`
+-- Indeks untuk tabel `s2_peminjaman`
 --
 ALTER TABLE `s2_peminjaman`
   ADD PRIMARY KEY (`id_peminjaman`),
   ADD KEY `id_peminjam` (`id_peminjam`);
 
 --
--- Indexes for table `s3_berita_integer`
+-- Indeks untuk tabel `s3_berita_integer`
 --
 ALTER TABLE `s3_berita_integer`
   ADD PRIMARY KEY (`id_berita_integer`),
   ADD KEY `id_integer` (`id_integer`);
 
 --
--- Indexes for table `s3_detail_hari_integer`
+-- Indeks untuk tabel `s3_detail_hari_integer`
 --
 ALTER TABLE `s3_detail_hari_integer`
   ADD PRIMARY KEY (`id_detail_hari_integer`),
   ADD KEY `id_hari_integer` (`id_hari_integer`);
 
 --
--- Indexes for table `s3_hari_integer`
+-- Indeks untuk tabel `s3_hari_integer`
 --
 ALTER TABLE `s3_hari_integer`
   ADD PRIMARY KEY (`id_hari_integer`),
   ADD KEY `id_integer` (`id_integer`);
 
 --
--- Indexes for table `s3_integer`
+-- Indeks untuk tabel `s3_integer`
 --
 ALTER TABLE `s3_integer`
   ADD PRIMARY KEY (`id_integer`);
 
 --
--- Indexes for table `s3_kategori_lomba_integer`
+-- Indeks untuk tabel `s3_kategori_lomba_integer`
 --
 ALTER TABLE `s3_kategori_lomba_integer`
   ADD PRIMARY KEY (`id_kategori_lomba_integer`),
   ADD KEY `id_integer` (`id_integer`);
 
 --
--- Indexes for table `s3_lomba_integer`
+-- Indeks untuk tabel `s3_lomba_integer`
 --
 ALTER TABLE `s3_lomba_integer`
   ADD PRIMARY KEY (`id_lomba_integer`),
   ADD KEY `id_kategori_lomba_integer` (`id_kategori_lomba_integer`);
 
 --
--- Indexes for table `s3_sponsor_integer`
+-- Indeks untuk tabel `s3_sponsor_integer`
 --
 ALTER TABLE `s3_sponsor_integer`
   ADD PRIMARY KEY (`id_sponsor_integer`),
   ADD KEY `id_integer` (`id_integer`);
 
 --
--- Indexes for table `s4_informasi_umum`
+-- Indeks untuk tabel `s4_informasi_umum`
 --
 ALTER TABLE `s4_informasi_umum`
   ADD PRIMARY KEY (`id_informasi`),
   ADD KEY `fk_info_kegiatan` (`id_kegiatan`);
 
 --
--- Indexes for table `s4_kegiatan`
+-- Indeks untuk tabel `s4_kegiatan`
 --
 ALTER TABLE `s4_kegiatan`
   ADD PRIMARY KEY (`id_kegiatan`);
 
 --
--- Indexes for table `s4_pilihan`
+-- Indeks untuk tabel `s4_pilihan`
 --
 ALTER TABLE `s4_pilihan`
   ADD PRIMARY KEY (`id_pilihan`),
@@ -975,14 +999,14 @@ ALTER TABLE `s4_pilihan`
   ADD KEY `fk_kegiatan_pilihan` (`id_kegiatan`);
 
 --
--- Indexes for table `s4_wawancara`
+-- Indeks untuk tabel `s4_wawancara`
 --
 ALTER TABLE `s4_wawancara`
   ADD PRIMARY KEY (`id_wawancara`),
   ADD KEY `fk_wawancara_info` (`id_informasi`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -993,7 +1017,7 @@ ALTER TABLE `users`
   ADD KEY `fk_company` (`company`);
 
 --
--- Indexes for table `users_groups`
+-- Indeks untuk tabel `users_groups`
 --
 ALTER TABLE `users_groups`
   ADD PRIMARY KEY (`id`),
@@ -1002,275 +1026,275 @@ ALTER TABLE `users_groups`
   ADD KEY `fk_users_groups_groups1_idx` (`group_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `groups`
+-- AUTO_INCREMENT untuk tabel `groups`
 --
 ALTER TABLE `groups`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `jabatan`
+-- AUTO_INCREMENT untuk tabel `jabatan`
 --
 ALTER TABLE `jabatan`
-  MODIFY `id_pilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_pilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
--- AUTO_INCREMENT for table `links`
+-- AUTO_INCREMENT untuk tabel `links`
 --
 ALTER TABLE `links`
-  MODIFY `id_links` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_links` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `login_attempts`
+-- AUTO_INCREMENT untuk tabel `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
--- AUTO_INCREMENT for table `s1_detail_hmj`
+-- AUTO_INCREMENT untuk tabel `s1_detail_hmj`
 --
 ALTER TABLE `s1_detail_hmj`
   MODIFY `id_detail_hmj` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `s1_detail_kegiatan`
+-- AUTO_INCREMENT untuk tabel `s1_detail_kegiatan`
 --
 ALTER TABLE `s1_detail_kegiatan`
   MODIFY `id_detail_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
--- AUTO_INCREMENT for table `s1_hmj`
+-- AUTO_INCREMENT untuk tabel `s1_hmj`
 --
 ALTER TABLE `s1_hmj`
   MODIFY `id_hmj` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `s1_informasi`
+-- AUTO_INCREMENT untuk tabel `s1_informasi`
 --
 ALTER TABLE `s1_informasi`
-  MODIFY `id_informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id_informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
--- AUTO_INCREMENT for table `s1_kegiatan_hmj`
+-- AUTO_INCREMENT untuk tabel `s1_kegiatan_hmj`
 --
 ALTER TABLE `s1_kegiatan_hmj`
   MODIFY `id_kegiatan_hmj` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT for table `s2_barang`
+-- AUTO_INCREMENT untuk tabel `s2_barang`
 --
 ALTER TABLE `s2_barang`
   MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `s2_detail_peminjaman`
+-- AUTO_INCREMENT untuk tabel `s2_detail_peminjaman`
 --
 ALTER TABLE `s2_detail_peminjaman`
   MODIFY `id_detail_peminjaman` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `s2_organisasi`
+-- AUTO_INCREMENT untuk tabel `s2_organisasi`
 --
 ALTER TABLE `s2_organisasi`
   MODIFY `id_organisasi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `s2_peminjam`
+-- AUTO_INCREMENT untuk tabel `s2_peminjam`
 --
 ALTER TABLE `s2_peminjam`
   MODIFY `id_peminjam` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `s2_peminjaman`
+-- AUTO_INCREMENT untuk tabel `s2_peminjaman`
 --
 ALTER TABLE `s2_peminjaman`
   MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `s3_berita_integer`
+-- AUTO_INCREMENT untuk tabel `s3_berita_integer`
 --
 ALTER TABLE `s3_berita_integer`
-  MODIFY `id_berita_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_berita_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `s3_detail_hari_integer`
+-- AUTO_INCREMENT untuk tabel `s3_detail_hari_integer`
 --
 ALTER TABLE `s3_detail_hari_integer`
   MODIFY `id_detail_hari_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `s3_hari_integer`
+-- AUTO_INCREMENT untuk tabel `s3_hari_integer`
 --
 ALTER TABLE `s3_hari_integer`
   MODIFY `id_hari_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `s3_integer`
+-- AUTO_INCREMENT untuk tabel `s3_integer`
 --
 ALTER TABLE `s3_integer`
-  MODIFY `id_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `s3_kategori_lomba_integer`
+-- AUTO_INCREMENT untuk tabel `s3_kategori_lomba_integer`
 --
 ALTER TABLE `s3_kategori_lomba_integer`
-  MODIFY `id_kategori_lomba_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_kategori_lomba_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `s3_lomba_integer`
+-- AUTO_INCREMENT untuk tabel `s3_lomba_integer`
 --
 ALTER TABLE `s3_lomba_integer`
-  MODIFY `id_lomba_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_lomba_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT for table `s3_sponsor_integer`
+-- AUTO_INCREMENT untuk tabel `s3_sponsor_integer`
 --
 ALTER TABLE `s3_sponsor_integer`
-  MODIFY `id_sponsor_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_sponsor_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `s4_informasi_umum`
+-- AUTO_INCREMENT untuk tabel `s4_informasi_umum`
 --
 ALTER TABLE `s4_informasi_umum`
-  MODIFY `id_informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
--- AUTO_INCREMENT for table `s4_kegiatan`
+-- AUTO_INCREMENT untuk tabel `s4_kegiatan`
 --
 ALTER TABLE `s4_kegiatan`
-  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `s4_pilihan`
+-- AUTO_INCREMENT untuk tabel `s4_pilihan`
 --
 ALTER TABLE `s4_pilihan`
-  MODIFY `id_pilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_pilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `s4_wawancara`
+-- AUTO_INCREMENT untuk tabel `s4_wawancara`
 --
 ALTER TABLE `s4_wawancara`
-  MODIFY `id_wawancara` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_wawancara` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
--- AUTO_INCREMENT for table `users_groups`
+-- AUTO_INCREMENT untuk tabel `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `s1_detail_hmj`
+-- Ketidakleluasaan untuk tabel `s1_detail_hmj`
 --
 ALTER TABLE `s1_detail_hmj`
   ADD CONSTRAINT `s1_detail_hmj_ibfk_1` FOREIGN KEY (`id_hmj`) REFERENCES `s1_hmj` (`id_hmj`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `s1_detail_kegiatan`
+-- Ketidakleluasaan untuk tabel `s1_detail_kegiatan`
 --
 ALTER TABLE `s1_detail_kegiatan`
   ADD CONSTRAINT `s1_detail_kegiatan_ibfk_1` FOREIGN KEY (`id_kegiatan_hmj`) REFERENCES `s1_kegiatan_hmj` (`id_kegiatan_hmj`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `s1_kegiatan_hmj`
+-- Ketidakleluasaan untuk tabel `s1_kegiatan_hmj`
 --
 ALTER TABLE `s1_kegiatan_hmj`
   ADD CONSTRAINT `s1_kegiatan_hmj_ibfk_2` FOREIGN KEY (`id_hmj`) REFERENCES `s1_hmj` (`id_hmj`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `s2_detail_peminjaman`
+-- Ketidakleluasaan untuk tabel `s2_detail_peminjaman`
 --
 ALTER TABLE `s2_detail_peminjaman`
   ADD CONSTRAINT `s2_detail_peminjaman_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `s2_barang` (`id_barang`),
   ADD CONSTRAINT `s2_detail_peminjaman_ibfk_2` FOREIGN KEY (`id_peminjaman`) REFERENCES `s2_peminjaman` (`id_peminjaman`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `s2_peminjam`
+-- Ketidakleluasaan untuk tabel `s2_peminjam`
 --
 ALTER TABLE `s2_peminjam`
   ADD CONSTRAINT `s2_peminjam_ibfk_2` FOREIGN KEY (`id_organisasi`) REFERENCES `s2_organisasi` (`id_organisasi`);
 
 --
--- Constraints for table `s2_peminjaman`
+-- Ketidakleluasaan untuk tabel `s2_peminjaman`
 --
 ALTER TABLE `s2_peminjaman`
   ADD CONSTRAINT `s2_peminjaman_ibfk_1` FOREIGN KEY (`id_peminjam`) REFERENCES `s2_peminjam` (`id_peminjam`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `s3_berita_integer`
+-- Ketidakleluasaan untuk tabel `s3_berita_integer`
 --
 ALTER TABLE `s3_berita_integer`
   ADD CONSTRAINT `s3_berita_integer_ibfk_1` FOREIGN KEY (`id_integer`) REFERENCES `s3_integer` (`id_integer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `s3_detail_hari_integer`
+-- Ketidakleluasaan untuk tabel `s3_detail_hari_integer`
 --
 ALTER TABLE `s3_detail_hari_integer`
   ADD CONSTRAINT `s3_detail_hari_integer_ibfk_1` FOREIGN KEY (`id_hari_integer`) REFERENCES `s3_hari_integer` (`id_hari_integer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `s3_hari_integer`
+-- Ketidakleluasaan untuk tabel `s3_hari_integer`
 --
 ALTER TABLE `s3_hari_integer`
   ADD CONSTRAINT `s3_hari_integer_ibfk_1` FOREIGN KEY (`id_integer`) REFERENCES `s3_integer` (`id_integer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `s3_kategori_lomba_integer`
+-- Ketidakleluasaan untuk tabel `s3_kategori_lomba_integer`
 --
 ALTER TABLE `s3_kategori_lomba_integer`
   ADD CONSTRAINT `s3_kategori_lomba_integer_ibfk_1` FOREIGN KEY (`id_integer`) REFERENCES `s3_integer` (`id_integer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `s3_lomba_integer`
+-- Ketidakleluasaan untuk tabel `s3_lomba_integer`
 --
 ALTER TABLE `s3_lomba_integer`
   ADD CONSTRAINT `s3_lomba_integer_ibfk_1` FOREIGN KEY (`id_kategori_lomba_integer`) REFERENCES `s3_kategori_lomba_integer` (`id_kategori_lomba_integer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `s3_sponsor_integer`
+-- Ketidakleluasaan untuk tabel `s3_sponsor_integer`
 --
 ALTER TABLE `s3_sponsor_integer`
   ADD CONSTRAINT `s3_sponsor_integer_ibfk_1` FOREIGN KEY (`id_integer`) REFERENCES `s3_integer` (`id_integer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `s4_informasi_umum`
+-- Ketidakleluasaan untuk tabel `s4_informasi_umum`
 --
 ALTER TABLE `s4_informasi_umum`
   ADD CONSTRAINT `fk_info_kegiatan` FOREIGN KEY (`id_kegiatan`) REFERENCES `s4_kegiatan` (`id_kegiatan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `s4_pilihan`
+-- Ketidakleluasaan untuk tabel `s4_pilihan`
 --
 ALTER TABLE `s4_pilihan`
   ADD CONSTRAINT `fk_jabatan_pilihan` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan` (`id_pilihan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_kegiatan_pilihan` FOREIGN KEY (`id_kegiatan`) REFERENCES `s4_kegiatan` (`id_kegiatan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `s4_wawancara`
+-- Ketidakleluasaan untuk tabel `s4_wawancara`
 --
 ALTER TABLE `s4_wawancara`
   ADD CONSTRAINT `fk_wawancara_info` FOREIGN KEY (`id_informasi`) REFERENCES `s4_informasi_umum` (`id_informasi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `users`
+-- Ketidakleluasaan untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_company` FOREIGN KEY (`company`) REFERENCES `jabatan` (`id_pilihan`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `users_groups`
+-- Ketidakleluasaan untuk tabel `users_groups`
 --
 ALTER TABLE `users_groups`
   ADD CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,

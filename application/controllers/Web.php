@@ -964,7 +964,7 @@ class Web extends CI_Controller
 		$this->data['kepengurusan'] = $kepengurusan;
 		$this->data['bidang'] = $bidang;
 		$this->data['search'] = false;
-		$this->data['inti'] = $this->All_model->getTotalPengurus("2");
+		$this->data['sistem'] = $this->All_model->getTotalSistem();
 		$this->data['kegiatan'] = $this->All_model->getTotalKegiatan();
 		$this->data['berita'] = $this->All_model->getTotalBerita();
 		$this->data['repositori'] = $this->All_model->getTotalFile();

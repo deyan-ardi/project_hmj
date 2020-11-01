@@ -56,10 +56,6 @@
                 <!-- Section Heading -->
                 <div class="section-heading text-center">
                     <h2>Tujuan <?= strtoupper($kegiatan[0]['nama_integer']) ?></h2>
-                    <p class="mt-4">Secara umum, adapun tujuan dilaksanakannya
-                        <?= strtoupper($kegiatan[0]['nama_integer']) ?> adalah
-                        sebagai berikut
-                    </p>
                 </div>
             </div>
         </div>
@@ -69,7 +65,7 @@
                 <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s">
                     <!-- Featured Icon -->
                     <div class="featured-icon mb-3">
-                        <span class="flaticon-tap"></span>
+                        <i class="fas fa-school" style="font-size: 3.5rem;"></i>
                     </div>
                     <!-- Icon Text -->
                     <div class="icon-text">
@@ -86,7 +82,7 @@
                 <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
                     <!-- Featured Icon -->
                     <div class="featured-icon mb-3">
-                        <span class="flaticon-fingerprint"></span>
+                        <i class="fas fa-globe" style="font-size: 3.5rem;"></i>
                     </div>
                     <!-- Icon Text -->
                     <div class="icon-text">
@@ -103,7 +99,7 @@
                 <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.4s">
                     <!-- Featured Icon -->
                     <div class="featured-icon mb-3">
-                        <span class="flaticon-notification"></span>
+                        <i class="fas fa-robot" style="font-size: 3.5rem"></i>
                     </div>
                     <!-- Icon Text -->
                     <div class="icon-text">
@@ -120,7 +116,7 @@
                 <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">
                     <!-- Featured Icon -->
                     <div class="featured-icon mb-3">
-                        <span class="flaticon-place"></span>
+                        <i class="fas fa-icons" style="font-size: 3.5rem"></i>
                     </div>
                     <!-- Icon Text -->
                     <div class="icon-text">
@@ -135,7 +131,22 @@
         </div>
     </div>
 </section>
+
 <!-- ***** Features Area End ***** -->
+
+<section class="section discover-area ">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-6">
+                <!-- Section Heading -->
+                <div class="section-heading text-center">
+                    <h2>Kategori Perlombaan <?= strtoupper($kegiatan[0]['nama_integer']) ?></h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <?php
 $i = 1;
 foreach ($kategori as $data) {
@@ -158,7 +169,7 @@ foreach ($kategori as $data) {
                 <div class="discover-text px-0 px-lg-4 pt-4 pt-lg-0">
                     <h2 class="pb-4"><?= ucwords($data['nama_kategori_lomba_integer']) ?></h2>
                     <!-- Check List -->
-                    <p class="mb-3">
+                    <p class="mb-3 text-justify">
                         <?= $data['deskripsi_kategori_lomba_integer'] ?>
                     </p>
                     <ul class="check-list">
@@ -240,7 +251,8 @@ foreach ($kategori as $data) {
                 <div class="work-content text-center">
                     <h2 class="text-white">Partisipasi Sekarang!</h2>
                     <p class="text-white my-3 mt-sm-4 mb-sm-5">Ayo berpartisipasi dalam kegiatan lomba serangkaian
-                        <?= strtoupper($kegiatan[0]['nama_integer']) ?> yang dipersembahkan oleh HMJ Teknik Informatika
+                        <?= strtoupper($kegiatan[0]['nama_integer']) ?> yang dipersembahkan oleh HMJ Teknik
+                        Informatika
                         Undiksha.</p>
                 </div>
             </div>
@@ -289,11 +301,7 @@ foreach ($kategori as $data) {
             <div class="col-12 col-md-10 col-lg-7">
                 <!-- Section Heading -->
                 <div class="section-heading text-center">
-                    <h2>Kabar Integer</h2>
-                    <p class="mt-4">
-                        Kunjungi halaman berikut untuk mendapatkan pengumuman atau informasi lainnya terkait dengan
-                        pelaksanaan Integer #2
-                    </p>
+                    <h2>Kabar Seputar <?= strtoupper($kegiatan[0]['nama_integer']) ?> </h2>
                 </div>
             </div>
         </div>
@@ -385,9 +393,6 @@ foreach ($kategori as $data) {
                 <!-- Section Heading -->
                 <div class="section-heading text-center">
                     <h2 class="mb-5">Sponsor dan Media Partner</h2>
-                    <p class="-4">Adapun sponsor dan media partner pada kegiatan
-                        <?= strtoupper($kegiatan[0]['nama_integer']) ?> ini yakni sebagai berikut
-                    </p>
                 </div>
             </div>
         </div>
@@ -414,10 +419,9 @@ foreach ($kategori as $data) {
             <div class="col-12 col-md-10 col-lg-7">
                 <!-- Section Heading -->
                 <div class="section-heading text-center">
-                    <h2 class="text-capitalize">Pertanyaan umum seputar <?= strtoupper($kegiatan[0]['nama_integer']) ?>
+                    <h2 class="text-capitalize">Q & A Seputar
+                        <?= strtoupper($kegiatan[0]['nama_integer']) ?>
                     </h2>
-                    <p class=" mt-4">Berikut merupakan beberapa pertanyaan yang sering diajukan oleh peserta
-                    </p>
                 </div>
             </div>
         </div>
@@ -436,16 +440,17 @@ foreach ($kategori as $data) {
                                         <h2 class="mb-0">
                                             <button class="btn px-0 py-3" type="button" data-toggle="collapse"
                                                 data-target="#collapseOne">
-                                                Berapa Maksimal Saya Boleh Mengikuti Perlombaan?
+                                                Dimana saja saya harus mengupload Twibbon?
                                             </button>
                                         </h2>
                                     </div>
                                     <div id="collapseOne" class="collapse show" data-parent="#sApp-accordion">
                                         <!-- Card Body -->
-                                        <div class="card-body px-0 py-3 bg-gray">
-                                            Secara umum, terkait dengan aturan dan ketentuan perlombaan telah diatur
-                                            pada buku pedoman Lomba. Untuk informasi terkait buku pedoman, dapat diakses
-                                            pada laman Kabar Integer atau dapat menghubungi panitia.
+                                        <div class="card-body px-0 py-3 bg-gray text-justify">
+                                            Twibbon dapat diupload pada media sosial masing-masing peserta beserta
+                                            dengan caption yang sudah ditentukan oleh masing-masing lomba, seluruh
+                                            peserta wajib mengupload Twibbon tanpa terkecuali. Bukti bahwa peserta telah
+                                            mengupload Twibbon wajib disertakan pada saat pendaftaran lomba.
                                         </div>
                                     </div>
                                 </div>
@@ -456,20 +461,92 @@ foreach ($kategori as $data) {
                                         <h2 class="mb-0">
                                             <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
                                                 data-target="#collapseTwo">
-                                                Kemana saya harus mengkonfirmasi setelah melakukan pembayaran
-                                                pendaftaran lomba?
+                                                Dimanakah saya dapat menemukan informasi dan panduan terkait lomba yang
+                                                diadakan?
                                             </button>
                                         </h2>
                                     </div>
                                     <div id="collapseTwo" class="collapse" data-parent="#sApp-accordion">
                                         <!-- Card Body -->
-                                        <div class="card-body px-0 py-3 bg-gray">
-                                            Setelah melakukan pembayaran sesuai dengan rekening panitia yang diminta,
-                                            silahkan menghubungi CP yang terdapat pada buku panduan untuk melakukan
-                                            konfirmasi pendaftaran dengan mengirimkan bukti screenshoot penguploadan
-                                            Twibbon bagi tiap-tiap peserta dan bukti transfer. Untuk informasi dan
-                                            pertanyaan lebih lanjut dapat menghubungi akun instagram resmi HMJ TI
-                                            Undiksha (<span class="text-primary">@hmj_ti.undiksha</span>)
+                                        <div class="card-body px-0 py-3 bg-gray text-justify">
+                                            Anda dapat mengunduh buku panduan kegiatan, poster, dan informasi lainnya
+                                            yang kiranya dibutuhkan peserta pada kegiatan INTEGER #2 pada halaman Lomba.
+                                            Pada buku panduan lomba telah tercantum Contact Person panitia pada
+                                            masing-masing lomba, anda dapat mendiskusikan ataupun bertanya kepada
+                                            Contact Person dimasing-masing lomba. Jika terdapat masalah atau pertanyaan
+                                            lebih lanjut
+                                            dapat menghubungi
+                                            (<span class="text-primary">@integer.hmjtiundiksha</span>)
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Accordion Item -->
+                                <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
+                                    <div class="card-header bg-gray border-0 p-0">
+                                        <h2 class="mb-0">
+                                            <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
+                                                data-target="#collapseFour">
+                                                Bagaimana skema pada saat melakukan pendaftaran?
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseFour" class="collapse" data-parent="#sApp-accordion">
+                                        <div class="card-body px-0 py-3 bg-gray text-justify">
+                                            Pendaftaran untuk tiap-tiap lomba hanya diwakili oleh ketua tim. Ketua tim
+                                            memiliki kewajiban untuk mengisi formulir pendaftaran sesuai dengan lomba
+                                            yang diikuti. Bukti penguploadan twibbon dan bukti pembayaran disertakan
+                                            pada saat pendaftaran. Bagi lomba yang membutuhkan pengumpulan karya pada
+                                            saat
+                                            pendaftaran (LIDP, UI/UX
+                                            Design, Essay Nasional, IT Business Case, Desain Poster, Musik Cover, serta
+                                            Tiktok) pengumpulan karya hanya dapat dilakukan sekali untuk tiap-tiap tim.
+                                            Jika ditemukan tim yang mengumpulkan karya lebih dari 1 kali, maka karya
+                                            yang akan dinilai oleh dewan juri adalah karya yang paling pertama
+                                            dikirimkan oleh tim tersebut.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
+
+                                    <div class="card-header bg-gray border-0 p-0">
+                                        <h2 class="mb-0">
+                                            <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
+                                                data-target="#collapseFive">
+                                                Kemanakah saya harus melakukan pembayaran?
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseFive" class="collapse" data-parent="#sApp-accordion">
+
+                                        <div class="card-body px-0 py-3 bg-gray text-justify">
+                                            Pembayaran dapat dilakukan pada rekening yang telah disediakan
+                                            dimasing-masing lomba, harap untuk menyimpan bukti pembayaran yang telah
+                                            dilakukan. Bukti pembayaran selanjutnya akan disertakan pada saat melakukan
+                                            pendaftaran lomba. Setelah anda melakukan pendaftaran, anda akan menerima
+                                            sms konfirmasi ke alamat email yang digunakan pada saat pendaftaran maksimal
+                                            2 x 24 Jam.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
+
+                                    <div class="card-header bg-gray border-0 p-0">
+                                        <h2 class="mb-0">
+                                            <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
+                                                data-target="#collapseSix">
+                                                Apakah semua lomba memerlukan pengumpulan karya?
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseSix" class="collapse" data-parent="#sApp-accordion">
+
+                                        <div class="card-body px-0 py-3 bg-gray text-justify">
+                                            Tidak semua lomba memerlukan pengumpulan karya, Untuk lomba yang berbasis
+                                            karya (LIDP, UI/UX
+                                            Design, Essay Nasional, IT Business Case, Desain Poster, Musik Cover, serta
+                                            Tiktok), karya akan dikumpulkan pada saat pendaftaran. Untuk lomba yang
+                                            tidak berbasis karya (Hacking The Game, Coding Competition, dan Mobile
+                                            Legend) peserta tidak perlu melakukan pengumpulan karya.
                                         </div>
                                     </div>
                                 </div>
@@ -486,58 +563,17 @@ foreach ($kategori as $data) {
                                     </div>
                                     <div id="collapseThree" class="collapse" data-parent="#sApp-accordion">
                                         <!-- Card Body -->
-                                        <div class="card-body px-0 py-3 bg-gray">
-                                            Untuk melaporkan masalah pada website, silahkan hubungi akun instagram HMJ
-                                            TI Undiksha <span class="text-primary">@hmj_ti.undiksha</span> atau dapat
+                                        <div class="card-body px-0 py-3 bg-gray text-justify">
+                                            Untuk melaporkan masalah pada website, silahkan hubungi akun instagram
+                                            HMJ
+                                            TI Undiksha <span class="text-primary">@integer.hmjtiundiksha</span> atau
+                                            dapat
                                             menghubungi administrator website melalui No Wa berikut <a
                                                 href="https://api.whatsapp.com/send?phone=6281915656865&text=Terdapat%20masalah%20pada%20website%20INTEGER,%20mhon%20bantuannya%20untuk%20memperbaiki"><span
                                                     class="text-primary">081915656865</span></a>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Single Accordion Item -->
-                                <!-- <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
-                                    <div class="card-header bg-gray border-0 p-0">
-                                        <h2 class="mb-0">
-                                            <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
-                                                data-target="#collapseFour">
-                                                How can I edit my personal information?
-                                            </button>
-                                        </h2>
-                                    </div>
-                                    <div id="collapseFour" class="collapse" data-parent="#sApp-accordion">
-                                        <div class="card-body px-0 py-3 bg-gray">
-                                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                                            quae ab illo inventore veritatis et quasi architecto beatae vitae
-                                            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-                                            eos qui ratione voluptatem sequi nesciunt.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
-   
-                                    <div class="card-header bg-gray border-0 p-0">
-                                        <h2 class="mb-0">
-                                            <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
-                                                data-target="#collapseFive">
-                                                Contact form isn't working?
-                                            </button>
-                                        </h2>
-                                    </div>
-                                    <div id="collapseFive" class="collapse" data-parent="#sApp-accordion">
-        
-                                        <div class="card-body px-0 py-3 bg-gray">
-                                            There are many variations of passages of Lorem Ipsum available, but
-                                            the majority have suffered alteration in some form, by injected
-                                            humour, or randomised words which don't look even slightly
-                                            believable. If you are going to use a passage of Lorem Ipsum, you
-                                            need to be sure there isn't anything embarrassing hidden in the
-                                            middle of text.
-                                        </div>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                     </div>

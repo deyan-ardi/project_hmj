@@ -108,12 +108,12 @@ class Integer extends CI_Controller
 				$id_file = "integer";
 
 				// FOTO
-				if (($_FILES["foto"]['error'] == 0)) {
-					$id_foto = "foto";
-					$tujuan = "integer_website/foto";
-					$upload = $this->All_model->uploadFile($id_foto, $id_file, $tujuan);
-					if ($upload['result'] == "success") {
-						$foto = $upload['foto']['file_name'];
+				if (($_FILES["logo"]['error'] == 0)) {
+					$id_foto = "logo";
+					$tujuan_foto = "integer_website/foto";
+					$upload_foto = $this->All_model->uploadFile($id_foto, $id_file, $tujuan_foto);
+					if ($upload_foto['result'] == "success") {
+						$foto = $upload_foto['logo']['file_name'];					
 					} else {
 						$this->session->set_flashdata('gagal', 'Ditambahkan, Terjadi Masalah Pada Foto, Apakah File Sudah Sesuai?');
 						redirect("integer/tambah_kegiatan");
@@ -123,27 +123,44 @@ class Integer extends CI_Controller
 				// VIDEO
 				if (($_FILES["video"]['error'] == 0)) {
 					$id_video = "video";
-					$tujuan = "integer_website/video";
-					$upload = $this->All_model->uploadFile($id_video, $id_file, $tujuan);
-					if ($upload['result'] == "success") {
-						$video = $upload['video']['file_name'];
+					$tujuan_video = "integer_website/video";
+					$upload_video = $this->All_model->uploadFile($id_video, $id_file, $tujuan_video);
+					if ($upload_video['result'] == "success") {
+						$video = $upload_video['video']['file_name'];
 					} else {
 						$this->session->set_flashdata('gagal', 'Ditambahkan, Terjadi Masalah Pada Video, Apakah File Sudah Sesuai?');
 						redirect("integer/tambah_kegiatan");
 					}
 				}
 
+				// FILE INFORMASI
+				if (($_FILES["file_info"]['error'] == 0)) {
+					$id_file_info = "file_info";
+					$tujuan_file_info = "integer_website/panduan";
+					$upload_file_info = $this->All_model->uploadFile($id_file_info, $id_file, $tujuan_file_info);
+					if ($upload_file_info['result'] == "success") {
+						$file_info = $upload_file_info['file_info']['file_name'];
+					} else {
+						$this->session->set_flashdata('gagal', 'Ditambahkan, Terjadi Masalah Pada File Informasi, Apakah File Sudah Sesuai?');
+						redirect("integer/tambah_kegiatan");
+					}
+				}
 				if (empty($foto)) {
 					$foto = null;
 				}
 				if (empty($video)) {
 					$video = null;
 				}
+				if (empty($file_info)) {
+					$file_info = null;
+				}
 
-				if ($this->All_model->tambahDataInteger($foto, $video)) {
+				if ($this->All_model->tambahDataInteger($foto, $video, $file_info)) {
 					$this->session->set_flashdata('berhasil', 'Ditambahkan');
 					redirect("integer/kegiatan");
 				} else {
+					var_dump($this->All_model->tambahDataInteger($foto, $video, $file_info));
+					die;
 					$this->session->set_flashdata('gagal', 'Ditambahkan, Periksa Kembali Form Inputan Anda');
 					redirect("integer/tambah_kegiatan");
 				}
@@ -721,6 +738,9 @@ class Integer extends CI_Controller
 	{
 		if ($kode == "pakekpengaman") {
 			$tujuan_donlot = '' . FCPATH . 'assets/upload/Folder_integer_website/berita/file/' . $nama . '';
+			force_download($tujuan_donlot, NULL);
+		} else if ($kode == "file_informasi") {
+			$tujuan_donlot = '' . FCPATH . 'assets/upload/Folder_integer_website/panduan/' . $nama . '';
 			force_download($tujuan_donlot, NULL);
 		} else {
 			redirect("notfound/index");

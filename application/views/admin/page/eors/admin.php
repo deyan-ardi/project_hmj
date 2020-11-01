@@ -24,7 +24,7 @@
                          <span class="text">Tambah Data</span>
                      </a>
                      <div class="table-responsive">
-                         <table class="table table-bordered" id="tableKegiatan" width="100%" cellspacing="0">
+                         <table class="table table-bordered" id="tableKepengurusan" width="100%" cellspacing="0">
                              <thead>
                                  <tr>
                                      <th>No</th>

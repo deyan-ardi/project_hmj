@@ -27,6 +27,24 @@
 <!-- ***** Lomba Area Start ***** -->
 <section id="blog" class="section blog-area ptb_100">
     <div class="container">
+        <div class="card mb-5">
+            <div class="card-header">
+                <h5 class="card-title">Informasi Kegiatan <?= strtoupper($kegiatan[0]['nama_integer']) ?></h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text text-justify mb-4">Selamat datang kami ucapkan kepada para calon pendaftar lomba
+                    pada
+                    serangkaian
+                    kegiatan <?= strtoupper($kegiatan[0]['nama_integer']) ?> tahun <?= date('Y')         ?>. Sebelum
+                    melakukan pendaftaran ada baiknya para calon pendaftar untuk membaca dan mengunduh informasi terkait
+                    dengan lomba yang akan diikuti. Adapun informasi terkait dengan Buku Panduan Kegiatan
+                    <?= strtoupper($kegiatan[0]['nama_integer']) ?>, Poster Lomba, serta informasi lainnya dapat diunduh
+                    dengan mengklik tombol dibawah ini
+                    ini</p>
+                <a href="<?= base_url() ?>integer/download_file_informasi_integer/<?= $kegiatan[0]['panduan_integer'] ?>/file_informasi"
+                    class="btn btn-primary ">Download File</a>
+            </div>
+        </div>
         <div class="row">
             <?php foreach ($lomba as $data) { ?>
             <div class="col-12 col-md-6 col-lg-4">
@@ -190,7 +208,7 @@
                             Integer</span></a> guna mempermudah Anda dalam mempersiapkan keperluan berkas pendaftaran
                     dan
                     mekanisme perlombaan nantinya. Untuk informasi lebih lanjut dapat menghubungi akun instagram HMJ TI
-                    Undiksha ( <span class="text-primary">@hmj_ti.undiksha</span> ) </p>
+                    Undiksha ( <span class="text-primary">@integer.hmjtiundiksha</span> ) </p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Kembali</button>
@@ -217,7 +235,7 @@
                     mekanisme perlombaan nantinya. Setiap perlombaan memiliki mekanisme yang berbeda, silahkan baca
                     baik-baik buku panduan yang diberikan.Untuk informasi lebih lanjut dapat menghubungi akun instagram
                     HMJ TI
-                    Undiksha ( <span class="text-primary">@hmj_ti.undiksha</span> )</p>
+                    Undiksha ( <span class="text-primary">@integer.hmjtiundiksha</span> )</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Kembali</button>
@@ -239,7 +257,7 @@
                             Integer</span></a> pada tanggal yang sudah ditentukan. Untuk informasi lebih lanjut dapat
                     menghubungi akun instagram
                     HMJ TI
-                    Undiksha ( <span class="text-primary">@hmj_ti.undiksha</span> )</p>
+                    Undiksha ( <span class="text-primary">@integer.hmjtiundiksha</span> )</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Kembali</button>
@@ -264,7 +282,7 @@
                     lanjut dapat
                     menghubungi akun instagram
                     HMJ TI
-                    Undiksha ( <span class="text-primary">@hmj_ti.undiksha</span> )</p>
+                    Undiksha ( <span class="text-primary">@integer.hmjtiundiksha</span> )</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Kembali</button>
