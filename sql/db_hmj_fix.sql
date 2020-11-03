@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Nov 2020 pada 04.22
+-- Waktu pembuatan: 03 Nov 2020 pada 16.09
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.8
 
@@ -439,14 +439,6 @@ CREATE TABLE `s3_berita_integer` (
   `create_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `s3_berita_integer`
---
-
-INSERT INTO `s3_berita_integer` (`id_berita_integer`, `id_integer`, `nama_berita_integer`, `kategori_berita_integer`, `konten_berita_integer`, `youtube_berita_integer`, `file_berita_integer`, `foto1_berita_integer`, `foto2_berita_integer`, `foto3_berita_integer`, `create_at`, `create_by`) VALUES
-(7, 21, 'Contoh Berita Terkait Integer', '1', '<p style=\"text-align:justify\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe voluptatibus harum similique odio, sit qui exercitationem! Possimus consequuntur voluptate, totam magnam explicabo modi maxime nisi odit tempora repellat beatae neque illo minus architecto at obcaecati culpa exercitationem numquam, deleniti voluptatibus eaque sapiente placeat. Harum ratione natus aliquam, sit quae explicabo illum inventore maxime. Animi aspernatur facilis optio. Esse exercitationem repellat deleniti nesciunt quasi cupiditate quas pariatur ex tempore nisi blanditiis iusto nihil aut ea quis, sed minus accusantium possimus optio explicabo vel numquam, saepe architecto officia! Itaque illo iste dignissimos blanditiis ipsa magnam, iure nobis libero vero provident voluptate eligendi.</p>\r\n', '', 'f99c36ecae2f12c4f94b0116e0775636.pdf', '4be738d11729279f79316da404fc9c2a.png', NULL, NULL, '2020-10-11 15:14:57', 'Admin'),
-(8, 21, 'Contoh Pengumuman Integer', '2', '<p style=\"text-align:justify\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe voluptatibus harum similique odio, sit qui exercitationem! Possimus consequuntur voluptate, totam magnam explicabo modi maxime nisi odit tempora repellat beatae neque illo minus architecto at obcaecati culpa exercitationem numquam, deleniti voluptatibus eaque sapiente placeat. Harum ratione natus aliquam, sit quae explicabo illum inventore maxime. Animi aspernatur facilis optio. Esse exercitationem repellat deleniti nesciunt quasi cupiditate quas pariatur ex tempore nisi blanditiis iusto nihil aut ea quis, sed minus accusantium possimus optio explicabo vel numquam, saepe architecto officia! Itaque illo iste dignissimos blanditiis ipsa magnam, iure nobis libero vero provident voluptate eligendi.</p>\r\n', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/qo_vo4cdP9E\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '447cb04a40dc7c941b7f23a20c0960bf.pdf', '60f2afb614e79585f3e762beb92f4264.png', '73bc6b6bd3db06170fcc0efebeb814c5.jpg', 'b194b9b60e4af9bd62da9a4070815df1.jpg', '2020-10-11 15:16:43', 'Admin');
-
 -- --------------------------------------------------------
 
 --
@@ -533,7 +525,7 @@ INSERT INTO `s3_integer` (`id_integer`, `nama_integer`, `logo_integer`, `video_i
 CREATE TABLE `s3_kategori_lomba_integer` (
   `id_kategori_lomba_integer` int(11) NOT NULL,
   `id_integer` int(11) NOT NULL,
-  `nama_kategori_lomba_integer` varchar(30) NOT NULL,
+  `nama_kategori_lomba_integer` varchar(100) NOT NULL,
   `icon_kategori_lomba_integer` text NOT NULL,
   `deskripsi_kategori_lomba_integer` text NOT NULL,
   `create_at` datetime NOT NULL,
@@ -545,8 +537,8 @@ CREATE TABLE `s3_kategori_lomba_integer` (
 --
 
 INSERT INTO `s3_kategori_lomba_integer` (`id_kategori_lomba_integer`, `id_integer`, `nama_kategori_lomba_integer`, `icon_kategori_lomba_integer`, `deskripsi_kategori_lomba_integer`, `create_at`, `create_by`) VALUES
-(9, 21, 'Akademik', 'eeb613694eb4cb914d596825e364b872.png', '<p style=\"text-align:justify\">Kategori Akademik, dalam kategori ini akan melombakan beberapa lomba yang terkait dengan akademik atau kemampuan peserta berdasarkan tingkat pemahaman terkait hal ilmiah dan ilmu pengetahuan. Berikut merupakan beberapa lomba yang dapat diikuti peserta dalam kategori ini</p>\r\n', '2020-10-11 15:04:29', 'Admin'),
-(10, 21, 'Non Akademik', '5208f56a0204f63b83701f08a00cce15.png', '<p style=\"text-align:justify\">Kategori Non Akademik, dalam kategori ini akan melombakan beberapa lomba yang terkait dengan non akademik atau kemampuan peserta dalam hal kreativitas, minat, dan bakatnya. Berikut merupakan beberapa lomba yang dapat diikuti peserta dalam kategori ini</p>\r\n', '2020-10-11 15:06:56', 'Admin');
+(9, 21, 'Kategori Lomba Berbasis Karya', 'eeb613694eb4cb914d596825e364b872.png', '  <p style=\"text-align:justify\">Kategori Lomba Berbasis Karya, dalam kategori ini semua\r\n                                    cabang lomba yang dilombakan membutuhkan pengumpulan karya kreatif dari peserta pada saat\r\n                                    pendaftaran. Pada kategori ini yang menjadi acuan penilaiannya adalah kemampuan\r\n                                    peserta didalam menciptakan suatu karya yang inovatif dan kreatif dan sesuai dengan keinginan masing-masing cabang lomba. Berikut merupakan\r\n                                    beberapa lomba yang dapat diikuti peserta dalam kategori ini</p>', '2020-10-11 15:04:29', 'Admin'),
+(10, 21, 'Kategori Lomba Berbasis Pertandingan', '5208f56a0204f63b83701f08a00cce15.png', '  <p style=\"text-align:justify\">Kategori Lomba Berbasis Karya, dalam kategori ini semua\r\n                                    cabang lomba yang dilombakan hanya perlu melakukan pendaftaran sesuai dengan lomba\r\n                                    yang ingin diikuti. Pada kategori ini yang menjadi acuan penilaiannya adalah\r\n                                    kemampuan individu peserta didalam bertanding dengan peserta lainnya secara langsung\r\n                                    dengan tujuan untuk meraih\r\n                                    kemenangan. Berikut merupakan\r\n                                    beberapa lomba yang dapat diikuti peserta dalam kategori ini</p>', '2020-10-11 15:06:56', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -576,15 +568,15 @@ CREATE TABLE `s3_lomba_integer` (
 --
 
 INSERT INTO `s3_lomba_integer` (`id_lomba_integer`, `id_kategori_lomba_integer`, `nama_lomba_integer`, `deskripsi_lomba_integer`, `icon_lomba_integer`, `waktu_mulai_pendaftaran`, `waktu_akhir_pendaftaran`, `pendaftaran_lomba_integer`, `pengumpulan_proposal`, `waktu_awal_pengumpulan`, `waktu_akhir_pengumpulan`, `pengumpulan_lomba_integer`, `create_at`, `create_by`) VALUES
-(16, 10, 'Lomba Musik Cover', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait lomba Musik Cover dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', 'e4b0e00788b64c95a005cfbb8732a4ee.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaMusicCover', 1, '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaMusicCover', '2020-10-31 16:06:24', 'Admin'),
-(17, 10, 'Lomba Tiktok', '<p>Informasi lebih lanjut terkait lomba Tiktok dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', 'd8265f7143daad048943515e4dec3565.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaTikTok', 1, '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaTikTok', '2020-10-31 22:51:36', 'Admin'),
+(16, 9, 'Lomba Music Cover', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait lomba Musik Cover dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', 'e4b0e00788b64c95a005cfbb8732a4ee.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaMusicCover', 1, '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaMusicCover', '2020-11-03 21:00:35', 'Admin'),
+(17, 9, 'Lomba Tiktok', '<p>Informasi lebih lanjut terkait lomba Tiktok dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', 'd8265f7143daad048943515e4dec3565.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaTikTok', 1, '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaTikTok', '2020-11-03 21:01:02', 'Admin'),
 (18, 9, 'Lomba IT Business Case', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait lomba IT Business Case dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', '14896fcfb080311516f43709b82fb293.png', '2020-11-05 00:00:00', '2020-12-03 00:00:00', ' https://s.id/LombaBusinessITCase', 1, '2020-11-05 00:00:00', '2020-12-03 00:00:00', ' https://s.id/LombaBusinessITCase', '2020-10-31 22:54:03', 'Admin'),
 (19, 9, 'Lomba Essay Nasional', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait lomba Essay Nasional dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', '062f1fcff6f2e7459b0e0cd4242dc13f.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaEssayNasional', 1, '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaEssayNasional', '2020-10-31 16:05:08', 'Admin'),
-(21, 9, 'Coding Competition', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait Coding Competition dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', '4d2238bf9c355fa30a60a4ee8e62975e.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/Codingcompetition', 0, NULL, NULL, NULL, '2020-10-31 23:36:33', 'Admin'),
-(22, 9, 'Lomba Hacking The Game', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait Hacking The Game Competition dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', '5ed03a8d368bddf0838d32958bf88a55.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/HackingTheGame', 0, NULL, NULL, NULL, '2020-10-31 23:41:19', 'Admin'),
+(21, 10, 'Coding Competition', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait Coding Competition dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', '4d2238bf9c355fa30a60a4ee8e62975e.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/Codingcompetition', 0, NULL, NULL, NULL, '2020-11-03 20:59:34', 'Admin'),
+(22, 10, 'Lomba Hacking The Game', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait Hacking The Game Competition dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', '5ed03a8d368bddf0838d32958bf88a55.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/HackingTheGame', 0, NULL, NULL, NULL, '2020-11-03 20:59:10', 'Admin'),
 (23, 9, 'LIDM', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait Lomba Inovasi Digital Pendidikan dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', '8fb552645127801d11225b496b0e9ee0.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaLIDP', 1, '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaLIDP', '2020-10-31 23:45:08', 'Admin'),
 (24, 9, 'Lomba UI/UX Design', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait Lomba UI/UX Design dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', 'e99fa73dba712c1690b7970dd2482aab.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaUIUXDesign', 1, '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaUIUXDesign', '2020-10-31 23:56:40', 'Admin'),
-(25, 10, 'Lomba Desain Poster', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait Lomba Desain Poster dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', 'c8e0499b161b35afc417e57a002643f0.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaPOSTER', 1, '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaPOSTER', '2020-10-31 23:58:45', 'Admin'),
+(25, 9, 'Lomba Desain Poster', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait Lomba Desain Poster dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', 'c8e0499b161b35afc417e57a002643f0.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaPOSTER', 1, '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaPOSTER', '2020-11-03 20:58:36', 'Admin'),
 (26, 10, 'Lomba Mobile Legend', '<p style=\"text-align:justify\">Informasi lebih lanjut terkait Lomba Mobile Legend dapat dilihat pada buku panduan pelaksanaan INTEGER #2</p>\r\n', '4c73be850513015774102777551b3f0b.png', '2020-11-05 00:00:00', '2020-12-04 00:00:00', 'https://s.id/LombaMLBB', 0, NULL, NULL, NULL, '2020-11-01 00:00:06', 'Admin');
 
 -- --------------------------------------------------------
@@ -608,9 +600,33 @@ CREATE TABLE `s3_sponsor_integer` (
 --
 
 INSERT INTO `s3_sponsor_integer` (`id_sponsor_integer`, `id_integer`, `nama_sponsor_integer`, `deskripsi_sponsor_integer`, `foto_sponsor_integer`, `create_at`, `create_by`) VALUES
-(7, 21, 'Coca-Cola', '<p>Membantu dalam memberikan tenda</p>\r\n', '65a15f9f9fdb27259f38cf9b3680e922.jpg', '2020-10-11 14:37:09', 'Admin'),
-(9, 21, 'Gojek', '<p>Membantu dalam menyumbangkan uang</p>\r\n', '675608e2b438fbd600b04ab8a10c338b.jpg', '2020-10-11 14:46:18', 'Admin'),
-(10, 21, 'Oppo Smartphone', '<p>Membantu dalam menyumbangkan uang</p>\r\n', '1bcac0bc55d24d7a31986ff1916a1662.png', '2020-10-11 14:47:22', 'Admin');
+(12, 21, 'Berita Sulawesi', '<p>Media Patner</p>\r\n', '916e2d6af8bf60a0640c277b7f847a7d.png', '2020-11-03 21:35:18', 'Admin'),
+(13, 21, 'Ciamis Info', '<p>Media Patner</p>\r\n', '8e586c5a9c1eee35b0a7c62c8a53f411.jpg', '2020-11-03 22:40:05', 'Admin'),
+(14, 21, 'Demi Jembrana', '<p>Media Patner</p>\r\n', '2bef2ba5134d76f97dfb2ecfff678543.png', '2020-11-03 22:41:08', 'Admin'),
+(15, 21, 'DKV Bumigora', '<p>Media Patner</p>\r\n', '4fb6984f2e3860c641d616bd1d20f4f3.png', '2020-11-03 22:42:19', 'Admin'),
+(16, 21, 'Eigerian Sumatra Selatan', '<p>Media Patner</p>\r\n', '8a880387353900b2075aa1a6a425983a.jpg', '2020-11-03 22:43:13', 'Admin'),
+(17, 21, 'Gudang Lomba', '<p>Media Patner</p>\r\n', '9298826718c8c1e9086d5c50a1d7843a.jpg', '2020-11-03 22:49:44', 'Admin'),
+(18, 21, 'Indramayu Info', '<p>Media Patner</p>\r\n', '0b94eee8a1224e413793c7f335071c66.jpg', '2020-11-03 22:52:00', 'Admin'),
+(19, 21, 'Info Undiksha', '<p>Media Patner</p>\r\n', 'd9fee472ffa31eb36dbfc1f8a145b76c.jpg', '2020-11-03 22:52:20', 'Admin'),
+(20, 21, 'Info Papua Barat', '<p>Media Patner</p>\r\n', 'e6d4820fd7f06776483b8b21f7d3c726.jpg', '2020-11-03 22:53:19', 'Admin'),
+(21, 21, 'Info Undana', '<p>Media Patner</p>\r\n', 'f5e4289ca481f9e7498088ff7a1d759f.jpg', '2020-11-03 22:54:22', 'Admin'),
+(22, 21, 'Info Kalimantan Timur', '<p>Media Patner</p>\r\n', '70ef26b15dd94a96b1d96319424477ad.jpg', '2020-11-03 22:55:05', 'Admin'),
+(23, 21, 'Info Lombok', '<p>Media Patner</p>\r\n', 'f69057635608cd46e51f8ea607e0785d.jpg', '2020-11-03 22:56:26', 'Admin'),
+(24, 21, 'Info Loker Lombook', '<p>Media Patner</p>\r\n', 'c429306adc8bf5dc4a6430b220a47130.jpg', '2020-11-03 22:57:06', 'Admin'),
+(25, 21, 'Info Lombat Event', '<p>Media Patner</p>\r\n', '0daef5e97a14b20278c170424e3b9459.jpg', '2020-11-03 22:57:35', 'Admin'),
+(26, 21, 'Info Lomba Kti Essay', '<p>Media Patner</p>\r\n', '6509bc238c1b39253d2a965d3d327366.jpg', '2020-11-03 22:58:02', 'Admin'),
+(27, 21, 'Info Mahasiswa Indonesia', '<p>Media Patner</p>\r\n', '8265ce7070f9ced50b01a49e5a48d360.jpg', '2020-11-03 22:58:18', 'Admin'),
+(28, 21, 'Info MJLK', '<p>Media Patner</p>\r\n', 'a4de14ba8dea23393c6075f918388633.jpg', '2020-11-03 22:58:35', 'Admin'),
+(29, 21, 'Info Pendidikan Bali', '<p>Media Patner</p>\r\n', 'da0c566ed9c6424756fbcb8bf4276238.jpg', '2020-11-03 22:58:50', 'Admin'),
+(30, 21, 'Kabar Undiksha', '<p>Media Patner</p>\r\n', '399fb9fdefdfe1cc0556d670a99d701c.png', '2020-11-03 22:59:09', 'Admin'),
+(31, 21, 'Info Lomba Mahasiswa', '<p>Media Patner</p>\r\n', '87cd3050fe8027f7640f59c09c5b303e.jpg', '2020-11-03 23:00:20', 'Admin'),
+(32, 21, 'Media Event', '<p>Media Patner</p>\r\n', 'de8be4567f1453717b5081f9da2ff4a4.jpg', '2020-11-03 23:00:59', 'Admin'),
+(33, 21, 'Minang Galau', '<p>Media Patner</p>\r\n', '3f913d942ee1ff07cda6b8c237c313df.jpg', '2020-11-03 23:01:17', 'Admin'),
+(34, 21, 'SMA N 2 Singaraja', '<p>Media Patner</p>\r\n', '33346a05c0f4078e88bcf9f74252d022.jpg', '2020-11-03 23:01:34', 'Admin'),
+(35, 21, 'SMA N 1 Singaraja', '<p>Media Patner</p>\r\n', '839e0044cc7a33f3e417df04d95b31b5.jpg', '2020-11-03 23:01:46', 'Admin'),
+(36, 21, 'Subang Info', '<p>Media Patner</p>\r\n', 'aaa8e1876debc907b87a282e3caf694d.jpg', '2020-11-03 23:01:59', 'Admin'),
+(37, 21, 'Sulawesi Kekinian', '<p>Media Patner</p>\r\n', '0424a493776b6e30ebc2a85a3a74d1b3.jpg', '2020-11-03 23:02:13', 'Admin'),
+(38, 21, 'Teknik Informatika Indonesia', '<p>Media Patner</p>\r\n', 'd4e90621b3ed444049759e32f911e283.jpg', '2020-11-03 23:02:30', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -743,7 +759,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$zotV59v60G..Z2mko/zs0uGOQ6gAs9FyMaPckq5OvwfdtLGi6eNQ2', 'hmjtiundiksha@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1268889823, 1604147168, 1, 'Admin', '1815091037', 46, '081915656865'),
+(1, '127.0.0.1', 'administrator', '$2y$12$zotV59v60G..Z2mko/zs0uGOQ6gAs9FyMaPckq5OvwfdtLGi6eNQ2', 'hmjtiundiksha@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1268889823, 1604408101, 1, 'Admin', '1815091037', 46, '081915656865'),
 (22, '127.0.0.1', NULL, '$2y$10$O1KWWZXWdDoo8qm364F/4.qwXRG/78xxha6cAQ9wPGbUFwPLZgIje', 'irfan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601478582, 1603603369, 1, 'IRFAN WALHIDAYAH', '1815091002', 38, '08983197636'),
 (23, '127.0.0.1', NULL, '$2y$10$UdZ.NWa/aTPtwQgR0MlO8./sUjlSPRpYuOQB8CsTtZT/cO0TWp9eS', 'jurnalistik@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1601478638, 1604029034, 1, 'Sub Bidang Jurnalistik', '1815051083', 40, '081339289008'),
 (24, '127.0.0.1', NULL, '$2y$10$DAWjFjedaWxM7yQEoLhFueum.UMmxHelnKxrFvFzncohmqe.y/v1O', 'riyan@undiksha.ac.id', NULL, NULL, NULL, NULL, NULL, '960becbf65eb8fefad6b8a5949c4603b471a4819', '$2y$10$95reC7zPM2VWN3UAdlrNcOdYEZXbAbHRvYB3ZLqHmJddg.UUBmwGu', 1601992246, 1603673136, 1, 'I Gede Riyan Ardi Darmawan', '1815091037', 38, '081915656865'),
@@ -1153,7 +1169,7 @@ ALTER TABLE `s3_lomba_integer`
 -- AUTO_INCREMENT untuk tabel `s3_sponsor_integer`
 --
 ALTER TABLE `s3_sponsor_integer`
-  MODIFY `id_sponsor_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_sponsor_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT untuk tabel `s4_informasi_umum`

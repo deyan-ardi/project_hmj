@@ -419,7 +419,7 @@ foreach ($kategori as $data) {
             <div class="col-12 col-md-10 col-lg-7">
                 <!-- Section Heading -->
                 <div class="section-heading text-center">
-                    <h2 class="text-capitalize">Q & A Seputar
+                    <h2 class="text-capitalize">Frequently Asked Question (FAQs)
                         <?= strtoupper($kegiatan[0]['nama_integer']) ?>
                     </h2>
                 </div>
@@ -439,12 +439,34 @@ foreach ($kategori as $data) {
                                     <div class="card-header bg-gray border-0 p-0">
                                         <h2 class="mb-0">
                                             <button class="btn px-0 py-3" type="button" data-toggle="collapse"
-                                                data-target="#collapseOne">
-                                                Dimana saja saya harus mengupload Twibbon?
+                                                data-target="#card_satu">
+                                                Bagaimana tahap pendaftaran INTEGER #2?
                                             </button>
                                         </h2>
                                     </div>
-                                    <div id="collapseOne" class="collapse show" data-parent="#sApp-accordion">
+                                    <div id="card_satu" class="collapse show" data-parent="#sApp-accordion">
+                                        <!-- Card Body -->
+                                        <div class="card-body px-0 py-3 bg-gray text-justify">
+                                            Pendaftaran dilakukan melalui satu tahap, ketua tim/pendaftar wajib
+                                            mendaftarkan timnya melalui website resmi kegiatan INTEGER #2 dengan
+                                            menyertakan bukti pembayaran (bagi lomba yang berbayar), bukti upload
+                                            twibbon peserta, Surat Keterangan Orisinalitas Karya (bagi lomba yang
+                                            berbasis karya), dan beberapa persyaratan yang telah diatur pada
+                                            masing-masing lomba.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
+                                    <!-- Card Header -->
+                                    <div class="card-header bg-gray border-0 p-0">
+                                        <h2 class="mb-0">
+                                            <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
+                                                data-target="#card_dua">
+                                                Dimana saja harus mengupload Twibbon?
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="card_dua" class="collapse" data-parent="#sApp-accordion">
                                         <!-- Card Body -->
                                         <div class="card-body px-0 py-3 bg-gray text-justify">
                                             Twibbon dapat diupload pada media sosial masing-masing peserta beserta
@@ -454,29 +476,30 @@ foreach ($kategori as $data) {
                                         </div>
                                     </div>
                                 </div>
+
+
                                 <!-- Single Accordion Item -->
                                 <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
                                     <!-- Card Header -->
                                     <div class="card-header bg-gray border-0 p-0">
                                         <h2 class="mb-0">
                                             <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
-                                                data-target="#collapseTwo">
-                                                Dimanakah saya dapat menemukan informasi dan panduan terkait lomba yang
-                                                diadakan?
+                                                data-target="#card_tiga">
+                                                Bagaimana alur Pendaftaran Tim dan kapan Tim Peserta dianggap sudah
+                                                terverifikasi?
                                             </button>
                                         </h2>
                                     </div>
-                                    <div id="collapseTwo" class="collapse" data-parent="#sApp-accordion">
+                                    <div id="card_tiga" class="collapse" data-parent="#sApp-accordion">
                                         <!-- Card Body -->
                                         <div class="card-body px-0 py-3 bg-gray text-justify">
-                                            Anda dapat mengunduh buku panduan kegiatan, poster, dan informasi lainnya
-                                            yang kiranya dibutuhkan peserta pada kegiatan INTEGER #2 pada halaman Lomba.
-                                            Pada buku panduan lomba telah tercantum Contact Person panitia pada
-                                            masing-masing lomba, anda dapat mendiskusikan ataupun bertanya kepada
-                                            Contact Person dimasing-masing lomba. Jika terdapat masalah atau pertanyaan
-                                            lebih lanjut
-                                            dapat menghubungi
-                                            (<span class="text-primary">@integer.hmjtiundiksha</span>)
+                                            Setelah melakukan pendaftaran, panitia akan melakukan verifikasi. Proses ini
+                                            cukup memakan waktu, sehingga dimohon kepada pendaftar untuk bersabar.
+                                            Setelah divalidasi oleh panitia, sistem melalui alamat email
+                                            hmjtiundisha@gmail.com akan mengirimkan email ke ketua tim terdaftar dengan
+                                            menyertakan tautan link grup pendaftar. Tautan ini akan membawa pendaftar ke
+                                            grup media social masing-masing lomba, dengan demikian tim/peserta telah
+                                            terverifikasi.
                                         </div>
                                     </div>
                                 </div>
@@ -485,23 +508,18 @@ foreach ($kategori as $data) {
                                     <div class="card-header bg-gray border-0 p-0">
                                         <h2 class="mb-0">
                                             <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
-                                                data-target="#collapseFour">
-                                                Bagaimana skema pada saat melakukan pendaftaran?
+                                                data-target="#card_empat">
+                                                Bagaimana jika Tim Peserta mengumpulkan lebih dari satu karya yang sama?
                                             </button>
                                         </h2>
                                     </div>
-                                    <div id="collapseFour" class="collapse" data-parent="#sApp-accordion">
+                                    <div id="card_empat" class="collapse" data-parent="#sApp-accordion">
                                         <div class="card-body px-0 py-3 bg-gray text-justify">
-                                            Pendaftaran untuk tiap-tiap lomba hanya diwakili oleh ketua tim. Ketua tim
-                                            memiliki kewajiban untuk mengisi formulir pendaftaran sesuai dengan lomba
-                                            yang diikuti. Bukti penguploadan twibbon dan bukti pembayaran disertakan
-                                            pada saat pendaftaran. Bagi lomba yang membutuhkan pengumpulan karya pada
-                                            saat
-                                            pendaftaran (LIDP, UI/UX
-                                            Design, Essay Nasional, IT Business Case, Desain Poster, Musik Cover, serta
-                                            Tiktok) pengumpulan karya hanya dapat dilakukan sekali untuk tiap-tiap tim.
-                                            Jika ditemukan tim yang mengumpulkan karya lebih dari 1 kali, maka karya
-                                            yang akan dinilai oleh dewan juri adalah karya yang paling pertama
+                                            Bagi lomba yang membutuhkan pengumpulan karya pada saat pendaftaran (LIDP,
+                                            UI/UX Design, Essay Nasional, Business IT Case, Desain Poster, Music Cover,
+                                            serta Tiktok) pengumpulan karya hanya dapat dilakukan sekali untuk tiap-tiap
+                                            tim. Jika ditemukan tim yang mengumpulkan karya lebih dari 1 kali, maka
+                                            karya yang akan dinilai oleh dewan juri adalah karya yang paling pertama
                                             dikirimkan oleh tim tersebut.
                                         </div>
                                     </div>
@@ -511,20 +529,23 @@ foreach ($kategori as $data) {
                                     <div class="card-header bg-gray border-0 p-0">
                                         <h2 class="mb-0">
                                             <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
-                                                data-target="#collapseFive">
-                                                Kemanakah saya harus melakukan pembayaran?
+                                                data-target="#card_lima">
+                                                Apakah yang dimaksud lomba berbasis karya dan lomba berbasis
+                                                pertandingan?
                                             </button>
                                         </h2>
                                     </div>
-                                    <div id="collapseFive" class="collapse" data-parent="#sApp-accordion">
+                                    <div id="card_lima" class="collapse" data-parent="#sApp-accordion">
 
                                         <div class="card-body px-0 py-3 bg-gray text-justify">
-                                            Pembayaran dapat dilakukan pada rekening yang telah disediakan
-                                            dimasing-masing lomba, harap untuk menyimpan bukti pembayaran yang telah
-                                            dilakukan. Bukti pembayaran selanjutnya akan disertakan pada saat melakukan
-                                            pendaftaran lomba. Setelah anda melakukan pendaftaran, anda akan menerima
-                                            sms konfirmasi ke alamat email yang digunakan pada saat pendaftaran maksimal
-                                            2 x 24 Jam.
+                                            Lomba berbasis karya adalah lomba yang membutuhkan pengumpulan karya pada
+                                            saat pendaftarannya, adapun lomba yang termasuk kedalamnya adalah lomba
+                                            LIDP, UI/UX Design, Essay Nasional, Business IT Case, Desain Poster, Music
+                                            Cover, serta Tiktok. Sementara lomba berbasis pertandingan adalah lomba yang
+                                            tidak perlu mengumpulkan karya pada saat pendaftaran, namun kegiatannya
+                                            dilaksanakan dalam format pertandingan, adapun lomba yang termasuk
+                                            kedalamnya adalah lomba Hacking The Game, Coding Competition, dan Mobile
+                                            Legend.
                                         </div>
                                     </div>
                                 </div>
@@ -533,20 +554,119 @@ foreach ($kategori as $data) {
                                     <div class="card-header bg-gray border-0 p-0">
                                         <h2 class="mb-0">
                                             <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
-                                                data-target="#collapseSix">
-                                                Apakah semua lomba memerlukan pengumpulan karya?
+                                                data-target="#card_enam">
+                                                Kemanakah saya harus melakukan pembayaran?
                                             </button>
                                         </h2>
                                     </div>
-                                    <div id="collapseSix" class="collapse" data-parent="#sApp-accordion">
+                                    <div id="card_enam" class="collapse" data-parent="#sApp-accordion">
 
                                         <div class="card-body px-0 py-3 bg-gray text-justify">
-                                            Tidak semua lomba memerlukan pengumpulan karya, Untuk lomba yang berbasis
-                                            karya (LIDP, UI/UX
-                                            Design, Essay Nasional, IT Business Case, Desain Poster, Musik Cover, serta
-                                            Tiktok), karya akan dikumpulkan pada saat pendaftaran. Untuk lomba yang
-                                            tidak berbasis karya (Hacking The Game, Coding Competition, dan Mobile
-                                            Legend) peserta tidak perlu melakukan pengumpulan karya.
+                                            Pembayaran dapat dilakukan pada rekening yang telah disediakan
+                                            dimasing-masing lomba, harap untuk menyimpan bukti pembayaran yang telah
+                                            dilakukan. Bukti pembayaran selanjutnya akan disertakan pada saat melakukan
+                                            pendaftaran lomba. Setelah anda melakukan pendaftaran, anda akan menerima
+                                            email konfirmasi verifikasi Tim Peserta ke alamat email ketua tim yang
+                                            digunakan pada saat pendaftaran maksimal 2 x 24 Jam.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
+
+                                    <div class="card-header bg-gray border-0 p-0">
+                                        <h2 class="mb-0">
+                                            <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
+                                                data-target="#card_tujuh">
+                                                Apa sanksi yang didapat jika terindikasi melakukan penipuan/memodifikasi
+                                                bukti pembayaran?
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="card_tujuh" class="collapse" data-parent="#sApp-accordion">
+
+                                        <div class="card-body px-0 py-3 bg-gray text-justify">
+                                            Setelah Tim Peserta melakukan pendaftaran, selanjutnya panitia akan
+                                            melakukan verifikasi terhadap bukti pembayaran lomba yang dikirimkan oleh
+                                            masing-masing Tim Peserta. Jika ditemukan dokumen bukti pembayaran yang
+                                            terindikasi melakukan penipuan/memodifikasi, maka Tim Peserta tersebut
+                                            dianggap gugur/tereliminasi.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
+
+                                    <div class="card-header bg-gray border-0 p-0">
+                                        <h2 class="mb-0">
+                                            <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
+                                                data-target="#card_delapan">
+                                                Bagaimana cara mengupdate data tim?
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="card_delapan" class="collapse" data-parent="#sApp-accordion">
+
+                                        <div class="card-body px-0 py-3 bg-gray text-justify">
+                                            Data tim saat registrasi pertama kali TIDAK DAPAT diubah, sehingga
+                                            diusahakan tidak ada kesalahan dalam mengisi form yang ada. Tidak
+                                            diperkenankan melakukan pengiriman karya/ pendaftaran lebih dari sekali
+                                            untuk setiap TIM.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
+
+                                    <div class="card-header bg-gray border-0 p-0">
+                                        <h2 class="mb-0">
+                                            <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
+                                                data-target="#card_sembilan">
+                                                Bagaimana bila tidak ada KTM (Kartu Tanda Mahasiswa) dan Kartu Pelajar?
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="card_sembilan" class="collapse" data-parent="#sApp-accordion">
+
+                                        <div class="card-body px-0 py-3 bg-gray text-justify">
+                                            Bisa digantikan dengan Surat Keterangan Siswa/Mahasiswa Aktif
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
+
+                                    <div class="card-header bg-gray border-0 p-0">
+                                        <h2 class="mb-0">
+                                            <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
+                                                data-target="#card_sepuluh">
+                                                Apakah boleh seseorang terdaftar lebih dari satu kali pada tim dan lomba
+                                                yang berbeda?
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="card_sepuluh" class="collapse" data-parent="#sApp-accordion">
+
+                                        <div class="card-body px-0 py-3 bg-gray text-justify">
+                                            Boleh, tetapi satu peserta hanya boleh SATU kali menjadi KETUA tim. Jika
+                                            ingin mendaftar lomba lain dengan tim yang berbeda, peserta tersebut hanya
+                                            dapat menjadi ANGGOTA tim. Apabila seseorang terdaftar pada dua tim (atau
+                                            lebih) masuk ke babak final, kemudian jadwal lomba kedua timnya bersamaan,
+                                            panitia tidak bertanggung jawab untuk pengubahan penjadwalan lomba
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
+
+                                    <div class="card-header bg-gray border-0 p-0">
+                                        <h2 class="mb-0">
+                                            <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
+                                                data-target="#card_sebelas">
+                                                Dimanakah saya bisa mengunduh buku panduan, twibbon, dan berkas lainnya?
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="card_sebelas" class="collapse" data-parent="#sApp-accordion">
+
+                                        <div class="card-body px-0 py-3 bg-gray text-justify">
+                                            Untuk mengunduh berkas, silahkan akses kehalaman Lomba pada bagian atas
+                                            terdapat notifikasi yang mengarahkan anda ketombol Downloads
                                         </div>
                                     </div>
                                 </div>
@@ -556,12 +676,12 @@ foreach ($kategori as $data) {
                                     <div class="card-header bg-gray border-0 p-0">
                                         <h2 class="mb-0">
                                             <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
-                                                data-target="#collapseThree">
+                                                data-target="#card_duabelas">
                                                 Saya menemukan masalah pada website, kemana saya harus melapor?
                                             </button>
                                         </h2>
                                     </div>
-                                    <div id="collapseThree" class="collapse" data-parent="#sApp-accordion">
+                                    <div id="card_duabelas" class="collapse" data-parent="#sApp-accordion">
                                         <!-- Card Body -->
                                         <div class="card-body px-0 py-3 bg-gray text-justify">
                                             Untuk melaporkan masalah pada website, silahkan hubungi akun instagram

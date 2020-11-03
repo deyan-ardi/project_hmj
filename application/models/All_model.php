@@ -1567,12 +1567,13 @@ class All_model extends CI_Model
 			} else if ($nama == 'file_info') {
 				$config['allowed_types'] = 'pdf|zip';
 				$config['file_name'] = date('YmdHis') . "_Panduan Kegiatan Integer";
+				$config['max_size']  = '15048';
 			} else {
 				$config['allowed_types'] = 'jpg|png|pdf';
 				$config['encrypt_name'] = TRUE;
 			}
 
-			if ($nama == "video" || $nama == "file" || $nama == "file_info") {
+			if ($nama == "video" || $nama == "file") {
 				$config['max_size']  = '10048';
 			} else {
 				$config['max_size']  = '1048';
