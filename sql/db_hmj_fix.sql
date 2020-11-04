@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Nov 2020 pada 16.09
+-- Waktu pembuatan: 03 Nov 2020 pada 16.44
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.8
 
@@ -626,7 +626,9 @@ INSERT INTO `s3_sponsor_integer` (`id_sponsor_integer`, `id_integer`, `nama_spon
 (35, 21, 'SMA N 1 Singaraja', '<p>Media Patner</p>\r\n', '839e0044cc7a33f3e417df04d95b31b5.jpg', '2020-11-03 23:01:46', 'Admin'),
 (36, 21, 'Subang Info', '<p>Media Patner</p>\r\n', 'aaa8e1876debc907b87a282e3caf694d.jpg', '2020-11-03 23:01:59', 'Admin'),
 (37, 21, 'Sulawesi Kekinian', '<p>Media Patner</p>\r\n', '0424a493776b6e30ebc2a85a3a74d1b3.jpg', '2020-11-03 23:02:13', 'Admin'),
-(38, 21, 'Teknik Informatika Indonesia', '<p>Media Patner</p>\r\n', 'd4e90621b3ed444049759e32f911e283.jpg', '2020-11-03 23:02:30', 'Admin');
+(38, 21, 'Teknik Informatika Indonesia', '<p>Media Patner</p>\r\n', 'd4e90621b3ed444049759e32f911e283.jpg', '2020-11-03 23:02:30', 'Admin'),
+(39, 21, 'Community Hero', '<p>Sponsor MLBB</p>\r\n', 'f7257784a1c3ed8f30d545f5501783e0.png', '2020-11-03 23:43:01', 'Admin'),
+(40, 21, 'Max Esports', '<p>Sponsor MLBB</p>\r\n', '5988e39213fd1963e27035811fd773e3.png', '2020-11-03 23:44:10', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -1169,7 +1171,7 @@ ALTER TABLE `s3_lomba_integer`
 -- AUTO_INCREMENT untuk tabel `s3_sponsor_integer`
 --
 ALTER TABLE `s3_sponsor_integer`
-  MODIFY `id_sponsor_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_sponsor_integer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT untuk tabel `s4_informasi_umum`

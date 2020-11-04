@@ -636,19 +636,62 @@ foreach ($kategori as $data) {
                                         <h2 class="mb-0">
                                             <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
                                                 data-target="#card_sepuluh">
-                                                Apakah boleh seseorang terdaftar lebih dari satu kali pada tim dan lomba
-                                                yang berbeda?
+                                                Apakah boleh seseorang terdaftar lebih dari satu kali pada tim dalam
+                                                lomba yang sama pada kategori lomba berbasis karya?
                                             </button>
                                         </h2>
                                     </div>
                                     <div id="card_sepuluh" class="collapse" data-parent="#sApp-accordion">
 
                                         <div class="card-body px-0 py-3 bg-gray text-justify">
-                                            Boleh, tetapi satu peserta hanya boleh SATU kali menjadi KETUA tim. Jika
-                                            ingin mendaftar lomba lain dengan tim yang berbeda, peserta tersebut hanya
-                                            dapat menjadi ANGGOTA tim. Apabila seseorang terdaftar pada dua tim (atau
-                                            lebih) masuk ke babak final, kemudian jadwal lomba kedua timnya bersamaan,
-                                            panitia tidak bertanggung jawab untuk pengubahan penjadwalan lomba
+                                            Boleh, satu peserta boleh mendaftar maksimal dua kali dalam satu lomba
+                                            kategori berbasis karya, dengan rincian SATU kali menjadi KETUA tim dan SATU
+                                            kali menjadi ANGGOTA. Apabila seseorang terdaftar pada dua tim (atau lebih)
+                                            dalam lomba yang sama masuk ke babak final, kemudian jadwal lomba kedua
+                                            timnya bersamaan, panitia tidak bertanggung jawab untuk pengubahan
+                                            penjadwalan lomba
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
+
+                                    <div class="card-header bg-gray border-0 p-0">
+                                        <h2 class="mb-0">
+                                            <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
+                                                data-target="#card_tigabelas">
+                                                Apakah boleh seseorang terdaftar lebih dari satu kali pada tim dalam
+                                                lomba yang sama pada kategori lomba berbasis pertandingan?
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="card_tigabelas" class="collapse" data-parent="#sApp-accordion">
+
+                                        <div class="card-body px-0 py-3 bg-gray text-justify">
+                                            Tidak boleh, pada lomba berbasis pertandingan satu peserta hanya boleh
+                                            terdaftar pada satu tim.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card border-top-0 border-left-0 border-right-0 border-bottom">
+
+                                    <div class="card-header bg-gray border-0 p-0">
+                                        <h2 class="mb-0">
+                                            <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse"
+                                                data-target="#card_empatbelas">
+                                                Apakah boleh seseorang terdaftar lebih dari satu kali pada tim dalam
+                                                lomba yang berbeda pada kategori lomba berbasis karya?
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="card_empatbelas" class="collapse" data-parent="#sApp-accordion">
+
+                                        <div class="card-body px-0 py-3 bg-gray text-justify">
+                                            Boleh, satu peserta boleh mendaftar lebih dari 1 jenis lomba dengan rincian
+                                            SATU kali menjadi KETUA tim. Jika ingin mendaftar pada lomba lain di
+                                            kategori ini, peserta tersebut hanya bisa menjadi ANGGOTA. Apabila seseorang
+                                            yang terdaftar pada dua tim (atau lebih) dalam lomba yang berbeda masuk
+                                            kebabak final, kemudian jadwal lomba kedua timnya bersamaan, panitia tidak
+                                            bertanggung jawab untuk pengubahan penjadwalan lomba.
                                         </div>
                                     </div>
                                 </div>
