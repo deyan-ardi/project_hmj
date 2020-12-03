@@ -92,6 +92,16 @@ class All_model extends CI_Model
 		$this->db->order_by('create_at', 'DESC');
 		return $this->db->get()->result_array();
 	}
+	public function getOnlyFiveBeritaInteger()
+	{
+		$this->db->SELECT('s3_berita_integer.*');
+		$this->db->FROM('s3_berita_integer');
+		$this->db->JOIN('s3_integer', 's3_berita_integer.id_integer = s3_integer.id_integer');
+		$this->db->WHERE('s3_integer.status_integer = "1"');
+		$this->db->order_by('create_at', 'DESC');
+		$this->db->limit(5);
+		return $this->db->get()->result_array();
+	}
 	public function getOnlyActiveBeritaIntegerWhere($data)
 	{
 		$this->db->SELECT('s3_berita_integer.*');

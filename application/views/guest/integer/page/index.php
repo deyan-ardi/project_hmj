@@ -339,8 +339,7 @@ foreach ($kategori as $data) {
                             </div>
                             <!-- Plan Button -->
                             <div class="button">
-                                <a href="<?= base_url() ?>integer/detail_kabar_integer"
-                                    class="btn mt-4">Selengkapnya</a>
+                                <a href="<?= base_url() ?>integer/kabar_integer" class="btn mt-4">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -375,8 +374,7 @@ foreach ($kategori as $data) {
                             </div>
                             <!-- Plan Button -->
                             <div class="button">
-                                <a href="<?= base_url() ?>integer/detail_kabar_integer"
-                                    class="btn mt-4">Selengkapnya</a>
+                                <a href="<?= base_url() ?>integer/kabar_integer" class="btn mt-4">Selengkapnya</a>
                             </div>
                         </div>
                     </div>

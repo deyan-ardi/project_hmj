@@ -758,7 +758,7 @@ class Integer extends CI_Controller
 		$this->data['kategori'] = $this->All_model->getOnlyActiveKategoriLomba();
 		$this->data['lomba'] = $this->All_model->getOnlyActiveKategoridanLomba();
 		$this->data['sponsor'] = $this->All_model->getOnlyActiveSponsor();
-		$this->data['berita'] = $this->All_model->getOnlyActiveBeritaInteger();
+		$this->data['berita'] = $this->All_model->getOnlyFiveBeritaInteger();
 		$this->data['kegiatan'] = $active;
 		if (!empty($active)) {
 			$this->load->view('guest/integer/master/header', $this->data);
@@ -840,7 +840,7 @@ class Integer extends CI_Controller
 			show_404();
 		}
 	}
-	public function detail_kabar_integer($data = '')
+	public function detail_kabar_integer($id_link = '')
 	{
 		$this->data['title'] = "Detail Kabar Kegiatan";
 		$this->data['body'] = "2";
@@ -848,9 +848,9 @@ class Integer extends CI_Controller
 		$this->data['kategori'] = $this->All_model->getOnlyActiveKategoriLomba();
 		$this->data['kegiatan'] = $active;
 		$this->data['berita'] = $this->All_model->getOnlyActiveBeritaInteger();
-		$berita = $this->All_model->getOnlyActiveBeritaIntegerWhere($data);
+		$berita = $this->All_model->getOnlyActiveBeritaIntegerWhere($id_link);
 		$this->data['detail'] = $berita;
-		if (!empty($berita) || !empty($active)) {
+		if (!empty($berita) && !empty($active) && !empty($id_link)) {
 			$this->load->view('guest/integer/master/header', $this->data);
 			$this->load->view('guest/integer/page/detail_berita', $this->data);
 			$this->load->view('guest/integer/master/footer-2', $this->data);
